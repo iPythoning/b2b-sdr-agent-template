@@ -6,7 +6,7 @@ An open-source, production-ready template for building AI Sales Development Repr
 
 Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export companies.
 
-**[中文文档](./README.zh-CN.md)**
+**🌐 English | [中文](./README.zh-CN.md) | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 
 ---
 
