@@ -13,22 +13,23 @@ Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export co
 ## Architecture: 7-Layer Context System
 
 ```
-┌─────────────────────────────────────────────┐
-│              AI SDR Agent                    │
-├─────────────────────────────────────────────┤
-│  IDENTITY.md   → Who am I? Company, role    │
-│  SOUL.md       → Personality, values, rules │
-│  AGENTS.md     → Full sales workflow (8 stages) │
-│  USER.md       → Owner profile, ICP, scoring│
-│  HEARTBEAT.md  → Automated pipeline checks  │
-│  MEMORY.md     → 3-tier memory architecture │
-│  TOOLS.md      → CRM, channels, integrations│
-├─────────────────────────────────────────────┤
-│  Skills        → Extensible capabilities    │
-│  Product KB    → Your product catalog       │
-├─────────────────────────────────────────────┤
-│  OpenClaw Gateway (WhatsApp / Telegram)     │
-└─────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│              AI SDR Agent                        │
+├─────────────────────────────────────────────────┤
+│  IDENTITY.md   → Who am I? Company, role        │
+│  SOUL.md       → Personality, values, rules     │
+│  AGENTS.md     → Full sales workflow (10 stages)│
+│  USER.md       → Owner profile, ICP, scoring    │
+│  HEARTBEAT.md  → 10-item pipeline inspection    │
+│  MEMORY.md     → 3-engine memory architecture   │
+│  TOOLS.md      → CRM, channels, integrations    │
+├─────────────────────────────────────────────────┤
+│  Skills        → Extensible capabilities        │
+│  Product KB    → Your product catalog           │
+│  Cron Jobs     → 10 automated scheduled tasks   │
+├─────────────────────────────────────────────────┤
+│  OpenClaw Gateway (WhatsApp / Telegram / Email) │
+└─────────────────────────────────────────────────┘
 ```
 
 Each layer is a Markdown file you customize for your business. The AI reads all layers on every conversation, giving it deep context about your company, products, and sales strategy.
@@ -94,29 +95,50 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 
 ## What It Does
 
-### Full-Pipeline Sales Automation
+### Full-Pipeline Sales Automation (10 Stages)
 
 | Stage | What the AI Does |
 |-------|-----------------|
-| **Lead Capture** | Auto-detect inbound messages, create CRM records, extract key info |
-| **BANT Qualification** | Natural conversation to assess Budget, Authority, Need, Timeline |
-| **CRM Entry** | Structured data capture — name, company, country, ICP score, product interest |
-| **Research** | Search prospect's company, LinkedIn, news — update ICP score |
-| **Quotation** | Generate quotes, send to owner for approval, deliver to customer |
-| **Negotiation** | Track counter-offers, recommend strategy, escalate when needed |
-| **Reporting** | Daily pipeline reports, stalled lead alerts, weekly summaries |
-| **Nurture** | Automated follow-ups, industry news, post-sale care |
+| **1. Lead Capture** | Auto-detect inbound messages (WhatsApp/Telegram/CTWA ads), create CRM records |
+| **2. BANT Qualification** | Natural conversation to assess Budget, Authority, Need, Timeline |
+| **3. CRM Entry** | Structured data capture — name, company, country, ICP score, product interest |
+| **4. Research & Enrichment** | Jina AI web search + company website analysis, 3-layer enrichment pipeline |
+| **5. Quotation** | Auto-generate PDF quotes, multi-language, send to owner for approval |
+| **6. Negotiation** | Track counter-offers, recommend strategy, escalate when needed |
+| **7. Reporting** | Daily 09:00 pipeline reports, 15:00 stalled alerts, weekly summaries |
+| **8. Nurture** | Automated follow-ups, industry news, post-sale care, quarterly check-ins |
+| **9. Email Outreach** | Personalized cold email sequences (Day 1/3/7/14), auto follow-up |
+| **10. Multi-Channel Orchestration** | Cross-channel coordination (WhatsApp + Email + Telegram), auto-switching |
+
+### Automated Scheduling (10 Cron Jobs)
+
+| Schedule | Task |
+|----------|------|
+| Every 30 min | Gmail inbox scan for client replies |
+| Daily 09:00 | Pipeline report to owner via WhatsApp |
+| Daily 10:00 | AI lead discovery (market rotation: Africa/ME/SEA/LatAm) |
+| Daily 11:00 | Email follow-up sequence check |
+| Daily 15:00 | Stalled lead detection |
+| Weekly Wed | Nurture campaign |
+| Weekly Fri | Competitor intelligence gathering |
+| Weekly Mon | Weekly summary report |
 
 ### Human-Like Conversations
 - Responds in the customer's language (auto-detected)
-- Natural message pacing with delivery-queue skill
+- Natural message pacing with delivery-queue skill (3-90s delays, message splitting)
+- Timezone-aware sending (7 market timezone mappings)
 - Cultural adaptation (Middle East, Africa, SEA, LatAm, Europe)
 - Never reveals AI identity — presents as your sales consultant
 
-### Smart Memory
-- **Hot memory**: Company context loaded every session
-- **Warm memory**: Daily conversation logs, loaded on demand
-- **Cold memory**: Archived insights, searchable via vector DB
+### Dynamic ICP Scoring
+- Initial score based on 5 weighted dimensions (purchase volume, product match, region, payment ability, authority)
+- **Auto-adjusts** based on interaction: fast reply +1, asks for quote +2, mentions competitor +2, 7d no reply -1
+- Hot leads (ICP>=7) auto-flagged, owner notified immediately
+
+### Smart Memory (3 Engines)
+- **Supermemory**: Research notes, competitor intel, market insights — queried before outreach
+- **MemoryLake**: Session context, conversation summaries — auto-recalled per conversation
+- **MemOS Cloud**: Cross-session behavior patterns — auto-captured
 
 ## The 7 Layers Explained
 
@@ -124,7 +146,7 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 |-------|------|---------|
 | **Identity** | `IDENTITY.md` | Company info, role definition, pipeline stages, lead tiering |
 | **Soul** | `SOUL.md` | AI personality, communication style, hard rules, growth mindset |
-| **Agents** | `AGENTS.md` | 8-stage sales workflow, BANT qualification, security policy |
+| **Agents** | `AGENTS.md` | 10-stage sales workflow, BANT qualification, multi-channel orchestration |
 | **User** | `USER.md` | Owner profile, product lines, ICP scoring, competitors |
 | **Heartbeat** | `HEARTBEAT.md` | Automated pipeline inspection — new leads, stalled deals, data quality |
 | **Memory** | `MEMORY.md` | 3-tier memory architecture, SDR effectiveness principles |
@@ -139,6 +161,8 @@ Pre-built capabilities that extend your AI SDR:
 | **delivery-queue** | Schedule messages with human-like delays. Drip campaigns, timed follow-ups. |
 | **supermemory** | Semantic memory engine. Auto-capture customer insights, search across all conversations. |
 | **sdr-humanizer** | Rules for natural conversation — pacing, cultural adaptation, anti-patterns. |
+| **lead-discovery** | AI-driven lead discovery. Web search for potential buyers, ICP evaluation, CRM auto-entry. |
+| **quotation-generator** | Auto-generate PDF proforma invoices with company letterhead, multi-language support. |
 
 ### Skill Profiles
 

@@ -13,22 +13,23 @@ Construido sobre [OpenClaw](https://openclaw.dev), probado en batalla con empres
 ## Arquitectura: Sistema de Contexto de 7 Capas
 
 ```
-┌─────────────────────────────────────────────┐
-│           Agente SDR con IA                  │
-├─────────────────────────────────────────────┤
-│  IDENTITY.md   → ¿Quién soy? Empresa, rol   │
-│  SOUL.md       → Personalidad, valores, reglas │
-│  AGENTS.md     → Flujo de ventas completo (8 etapas) │
+┌─────────────────────────────────────────────────┐
+│              Agente SDR con IA                   │
+├─────────────────────────────────────────────────┤
+│  IDENTITY.md   → ¿Quién soy? Empresa, rol       │
+│  SOUL.md       → Personalidad, valores, reglas   │
+│  AGENTS.md     → Flujo de ventas completo (10 etapas)│
 │  USER.md       → Perfil del propietario, ICP, puntuación│
-│  HEARTBEAT.md  → Verificaciones automáticas del pipeline  │
-│  MEMORY.md     → Arquitectura de memoria de 3 niveles │
-│  TOOLS.md      → CRM, canales, integraciones│
-├─────────────────────────────────────────────┤
-│  Skills        → Capacidades extensibles     │
-│  Product KB    → Tu catálogo de productos    │
-├─────────────────────────────────────────────┤
-│  OpenClaw Gateway (WhatsApp / Telegram)     │
-└─────────────────────────────────────────────┘
+│  HEARTBEAT.md  → Inspección del pipeline de 10 puntos│
+│  MEMORY.md     → Arquitectura de memoria de 3 motores│
+│  TOOLS.md      → CRM, canales, integraciones     │
+├─────────────────────────────────────────────────┤
+│  Skills        → Capacidades extensibles         │
+│  Product KB    → Tu catálogo de productos        │
+│  Cron Jobs     → 10 tareas programadas automáticas│
+├─────────────────────────────────────────────────┤
+│  OpenClaw Gateway (WhatsApp / Telegram / Email)  │
+└─────────────────────────────────────────────────┘
 ```
 
 Cada capa es un archivo Markdown que personalizas para tu negocio. La IA lee todas las capas en cada conversación, dándole un contexto profundo sobre tu empresa, productos y estrategia de ventas.
@@ -94,29 +95,50 @@ Eso es todo. Tu SDR con IA está en vivo en WhatsApp y listo para vender.
 
 ## Lo Que Hace
 
-### Automatización de Ventas de Pipeline Completo
+### Automatización de Ventas de Pipeline Completo (10 Etapas)
 
 | Etapa | Lo Que Hace la IA |
 |-------|------------------|
-| **Captura de Leads** | Auto-detecta mensajes entrantes, crea registros en CRM, extrae información clave |
-| **Calificación BANT** | Conversación natural para evaluar Budget, Authority, Need, Timeline |
-| **Registro CRM** | Captura de datos estructurados — nombre, empresa, país, puntuación ICP, interés de producto |
-| **Investigación** | Busca la empresa del prospecto, LinkedIn, noticias — actualiza puntuación ICP |
-| **Cotización** | Genera cotizaciones, envía al propietario para aprobación, entrega al cliente |
-| **Negociación** | Rastrea contraofertas, recomienda estrategia, escala cuando es necesario |
-| **Reportes** | Reportes diarios del pipeline, alertas de leads estancados, resúmenes semanales |
-| **Nutrición** | Seguimientos automatizados, noticias de la industria, cuidado post-venta |
+| **1. Captura de Leads** | Auto-detecta mensajes entrantes (WhatsApp/Telegram/anuncios CTWA), crea registros en CRM |
+| **2. Calificación BANT** | Conversación natural para evaluar Budget, Authority, Need, Timeline |
+| **3. Registro CRM** | Captura de datos estructurados — nombre, empresa, país, puntuación ICP, interés de producto |
+| **4. Investigación y Enriquecimiento** | Búsqueda web con Jina AI + análisis de sitio web de la empresa, pipeline de enriquecimiento de 3 capas |
+| **5. Cotización** | Genera cotizaciones PDF automáticas, multi-idioma, envía al propietario para aprobación |
+| **6. Negociación** | Rastrea contraofertas, recomienda estrategia, escala cuando es necesario |
+| **7. Reportes** | Reportes diarios del pipeline a las 09:00, alertas de estancamiento a las 15:00, resúmenes semanales |
+| **8. Nutrición** | Seguimientos automatizados, noticias de la industria, cuidado post-venta, revisiones trimestrales |
+| **9. Email Outreach** | Secuencias de email en frío personalizadas (Día 1/3/7/14), seguimiento automático |
+| **10. Orquestación Multicanal** | Coordinación entre canales (WhatsApp + Email + Telegram), cambio automático |
+
+### Programación Automatizada (10 Cron Jobs)
+
+| Horario | Tarea |
+|---------|-------|
+| Cada 30 min | Escaneo de bandeja de entrada Gmail para respuestas de clientes |
+| Diario 09:00 | Reporte del pipeline al propietario vía WhatsApp |
+| Diario 10:00 | Descubrimiento de leads con IA (rotación de mercados: África/ME/SEA/LatAm) |
+| Diario 11:00 | Verificación de secuencia de seguimiento por email |
+| Diario 15:00 | Detección de leads estancados |
+| Semanal Mié | Campaña de nutrición |
+| Semanal Vie | Recopilación de inteligencia de competidores |
+| Semanal Lun | Reporte resumen semanal |
 
 ### Conversaciones Similares a Humanos
 - Responde en el idioma del cliente (auto-detectado)
-- Ritmo natural de mensajes con la skill delivery-queue
+- Ritmo natural de mensajes con la skill delivery-queue (retrasos de 3-90s, división de mensajes)
+- Envío consciente de zona horaria (7 mapeos de zonas horarias de mercados)
 - Adaptación cultural (Medio Oriente, África, SEA, LatAm, Europa)
 - Nunca revela identidad de IA — se presenta como tu consultor de ventas
 
-### Memoria Inteligente
-- **Memoria caliente**: Contexto de la empresa cargado en cada sesión
-- **Memoria tibia**: Registros de conversaciones diarias, cargados bajo demanda
-- **Memoria fría**: Insights archivados, buscables vía base de datos vectorial
+### Puntuación ICP Dinámica
+- Puntuación inicial basada en 5 dimensiones ponderadas (volumen de compra, coincidencia de producto, región, capacidad de pago, autoridad)
+- **Se auto-ajusta** según la interacción: respuesta rápida +1, pide cotización +2, menciona competidor +2, 7d sin respuesta -1
+- Leads calientes (ICP>=7) marcados automáticamente, propietario notificado de inmediato
+
+### Memoria Inteligente (3 Motores)
+- **Supermemory**: Notas de investigación, inteligencia de competidores, insights de mercado — consultado antes del contacto
+- **MemoryLake**: Contexto de sesión, resúmenes de conversaciones — recuperado automáticamente por conversación
+- **MemOS Cloud**: Patrones de comportamiento entre sesiones — capturado automáticamente
 
 ## Las 7 Capas Explicadas
 
@@ -124,7 +146,7 @@ Eso es todo. Tu SDR con IA está en vivo en WhatsApp y listo para vender.
 |------|---------|-----------|
 | **Identity** | `IDENTITY.md` | Información de la empresa, definición de rol, etapas del pipeline, niveles de leads |
 | **Soul** | `SOUL.md` | Personalidad de IA, estilo de comunicación, reglas estrictas, mentalidad de crecimiento |
-| **Agents** | `AGENTS.md` | Flujo de ventas de 8 etapas, calificación BANT, política de seguridad |
+| **Agents** | `AGENTS.md` | Flujo de ventas de 10 etapas, calificación BANT, orquestación multicanal |
 | **User** | `USER.md` | Perfil del propietario, líneas de productos, puntuación ICP, competidores |
 | **Heartbeat** | `HEARTBEAT.md` | Inspección automática del pipeline — nuevos leads, tratos estancados, calidad de datos |
 | **Memory** | `MEMORY.md` | Arquitectura de memoria de 3 niveles, principios de efectividad SDR |
@@ -139,6 +161,8 @@ Capacidades preconstruidas que extienden tu SDR con IA:
 | **delivery-queue** | Programa mensajes con retrasos similares a humanos. Campañas de goteo, seguimientos programados. |
 | **supermemory** | Motor de memoria semántica. Auto-captura insights de clientes, busca en todas las conversaciones. |
 | **sdr-humanizer** | Reglas para conversación natural — ritmo, adaptación cultural, anti-patrones. |
+| **lead-discovery** | Descubrimiento de leads impulsado por IA. Búsqueda web de compradores potenciales, evaluación ICP, entrada automática en CRM. |
+| **quotation-generator** | Genera automáticamente facturas proforma en PDF con membrete de empresa, soporte multi-idioma. |
 
 ### Perfiles de Skills
 

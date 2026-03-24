@@ -12,6 +12,8 @@ SKILLS_CORE=(
   "find-skills"
   "customer-persona"
   "summarize"
+  "lead-discovery"
+  "quotation-generator"
 )
 
 # ─── B2B Sales Skills ────────────────────────────────────

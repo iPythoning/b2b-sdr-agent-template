@@ -58,6 +58,13 @@ LANCEDB_ENABLED=false
 OLLAMA_BASE_URL="http://localhost:11434/v1"
 EMBEDDING_MODEL="nomic-embed-text"
 
+# ─── Jina AI (Web Search + Content Extraction) ──────────
+JINA_API_KEY=""             # Get free key at https://jina.ai/
+
+# ─── Supermemory (Research Storage) ─────────────────────
+SUPERMEMORY_API_KEY=""      # Get at https://supermemory.ai/
+SUPERMEMORY_SPACE=""        # Your space name
+
 # ─── CRM: Google Sheets ──────────────────────────────────
 SHEETS_SPREADSHEET_ID=""
 SHEETS_NAME="leads"
