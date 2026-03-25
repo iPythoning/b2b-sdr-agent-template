@@ -168,8 +168,9 @@ $PROVIDERS
   "gateway": {
     "port": $GATEWAY_PORT,
     "mode": "local",
-    "bind": "loopback",
-    "auth": {"mode": "token", "token": "$GATEWAY_TOKEN"}
+    "bind": "${GATEWAY_BIND:-lan}",
+    "auth": {"mode": "token", "token": "$GATEWAY_TOKEN"},
+    "controlUi": {"allowedOrigins": ["*"]}
   },
   "skills": {"install": {"nodeManager": "npm"}},
   "hooks": {

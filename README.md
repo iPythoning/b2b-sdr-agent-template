@@ -206,6 +206,50 @@ product-kb/
     └── generate-pi.js              # Proforma invoice generator
 ```
 
+## Control Dashboard
+
+After deployment, your AI SDR comes with a built-in web dashboard:
+
+```
+http://YOUR_SERVER_IP:18789/?token=YOUR_GATEWAY_TOKEN
+```
+
+The dashboard shows:
+- Real-time bot status and WhatsApp connection
+- Message history and conversation threads
+- Cron job execution status
+- Channel health monitoring
+
+The token is auto-generated during deployment and printed in the output. Keep it private — anyone with the URL+token has full access.
+
+> **Security note**: Set `GATEWAY_BIND="loopback"` in config.sh to disable remote dashboard access. Default is `"lan"` (accessible from network).
+
+## WhatsApp Configuration
+
+By default, the AI SDR accepts messages from **all WhatsApp contacts** (`dmPolicy: "open"`). This is the recommended setting for sales agents — you want every potential customer to be able to reach you.
+
+| Setting | Value | Meaning |
+|---------|-------|---------|
+| `WHATSAPP_DM_POLICY` | `"open"` (default) | Accept DMs from anyone |
+| | `"allowlist"` | Only accept from `ADMIN_PHONES` |
+| | `"pairing"` | Require pairing code first |
+| `WHATSAPP_GROUP_POLICY` | `"allowlist"` (default) | Only respond in whitelisted groups |
+
+To change after deployment, edit `~/.openclaw/openclaw.json` on the server:
+
+```json
+{
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "open",
+      "allowFrom": ["*"]
+    }
+  }
+}
+```
+
+Then restart: `systemctl --user restart openclaw-gateway`
+
 ## Deployment
 
 ### Prerequisites

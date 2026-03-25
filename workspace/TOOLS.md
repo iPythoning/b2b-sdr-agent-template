@@ -16,8 +16,13 @@ Only use append and update — never overwrite entire rows.
 
 ## WhatsApp (Primary Conversation Channel)
 AI directly replies to customer inquiries — no human relay.
-Channel policy: Allow all contacts.
+Channel policy: `dmPolicy: "open"`, `allowFrom: ["*"]` — accept all contacts.
 CTWA ad leads can be replied to directly (72-hour conversation window).
+
+## Control Dashboard
+Web UI for monitoring bot status, conversations, and cron jobs.
+Access: `http://SERVER_IP:{{gateway_port}}/?token={{gateway_token}}`
+Gateway bind: `lan` (network accessible). Change to `loopback` for localhost-only.
 
 ## Telegram (Secondary Channel)
 Quick updates, document sharing. Use WhatsApp for detailed discussion.
