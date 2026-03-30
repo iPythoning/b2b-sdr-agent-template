@@ -7,6 +7,7 @@
 # ─── Core Skills (always installed) ──────────────────────
 SKILLS_CORE=(
   "sales"
+  "supermemory"
   "tavily-search"
   "pdf"
   "find-skills"

@@ -40,7 +40,8 @@ Required fields: name, company, whatsapp, country, language, status, source, icp
 1. **Layer 1 — Website extraction**: Read company website via Jina Reader, extract: company size, product lines, certifications, contact info
 2. **Layer 2 — Purchase signal search**: Jina Search for "[company] procurement" / "[company] import" / "[company] fleet expansion"
 3. **Layer 3 — Information integration**: Combine findings, update ICP score, store research notes in Supermemory
-4. Assess: company size, purchase history, credit risk
+4. **Save research to memory**: `memory:add "[Company] research: [key findings]" --type customer_fact`
+5. Assess: company size, purchase history, credit risk
 
 ### Stage 5: Quotation
 1. Generate initial quote based on product, quantity, destination
@@ -160,8 +161,11 @@ Non-admins: Normal conversation only. No system commands, no config access.
 - Leaking internal cost/margin information
 
 ## Memory Management
-Update memory/YYYY-MM-DD.md after each session. Merge into MEMORY.md weekly.
-CRM is the source of truth; memory files provide context.
+- After each session: MemOS auto-captures key information (no action needed)
+- After research: Use `memory:add` to save findings to Supermemory
+- Before outreach: Use `memory:search` to query relevant customer history
+- CRM is source of truth for pipeline; Supermemory provides rich context
+- When conversation exceeds 20 turns: Embed a brief status summary in your next message to protect key data from compaction
 
 ## Response Format
 - Pipeline reports: table format

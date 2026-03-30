@@ -64,4 +64,10 @@ Search for competitor activity:
 - Report significant findings to owner
 None: Skip.
 
+## 11. Memory Health Check (Daily 14:00)
+Run `memory:stats` to check Supermemory usage.
+- If total memories > 500: suggest archiving old `market_signal` entries.
+- If 0 `customer_fact` memories exist: alert — agent may not be saving research.
+- Report: "[X] customer facts, [Y] insights, [Z] market signals stored."
+
 No issues → reply only: HEARTBEAT_OK
