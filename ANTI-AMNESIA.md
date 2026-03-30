@@ -1,16 +1,17 @@
-# Anti-Amnesia Implementation Spec v1.0
+# Anti-Amnesia Implementation Spec v2.0
 # PulseAgent x OpenClaw B2B SDR Digital Worker
-# Version: v1.0 | 2026-03-30
+# Version: v2.0 | 2026-03-30
 
 ---
 
 ## Overview
 
-This document is an **executable implementation spec**. Import it into your OpenClaw Agent's Knowledge Base or attach it as a System Prompt supplement. The Agent will automatically build a three-layer anti-amnesia mechanism:
+This document is an **executable implementation spec**. Import it into your OpenClaw Agent's Knowledge Base or attach it as a System Prompt supplement. The Agent will automatically build a **four-layer** anti-amnesia mechanism:
 
 1. **Layer 1: MemOS Structured Memory** — Key business state persistence, auto-extract/inject every turn
-2. **Layer 2: Proactive Summary Trigger** — Token threshold monitoring, proactive compression beats passive truncation
-3. **Layer 3: ChromaDB Long-Term Memory** — Cross-session history retrieval, RAG fallback
+2. **Layer 2: Proactive Summary Trigger** — Token threshold monitoring (65%), haiku-class compression, zero info loss
+3. **Layer 3: ChromaDB Per-Turn Storage** — Every turn stored with customer_id isolation + auto-tagging (quotes, commitments, objections)
+4. **Layer 4: CRM Snapshot Fallback** — Daily pipeline backup to ChromaDB as disaster recovery
 
 ---
 
@@ -519,7 +520,7 @@ Express naturally, as if you always remembered.
 
 ---
 
-## Three-Layer Integration Flow
+## Four-Layer Integration Flow
 
 ```
 +------------------------------------------------------------------+
@@ -528,7 +529,7 @@ Express naturally, as if you always remembered.
                                 |
                                 v
 +------------------------------------------------------------------+
-|  Step 1: Read MemOS Memory                                       |
+|  Step 1: Read MemOS Memory (L1)                                  |
 |  GET /memories?customer_id=<phone>                                |
 |  -> If found, inject into System Prompt "Customer Memory" section |
 |  -> If not found (new customer), use empty template               |
@@ -536,16 +537,17 @@ Express naturally, as if you always remembered.
                                 |
                                 v
 +------------------------------------------------------------------+
-|  Step 2: Check if history retrieval needed (Layer 3 triggers)     |
+|  Step 2: Check if history retrieval needed (L3 triggers)          |
 |  -> Gap >7 days? Overdue commitment? Customer references past?    |
 |  -> If yes, call ChromaDB recall, append results to context       |
 +-------------------------------+----------------------------------+
                                 |
                                 v
 +------------------------------------------------------------------+
-|  Step 3: Check token usage (Layer 2)                              |
-|  -> If >= 65%, execute proactive summary, compress history        |
-|  -> After summary, re-inject MemOS snapshot + keep last 3 turns   |
+|  Step 3: Check token usage (L2)                                   |
+|  -> If >= 65%, execute proactive summary via haiku-class model    |
+|  -> Compress history, store summary in ChromaDB                   |
+|  -> Re-inject MemOS snapshot + keep last 3 turns                  |
 +-------------------------------+----------------------------------+
                                 |
                                 v
@@ -560,9 +562,16 @@ Express naturally, as if you always remembered.
                                 v
 +------------------------------------------------------------------+
 |  Step 5: Post-processing                                          |
-|  A) Extract memory -> Update MemOS (Layer 1)                      |
-|  B) Store this turn -> ChromaDB (Layer 3)                         |
+|  A) Extract memory -> Update MemOS (L1)                           |
+|  B) Store this turn -> ChromaDB with auto-tags (L3)               |
 |  C) Sync CRM -> Google Sheets via gog skill                       |
++-------------------------------+----------------------------------+
+                                |
+                                v (Daily 12:00 cron)
++------------------------------------------------------------------+
+|  Step 6: CRM Snapshot (L4 — disaster recovery)                    |
+|  Read full CRM pipeline -> Store summary in ChromaDB              |
+|  -> Tagged with date, acts as fallback if L1/L3 have issues       |
 +------------------------------------------------------------------+
 ```
 
@@ -632,6 +641,58 @@ Use as the base System Prompt for all WhatsApp AI-SDR Agents.
 ---
 
 *Anti-Amnesia v1.0 | PulseAgent x OpenClaw*
+```
+
+---
+
+## LAYER 4: CRM Snapshot Fallback
+
+### 4.1 Daily Pipeline Backup
+
+Layer 4 is the disaster recovery layer. Even if MemOS has an outage or ChromaDB loses data, the daily CRM snapshot ensures pipeline state is never lost.
+
+```python
+def crm_snapshot():
+    """Daily 12:00 — Store CRM pipeline state in ChromaDB"""
+    # Read full CRM via gws/Google Sheets API
+    pipeline = read_crm_pipeline()
+
+    # Store as a timestamped snapshot
+    snapshot = {
+        "date": datetime.now().isoformat()[:10],
+        "total_leads": len(pipeline),
+        "by_status": count_by_status(pipeline),
+        "hot_leads": [l for l in pipeline if l["lead_tier"] == "hot_lead"],
+        "pending_quotes": [l for l in pipeline if l["status"] == "quote_sent"],
+        "summary": generate_pipeline_summary(pipeline),
+    }
+
+    collection.add(
+        documents=[json.dumps(snapshot)],
+        ids=[f"crm_snapshot_{snapshot['date']}"],
+        metadatas=[{"type": "crm_snapshot", "date": snapshot["date"]}]
+    )
+```
+
+### 4.2 Recovery Scenarios
+
+| Scenario | Recovery Using L4 |
+|----------|-------------------|
+| MemOS API down | Read latest CRM snapshot from ChromaDB for customer context |
+| ChromaDB turns corrupted | CRM snapshot has pipeline state; rebuild from CRM + Supermemory |
+| Server migration | Export CRM snapshots for continuity on new server |
+| Audit request | Historical pipeline snapshots available by date |
+
+### 4.3 Cron Configuration
+
+```yaml
+cron_jobs:
+  - name: "crm_snapshot"
+    schedule: "0 12 * * *"     # Daily at 12:00
+    action: |
+      Read full CRM pipeline via gws skill.
+      Store summary snapshot in ChromaDB with date tag.
+      Report: "CRM snapshot stored: N active leads, M pipeline value."
 ```
 
 ---
@@ -725,5 +786,5 @@ Step 7: Set up Google Sheets monitoring
 
 ---
 
-*B2B SDR Agent Template - Anti-Amnesia Implementation Spec v1.0*
+*B2B SDR Agent Template - Anti-Amnesia Implementation Spec v2.0*
 *Technical support: [PulseAgent](https://ai.pulseagent.io)*

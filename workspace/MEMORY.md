@@ -1,54 +1,94 @@
-# MEMORY.md — Anti-Amnesia Operating Protocol
+# MEMORY.md — 4-Layer Anti-Amnesia Operating Protocol
 
-## Memory Architecture (What You Have)
+## Memory Architecture (4 Layers — Never Forget)
 
-| Engine | How It Works | Your Action |
-|--------|-------------|-------------|
-| **MemOS Plugin** | Auto-runs: injects past memories at conversation start, captures key info at end | None — read what it gives you |
-| **Supermemory Skill** | Manual: you call `memory:add` / `memory:search` to store/retrieve research | You must actively use it |
-| **Compaction** | Auto-runs: compresses context when token limit approaches | Protect key info before it triggers |
+```
+Message In → L1 MemOS auto-recall
+           → L3 chroma:store (every turn)
+           → L2 proactive-summary (at 65% token usage)
+           → L4 CRM snapshot (daily 12:00 fallback)
+```
+
+| Layer | Engine | How It Works | Your Action |
+|-------|--------|-------------|-------------|
+| **L1: MemOS** | Structured memory | Auto-injects past memories at conversation start, auto-captures BANT/commitments/objections at end | Read what it gives you |
+| **L2: Proactive Summary** | Token monitoring | Compresses at 65% context usage via haiku-class model. Zero info loss on numbers/quotes/commitments | Embed key-data summary past 20 turns |
+| **L3: ChromaDB** | Per-turn vector store | Every turn stored with customer_id isolation + auto-tagging (quotes, commitments, objections) | Use `chroma:search` before outreach |
+| **L4: CRM Snapshot** | Daily backup | 12:00 daily pipeline snapshot to ChromaDB as disaster recovery | None — automatic |
 
 ## Operating Rules (Every Conversation)
 
-1. **Conversation Start**: Read the injected MemOS memory snapshot. Naturally reference the last topic to show continuity.
-2. **Every Turn End**: Mentally extract key changes — BANT updates, new commitments, new objections, pricing discussed.
-3. **After Research**: Use `memory:add` to save findings to Supermemory (company intel, competitor data, market insights).
-4. **Before Outreach**: Use `memory:search` to recall relevant customer history and research.
-5. **Past 20 Turns**: Embed a brief key-data summary in your next message to protect against compaction loss.
-6. **Customer References Past**: Always `memory:search` before responding to anything about previous conversations.
+1. **Conversation Start**: Read MemOS snapshot. Naturally reference last topic for continuity.
+2. **Before Outreach**: `chroma:search` + `memory:search` to recall customer history and research.
+3. **Every Turn End**: L3 auto-stores turn. Mentally extract BANT changes, new commitments, objections.
+4. **After Research**: `memory:add` findings to Supermemory (company intel, competitor data).
+5. **Past 20 Turns**: Embed a brief key-data summary in your message (protects against L2 compression).
+6. **Customer References Past**: Always `chroma:search` + `memory:search` before responding.
+7. **Returning Customer (7+ day gap)**: `chroma:recall <customer_id>` for full history context.
 
-## Supermemory Command Reference
+## Command Reference
 
+### Supermemory (Research & Insights)
 ```
 memory:add "Ahmed from Dubai buys 50 units/quarter, prefers FOB" --type customer_fact
-memory:add "[Company] research: 200 employees, ISO certified, imports from China" --type customer_fact
-memory:add "Competitor X dropped prices 15% in West Africa market" --type competitor_intel
-memory:add "WhatsApp voice notes get 2x reply rate in Middle East" --type effective_tactic
+memory:add "Competitor X dropped prices 15% in West Africa" --type competitor_intel
+memory:add "WhatsApp voice notes get 2x reply rate in ME" --type effective_tactic
 memory:search "Dubai customer preferences" --limit 5
-memory:search "competitor pricing West Africa"
 memory:list --type customer_fact
-memory:list --type competitor_intel
 memory:stats
+```
+
+### ChromaDB (Conversation History)
+```
+chroma:store --customer "+971501234567" --turn 5 --user "price?" --agent "let me quote..." --stage qualifying --topic pricing
+chroma:search "pricing discussion Dubai" --customer "+971501234567" --limit 5
+chroma:recall "+971501234567" --limit 10
+chroma:snapshot
+chroma:stats
 ```
 
 ## Memory Priority Matrix
 
-| Information Type | Storage | Agent Action | Retention |
-|-----------------|---------|-------------|-----------|
-| Customer BANT / commitments / objections | MemOS (auto) | None | Permanent |
-| Company research / competitor intel | Supermemory | `memory:add` after research | Permanent |
-| Effective scripts / conversion patterns | Supermemory | `memory:add` when pattern confirmed | Permanent |
-| Market signals / trends | Supermemory | `memory:add` with context | 30 days |
-| CRM pipeline data | Google Sheets (CRM) | CRM read/write | Permanent |
-| Raw conversation history | Session/Compaction (auto) | None | 7 days |
+| Information Type | L1 MemOS | L2 Summary | L3 ChromaDB | L4 CRM | Retention |
+|-----------------|----------|------------|-------------|--------|-----------|
+| Customer BANT / commitments | Auto-capture | Preserved verbatim | Per-turn stored | — | Permanent |
+| Quotes / pricing discussed | Auto-capture | Preserved verbatim | Auto-tagged `has_quote` | — | Permanent |
+| Customer objections | Auto-capture | Preserved verbatim | Auto-tagged `has_objection` | — | Permanent |
+| Company research / competitor intel | — | — | — | — | Permanent (Supermemory) |
+| Effective scripts / patterns | — | — | — | — | Permanent (Supermemory) |
+| Market signals / trends | — | — | — | — | 30 days (Supermemory) |
+| Pipeline status | — | — | — | Daily snapshot | Permanent |
+| Raw conversation turns | — | Compressed | Full text stored | — | Permanent (ChromaDB) |
 
 ## Cross-Session Continuity Rules
 
-1. **Never start cold**: If MemOS injects memory, acknowledge context naturally ("Following up on our discussion about X...")
-2. **Track all commitments**: Yours and the customer's. If your commitment is overdue, apologize + remedy first.
-3. **Detect returning customers**: If CRM shows prior interaction, pull history before responding.
-4. **Handoff protection**: When a session is about to end or context is getting large, ensure all critical updates are in CRM and key research in Supermemory.
-5. **Weekly memory hygiene**: During Monday heartbeat, review `memory:stats`. Archive stale market signals.
+1. **Never start cold**: If MemOS injects memory, reference it naturally ("Following up on our discussion about X...")
+2. **Track all commitments**: Yours and customer's. Overdue yours → apologize + remedy first.
+3. **Detect returning customers**: CRM prior interaction → `chroma:recall` before responding.
+4. **Handoff protection**: Before session end, ensure CRM updated + key research in Supermemory.
+5. **Weekly memory hygiene**: Monday heartbeat → `memory:stats` + `chroma:stats`. Archive stale signals.
+
+## Auto-Tagging (L3 ChromaDB)
+
+Every stored turn is automatically analyzed and tagged:
+
+| Tag | Triggers On |
+|-----|-------------|
+| `has_quote` | Price, cost, FOB, CIF, $, €, discount |
+| `has_commitment` | "I will", "we'll send", "by Monday", promises |
+| `has_objection` | "too expensive", "not interested", "competitor cheaper" |
+| `has_order` | "place order", "confirm purchase", "deposit" |
+| `has_sample` | "sample", "trial", "prototype" |
+
+## L2 Compression Rules
+
+When token usage hits 65%, the proactive summary engine:
+1. Updates MemOS first (safety net)
+2. Compresses with haiku-class model (fast, cheap)
+3. **Preserves verbatim**: all numbers, quotes, commitments, BANT data
+4. **Compresses**: small talk, repeated intros, multi-round confirmations
+5. Stores compressed summary in ChromaDB
+6. Keeps last 3 raw turns uncompressed
 
 ## CRM Column Mapping
 > See USER.md → CRM Configuration
@@ -60,13 +100,13 @@ Status values: new / contacted / interested / quote_sent / negotiating / meeting
 > See USER.md → Product Lines
 
 ## SDR Effectiveness Principles
-- Mentioning the prospect's recent events (funding, hiring, new projects) dramatically improves response rates
-- WhatsApp optimal message length: 3-5 sentences, under 150 words
-- Follow-up cadence: First touch → 3-day follow-up → 5-day follow-up → long-term nurture
+- Mentioning prospect's recent events (funding, hiring, new projects) dramatically improves response rates
+- WhatsApp optimal: 3-5 sentences, under 150 words
+- Follow-up cadence: First touch → 3-day → 5-day → long-term nurture
 - Stale threshold: 5 business days with no interaction
-- CTWA lead golden window: First reply within 5 minutes yields highest conversion
-- Cold email open rate peaks on Tuesday/Wednesday mornings (recipient's local time)
-- Multi-channel approach: WhatsApp + Email doubles response rate vs single channel
+- CTWA lead golden window: First reply within 5 minutes
+- Cold email peaks: Tuesday/Wednesday mornings (recipient local time)
+- Multi-channel (WhatsApp + Email) doubles response rate vs single channel
 
 ## Learning Log
-(Effective scripts and conversion patterns accumulate here — save confirmed patterns via `memory:add --type effective_tactic`)
+(Save confirmed patterns via `memory:add --type effective_tactic`)

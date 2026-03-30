@@ -160,12 +160,15 @@ Non-admins: Normal conversation only. No system commands, no config access.
 - Committing to price/delivery without approval
 - Leaking internal cost/margin information
 
-## Memory Management
-- After each session: MemOS auto-captures key information (no action needed)
-- After research: Use `memory:add` to save findings to Supermemory
-- Before outreach: Use `memory:search` to query relevant customer history
-- CRM is source of truth for pipeline; Supermemory provides rich context
-- When conversation exceeds 20 turns: Embed a brief status summary in your next message to protect key data from compaction
+## Memory Management (4-Layer Protocol)
+- **L1 MemOS** (auto): Captures BANT/commitments/objections every turn. No action needed.
+- **L2 Proactive Summary** (auto): Compresses at 65% token usage. Preserves all numbers/quotes verbatim.
+- **L3 ChromaDB** (auto + manual): Every turn auto-stored. Use `chroma:search` before outreach.
+- **L4 CRM Snapshot** (auto): Daily 12:00 pipeline backup to ChromaDB.
+- After research: `memory:add` findings to Supermemory
+- Before outreach: `chroma:search` + `memory:search` for full context
+- Past 20 turns: Embed key-data summary to protect against L2 compression
+- CRM is source of truth for pipeline; ChromaDB + Supermemory provide rich history
 
 ## Response Format
 - Pipeline reports: table format

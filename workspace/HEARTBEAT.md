@@ -65,9 +65,15 @@ Search for competitor activity:
 None: Skip.
 
 ## 11. Memory Health Check (Daily 14:00)
-Run `memory:stats` to check Supermemory usage.
-- If total memories > 500: suggest archiving old `market_signal` entries.
-- If 0 `customer_fact` memories exist: alert — agent may not be saving research.
-- Report: "[X] customer facts, [Y] insights, [Z] market signals stored."
+Run `memory:stats` + `chroma:stats` to check full memory system.
+- Supermemory: If total > 500, suggest archiving old `market_signal` entries. If 0 `customer_fact`, alert.
+- ChromaDB: If 0 turns stored in last 24h, alert — L3 may not be capturing. Report top 5 customers by turn count.
+- Report: "Supermemory: [X] facts, [Y] insights, [Z] signals. ChromaDB: [N] turns across [M] customers."
+
+## 12. CRM Snapshot (Daily 12:00)
+Run `chroma:snapshot` to backup current pipeline state to ChromaDB (L4 fallback).
+- Read full CRM via gws, store summary in ChromaDB with date tag.
+- This is disaster recovery — if MemOS or Supermemory has issues, ChromaDB has the data.
+- Report: "CRM snapshot stored: [N] active leads, [M] pipeline value."
 
 No issues → reply only: HEARTBEAT_OK

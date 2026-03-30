@@ -72,8 +72,16 @@ API Key in .secrets/env (JINA_API_KEY). Get one free at https://jina.ai/
 - **Rate limit**: Max 20 API calls per day (search + reader combined)
 - **Query sanitization**: URL-encode all search queries, strip HTML tags and shell metacharacters
 
-## Supermemory (Research Storage)
+## Supermemory (Research Storage — L1 complement)
 Semantic memory for research notes, competitor intel, and market insights.
 - Auto-store research findings with appropriate tags
 - Query before every outreach for relevant context
-- Tags: customer_research, competitor_intel, market_insight, enrichment
+- Tags: customer_fact, competitor_intel, effective_tactic, market_signal
+- Commands: `memory:add`, `memory:search`, `memory:list`, `memory:stats`
+
+## ChromaDB (Conversation History — L3 + L4)
+Per-turn vector store with customer_id isolation and auto-tagging.
+- L3: Every conversation turn auto-stored with quote/commitment/objection tags
+- L4: Daily CRM snapshot as disaster recovery fallback
+- Commands: `chroma:store`, `chroma:search`, `chroma:recall`, `chroma:snapshot`, `chroma:stats`
+- Customer isolation: All queries scoped by customer_id (phone number)

@@ -60,6 +60,10 @@ LANCEDB_ENABLED=false
 OLLAMA_BASE_URL="http://localhost:11434/v1"
 EMBEDDING_MODEL="nomic-embed-text"
 
+# ─── Plugin: ChromaDB (L3 + L4 Memory) ──────────────────
+CHROMADB_ENABLED=false         # Enable per-turn conversation storage + CRM snapshots
+CHROMA_COLLECTION="conversation_history"
+
 # ─── Jina AI (Web Search + Content Extraction) ──────────
 JINA_API_KEY=""             # Get free key at https://jina.ai/
 

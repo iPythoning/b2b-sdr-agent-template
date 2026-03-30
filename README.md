@@ -20,13 +20,13 @@ Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export co
 │  SOUL.md       → Personality, values, rules     │
 │  AGENTS.md     → Full sales workflow (10 stages)│
 │  USER.md       → Owner profile, ICP, scoring    │
-│  HEARTBEAT.md  → 10-item pipeline inspection    │
-│  MEMORY.md     → 3-engine memory architecture   │
+│  HEARTBEAT.md  → 12-item pipeline inspection    │
+│  MEMORY.md     → 4-layer anti-amnesia protocol  │
 │  TOOLS.md      → CRM, channels, integrations    │
 ├─────────────────────────────────────────────────┤
 │  Skills        → Extensible capabilities        │
 │  Product KB    → Your product catalog           │
-│  Cron Jobs     → 10 automated scheduled tasks   │
+│  Cron Jobs     → 12 automated scheduled tasks   │
 ├─────────────────────────────────────────────────┤
 │  OpenClaw Gateway (WhatsApp / Telegram / Email) │
 └─────────────────────────────────────────────────┘
@@ -110,7 +110,7 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 | **9. Email Outreach** | Personalized cold email sequences (Day 1/3/7/14), auto follow-up |
 | **10. Multi-Channel Orchestration** | Cross-channel coordination (WhatsApp + Email + Telegram), auto-switching |
 
-### Automated Scheduling (10 Cron Jobs)
+### Automated Scheduling (12 Cron Jobs)
 
 | Schedule | Task |
 |----------|------|
@@ -122,6 +122,8 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 | Weekly Wed | Nurture campaign |
 | Weekly Fri | Competitor intelligence gathering |
 | Weekly Mon | Weekly summary report |
+| Daily 12:00 | CRM snapshot to ChromaDB (L4 disaster recovery) |
+| Daily 14:00 | Memory health check (Supermemory + ChromaDB stats) |
 
 ### Human-Like Conversations
 - Responds in the customer's language (auto-detected)
@@ -135,22 +137,28 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 - **Auto-adjusts** based on interaction: fast reply +1, asks for quote +2, mentions competitor +2, 7d no reply -1
 - Hot leads (ICP>=7) auto-flagged, owner notified immediately
 
-### Smart Memory (3 Engines)
-- **Supermemory**: Research notes, competitor intel, market insights — queried before outreach
-- **MemoryLake**: Session context, conversation summaries — auto-recalled per conversation
-- **MemOS Cloud**: Cross-session behavior patterns — auto-captured
+### 4-Layer Anti-Amnesia System
 
-### Anti-Amnesia System (NEW)
+AI agents lose context in long conversations and across sessions. Our **4-layer anti-amnesia architecture** ensures your AI SDR never forgets:
 
-AI agents lose context in long conversations and across sessions. Our **3-layer anti-amnesia architecture** solves this:
+```
+Message In ──→ L1 MemOS auto-recall (structured memory injection)
+    │
+    ├──→ L3 ChromaDB per-turn store (customer-isolated, auto-tagged)
+    │
+    ├──→ L2 Proactive Summary at 65% tokens (haiku compression, zero info loss)
+    │
+    └──→ L4 CRM Snapshot daily 12:00 (disaster recovery fallback)
+```
 
 | Layer | Engine | What It Does |
 |-------|--------|-------------|
-| **L1: MemOS** | Structured memory | Extracts BANT, commitments, objections every turn. Injects into System Prompt at conversation start. |
-| **L2: Proactive Summary** | Token monitoring | Compresses history at 65% context usage. Zero information loss — numbers, quotes, commitments preserved verbatim. |
-| **L3: ChromaDB** | Long-term RAG | Stores every turn as embeddings. Auto-retrieves when customer references past conversations or returns after 7+ days. |
+| **L1: MemOS** | Structured memory | Auto-extracts BANT, commitments, objections every turn. Injects into System Prompt at conversation start. |
+| **L2: Proactive Summary** | Token monitoring | Compresses at 65% context usage via haiku-class model. All numbers, quotes, commitments preserved verbatim. |
+| **L3: ChromaDB** | Per-turn vector store | Every conversation turn stored with `customer_id` isolation. Auto-tags quotes, commitments, objections. Semantic retrieval across sessions. |
+| **L4: CRM Snapshot** | Daily backup | Stores full pipeline state daily to ChromaDB as disaster recovery. If any layer fails, L4 has the data. |
 
-**Result**: Your AI SDR remembers every customer, every quote, every commitment — even after 100+ turns or weeks of silence.
+**Result**: Your AI SDR remembers every customer, every quote, every commitment — even after 100+ turns, weeks of silence, or system restarts.
 
 > See **[ANTI-AMNESIA.md](./ANTI-AMNESIA.md)** for the full implementation spec with code, prompts, and deployment guide.
 
@@ -162,8 +170,8 @@ AI agents lose context in long conversations and across sessions. Our **3-layer 
 | **Soul** | `SOUL.md` | AI personality, communication style, hard rules, growth mindset |
 | **Agents** | `AGENTS.md` | 10-stage sales workflow, BANT qualification, multi-channel orchestration |
 | **User** | `USER.md` | Owner profile, product lines, ICP scoring, competitors |
-| **Heartbeat** | `HEARTBEAT.md` | Automated pipeline inspection — new leads, stalled deals, data quality |
-| **Memory** | `MEMORY.md` | 3-tier memory architecture, SDR effectiveness principles |
+| **Heartbeat** | `HEARTBEAT.md` | 12-item automated pipeline inspection + memory health |
+| **Memory** | `MEMORY.md` | 4-layer anti-amnesia protocol (MemOS + Summary + ChromaDB + CRM) |
 | **Tools** | `TOOLS.md` | CRM commands, channel config, web research, email access |
 
 ## Skills
@@ -173,7 +181,8 @@ Pre-built capabilities that extend your AI SDR:
 | Skill | Description |
 |-------|-------------|
 | **delivery-queue** | Schedule messages with human-like delays. Drip campaigns, timed follow-ups. |
-| **supermemory** | Semantic memory engine. Auto-capture customer insights, search across all conversations. |
+| **supermemory** | Semantic memory engine. Store research notes, competitor intel, market insights. |
+| **chroma-memory** | Per-turn conversation storage with customer isolation, auto-tagging, and CRM snapshots. |
 | **sdr-humanizer** | Rules for natural conversation — pacing, cultural adaptation, anti-patterns. |
 | **lead-discovery** | AI-driven lead discovery. Web search for potential buyers, ICP evaluation, CRM auto-entry. |
 | **quotation-generator** | Auto-generate PDF proforma invoices with company letterhead, multi-language support. |
