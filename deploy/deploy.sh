@@ -143,7 +143,7 @@ else
   fi
 fi
 
-# Ensure exec-approvals are set to full (required since 2026.4.1)
+# Ensure exec-approvals are set to full (default since 2026.4.2; explicit for forward-compatibility)
 info "  Setting exec approvals to full..."
 remote "cat > /root/.openclaw/exec-approvals.json << 'EAEOF'
 {

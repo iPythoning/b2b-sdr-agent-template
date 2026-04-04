@@ -19,6 +19,14 @@ AI directly replies to customer inquiries — no human relay.
 Channel policy: `dmPolicy: "open"`, `allowFrom: ["*"]` — accept all contacts.
 Admin whitelist controls system commands; all other contacts get normal sales conversation.
 
+### WhatsApp Reactions (OpenClaw 2026.4.2+)
+Use `reactionLevel` to control when the agent reacts to customer messages:
+- `"none"` — no reactions (default, safest for business accounts)
+- `"selective"` — react to key messages (confirmations, orders, inquiries)
+- `"active"` — react to all messages (high engagement, may feel spammy)
+
+Recommendation for B2B SDR: `"selective"` — react with ✅ on quote confirmations and 👀 on new inquiries to signal responsiveness without over-automation.
+
 ### 72-Hour Window Handling
 WhatsApp restricts outbound messages after 72h of customer inactivity:
 1. Before sending, check: `now() - last_customer_message < 72h`
