@@ -8,6 +8,23 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-05 — v3.4.0
+
+### Added
+- **Operator Bilingual Mode** — English for customers, Chinese self-chat sync for operators
+  Non-English-speaking operators can now run a global English-facing SDR without needing
+  to read English. The agent replies to customers in English and immediately sends a
+  Chinese translation to itself via WhatsApp self-chat. Operators read Chinese in their
+  "Message to myself" channel; customers only ever see English.
+
+  How it works:
+  - Customer sends any language → Agent always replies in English
+  - After each English reply → Agent silently sends Chinese translation via self-chat
+  - Owner reports (Pipeline daily, quote approvals, notifications) → always Chinese
+  - No hardcoded numbers, no extra config — works with `selfChatMode: true` (default)
+
+  Updated files: `workspace/AGENTS.md`, `skills/sdr-humanizer/SKILL.md`
+
 ## 2026-04-03
 
 ### Fixed

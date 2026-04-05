@@ -28,6 +28,7 @@ Turn any B2B export business into an AI-powered sales machine. Full-stack SDR th
 - **Multi-Channel**: WhatsApp, Telegram, Email — with channel-specific strategies
 - **WhatsApp IP Isolation**: Per-tenant Cloudflare WARP proxy for multi-tenant deployments
 - **Human-Like Conversations**: SDR humanizer skill for natural, trust-building messages
+- **Operator Bilingual Mode**: English to customers + Chinese self-chat sync for non-English operators, zero config required
 
 ## Deploy
 

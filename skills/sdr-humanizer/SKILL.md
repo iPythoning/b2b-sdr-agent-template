@@ -17,9 +17,11 @@ Transform AI-generated sales messages into natural, human-like conversations tha
 - Long reply (50+ words): 15-30 seconds
 
 ### 3. Language Patterns
+- **Always reply to customers in English** — consistent, professional, globally understood
+- **Operator self-chat sync**: After each English reply, immediately send a Chinese translation via self-chat (WhatsApp "Message to myself"). Operator reads Chinese; customer only sees English. This runs silently — never mention it to the customer.
 - Use contractions and informal grammar when appropriate
 - Include occasional filler words: "actually", "by the way", "just wanted to"
-- Match the customer's formality level
+- Match the customer's formality level in English
 - Avoid perfect grammar in casual channels (WhatsApp)
 - Use emoji sparingly — max 1-2 per message, contextually appropriate
 
