@@ -1,3 +1,8 @@
+## 2026-04-08 — Release Check
+- Latest stable release: v2026.4.8
+- Last synced release:   v2026.4.8
+- Result: NO NEW RELEASE — exiting
+
 ## 2026-04-08 — v2026.4.8 Blog Re-publish (run #2)
 - Previous run published to slug `openclaw-v2026-4-8-security-stability` — this run publishes revised/improved post
 - EN blog: https://pulseagent.io/en/blog/openclaw-v2026-4-8-security-claude-thinking (postId: de954cdd-9298-43e3-b4a5-f4cd4589c0f3, action: created)
