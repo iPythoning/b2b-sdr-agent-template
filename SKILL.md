@@ -57,6 +57,7 @@ Architecture: `tenant → wireproxy (SOCKS5, ~4MB) → WARP account → unique C
 - **quotation-generator** — PDF proforma invoice generation
 - **chroma-memory** — Per-turn conversation memory with ChromaDB
 - **telegram-toolkit** — Telegram-specific SDR strategies
+- **graphify** — Knowledge graph for product catalog, customer intelligence, and market research
 
 ## Requirements
 

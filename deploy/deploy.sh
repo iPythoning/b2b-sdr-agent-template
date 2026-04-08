@@ -171,6 +171,22 @@ else
   log "Node.js installed: $NODE_CHECK"
 fi
 
+# ─── Step 3b: Check Python (for graphify) ────────────────
+info "Step 3b/8: Checking Python (for graphify knowledge graph)..."
+PY_CHECK=$(remote "python3 --version 2>/dev/null || echo 'NOT_INSTALLED'")
+
+if echo "$PY_CHECK" | grep -q "NOT_INSTALLED"; then
+  info "  Installing Python3..."
+  remote "apt-get update -qq && apt-get install -y -qq python3 python3-pip > /dev/null 2>&1"
+  log "  Python3 installed"
+else
+  log "Python3 installed: $PY_CHECK"
+fi
+
+info "  Installing graphify..."
+remote "pip install graphifyy -q --break-system-packages 2>&1 | tail -3"
+log "  graphify installed"
+
 # ─── Step 4: Generate openclaw.json ──────────────────────
 info "Step 4/8: Generating config..."
 
@@ -202,6 +218,21 @@ for md in IDENTITY.md SOUL.md USER.md AGENTS.md MEMORY.md HEARTBEAT.md TOOLS.md;
   if [ -f "$WORKSPACE_DIR/$md" ]; then
     remote_upload "$WORKSPACE_DIR/$md" "/root/.openclaw/workspace/$md"
     log "  $md deployed"
+  fi
+done
+
+# Upload local skills (graphify, delivery-queue, etc.)
+SKILLS_DIR="$(dirname "$SCRIPT_DIR")/skills"
+for skill_dir in "$SKILLS_DIR"/*/; do
+  skill_name=$(basename "$skill_dir")
+  if [ -f "$skill_dir/SKILL.md" ]; then
+    remote "mkdir -p /root/.openclaw/workspace/skills/$skill_name"
+    remote_upload "$skill_dir/SKILL.md" "/root/.openclaw/workspace/skills/$skill_name/SKILL.md"
+    # Upload any script files (.mjs, .sh) alongside the SKILL.md
+    for script in "$skill_dir"*.mjs "$skill_dir"*.sh; do
+      [ -f "$script" ] && remote_upload "$script" "/root/.openclaw/workspace/skills/$skill_name/$(basename "$script")"
+    done
+    log "  skill/$skill_name deployed"
   fi
 done
 

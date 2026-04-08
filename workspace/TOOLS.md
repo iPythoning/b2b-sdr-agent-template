@@ -241,6 +241,32 @@ curl -s -X POST "http://SERVER_IP:{{gateway_port}}/webhooks/crm" \
 - The `secret` field enforces HMAC-SHA256 validation — mismatched requests are rejected
 - Gateway must be bound to `lan` (not `loopback`) to receive external webhook calls
 
+## Graphify (Knowledge Graph — Sales Intelligence)
+Build queryable knowledge graphs from product catalogs, customer conversations, and market research.
+- **Product graph**: Map product-kb → cross-sell paths, product families, spec relationships
+- **Customer graph**: Map CRM + conversations → buying patterns, referral paths, stalled leads
+- **Market graph**: Map research notes → competitive landscape, market opportunities
+
+### Graph Query (runtime)
+```bash
+# Broad context around a topic
+python3 -m graphify query "hydraulic excavator certification" --budget 1500
+
+# Trace a specific relationship chain
+python3 -m graphify query "Dubai fleet customer" --dfs --budget 1000
+```
+
+### Graph Outputs
+- `graphify-out/GRAPH_REPORT.md` — God nodes, communities, knowledge gaps
+- `graphify-out/graph.json` — Machine-readable graph (feed to CRM, reports)
+- `graphify-out/graph.html` — Interactive visualization (share with owner)
+
+### When to Query
+- Before quotation → find cross-sell products
+- Before cold outreach → understand prospect's market context
+- During BANT → check product fit from graph relationships
+- Weekly pipeline review → visualize customer clusters
+
 ## ChromaDB (Conversation History — L3 + L4)
 Per-turn vector store with customer_id isolation and auto-tagging.
 - L3: Every conversation turn auto-stored with quote/commitment/objection tags

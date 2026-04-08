@@ -58,6 +58,7 @@ SKILLS_RESEARCH=(
   "brw-linkedin-profile-optimizer"
   "social-graph"
   "data-analyst"
+  "graphify"
 )
 
 # ─── Email Skills ─────────────────────────────────────────

@@ -192,6 +192,7 @@ Pre-built capabilities that extend your AI SDR:
 | **sdr-humanizer** | Rules for natural conversation — pacing, cultural adaptation, anti-patterns. |
 | **lead-discovery** | AI-driven lead discovery. Web search for potential buyers, ICP evaluation, CRM auto-entry. |
 | **quotation-generator** | Auto-generate PDF proforma invoices with company letterhead, multi-language support. |
+| **graphify** | Knowledge graph engine — map product relationships, customer intelligence, and market research into queryable graphs. Powered by [graphify](https://github.com/safishamsi/graphify). |
 
 ### Skill Profiles
 
