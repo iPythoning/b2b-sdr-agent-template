@@ -1,3 +1,8 @@
+## 2026-04-08 — Release Check (run #5)
+- Latest stable release: v2026.4.8
+- Last synced release:   v2026.4.8
+- Result: NO NEW RELEASE — exiting
+
 ## 2026-04-08 — Release Check (run #4)
 - Latest stable release: v2026.4.8
 - Last synced release:   v2026.4.8
