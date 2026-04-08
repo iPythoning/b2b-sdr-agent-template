@@ -82,6 +82,11 @@ SHEETS_COLUMNS="name|company|whatsapp|country|language|email|status|source|icp_s
 IP_ISOLATE=false            # Set true to auto-run ip-isolate after deploy
 IP_SOCKS_PORT=""            # SOCKS5 port (auto-assigned from 40001 if empty)
 
+# ─── AI Model (Compaction) — v2026.4.8+ ─────────────────
+# Offload session compaction to a cheaper model (saves cost on high-volume deployments)
+# Leave empty to use PRIMARY_MODEL for compaction (default behavior)
+COMPACTION_PROVIDER=""      # e.g. "claude/claude-haiku-4-5" or "google/gemini-2.5-flash"
+
 # ─── Deploy Options ──────────────────────────────────────
 INSTALL_OPENCLAW=true
 AUTO_START=true

@@ -147,7 +147,8 @@ $PROVIDERS
       "workspace": "/root/.openclaw/workspace",
       "contextTokens": 60000,
       "heartbeat": {"every": "30m", "target": "last", "directPolicy": "allow"},
-      "maxConcurrent": 4
+      "maxConcurrent": 4$([ -n "${COMPACTION_PROVIDER:-}" ] && echo ",
+      \"compaction\": {\"provider\": \"$COMPACTION_PROVIDER\"}" || true)
     }
   },
   "channels": {

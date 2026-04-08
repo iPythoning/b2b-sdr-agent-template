@@ -1,3 +1,18 @@
+## 2026-04-08 — v2026.4.8 Full Sync
+
+- New release: v2026.4.8 (2026-04-08) — drafts existed, unpublished — published now
+- Previous synced release: v2026.4.5
+- Skipped: v2026.4.7 (superseded same-day by v2026.4.8)
+- Categorization: RELEVANT (security: Critical, thinking blocks fix, Telegram fix, Slack proxy)
+- Template changes:
+  - deploy/config.sh.example: added COMPACTION_PROVIDER option (v2026.4.8+ pluggable compaction)
+  - deploy/generate-config.sh: wire COMPACTION_PROVIDER into agents.defaults.compaction.provider
+- Blog published:
+  - EN: https://pulseagent.io/en/blog/openclaw-v2026-4-8-security-thinking-b2b (postId: 6c62d98d-130c-4ca3-9e92-6418adad3955, action: created)
+  - ZH: https://pulseagent.io/blog/openclaw-v2026-4-8-security-thinking-b2b (postId: a2716819-f73c-4da0-aa5f-fb43ddc0cbee, action: created)
+- WeChat: ERROR — WeChat API error: invalid appsecret (40125) — publish manually
+- Release pointer: v2026.4.5 → v2026.4.8
+
 ## 2026-04-08 — Release Check (run #13)
 - Latest stable release: v2026.4.8
 - Last synced release:   v2026.4.8
