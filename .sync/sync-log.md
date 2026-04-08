@@ -1,3 +1,13 @@
+## 2026-04-08 — v2026.4.8 Blog Publish (run #7 — channel stability focus)
+- Latest stable release: v2026.4.8
+- Last synced release:   v2026.4.8
+- Classification: RELEVANT (7 fixes: Telegram sidecar, 10+ bundled channels, Slack proxy/token, exec reporting, plan tool)
+- Blog published:
+  - EN: https://pulseagent.io/en/blog/openclaw-v2026-4-8-channel-stability-slack-proxy (postId: 9982df54-732b-4f5a-a51c-19e74bcc281a, action: created)
+  - ZH: https://pulseagent.io/en/blog/openclaw-v2026-4-8-channel-stability-slack-proxy (postId: 9982df54-732b-4f5a-a51c-19e74bcc281a, action: updated)
+- WeChat: FAILED — 40125 invalid appsecret (rid: 69d65a4a-57b040e6-7184092e) — recurring issue, fix WeChat appsecret in PulseAgent dashboard
+- Template: CHANGELOG.md created, workspace/TOOLS.md + deploy/UPGRADE.md updated with Slack proxy notes
+
 ## 2026-04-08 — Release Check (run #6)
 - Latest stable release: v2026.4.8
 - Last synced release:   v2026.4.8
