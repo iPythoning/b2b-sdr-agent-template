@@ -1,4 +1,56 @@
-# Competitor Intel — 2026-04-07
+# Competitor Intel — 2026-04-08
+
+## Changes Detected
+
+- **Apollo.io**: Acquired Pocus (PLG/PQL intelligence platform); launched Claude integration ("Apollo Powers Outbound Execution in Claude"); won Stevie Awards 2026 double gold; ranked #119 on Deloitte Fast 500
+- **Instantly.ai**: Heavy SEO content push — 12+ posts published Mar 30 targeting "email sequence" keywords; published 2026 benchmarks (open rates, reply rates, cost-per-meeting)
+- **Smartlead**: Launched MCP (Model Context Protocol) integration with Claude for agentic outbound; new **SmartDialer** product (AI multichannel calls); new **Ultra Premium Warmup** (unlimited warmups); blog pivoting hard to "agentic outbound" positioning
+- **Salesforge**: **OutboundSync** (CRM sync) shipping; heavy LinkedIn outreach content; Agent Frank (AI SDR) continues as flagship
+- **Reachy.ai**: Blog 404 confirmed second day running — likely winding down or rebranding
+- **OpenClaw**: 4 releases in 8 days (v2026.4.1–v2026.4.7); provider expansion (Gemma 4, Bedrock Guardrails, Arcee AI, Qwen, Fireworks, StepFun); webhook plugin, CLI inference hub, memory dreaming phases, Android assistant integration
+
+---
+
+## Analysis
+
+**The MCP battleground is live.** Smartlead's integration of Claude via Model Context Protocol — with dedicated blog posts on building AI outbound agents using Smartlead MCP + Claude — signals that "agentic outbound" is no longer theoretical. They're shipping it and content-marketing it aggressively. This is the most immediate competitive threat: they are positioning directly where PulseAgent sits, with a lower barrier to entry for existing Smartlead users.
+
+**Apollo's Pocus acquisition is a platform play, not a product.** Pocus specializes in PLG signals (PQL data). Combined with Apollo's contact database and outbound tooling, this creates a closed-loop GTM: identify warm accounts from product signals → enrich → sequence → close. Apollo is building toward a full revenue OS. PulseAgent cannot compete on breadth but can on depth and vertical specialization — manufacturing/export, which Apollo does not target.
+
+**Apollo's Claude integration deserves attention.** "Apollo Powers Outbound Execution in Claude" means users can trigger sequences from within Claude. This competes directly with any Claude-native agent like PulseAgent for users who already have Apollo seats.
+
+**OpenClaw's release velocity is high.** Four releases in 8 days with substantive features. As an upstream dependency tracked in sync-log.md, breaking changes in the webhook plugin (v2026.4.7) and CLI inference hub warrant review before next merge.
+
+**Instantly is playing SEO arbitrage**, not shipping features. The 12-post batch on Mar 30 all target long-tail "email sequence" keywords — content marketing, not product momentum.
+
+**Salesforge's OutboundSync + LinkedIn focus** positions them as a multichannel execution layer, not a strategy layer. Less direct competition with PulseAgent's agent-first approach.
+
+**Manufacturing/export market**: No competitor targets this vertical in any content or announcement this week. Open differentiation lane.
+
+---
+
+## Action Items for PulseAgent
+
+- **Ship or announce MCP support** — Smartlead is actively marketing Claude+MCP outbound agents; publish content on PulseAgent's agentic architecture before Smartlead owns the narrative
+- **Publish vertical-specific benchmark content** — 2026 stats for manufacturing/B2B export; no competitor is in this space
+- **Hands-on test Apollo's Claude integration** — find the gaps vs. PulseAgent (personalization depth, vertical tuning, workflow flexibility)
+- **Watch OpenClaw v2026.4.7** — webhook plugin and CLI inference hub may affect upstream sync; review changelog before next merge
+- **Target displaced Reachy.ai users** — 404 confirmed two days; check G2/LinkedIn; build outreach sequence for former Reachy customers
+- **Counter Instantly's stagnation** — monitor Cold Email Club Slack for churn signals from Instantly users
+
+---
+
+## Metadata
+
+- **Last checked**: 2026-04-08
+- **Next check**: 2026-04-09
+- **Sources**: apollo.io/blog, instantly.ai/blog, smartlead.ai/blog, salesforge.ai/blog, reachy.ai/blog (404), github.com/openclaw/openclaw/releases
+
+---
+
+---
+
+# Archive — 2026-04-07
 
 > First run — no prior baseline. All items below are current state as of today.
 
