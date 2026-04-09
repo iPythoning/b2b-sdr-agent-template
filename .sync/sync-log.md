@@ -1,3 +1,12 @@
+## 2026-04-09 — v2026.4.9 WeChat Retry (run #20)
+
+- Release already synced: v2026.4.9 (blogs published by prior run)
+- EN blog: https://pulseagent.io/en/blog/openclaw-v2026-4-9-security-sessions-memory ✅
+- ZH blog: https://pulseagent.io/en/blog/openclaw-v2026-4-9-security-sessions-memory ✅
+- WeChat retry: FAILED — 40125 invalid appsecret (rid: 69d728ec-6ccc05f4-4bce607e) — **action required: fix WeChat appsecret in PulseAgent dashboard**
+
+---
+
 ## 2026-04-09 — v2026.4.9 Full Sync
 
 - New release: v2026.4.9 (2026-04-09, released 02:25 UTC)
