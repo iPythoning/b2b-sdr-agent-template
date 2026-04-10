@@ -67,6 +67,18 @@ cp ~/.openclaw/workspace/skills/b2b-sdr-agent/references/*.md ~/.openclaw/worksp
 
 Replace all `{{placeholders}}` with your actual company info, and your AI SDR is live.
 
+### Option A2: Hermes Agent Users (1 Command)
+
+If you use [Hermes Agent](https://github.com/NousResearch/hermes-agent) instead of OpenClaw:
+
+```bash
+hermes skills install github:iPythoning/b2b-sdr-hermes-skill
+```
+
+Same 10-stage SDR pipeline, adapted for Hermes conventions (native cron, skill config, built-in WhatsApp). Migrating from OpenClaw? Run `hermes claw migrate` first, then install the skill.
+
+→ [**b2b-sdr-hermes-skill repo**](https://github.com/iPythoning/b2b-sdr-hermes-skill)
+
 ### Option B: Full Deployment (5 Minutes)
 
 #### 1. Clone & Configure
