@@ -8,6 +8,51 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-11 — OpenClaw v2026.4.10 upstream sync
+
+### New Features
+
+- **Active Memory Plugin** *(Opt-in — high SDR relevance)*
+  New optional plugin that runs a dedicated memory sub-agent right before each main reply. It automatically surfaces relevant preferences, past context, and lead details from the agent's memory store without requiring users to manually invoke memory commands. Supports configurable message/recent/full-context modes, live `/verbose` inspection, and opt-in transcript persistence for debugging. Docs: https://docs.openclaw.ai/concepts/active-memory
+  B2B SDR relevance: eliminates the need to manually say "remember this" or "search memory" — the agent now proactively pulls in lead history, deal stage, and communication preferences before every reply, dramatically improving continuity across long-running sales threads.
+  Upstream: v2026.4.10
+
+- **Codex / GPT-5 family — bundled Codex provider**
+  A new bundled `codex` provider handles all `codex/gpt-*` model routes with Codex-managed auth, native thread management, model discovery, and automatic conversation compaction. The existing `openai/gpt-*` path continues to use the standard OpenAI provider. If you were routing GPT-5 traffic through the `openai` provider manually, switch model IDs to `codex/gpt-5` for optimal performance and managed auth.
+  Upstream: v2026.4.10
+
+- **Microsoft Teams — message actions**
+  Five new Teams actions are now available: `pin`, `unpin`, `read` (mark as read), `react` (add emoji reaction), and `listReactions`. Enables richer bi-directional engagement in Teams-based sales workflows.
+  B2B SDR relevance: pin confirmed order summaries or SLA commitments directly in Teams threads; use reactions to acknowledge messages without breaking conversation flow.
+  Upstream: v2026.4.10
+
+- **CLI: `openclaw exec-policy` command**
+  New local command for managing exec approval policy. Subcommands: `show` (view current policy), `preset` (apply a named policy preset), `set` (granular key-value overrides). Includes rollback safety and sync conflict detection to prevent policy drift between config and the local approvals file.
+  Upstream: v2026.4.10
+
+- **Gateway: `commands.list` RPC**
+  Remote gateway clients can now discover all runtime-native, text, skill, and plugin commands via a single RPC call. Returns surface-aware names and serialized argument metadata. Useful for building external dashboards or automation that needs to enumerate available agent capabilities dynamically.
+  Upstream: v2026.4.10
+
+- **Per-provider private network opt-in**
+  Add `models.providers.*.request.allowPrivateNetwork: true` to trusted self-hosted OpenAI-compatible endpoints. Keeps private-network access scoped to model request surfaces only — does not affect browser or fetch tools.
+  Upstream: v2026.4.10
+
+- **macOS/Talk — local MLX speech provider** *(Experimental)*
+  Experimental local MLX speech backend for Talk Mode on Apple Silicon. Requires explicit provider selection. Falls back to system voices if MLX is unavailable.
+  Upstream: v2026.4.10
+
+### Fixed
+
+- **Security: 126 fixes** covering security boundary enforcement across multiple channels, browser/sandbox hardening, OpenAI/Codex provider stability, WhatsApp media handling, Microsoft Teams restoration, gateway stability, conversation binding normalization, iMessage self-chat distinction, Matrix account scoping, Telegram security validation, agent timeout extensions, Windows execution settling, cron scheduling corrections, session model preservation, and numerous other platform and core system refinements.
+  Upstream: v2026.4.10
+
+- **Docs i18n: translation pipeline hardened**
+  Chunked raw doc translation, rejects truncated tagged outputs, avoids ambiguous body-only wrapper unwrapping, and recovers from terminated translation sessions without changing the default model path.
+  Upstream: v2026.4.10
+
+---
+
 ## 2026-04-09 — OpenClaw v2026.4.9 upstream sync
 
 ### Security (Critical — Upgrade Recommended)

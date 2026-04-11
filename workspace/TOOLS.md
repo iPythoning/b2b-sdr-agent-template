@@ -1,9 +1,9 @@
 # TOOLS.md — Tool Configuration
 
-> **⚠ Security upgrade required — OpenClaw v2026.4.9+**
-> This release patches 5 security issues: SSRF bypass via interaction-driven browser navigation, workspace `.env` runtime-control env var injection (now blocked), remote node exec event injection, plugin onboarding auth-choice collision, and `basic-ftp` CRLF injection. Upgrade immediately: `npm install -g openclaw@latest` or `npx openclaw@latest upgrade`.
+> **⚠ Upgrade recommended — OpenClaw v2026.4.10+**
+> v2026.4.10 ships 126 security and stability fixes plus high-value new features: Active Memory plugin, bundled Codex/GPT-5 provider, and Microsoft Teams message actions. Upgrade: `npm install -g openclaw@latest` or `npx openclaw@latest upgrade`.
 >
-> **Breaking env var change (v2026.4.9):** Runtime-control, browser-control override, and skip-server env vars set in workspace `.env` files are now silently ignored. If your deploy scripts inject these via `.env`, move them to system environment or `openclaw.json` before upgrading.
+> **Breaking env var change (v2026.4.9, still applies):** Runtime-control, browser-control override, and skip-server env vars set in workspace `.env` files are silently ignored. Move them to system environment or `openclaw.json`.
 
 ## CRM (Source of Truth)
 Configure based on your CRM choice: Google Sheets, Notion, Airtable, or any REST API.
@@ -184,6 +184,32 @@ Semantic memory for research notes, competitor intel, and market insights.
 - Tags: customer_fact, competitor_intel, effective_tactic, market_signal
 - Commands: `memory:add`, `memory:search`, `memory:list`, `memory:stats`
 
+## Active Memory Plugin (Auto Context Before Replies — OpenClaw 2026.4.10+)
+Optional plugin that inserts a dedicated memory sub-agent step before each main reply. The sub-agent automatically searches memory for relevant preferences, past lead details, deal context, and communication history — then surfaces the top results into the reply's context window without requiring any manual memory commands.
+
+### Enable
+```yaml
+# in openclaw.json
+plugins:
+  active-memory:
+    enabled: true
+    mode: "recent"        # "message" | "recent" | "full"
+    verbose: false        # set true to inspect what memory was pulled (use /verbose in chat)
+    persistTranscripts: false   # opt-in debug transcript storage
+```
+
+### Context Modes
+| Mode | Behavior | SDR Use Case |
+|------|----------|--------------|
+| `message` | Only the current message triggers memory search | Lowest latency; good for simple FAQs |
+| `recent` | Last N messages used as search query | Recommended — captures thread context |
+| `full` | Full conversation history used | Best recall; higher token cost |
+
+### B2B SDR Value
+Before replying to "What's my order status?", the agent automatically retrieves: which products the lead enquired about, their preferred shipping port, their negotiated pricing tier, and the last follow-up date — without any manual `memory:search` call in the prompt. Keeps multi-week sales threads coherent with zero extra prompting.
+
+> Docs: https://docs.openclaw.ai/concepts/active-memory
+
 ## AI Model Provider (LLM Backend)
 OpenClaw supports multiple AI model providers. The recommended provider is Claude (Anthropic), but the following are also fully supported as drop-in alternatives:
 
@@ -200,7 +226,8 @@ OpenClaw supports multiple AI model providers. The recommended provider is Claud
 | Gemma 4 (Google) | openai-completions | Added v2026.4.7 — use `thinkingOff: true` for fast, non-reasoning responses |
 | Arcee AI | openai-completions | Added v2026.4.7 — Trinity catalog; task-specialized models for targeted workflows |
 | xAI / Grok | openai-completions | `api.grok.x.ai` recognized as native endpoint as of v2026.4.8 |
-| Custom / self-hosted | openai-completions | Point `baseUrl` to your endpoint |
+| Codex (GPT-5 family) | codex | Added v2026.4.10 — use `codex/gpt-5` or `codex/gpt-5.4`; Codex-managed auth, native threads, auto-compaction |
+| Custom / self-hosted | openai-completions | Point `baseUrl` to your endpoint; add `allowPrivateNetwork: true` for trusted internal endpoints (v2026.4.10+) |
 
 **Claude thinking blocks (v2026.4.8+):** Interleaved thinking blocks are now correctly preserved and forwarded for Claude Opus 4.5+, Sonnet 4.5+, and all Claude 4-family models. Earlier versions were silently stripping thinking blocks before forwarding, causing reasoning regressions on complex SDR tasks (multi-step BANT, objection handling chains, pricing negotiations). No config change needed — works automatically after upgrade.
 
@@ -233,6 +260,19 @@ model:
 **OpenRouter model refs (v2026.4.9+):** Provider-qualified model IDs containing slashes (e.g. `anthropic/claude-3-5-sonnet`) now correctly preserve the `openrouter/` prefix when submitted. Previously, picker selections would drop the prefix and fail allowlist validation.
 
 **Provider auth aliases (v2026.4.9+):** Provider manifests now support `providerAuthAliases`, allowing provider variants to share a single set of environment variables and auth profiles. Useful when running multiple OpenAI-compatible or Anthropic-compatible endpoints (e.g., Azure + OpenAI, or multiple Ollama instances) without duplicating credentials.
+
+**Codex/GPT-5 provider (v2026.4.10+):** Use `codex/gpt-5` or `codex/gpt-5.4` as the model ID. The bundled `codex` provider handles Codex-managed auth, native thread management, and automatic compaction. The standard `openai/gpt-*` path is unchanged. If you were using GPT-5 via the `openai` provider, migrate model IDs to `codex/gpt-5` for optimal performance.
+
+**`openclaw exec-policy` CLI (v2026.4.10+):** Manage exec approval policy without editing config files manually. Use `openclaw exec-policy show` to inspect, `openclaw exec-policy preset secure` to apply a hardened preset, and `openclaw exec-policy set key=value` for granular overrides. Includes rollback safety to prevent policy drift:
+```bash
+openclaw exec-policy show                      # view current policy
+openclaw exec-policy preset secure             # apply hardened preset
+openclaw exec-policy set security=ask          # override individual keys
+```
+
+**Microsoft Teams message actions (v2026.4.10+):** New actions available for Teams channels: `pin`, `unpin`, `read`, `react`, `listReactions`. Pin confirmed deal terms or SLA commitments in Teams threads; react to acknowledge messages without breaking conversation flow.
+
+**Gateway `commands.list` RPC (v2026.4.10+):** Remote clients can enumerate all agent commands (native, text, skill, plugin) via `commands.list`. Useful for external dashboards or n8n/Zapier automations that need to discover available agent capabilities dynamically.
 
 **Agent timeout inheritance (v2026.4.9+):** LLM idle timeout now inherits `agents.defaults.timeoutSeconds` when configured. The idle watchdog is disabled for cron runs to prevent spurious timeout kills on long-processing SDR cron jobs. If your cron SDR agent was dying mid-task with "idle timeout" errors, configure:
 ```yaml

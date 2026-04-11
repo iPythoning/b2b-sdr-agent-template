@@ -80,6 +80,19 @@ openclaw gateway restart
 
 ## Known Issues by Version
 
+### 2026.4.10
+
+**No breaking changes.** Upgrade is safe — new features opt-in, 126 security fixes applied automatically.
+
+| Change / Feature | Notes | Action Required |
+|------------------|-------|-----------------|
+| Active Memory plugin | New opt-in plugin — disabled by default | Enable in `openclaw.json` under `plugins.active-memory.enabled: true` if desired |
+| Codex provider for GPT-5 | `codex/gpt-*` routes use new bundled Codex provider; `openai/gpt-*` unchanged | If using GPT-5 via `openai` provider, migrate model IDs to `codex/gpt-5` for managed auth |
+| `openclaw exec-policy` CLI | New command for managing exec approval policy | No action required — use `openclaw exec-policy show` to inspect current policy |
+| Teams message actions | Pin, unpin, read, react, listReactions now available | No config change needed; actions are auto-discoverable via the gateway |
+| Per-provider `allowPrivateNetwork` | Self-hosted OpenAI-compatible endpoints can opt in to private network access | Only set if you run internal/LAN-hosted model endpoints |
+| 126 security + stability fixes | WhatsApp media, gateway stability, iMessage self-chat, Telegram validation, cron scheduling, etc. | No action required — applied on upgrade |
+
 ### 2026.4.9
 
 **Breaking change: workspace `.env` runtime-control env vars blocked.**
