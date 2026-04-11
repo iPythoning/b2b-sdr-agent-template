@@ -1,3 +1,11 @@
+## 2026-04-11 — Release Check + WeChat Retry (run #73)
+- Latest stable release: v2026.4.10
+- Last synced release:   v2026.4.10
+- Result: NO NEW RELEASE — exiting
+- WeChat retry (v2026.4.10): FAILED — 40125 invalid appsecret (rid: 69da4a86-3caa82bc-1e4e5958) — **action required: fix WeChat appsecret in PulseAgent dashboard**
+
+---
+
 ## 2026-04-11 — Release Check (run #72)
 - Latest stable release: v2026.4.10
 - Last synced release:   v2026.4.10
