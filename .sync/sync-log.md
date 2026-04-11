@@ -1,3 +1,12 @@
+## 2026-04-11 — Release Check + WeChat Retry (run #77)
+- Latest stable release: v2026.4.10
+- Last synced release:   v2026.4.10
+- Checked: v2026.4.11-beta.1 (skipped — pre-release)
+- Result: NO NEW RELEASE — exiting
+- WeChat retry (v2026.4.10): FAILED — HTTP 403 / Cloudflare error code 1010 (WAF block — IP or bot signature blocked; prior runs failed with 40125 appsecret — now a different layer; **action required: whitelist server IP in Cloudflare or publish WeChat article manually**)
+
+---
+
 ## 2026-04-11 — Release Check (run #76)
 - Latest stable release: v2026.4.10
 - Last synced release:   v2026.4.10
