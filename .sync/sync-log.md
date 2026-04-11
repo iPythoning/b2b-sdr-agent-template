@@ -1,3 +1,11 @@
+## 2026-04-11 — Release Check (run #78)
+- Latest stable release: v2026.4.10
+- Last synced release:   v2026.4.10
+- Checked: v2026.4.11-beta.1 (skipped — pre-release)
+- Result: NO NEW RELEASE — exiting
+
+---
+
 ## 2026-04-11 — Release Check + WeChat Retry (run #77)
 - Latest stable release: v2026.4.10
 - Last synced release:   v2026.4.10
