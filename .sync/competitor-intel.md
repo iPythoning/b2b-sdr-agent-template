@@ -1,3 +1,57 @@
+# Competitor Intel — 2026-04-11
+
+## Changes Detected
+
+- **OpenClaw**: v2026.4.10 released Apr 11 — **Active Memory plugin** (automatic context retrieval), local MLX speech for Talk Mode, Seedance 2.0 video generation, Matrix/Telegram QA improvements, browser security vulnerability fixes, tool execution safeguards, WhatsApp reconnection reliability improvements, Microsoft Teams media download fixes.
+- **Smartlead**: 2 new Apr 10 posts — "Managing Cold Email at Agency Scale: How to Run 50–250 Inboxes Without Losing a Lead" and "The Real Cost of a Missed Reply in Cold Outreach (And How to Prevent It)" — both targeting agency operators and mid-market ROI buyers.
+- **Apollo.io**: Possibly 1–2 new posts (dates unverified) — "How Clay and Apollo Help You Move From Data to Deals Faster" and customer story "How Idomoo Cut Sequence Creation Time by 75%." Apollo blog does not expose publish dates in HTML; cannot confirm as Apr 10–11.
+- **Instantly.ai**: No new content. Last posts were Apr 9 (email tracking cluster). Second consecutive no-post day.
+- **Salesforge**: No new posts since Apr 10 MCP post (already captured). Unchanged.
+- **Reachy.ai**: Blog 404 confirmed — day 5. No recovery signal.
+
+---
+
+## Analysis
+
+**OpenClaw v2026.4.10 is the highest-priority item for PulseAgent today.** Three changes directly affect PulseAgent's production stack:
+
+1. **Active Memory plugin** — automatic context retrieval means persistent outreach agents no longer require explicit memory calls to maintain prospect history across sessions. This is an architectural improvement that reduces prompt engineering overhead for multi-touch sequences.
+2. **WhatsApp reconnection reliability** — PulseAgent's WhatsApp-first positioning depends on stable channel connectivity. Reconnection failures in outreach agents are silent killers; this fix is directly revenue-protective.
+3. **Tool execution safeguards** — continuation of the v2026.4.9 security hardening. Two consecutive security-focused releases signal OpenClaw is addressing a systematic vulnerability category, not one-off patches.
+
+The Seedance 2.0 video generation addition is also notable: Salesforge just shipped Weezly video integration, and OpenClaw now has native video generation capability. PulseAgent could position video-personalized outreach as a native capability rather than a third-party integration — a meaningful differentiation against Salesforge's bolt-on approach.
+
+**Smartlead is moving up the food chain.** Yesterday's MCP content targeted developers and sales ops. Today's two new posts target agency operators (50–250 inbox management) and finance/ops buyers (cost of missed replies as a revenue metric). This is deliberate audience expansion: they're widening addressable market without changing the product. The agency content is particularly notable — it echoes Salesforge's Apr 9 white-label post. Two competitors in the same week are packaging for agencies. If an agency reseller channel is forming around AI outbound tools, PulseAgent needs a position there before it consolidates.
+
+**Apollo's Clay post (date unverified) signals deepening data enrichment integration.** If published this week, "How Clay and Apollo Help You Move From Data to Deals Faster" reframes Clay as an Apollo accelerant rather than an alternative. This matters because many PulseAgent prospects use Clay for data enrichment. If Apollo successfully positions Clay as a feeder into Apollo sequences, it shortens the consideration cycle against standalone outbound tools. PulseAgent's counter: OpenClaw-native enrichment workflows that don't require the Clay → Apollo pipeline at all.
+
+**Reachy.ai at day 5.** The displacement window is narrowing. Five days without recovery or announcement strongly suggests wind-down rather than migration. Competitors who move first on Reachy's user base this weekend have the highest probability of conversion before those users sign annual contracts elsewhere.
+
+**Manufacturing/export market:** Still uncovered by all competitors across all sources checked today.
+
+---
+
+## Action Items for PulseAgent
+
+- **Upgrade to OpenClaw v2026.4.10 today** — WhatsApp reconnection fix and Active Memory plugin are direct production improvements; tool execution safeguards continue the security hardening chain from v2026.4.9.
+- **Enable Active Memory plugin in outreach agents** — test with a live sequence to validate context retrieval reduces manual memory prompting. If it works as described, this is a meaningful capability upgrade to document publicly.
+- **Prototype video-personalized outreach using Seedance 2.0** — Salesforge uses a Weezly integration; PulseAgent could ship this natively. One working demo is more valuable than a blog post.
+- **Launch Reachy.ai displacement sequence this weekend** — day 5 is the last realistic first-mover window. Target G2 reviewers, LinkedIn followers, and ProductHunt upvoters of Reachy. Keep sequence short: 2–3 touches, WhatsApp + email.
+- **Develop agency-tier positioning** — Smartlead and Salesforge are both publishing for agencies this week. If PulseAgent has multi-client or reseller capability, publish it. If not, assess the roadmap priority before the segment locks up.
+- **Monitor Apollo's Clay content** — if the Clay+Apollo post is newly published, run a sequence targeting Clay users in manufacturing/export; position PulseAgent as the Claude-native alternative that doesn't require an Apollo seat.
+
+---
+
+## Metadata
+
+- **Last checked**: 2026-04-11
+- **Next check**: 2026-04-12
+- **Sources**: apollo.io/blog, instantly.ai/blog, smartlead.ai/blog, salesforge.ai/blog, reachy.ai/blog (404), github.com/openclaw/openclaw/releases
+
+---
+
+---
+
 # Competitor Intel — 2026-04-10
 
 ## Changes Detected
