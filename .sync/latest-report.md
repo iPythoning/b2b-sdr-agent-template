@@ -1,27 +1,37 @@
-# Upstream Sync Report — 2026-04-04
+# Release Sync Report — 2026-04-12
 
-**Source**: openclaw/openclaw (main)
-**Last synced**: 0b4cdfc53e974c67fbe92dc497be57aaf1a44ccb
-**Latest upstream**: da5c6ac2b62a6415fcc690a5d8cf1d3e87a7b04c
-**New commits**: 1
+**Previous release**: v2026.4.10
+**New release**: v2026.4.11
+**Published**: 2026-04-12T00:18:03Z
 
-## Commit Log
+## Categories
 
-| SHA | Author | Message |
-|-----|--------|---------|
-| da5c6ac  | Tak Hoffman  | fix: honor bluebubbles action discovery account config |
+| Change | Category |
+|--------|----------|
+| Microsoft Teams delegated OAuth + Graph pagination | RELEVANT |
+| Feishu comment sessions + reactions + typing feedback | RELEVANT |
+| Plugin activation/setup auth descriptors | RELEVANT |
+| Webchat rich output bubbles + `[embed]` tag | RELEVANT |
+| Memory Palace + ChatGPT import ingestion | WATCH |
+| video_generate URL-only + reference audio | WATCH |
+| Ollama model caching | WATCH |
+| GPT-5.4 vs Opus 4.6 parity gate | WATCH |
+| OpenAI-compatible endpoint debug logging | SKIP |
+| 18 fixes (Codex OAuth, WhatsApp config, Telegram topic) | RELEVANT (active channels) |
 
-## Categories (for AI analysis)
+## Template Changes
 
-Categorize each commit as:
-- **RELEVANT** — Affects WhatsApp/Telegram/Email transport, sales pipeline, CRM, multi-tenant, deploy scripts
-- **WATCH** — General platform improvements, bug fixes, CI/CD changes worth monitoring
-- **SKIP** — Unrelated (Discord, iMessage, Signal, Line, Zalo, internal refactors)
+- `CHANGELOG.md.local`: added "Adapted from openclaw v2026.4.11" section
+- `workspace/AGENTS.md`: added Feishu to channel orchestration matrix + Feishu-specific notes section
 
-## Action Items
+## Blog Posts
 
-For RELEVANT commits:
-1. Adapt changes to b2b-sdr-agent-template workspace/deploy/skills
-2. Update CHANGELOG.md
-3. Write blog post summarizing the updates
+| Lang | Title | URL | Status |
+|------|-------|-----|--------|
+| EN | OpenClaw v2026.4.11: Teams OAuth, Feishu & Memory Import | https://pulseagent.io/en/blog/openclaw-v2026-4-11-teams-oauth-feishu-memory-import | published |
+| ZH | OpenClaw v2026.4.11：Teams 委托认证、飞书升级与 ChatGPT 记忆导入 | https://pulseagent.io/en/blog/openclaw-v2026-4-11-teams-feishu-memory-zh | published |
 
+## WeChat
+
+**Status**: FAILED — `WeChat API error: 40125 invalid appsecret` (server-side credential issue, not content-related)
+**Action required**: Check WeChat Official Account appsecret in PulseAgent platform settings and re-publish manually.
