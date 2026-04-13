@@ -76,7 +76,15 @@ Run `chroma:snapshot` to backup current pipeline state to ChromaDB (L4 fallback)
 - This is disaster recovery — if MemOS or Supermemory has issues, ChromaDB has the data.
 - Report: "CRM snapshot stored: [N] active leads, [M] pipeline value."
 
-## 13. WhatsApp Window Expiry Check (Every heartbeat)
+## 13. Microsoft Teams Mention Check (Every heartbeat)
+Check for unread @mentions or DMs in connected Teams accounts:
+- Match sender UPN/email to CRM records
+- If match found: Update last_contact, notify owner of reply
+- If new sender with business inquiry: Create new CRM record, begin qualification
+- Use react (👍/✅) to acknowledge receipt when appropriate
+None: Skip.
+
+## 14. WhatsApp Window Expiry Check (Every heartbeat)
 Check CRM for leads where:
 - Primary channel = WhatsApp AND `last_contact` > 48h (approaching 72h window)
 - AND status is active (contacted / interested / quote_sent / negotiating)
@@ -94,3 +102,6 @@ Found: List leads approaching/past window expiry with recommended action.
 None: Skip.
 
 No issues → reply only: HEARTBEAT_OK
+
+---
+<!-- Template synced with OpenClaw v2026.4.11 (2026-04-13) -->

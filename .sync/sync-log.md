@@ -1,3 +1,15 @@
+## 2026-04-13 — FULL SYNC: v2026.4.9 → v2026.4.11 (run #110)
+- Previous tracked release: v2026.4.9 (local main was behind origin/main due to prior detached-HEAD runs)
+- Latest stable release: v2026.4.11 (published 2026-04-12, two new releases: v2026.4.10 + v2026.4.11)
+- Skipped: v2026.4.12-beta.1 (prerelease)
+- **Categorization**: BREAKING=none | RELEVANT=Active Memory plugin, MS Teams full integration, WhatsApp reconnect fix, gateway thread routing, security hardening | WATCH=GPT-5.4 parity gate | SKIP=QQBot, Matrix, macOS MLX speech
+- **Template changes**: IDENTITY.md (added Teams channel), MEMORY.md (L0 Active Memory plugin docs), HEARTBEAT.md (step 13 Teams mention check, renumbered WhatsApp step to 14)
+- **Blog EN**: published ✅ https://pulseagent.io/en/blog/openclaw-v2026-4-11-active-memory-teams-whatsapp (postId: 73903e44-174a-489e-a86c-e6808e2810cc)
+- **Blog ZH**: published ✅ https://pulseagent.io/blog/openclaw-v2026-4-11-active-memory-teams-whatsapp (postId: 8d62451d-88c7-4829-a420-6c6089825f38)
+- **WeChat**: FAILED ❌ — 40125 invalid appsecret (rid: 69dc746c-1cc6bce4-7b77cf59). **ACTION REQUIRED: refresh WeChat appsecret in PulseAgent platform settings** — ZH draft at `.sync/blog-drafts/openclaw-v2026.4.11-zh.json`
+
+---
+
 ## 2026-04-13 — No New Release (run #109)
 - Latest stable release: v2026.4.11
 - Last synced release:   v2026.4.11

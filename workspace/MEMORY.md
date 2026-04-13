@@ -3,7 +3,8 @@
 ## Memory Architecture (4 Layers — Never Forget)
 
 ```
-Message In → L1 MemOS auto-recall
+Message In → L0 Active Memory sub-agent (optional, runs before main reply)
+           → L1 MemOS auto-recall
            → L3 chroma:store (every turn)
            → L2 dual-threshold (50% background save → 65% compress)
            → L4 CRM snapshot (daily 12:00 fallback)
@@ -11,6 +12,7 @@ Message In → L1 MemOS auto-recall
 
 | Layer | Engine | How It Works | Your Action |
 |-------|--------|-------------|-------------|
+| **L0: Active Memory** | Optional sub-agent | *New in OpenClaw v2026.4.10.* Dedicated memory sub-agent runs right before the main reply — supports message/recent/full context modes with `/verbose` inspection. Enable via `plugins.slots.contextEngine`. Docs: https://docs.openclaw.ai/concepts/active-memory | Set `mode: recent` for SDR use |
 | **L1: MemOS** | Structured memory | Auto-injects past memories at conversation start, auto-captures BANT/commitments/objections at end | Read what it gives you |
 | **L2: Proactive Summary** | Dual-threshold monitoring | **50%**: background save key facts to ChromaDB (non-blocking). **65%**: full compression via haiku-class model. Zero info loss on numbers/quotes/commitments | Embed key-data summary past 20 turns |
 | **L3: ChromaDB** | Per-turn store | Every turn stored with customer_id isolation + auto-tagging. Search uses recency-weighted ranking | Use `chroma:search` before outreach |
