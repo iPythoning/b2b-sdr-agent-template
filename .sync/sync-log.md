@@ -1,3 +1,12 @@
+## 2026-04-13 — No New Release (run #109)
+- Latest stable release: v2026.4.11
+- Last synced release:   v2026.4.11
+- Result: NO NEW RELEASE — exiting
+- Note: `v2026.4.12-beta.1` exists (published 2026-04-12) but is prerelease — skipped per rules
+- WeChat: skipping retry — 26+ consecutive `40125 invalid appsecret` failures (runs #83–#108); **ACTION REQUIRED: refresh WeChat appsecret in PulseAgent platform settings; no further retries until credential is updated** — ZH draft at `.sync/blog-drafts/openclaw-v2026.4.11-zh.md`
+
+---
+
 ## 2026-04-13 — No New Release (run #108)
 - Latest stable release: v2026.4.11
 - Last synced release:   v2026.4.11
