@@ -1,3 +1,11 @@
+## 2026-04-14 — No New Release (run #153)
+- Latest stable release: v2026.4.14
+- Last synced release:   v2026.4.14
+- Result: NO NEW RELEASE — blogs already published (runs #144, #146)
+- WeChat: SKIPPED — persistent `40125 invalid appsecret` since run #83; **ACTION REQUIRED: refresh WeChat appsecret in PulseAgent platform settings**
+
+---
+
 ## 2026-04-14 — No New Release (run #152)
 - Latest stable release: v2026.4.14
 - Last synced release:   v2026.4.14
