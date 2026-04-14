@@ -1,3 +1,53 @@
+# Competitor Intel — 2026-04-14
+
+## Changes Detected
+
+- **OpenClaw**: v2026.4.12 (stable, Apr 13) — Active Memory plugin stable release with automated recall, **LM Studio bundled provider** (local self-hosted OpenAI-compatible models), **Codex provider** with native threading + model discovery, Local MLX speech provider for Talk Mode (macOS), plugin manifest activation descriptors. v2026.4.14-beta.1 (Apr 14) — **ReDoS vulnerability patched** (marked.js replaced with markdown-it), SSRF enforcement on browser routes, sender allowlist validation for Microsoft Teams, cron scheduler reliability fixes, memory/dreaming stability enhancements, Telegram forum topics now surface human-readable names.
+- **Instantly.ai**: **12 new posts published Apr 13** — second programmatic SEO burst in 4 days, all targeting the "client onboarding email" cluster: agency onboarding workflows, proposal emails for startups, 30-day client roadmaps, onboarding vs drip campaign comparison, welcome email best practices. No product announcements.
+- **Salesforge**: **6 new posts Apr 12–13** — pure competitor comparison/SEO: "Crono.one Review: Is This AI GTM Platform Actually Worth Using?" (Apr 13), "The Outbound Sales Strategy That Still Works in 2026" (Apr 13), "10 Best La Growth Machine Alternatives" (Apr 12), "7 Ways to Manage Multiple LinkedIn Accounts" (Apr 12), "10 Best LinkedIn Cold Message Templates" (Apr 12), "5 Best We-Connect Alternatives" (Apr 12).
+- **Apollo.io**: Possible new post "How to Use AI Research to Accelerate Prospecting" — not present in Apr 12 report; dates still unverifiable from HTML.
+- **Smartlead**: No new post titles detected since Apr 10. Date display on blog shows Apr 13 for previously-known posts — likely a display artifact.
+- **Reachy.ai**: Blog 404 confirmed — day 8. No recovery signal.
+
+---
+
+## Analysis
+
+**OpenClaw v2026.4.12's LM Studio integration is the highest-value PulseAgent differentiator this week.** The ability to route agent workloads to locally-hosted OpenAI-compatible models isn't just a cost optimization — it's a data sovereignty argument for manufacturing exporters. Companies in heavy industry, defense supply chains, or export-controlled goods often cannot send prospect data to external APIs. A pitch of "your SDR agent runs entirely on-premises — no data leaves your network" is a real unlock for enterprise manufacturing deals that no cloud-native competitor (Apollo, Salesforge, Instantly) can match. This is worth a dedicated content piece and a specific ICP segment test.
+
+**v2026.4.14-beta.1's ReDoS patch is a silent production risk.** Replacing marked.js with markdown-it closes a regex denial-of-service vulnerability in the markdown rendering path. If PulseAgent renders any user-controlled markdown (outreach templates, imported prospect data, AI-generated copy with markdown formatting), the unpatched version is exploitable. Upgrade to beta or wait for stable promotion — don't stay on v2026.4.12 longer than necessary once the stable fix ships.
+
+**Instantly.ai is now running weekly programmatic SEO bursts on a Monday/Thursday cadence.** Apr 9 batch: email tracking (12 posts). Apr 13 batch: client onboarding (12 posts). The pattern is a batch of 10–12 posts per cluster, one cluster per week, all from one author. This is a content factory playbook, not editorial content. The "client onboarding" cluster is notable because it targets the onboarding phase of agency–client relationships — the same segment Smartlead and Salesforge targeted last week. Three competitors are converging on the agency/reseller channel through SEO simultaneously. This acceleration suggests the agency segment is being pre-sold to before a formal product push.
+
+**Salesforge's 6 posts are all bottom-of-funnel comparison pages.** "Best La Growth Machine alternatives," "best We-Connect alternatives," "Crono.one review" — these pages exist to capture tool-switchers who are already in an evaluation mindset. The Crono.one review is a tell: Salesforge is watching and neutralizing emerging AI GTM platforms at the SEO level before they gain traction. PulseAgent has zero comparison pages. Anyone searching "best AI SDR for manufacturing" or "Reachy.ai alternative" finds nothing from PulseAgent. This is a structural SEO gap, not a content quality gap.
+
+**Reachy.ai day 8.** Cold outreach first-mover window is effectively closed — competitors who moved on Apr 9–10 have already locked in early sequences. The remaining play is SEO: a "Reachy.ai alternative" landing page can still capture organic traffic from former users who are now actively searching. This is a 2-hour execution task with a long tail of return.
+
+**Manufacturing/export market**: Still uncovered by all competitors across all content checked. No vertical-specific post, no manufacturing case study, no export-market benchmark. The lane remains open.
+
+---
+
+## Action Items for PulseAgent
+
+- **Build a "local deployment" pitch for manufacturing ICPs** — OpenClaw's LM Studio integration enables a genuine on-premises SDR agent story. Target export-controlled industries, defense supply chains, and heavy industrial buyers who cannot use cloud-based outbound tools. This is a segment Apollo, Salesforge, and Instantly structurally cannot serve.
+- **Monitor v2026.4.14-beta.1 for stable promotion; upgrade immediately on release** — ReDoS vulnerability in markdown rendering path is production-relevant if any user-controlled or AI-generated markdown flows through OpenClaw's renderer.
+- **Publish a "Reachy.ai alternative" SEO page now** — cold outreach window has passed but organic search is still live. A focused landing page ranking for "Reachy alternative" + "AI SDR for [vertical]" captures the remaining long-tail traffic from displaced users.
+- **Write one comparison page targeting a switching segment** — Salesforge captured 6 comparison-page slots in 2 days. PulseAgent needs at least one: "best AI SDR for manufacturing" or "Apollo alternative for WhatsApp markets" are high-intent, low-competition targets.
+- **Flag the agency channel convergence to product/GTM** — Instantly, Smartlead, and Salesforge are all publishing agency content simultaneously. If an agency/reseller tier isn't on the PulseAgent roadmap, now is the decision point: enter before consolidation or commit to vertical specialization instead.
+- **Address WeChat appsecret + Cloudflare block (operational)** — sync-log shows 18 consecutive WeChat post failures and a Cloudflare IP ban on pulseagent.io blocking agent traffic. These are blocking the ZH content distribution pipeline and are unrelated to competitors but urgent.
+
+---
+
+## Metadata
+
+- **Last checked**: 2026-04-14
+- **Next check**: 2026-04-15
+- **Sources**: apollo.io/blog, instantly.ai/blog, smartlead.ai/blog, salesforge.ai/blog, reachy.ai/blog (404), github.com/openclaw/openclaw/releases
+
+---
+
+---
+
 # Competitor Intel — 2026-04-12
 
 ## Changes Detected
