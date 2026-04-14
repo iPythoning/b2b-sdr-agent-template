@@ -8,6 +8,113 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-13 — OpenClaw v2026.4.12 upstream sync
+
+### Security (Upgrade Recommended)
+
+- **Empty approver list authorization bypass fixed**
+  Authorization checks now require at least one configured approver; a check that silently passed on an empty approver list has been patched.
+  Upstream: v2026.4.12
+
+- **busybox/toybox removed from safe interpreter bins**
+  Both `busybox` and `toybox` are removed from the safe binary allowlist. Sandboxed exec sessions that relied on these for shell escapes are now correctly blocked.
+  Upstream: v2026.4.12
+
+- **Shell-wrapper detection broadened; env-argv injection blocked**
+  Shell wrappers are detected more broadly; `env`-based argv injection into exec sessions is explicitly denied.
+  Upstream: v2026.4.12
+
+### New Features
+
+- **LM Studio provider — self-hosted models with runtime discovery** *(RELEVANT — data-residency)*
+  A bundled LM Studio provider enables fully local, self-hosted OpenAI-compatible models with guided setup, runtime model discovery, stream preloading, and memory-search embeddings. Configure via `models.providers.lm-studio.*`.
+  B2B SDR relevance: teams with data-residency requirements (EU manufacturing, government export, China mainland) can now run the SDR agent entirely on-premise — no cloud API calls required for conversation handling or lead context recall.
+  Upstream: v2026.4.12
+
+- **Active Memory plugin — stabilized** *(high SDR relevance)*
+  The Active Memory plugin introduced in v2026.4.10 is now stabilized with improved QMD recall defaults, better telemetry, and Unicode support for wiki slugs and contradiction clustering. See v2026.4.10 entry for full details.
+  Upstream: v2026.4.12
+
+- **macOS/Talk — local MLX speech provider** *(Experimental)*
+  Experimental local MLX speech provider for Talk Mode on Apple Silicon with explicit provider selection, local utterance playback, interruption handling, and system-voice fallback.
+  Upstream: v2026.4.12
+
+### Channel Improvements
+
+- **WhatsApp: media fallback + drop-proof orphaned messages**
+  When `mediaUrl` is empty but `mediaUrls` is populated, OpenClaw now falls back to the first entry. Orphaned messages sent while the previous message was being processed are now carried forward into the next processing cycle instead of being silently dropped.
+  B2B SDR relevance: product catalog attachments and voice messages sent mid-sequence no longer go missing on WhatsApp.
+  Upstream: v2026.4.12
+
+- **Telegram: approval callbacks deadlock fixed**
+  Approval button callbacks now route to a dedicated processing lane, preventing deadlocks during high-volume SDR sequences.
+  Upstream: v2026.4.12
+
+- **Discord: stale heartbeat timers cleared**
+  Stale heartbeat timers are now cleared before reconnect, preventing process crashes in long-running gateway deployments.
+  Upstream: v2026.4.12
+
+- **Matrix: mention gating + display name acceptance**
+  `requireMention` now correctly gates messages while accepting visible display names from non-OpenClaw clients.
+  Upstream: v2026.4.12
+
+### Fixed
+
+- **Dreaming reliability**
+  Waiting-entry recency ordering stabilized; transient narrative cleanup hardened with retry logic; own narrative transcript re-ingestion fixed.
+  Upstream: v2026.4.12
+
+- **WebSocket keepalive tick broadcast**
+  Tick broadcasts are no longer marked as discardable, preventing client disconnects during long agent runs on slow/backpressured connections.
+  Upstream: v2026.4.12
+
+---
+
+## 2026-04-12 — OpenClaw v2026.4.11 upstream sync
+
+### New Features
+
+- **Microsoft Teams — delegated OAuth + reactions** *(RELEVANT)*
+  Teams now supports delegated OAuth for sending reactions and messages on behalf of the assigned rep's identity. Adds reaction listing, Graph pagination, and reaction support across DMs and channels.
+  B2B SDR relevance: the agent can now react/pin key lead-update messages in Teams channels and send as the rep, not as the generic bot identity.
+  Upstream: v2026.4.11
+
+- **Plugin manifest activation + setup descriptors**
+  Plugin manifests declare `activation` and `setup` descriptors so plugins self-describe required auth steps, pairing flows, and config fields. Removes the need for core special-cases per plugin, simplifying third-party SDR plugin deployment.
+  Upstream: v2026.4.11
+
+- **Dreaming/memory-wiki: ChatGPT import ingestion**
+  Existing ChatGPT conversation exports can be ingested into the memory wiki. New "Imported Insights" and "Memory Palace" diary subtabs allow direct inspection of imported source chats, compiled wiki pages, and full source pages.
+  B2B SDR relevance: historical sales conversations from ChatGPT can be migrated into the agent's memory without manual re-entry.
+  Upstream: v2026.4.11
+
+- **Control UI: rich webchat bubbles + `[embed ...]` tag**
+  Assistant media, reply, and voice directives render as structured chat bubbles. New `[embed ...]` rich output tag available with configurable external URL gating.
+  Upstream: v2026.4.11
+
+### Channel Improvements
+
+- **Feishu: document comment sessions** *(RELEVANT — China market)*
+  Document comment sessions now include richer context parsing, comment reactions, and typing feedback — document-thread conversations behave like live chat.
+  B2B SDR relevance: sales proposals shared as Feishu documents can now have inline SDR agent discussion threads, supporting common China B2B sales workflows.
+  Upstream: v2026.4.11
+
+- **Microsoft Teams: video generation + typed provider options**
+  Video generation tool adds URL-only asset delivery, typed `providerOptions`, reference audio inputs, per-asset role hints, and adaptive aspect-ratio support. Seedance 2.0 references added to the bundled fal provider.
+  Upstream: v2026.4.11
+
+### Fixed
+
+- **Ollama: model metadata caching**
+  `/api/show` context-window and capability metadata is now cached during model discovery, eliminating repeated API calls on picker refreshes. Cache invalidates on digest changes.
+  Upstream: v2026.4.11
+
+- **QA/parity: GPT-5.4 vs Opus 4.6 agentic parity report**
+  New parity gate with shared scenario coverage checks, stricter evidence heuristics, and skipped-scenario accounting for maintainer review.
+  Upstream: v2026.4.11
+
+---
+
 ## 2026-04-11 — OpenClaw v2026.4.10 upstream sync
 
 ### New Features

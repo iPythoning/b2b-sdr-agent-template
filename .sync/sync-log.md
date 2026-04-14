@@ -1,3 +1,11 @@
+## 2026-04-14 — CHANGELOG catchup (run #143)
+- Latest stable release: v2026.4.12 (already tracked)
+- Action: Added missing CHANGELOG entries for v2026.4.11 + v2026.4.12
+- Blogs (already published): EN https://pulseagent.io/en/blog/openclaw-v2026-4-12-active-memory-lm-studio | ZH https://pulseagent.io/en/blog/openclaw-v2026-4-12-active-memory-lm-studio-zh
+- WeChat: FAILED ❌ — `40125 invalid appsecret` (rid: 69de324d-62cbc7ee-0531662c) — persistent since run #83; **ACTION REQUIRED: refresh WeChat appsecret in PulseAgent platform settings**
+
+---
+
 ## 2026-04-14 — No New Release (run #141)
 - Latest stable release: v2026.4.12
 - Last synced release:   v2026.4.12
