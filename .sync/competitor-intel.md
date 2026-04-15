@@ -1,3 +1,56 @@
+# Competitor Intel — 2026-04-15
+
+## Changes Detected
+
+- **OpenClaw**: v2026.4.14 stable (Apr 14, 13:03 UTC) — promotion of yesterday's beta.1 to stable. Key additions beyond beta: **GPT-5 family forward compatibility** (`gpt-5.4-pro` with Codex pricing + visibility pre-catalog), Ollama timeout handling fixes (embedded runs now respect configured timeouts, usage metrics in stream options), Active Memory redesigned to use **hidden untrusted paths instead of system prompt injection** (security architecture change), Slack interaction events now enforce global allowlist, local attachment path canonical resolution enforced, browser SSRF strengthened across snapshot/screenshot routes, Google Gemini base URL fix, memory embedding cache keys account for different Ollama endpoints, 47 additional technical fixes. ReDoS patch (marked.js → markdown-it) now stable.
+- **Smartlead**: No new posts. Last posts Apr 13 (previously captured). Blog accessible, no new content.
+- **Apollo.io**: Blog unavailable (503). Unable to verify new content.
+- **Instantly.ai**: Blog unavailable (503). Unable to verify new content.
+- **Salesforge**: Blog unavailable (503). Unable to verify new content.
+- **Reachy.ai**: Site/blog unavailable (503) — day 9. No recovery signal.
+
+---
+
+## Analysis
+
+**OpenClaw v2026.4.14 stable is the mandatory upgrade from yesterday's action item.** Yesterday's report flagged the beta as "upgrade immediately on stable promotion" — that trigger has fired. The full release closes 47+ fixes including all the security hardening from beta.1. For PulseAgent, three changes have direct production impact:
+
+1. **Active Memory now uses hidden untrusted paths instead of system prompt injection.** This is a meaningful security architecture change. Previously, Active Memory surfaced retrieved context by injecting it into the system prompt — an approach that makes memory content part of the trusted instruction surface. The new design keeps memory retrieval in a separate, untrusted path. For PulseAgent's outreach agents, this matters if any retrieved prospect data could be adversarially crafted (e.g., a prospect whose LinkedIn bio contains a prompt injection attempt). The new architecture limits blast radius.
+
+2. **GPT-5 family forward compatibility (gpt-5.4-pro).** OpenClaw has added pre-catalog visibility for gpt-5.4-pro with Codex pricing. This is infrastructure staging — OpenClaw is positioning to route agent workloads to GPT-5 before OpenAI's catalog update lands officially. For PulseAgent's competitive positioning, this signals that the OpenClaw/Claude ecosystem is not locked to Anthropic models. Multi-model routing is becoming a first-class capability, which is relevant if any manufacturing ICPs are GPT-shop-first and require OpenAI as a condition of procurement.
+
+3. **Ollama timeout handling and usage metrics now correct.** The fix ensuring stream options properly include usage metrics for local Ollama completions directly affects cost accounting for PulseAgent's on-premises deployment pitch (the "no data leaves your network" story introduced with LM Studio in v2026.4.12). Accurate token usage tracking is a prerequisite for billing local model usage back to clients — without it, the on-prem story leaks margin.
+
+**Competitor blog 503s are a data gap, not a signal.** Apollo, Instantly, Salesforge, and Reachy all returned 503 today. This is consistent with a CDN or infrastructure issue on the crawl side, not a coordinated outage. No competitive intelligence can be drawn from unavailable sources. Yesterday's patterns (Instantly/Salesforge SEO cadences, Apollo upmarket push) remain the operative signals until access resumes.
+
+**Smartlead is silent.** Confirmed accessible — no new posts since Apr 13. After 6 days of daily MCP content followed by a pivot to agency/deliverability SEO, a one-day gap is not unusual. Monitor for whether they resume MCP content or double down on deliverability/agency cluster.
+
+**Manufacturing/export market**: Still uncovered by all competitors across all confirmed sources today.
+
+---
+
+## Action Items for PulseAgent
+
+- **Upgrade to OpenClaw v2026.4.14 stable now** — ReDoS patch and all security hardening from beta.1 are now stable. The Active Memory architecture change (hidden paths) is the most significant behavioral change; test Active Memory behavior in staging before promoting to live agents.
+- **Validate on-prem token usage accounting** — the Ollama stream usage metrics fix in v2026.4.14 enables accurate cost tracking for local model runs. If PulseAgent bills clients on token usage, verify the fix is working correctly before next billing cycle.
+- **Test gpt-5.4-pro routing in OpenClaw** — forward catalog compatibility is live. A proof-of-concept routing manufacturing agent queries through gpt-5.4-pro could be a differentiator for GPT-shop enterprise buyers who won't approve Anthropic API procurement.
+- **Resume monitoring Apollo/Instantly/Salesforge tomorrow** — 503s today are likely transient. Recheck all three blogs at next run to catch any backlog of Apr 14–15 posts.
+- **Reachy.ai day 9** — organic SEO window is now the primary play. A "Reachy.ai alternative" landing page remains a low-cost, long-tail opportunity.
+
+---
+
+## Metadata
+
+- **Last checked**: 2026-04-15
+- **Next check**: 2026-04-16
+- **Sources**: apollo.io/blog (503), instantly.ai/blog (503), smartlead.ai/blog (confirmed, no new posts), salesforge.ai/blog (503), reachy.ai/blog (503, day 9), github.com/openclaw/openclaw/releases (v2026.4.14 stable confirmed)
+
+---
+
+---
+
+---
+
 # Competitor Intel — 2026-04-14
 
 ## Changes Detected
