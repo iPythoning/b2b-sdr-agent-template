@@ -1,3 +1,14 @@
+## 2026-04-16 — No New Release (run #168)
+- Latest stable release: v2026.4.14
+- Last synced release:   v2026.4.14
+- Latest prerelease:     v2026.4.15-beta.1 (skipped — beta)
+- Result: NO NEW RELEASE — blogs already published (runs #144, #146)
+- Blog EN: https://pulseagent.io/en/blog/openclaw-v2026-4-14-gpt5-active-memory-teams
+- Blog ZH: https://pulseagent.io/blog/openclaw-v2026-4-14-gpt5-active-memory-teams-zh
+- WeChat: SKIPPED — persistent `40125 invalid appsecret` since run #83; **ACTION REQUIRED: refresh WeChat appsecret in PulseAgent platform settings**
+
+---
+
 ## 2026-04-16 — No New Release (run #167)
 - Latest stable release: v2026.4.14
 - Last synced release:   v2026.4.14
