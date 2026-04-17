@@ -1,3 +1,57 @@
+# Competitor Intel — 2026-04-17
+
+## Changes Detected
+
+- **OpenClaw**: v2026.4.15 stable (Apr 16) — promotion of beta.1/beta.2 to stable. **New additions beyond beta.1**: Claude Opus 4.7 native support (with "opus" aliases + bundled image understanding), **Gemini text-to-speech** (voice selection, WAV + PCM telephony output), **experimental lean mode** for local models (reduces prompt size for weaker hardware), GitHub Copilot Embeddings provider for memory search. All beta.1 features now stable: Model Auth status card (OAuth token health + rate-limit pressure), cloud storage for durable LanceDB memory indexes. 50+ total fixes in stable.
+- **Apollo.io**: NEW — **"Apollo Selected as a Data Provider for HubSpot's New Breeze Prospecting Agent"** — Apollo's contact data is now embedded directly inside HubSpot's native AI prospecting agent (Breeze). HubSpot users can access Apollo enrichment without a separate Apollo subscription.
+- **Salesforge**: 4 new Apr 16 posts — **"How to Automate Cold Email With Claude Code and Salesforge MCP"**, **"How to Automate LinkedIn Outreach with Claude Code and Salesforge MCP"**, **"Cold Email MCP Server: What It Is and How It Works"**, and "Akountify Review 2026: What We Found After Testing It." The MCP server exposes 6 integrated products (Salesforge, Primeforge, Leadsforge, Infraforge, Warmforge, Mailforge) + 500M+ contact database via a single Claude Code interface.
+- **Smartlead**: 1 new Apr 16 post — "Email Optimization: 9 Best Practices That Actually Move Reply Rates (2026)." Continuation of deliverability/optimization cluster.
+- **Instantly.ai**: No new posts since Apr 13 client-onboarding cluster. Day 4 of silence.
+- **Reachy.ai**: Blog 404 — day 11. No recovery signal.
+
+---
+
+## Analysis
+
+**Apollo's HubSpot Breeze integration is the single most strategically significant development in this report.** Apollo is no longer a standalone sales tool — it is now infrastructure embedded inside HubSpot, the dominant CRM for mid-market and enterprise buyers. The implications are layered:
+
+The immediate threat: any company already on HubSpot can now access Apollo's contact data through HubSpot's native Breeze AI agent, without a separate Apollo seat. The buyer journey shortens from "evaluate Apollo + outbound tool" to "turn on Breeze inside your existing CRM." For PulseAgent, any prospect who is already HubSpot-native and considering adding an AI SDR now has a lower-friction alternative that doesn't require evaluating a new vendor.
+
+The structural threat: Apollo is becoming CRM infrastructure. The "built on Apollo" narrative from yesterday (Dhisana AI case study) has now extended to "Apollo inside HubSpot." This is a platform moat play. As Apollo embeds deeper into HubSpot, Salesforce (via partner programs), and other CRMs, it progressively crowds out standalone outbound tools at the awareness and evaluation stage.
+
+PulseAgent's counter has two parts. First, Breeze is a generic prospecting agent — it cannot be configured for manufacturing export markets, does not handle WhatsApp, and has no vertical data depth. The differentiation argument ("vertical AI SDR vs. generic CRM agent") becomes crisper, not weaker. Second, manufacturing buyers typically are not HubSpot-native — they run ERP-first workflows (SAP, Oracle, domestic systems) where HubSpot penetration is shallow. The Breeze integration strengthens Apollo's position with SaaS-native buyers, not with the ICP PulseAgent should own.
+
+**OpenClaw v2026.4.15 stable brings two additions that directly affect PulseAgent's production stack.** Claude Opus 4.7 native support means the most capable Claude model is now a first-class option in OpenClaw without workarounds. For high-complexity outreach personalization (manufacturing research, export compliance context), Opus 4.7 is a material quality uplift over Sonnet. Experimental lean mode for local models extends the on-premises pitch: PulseAgent can now run efficient agents on standard hardware that previously required a GPU-class setup, lowering the bar for factory-floor or air-gapped deployment.
+
+**Salesforge published 3 MCP posts in a single day, completing a cluster.** With "Cold Email MCP Server: What It Is and How It Works," "How to Automate Cold Email With Claude Code and Salesforge MCP," and "How to Automate LinkedIn Outreach with Claude Code and Salesforge MCP" all on Apr 16, Salesforge now has a complete searchable MCP knowledge base spanning concept → cold email → LinkedIn. The Forge MCP server's exposure of 500M+ Leadsforge contacts through Claude is a notable capability — it positions Salesforge as the "entire cold email stack, accessible via Claude prompt." However: the stack is cold email + LinkedIn only. No WhatsApp, no video, no vertical enrichment. PulseAgent has a meaningful capability gap to exploit here.
+
+**Smartlead's Apr 16 email optimization post continues their deliverability cluster.** No new strategic signal — confirms they are focused on deliverability/agency content rather than MCP expansion this week. Their MCP series appears complete (6 posts total through Apr 8).
+
+**Manufacturing/export market**: Still uncovered by all competitors. Apollo's HubSpot integration deepens their SaaS-vertical lock-in. The manufacturing lane remains structurally uncontested.
+
+---
+
+## Action Items for PulseAgent
+
+- **Upgrade to OpenClaw v2026.4.15 stable now** — Claude Opus 4.7 support and lean mode for local models are both production-relevant. Enable Opus 4.7 for high-complexity personalization sequences; test lean mode in staging for on-prem deployments.
+- **Reframe the pitch against HubSpot Breeze** — Apollo's HubSpot integration means "AI SDR vs. just using HubSpot" is now a live objection. Prepare a one-paragraph answer: Breeze is generic horizontal enrichment; PulseAgent is a vertical-specialized agent with WhatsApp, local-language outreach, and manufacturing-specific data depth. This objection will surface in every sales conversation within 30 days.
+- **Target non-HubSpot manufacturing buyers proactively** — Apollo's Breeze partnership strengthens their position with HubSpot shops, not ERP-first manufacturers. Identify 20 manufacturing ICPs that use SAP, Oracle, or domestic ERP as their primary system. These buyers are structurally excluded from the Breeze narrative; PulseAgent should own them before Apollo pivots.
+- **Publish a "Salesforge MCP vs. PulseAgent" differentiation piece** — Salesforge's MCP cluster is now fully published and will rank. PulseAgent needs a direct counter that acknowledges the comparison and highlights what Salesforge MCP cannot do: WhatsApp outreach, video personalization, local-model deployment, manufacturing vertical enrichment. One page; publish this week.
+- **Enable Gemini TTS in OpenClaw v2026.4.15** — voice channel capability (WAV + PCM telephony) is now available. Assess fit for Talk Mode in PulseAgent sales demos — voice-capable SDR demos are a differentiation lever in enterprise evaluations.
+- **Reachy.ai alternative page** — day 11, organic window still open. Two-hour task; no longer time-sensitive but still accretive.
+
+---
+
+## Metadata
+
+- **Last checked**: 2026-04-17
+- **Next check**: 2026-04-18
+- **Sources**: apollo.io/blog (new HubSpot Breeze post confirmed), instantly.ai/blog (no new posts since Apr 13), smartlead.ai/blog (1 new Apr 16 post), salesforge.ai/blog (4 new Apr 16 posts), reachy.ai/blog (404, day 11), github.com/openclaw/openclaw/releases (v2026.4.15 stable Apr 16 confirmed)
+
+---
+
+---
+
 # Competitor Intel — 2026-04-16
 
 ## Changes Detected
