@@ -1,3 +1,9 @@
+## 2026-04-21 — No New Release (check run #43)
+- Latest stable release: v2026.4.20
+- Last synced release:   v2026.4.20
+- Skipped: v2026.4.20-beta.2 (pre-release), v2026.4.20-beta.1 (pre-release)
+- Result: NO NEW RELEASE — exiting.
+
 ## 2026-04-21T19:20:00Z — Synced v2026.4.15 → v2026.4.20
 - Previous release:  v2026.4.15
 - New stable release: v2026.4.20 (published 2026-04-21T19:19 UTC by @steipete)
