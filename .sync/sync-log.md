@@ -1,3 +1,14 @@
+## 2026-04-21T19:20:00Z — Synced v2026.4.15 → v2026.4.20
+- Previous release:  v2026.4.15
+- New stable release: v2026.4.20 (published 2026-04-21T19:19 UTC by @steipete)
+- Skipped betas: v2026.4.20-beta.2, v2026.4.20-beta.1, v2026.4.19-beta.2, v2026.4.19-beta.1
+- Categorization: SECURITY (env injection + config mutation), RELEVANT (default prompts, session cap, auto-reply policy, Telegram fixes, web search plugins), WATCH (tiered pricing, cron split), SKIP (Matrix, Codex specifics)
+- Template files updated: CHANGELOG.md, deploy/UPGRADE.md, workspace/TOOLS.md
+- Blog EN: https://pulseagent.io/en/blog/openclaw-v2026420-security-hardening-smarter-agents (postId: e467f5b3-9ed6-457f-a1f0-e2a1da996487)
+- Blog ZH: https://pulseagent.io/blog/openclaw-v2026420-anquan-jiagu-zhihui-daili (postId: 076cd870-d471-452d-99f6-7189eafbad87)
+- WeChat: FAILED — WeChat API error 40125 (invalid appsecret on pulseagent.io server — infrastructure config issue)
+- Result: SYNCED
+
 ## 2026-04-21 — No New Release (check run #42)
 - Latest stable release: v2026.4.15
 - Last synced release:   v2026.4.15
