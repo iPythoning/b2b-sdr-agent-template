@@ -26,3 +26,6 @@ Thumbs.db
 
 # Deployments
 .deployments/
+
+# Internal marketing & launch materials (not for public repo)
+docs/internal/
