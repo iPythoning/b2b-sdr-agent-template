@@ -1,3 +1,11 @@
+## 2026-04-24T08:XX:XXZ — No-op check + WeChat retry #23
+- Last synced: v2026.4.22
+- Latest stable: v2026.4.22 (published 2026-04-23) — no new release
+- Blog EN + ZH: already published on pulseagent.io
+- WeChat retry #23: FAILED — HTTP 500 `40125 invalid appsecret` (rid: 69eb2471-30198642-707a1b80) — 23rd consecutive failure
+- Root cause confirmed: PulseAgent backend WeChat appsecret is misconfigured; fix required in backend config before any retry can succeed
+- Draft preserved: .sync/blog-drafts/openclaw-v2026.4.22-zh.json
+
 ## 2026-04-24T07:XX:XXZ — No-op check + WeChat retry #22
 - Last synced: v2026.4.22
 - Latest stable: v2026.4.22 (published 2026-04-23) — no new release
