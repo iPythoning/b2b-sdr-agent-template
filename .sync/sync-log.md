@@ -1,3 +1,11 @@
+## 2026-04-24T11:13:00Z — No-op check + WeChat retry #25
+- Last synced: v2026.4.22
+- Latest stable: v2026.4.22 (published 2026-04-23) — no new release
+- Betas skipped: v2026.4.23-beta.4, v2026.4.23-beta.5
+- WeChat retry #25: FAILED — `40125 invalid appsecret` (rid: 69eb506b-49db2ac8-4c9b6e88) — 25th consecutive failure
+- Root cause: PulseAgent backend WeChat appsecret is invalid/expired — must be corrected server-side before any retry succeeds
+- Draft preserved: .sync/blog-drafts/openclaw-v2026.4.22-zh.json
+
 ## 2026-04-24T09:XX:XXZ — No-op check + WeChat retry #24
 - Last synced: v2026.4.22
 - Latest stable: v2026.4.22 (published 2026-04-23) — no new release (v2026.4.23-beta.5 skipped)
