@@ -1,3 +1,10 @@
+## 2026-04-24 — No-op check + WeChat retry #15
+- Last synced: v2026.4.22
+- Latest stable: v2026.4.22 (April 23, 2026)
+- Result: No new release.
+- Blog EN + ZH: already published on pulseagent.io
+- WeChat retry: FAILED — 40125 invalid appsecret (rid: 69eab494-1040e2f8-5e8f4cda) — 15th consecutive failure; credential refresh required on PulseAgent platform side
+
 ## 2026-04-23 — WeChat retry for v2026.4.22: FAILED (40125 invalid appsecret — rid: 69eaa822-5aa7596a-0e5bd95d)
 - Blog EN: already published → https://pulseagent.io/en/blog/openclaw-v2026-4-22-voice-calls-whatsapp-systemprompt-bedrock-opus
 - Blog ZH: already published → https://pulseagent.io/en/blog/openclaw-v2026-4-22-voice-calls-whatsapp-systemprompt-bedrock-opus-zh
