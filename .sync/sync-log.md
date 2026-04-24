@@ -1,3 +1,10 @@
+## 2026-04-24T01:07:58Z — No-op check + WeChat retry #16
+- Last synced: v2026.4.22
+- Latest stable: v2026.4.22 (published 2026-04-23) — no new release
+- Blog EN + ZH: already published on pulseagent.io
+- WeChat retry #16: FAILED — 40125 invalid appsecret (rid: 69eac29c-7af60a44-4df6e8c4) — 16th consecutive failure
+- Action required: PulseAgent backend WeChat appsecret must be corrected before WeChat publishes can resume
+
 ## 2026-04-24 — No-op check + WeChat retry #15
 - Last synced: v2026.4.22
 - Latest stable: v2026.4.22 (April 23, 2026)
