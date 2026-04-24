@@ -8,6 +8,47 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-24 — OpenClaw v2026.4.23 upstream sync
+
+### New Features
+
+- **OpenAI image generation + reference-image editing via Codex OAuth**
+  OpenAI provider now supports image generation and reference-image editing through Codex OAuth. SDR teams can generate on-brand product visuals and edit reference images directly within agent workflows — no separate image tool or API key juggling required.
+  Upstream: v2026.4.23
+
+- **OpenRouter image generation + reference-image editing**
+  Same image generation and reference-image editing capability extended to OpenRouter models, with provider-supported quality and output format hints. Unlocks a broader model roster for visual content in outreach sequences.
+  Upstream: v2026.4.23
+
+- **Subagent forked context for native sessions**
+  Agents can now launch subagents with forked context in native sessions, with prompt guidance and inline documentation. Enables multi-step SDR workflows where a qualifier subagent hands off context to a closer subagent — each with its own memory slice — without sharing a single conversation thread.
+  Upstream: v2026.4.23
+
+- **Per-call `timeoutMs` for image, video, music, and TTS generation**
+  Individual tool calls for generative media (image, video, music, TTS) can now carry an explicit `timeoutMs`. SDR pipelines that generate voice previews or product images mid-conversation can set tight SLA budgets per call without a global timeout affecting all tools.
+  Upstream: v2026.4.23
+
+- **Configurable local embedding context size (default 4096)**
+  Local embedding providers now accept a configurable context size, defaulting to 4096 tokens. Teams running OpenClaw on constrained VPS or edge hosts can reduce memory pressure without switching to a cloud embedding provider.
+  Upstream: v2026.4.23
+
+- **GPT-5.5 catalog metadata via Pi 0.70.0**
+  Dependencies updated to Pi 0.70.0, adding GPT-5.5 model catalog metadata. GPT-5.5 is now selectable as an agent model without manual catalog patching.
+  Upstream: v2026.4.23
+
+### Fixed
+
+- **89 distinct fixes across all major subsystems** including:
+  - Codex harness routing and context-engine assembly
+  - WhatsApp, Telegram, Discord, and Slack integration stability
+  - Transcript replay and media handling
+  - Security hardening across authentication, permissions, and data handling
+  - Plugin startup and dependency resolution
+  - Gateway session management and WebChat error surfacing
+  - Memory indexing and local embedding provider declaration
+  - Provider routing for OpenAI, OpenRouter, and Google services
+  Upstream: v2026.4.23
+
 ## 2026-04-24 — DeepSeek V4 (Flash + Pro) catalog support
 
 ### New Features

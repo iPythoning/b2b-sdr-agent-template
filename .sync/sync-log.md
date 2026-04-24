@@ -1,3 +1,16 @@
+## 2026-04-24T15:30:00Z — Release sync v2026.4.22 → v2026.4.23
+
+- Last synced: v2026.4.22
+- Latest stable: v2026.4.23 (published 2026-04-24T15:19:55Z) — NEW RELEASE
+- Betas skipped: v2026.4.23-beta.4, v2026.4.23-beta.5, v2026.4.23-beta.6
+- Classification: RELEVANT (image generation, subagent forked context, 89 fixes)
+- CHANGELOG.md updated with v2026.4.23 section
+- Blog (EN) published: https://pulseagent.io/en/blog/openclaw-v2026-4-23-image-generation-subagents-codex-oauth (postId: 632a2e49-d7a7-4d09-9533-ca280ab9f8e0)
+- Blog (ZH) published: https://pulseagent.io/en/blog/openclaw-v2026-4-23-image-generation-subagents-codex-oauth (action: updated)
+- WeChat: FAILED — HTTP 200 with error `WeChat API error: WeChat token error: 40125 invalid appsecret rid: 69ebefc7-62759cc8-39dd168d` — server-side appsecret misconfiguration; fix required in PulseAgent WeChat backend credentials
+- Drafts saved: .sync/blog-drafts/openclaw-v2026.4.23-en.json, .sync/blog-drafts/openclaw-v2026.4.23-zh.json
+- last-release advanced: v2026.4.22 → v2026.4.23
+
 ## 2026-04-24T12:00:00Z — No-op check + WeChat retry #26
 - Last synced: v2026.4.22
 - Latest stable: v2026.4.22 (published 2026-04-23) — no new release
