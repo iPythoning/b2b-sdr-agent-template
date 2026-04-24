@@ -18,23 +18,26 @@ GATEWAY_TOKEN=""            # Auth token (auto-generated if empty)
 GATEWAY_BIND="lan"          # "lan" = accessible from network (dashboard visible)
                             # "loopback" = localhost only (more secure, no remote dashboard)
 
-# ─── AI Model (Primary) ──────────────────────────────────
-PRIMARY_PROVIDER="openai"
-PRIMARY_MODEL_ID="gpt-4o"
-PRIMARY_MODEL_NAME="GPT-4o"
-PRIMARY_BASE_URL="https://api.openai.com/v1"
-PRIMARY_API_KEY=""          # Your API key
+# ─── AI Model (Primary) — DeepSeek V4 Flash (released 2026-04-24) ─
+# 1M context · native prompt caching · \$0.14 in / \$0.28 out per 1M tokens
+# Get API key: https://platform.deepseek.com/
+PRIMARY_PROVIDER="deepseek"
+PRIMARY_MODEL_ID="deepseek-v4-flash"
+PRIMARY_MODEL_NAME="DeepSeek V4 Flash"
+PRIMARY_BASE_URL="https://api.deepseek.com/v1"
+PRIMARY_API_KEY=""          # Your DeepSeek API key
 PRIMARY_API_TYPE="openai"
-PRIMARY_CONTEXT_WINDOW=128000
-PRIMARY_MAX_TOKENS=16384
+PRIMARY_CONTEXT_WINDOW=1000000
+PRIMARY_MAX_TOKENS=32768
 
-# ─── AI Model (Fallback) ─────────────────────────────────
-FALLBACK_PROVIDER="google"
-FALLBACK_MODEL_ID="gemini-2.5-flash"
-FALLBACK_MODEL_NAME="Gemini 2.5 Flash"
-FALLBACK_BASE_URL="https://generativelanguage.googleapis.com/v1beta"
-FALLBACK_API_KEY=""         # Google API key
-FALLBACK_API_TYPE="google-genai"
+# ─── AI Model (Fallback) — DeepSeek V4 Pro (reasoning) ────────────
+# For harder reasoning tasks · \$1.74 in / \$3.48 out per 1M tokens
+FALLBACK_PROVIDER="deepseek"
+FALLBACK_MODEL_ID="deepseek-v4-pro"
+FALLBACK_MODEL_NAME="DeepSeek V4 Pro"
+FALLBACK_BASE_URL="https://api.deepseek.com/v1"
+FALLBACK_API_KEY=""         # Same DeepSeek key works for both
+FALLBACK_API_TYPE="openai"
 
 # ─── Channel: WhatsApp ───────────────────────────────────
 WHATSAPP_ENABLED=true

@@ -12,6 +12,8 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
+> 🚀 **New · 2026-04-24** — Now runs on **DeepSeek V4** (Flash + Pro) with **1M-token context** on day 1. Pour hundreds of customer emails into a single prompt without losing state. Native prompt caching cuts sustained-thread costs 5-8x. Default `openclaw.json` already switched to `deepseek-v4-flash`.
+
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 
 Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export companies.

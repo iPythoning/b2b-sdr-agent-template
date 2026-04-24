@@ -182,7 +182,7 @@ selfhosted_path() {
   read -p "  SSH user [root]: " SERVER_USER
   SERVER_USER="${SERVER_USER:-root}"
 
-  read -p "  AI API Key (OpenAI/Anthropic/DeepSeek): " API_KEY
+  read -p "  AI API Key (DeepSeek recommended — \$0.14/M input, 1M context): " API_KEY
   if [ -z "$API_KEY" ]; then
     echo ""
     echo -e "${YELLOW}No API key?${NC} PulseAgent includes AI credits — no key needed:"
@@ -192,11 +192,11 @@ selfhosted_path() {
     exit 0
   fi
 
-  read -p "  AI Provider [openai]: " PROVIDER
-  PROVIDER="${PROVIDER:-openai}"
+  read -p "  AI Provider [deepseek]: " PROVIDER
+  PROVIDER="${PROVIDER:-deepseek}"
 
-  read -p "  Model ID [gpt-4o]: " MODEL_ID
-  MODEL_ID="${MODEL_ID:-gpt-4o}"
+  read -p "  Model ID [deepseek-v4-flash]: " MODEL_ID
+  MODEL_ID="${MODEL_ID:-deepseek-v4-flash}"
 
   read -p "  Enable WhatsApp? [Y/n]: " WA_ENABLED
   WA_ENABLED="${WA_ENABLED:-Y}"
