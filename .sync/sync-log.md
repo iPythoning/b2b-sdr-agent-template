@@ -1,3 +1,14 @@
+## 2026-04-25T12:00:00Z — No-op check + WeChat retry #29 (v2026.4.23)
+
+- Last synced: v2026.4.23
+- Latest stable: v2026.4.23 (2026-04-24T15:19:55Z) — no new release
+- Betas found: v2026.4.23-beta.4, v2026.4.23-beta.5, v2026.4.23-beta.6 (skipped — pre-release)
+- Blog EN + ZH: already published (https://pulseagent.io/en/blog/openclaw-v2026-4-23-image-generation-subagents-codex-oauth)
+- WeChat retry #29: FAILED — HTTP 500 `WeChat API error: WeChat token error: 40125 invalid appsecret rid: 69ec5b93-130314f6-42f8f5be`
+- Root cause: PulseAgent backend WeChat appsecret remains invalid — 29 consecutive failures; fix required server-side (update appsecret in PulseAgent WeChat integration settings)
+- Draft preserved: .sync/blog-drafts/openclaw-v2026.4.23-zh.json
+- Result: NO NEW RELEASE — WeChat still blocked by server-side appsecret misconfiguration
+
 ## 2026-04-25T10:00:00Z — No-op check (v2026.4.23)
 
 - Last synced: v2026.4.23
