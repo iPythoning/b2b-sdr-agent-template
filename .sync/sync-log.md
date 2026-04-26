@@ -2470,3 +2470,16 @@
 ### WeChat
 **Status**: FAILED — `WeChat API error: 40125 invalid appsecret` (same as previous cycle)
 **Action required**: Check WeChat Official Account appsecret in PulseAgent platform settings and re-publish manually via the saved draft at `.sync/blog-drafts/openclaw-v2026.4.24-zh.json`
+
+---
+
+## 2026-04-26 — No new release / WeChat retry
+
+**Checked**: v2026.4.24 == last-release → no new release to process.
+
+**WeChat retry**: Re-attempted publish of saved draft `openclaw-v2026.4.24-zh.json`.
+**Result**: FAILED again — `WeChat API error: WeChat token error: 40125 invalid appsecret rid: 69ed8f80-746befb3-1706ae38`
+
+**Root cause**: Invalid/expired WeChat Official Account appsecret configured in PulseAgent platform. This is a server-side configuration issue, not a transient error.
+
+**Required action**: Update the WeChat Official Account appsecret in PulseAgent platform settings, then manually re-publish the saved draft at `.sync/blog-drafts/openclaw-v2026.4.24-zh.json`.
