@@ -1,3 +1,17 @@
+## 2026-04-26 — No new release check + WeChat retry #42 (v2026.4.24)
+
+- Last synced: v2026.4.24
+- Latest stable: v2026.4.24 — no new release (already synced)
+- Latest betas: v2026.4.25-beta.2/3/4 (skipped — pre-release)
+- Blog EN: already published — https://pulseagent.io/en/blog/openclaw-v2026-4-24-google-meet-voice-deepseek-default
+- Blog ZH: already published — https://pulseagent.io/en/blog/openclaw-v2026-4-24-google-meet-voice-deepseek-zh
+- WeChat retry #42: FAILED — `40125 invalid appsecret rid: 69ee9fb6-2553018d-6267c405`
+- Root cause: WeChat Official Account appsecret misconfigured in PulseAgent platform settings (persistent across 42 retries)
+- Action required: Update WeChat appsecret in PulseAgent platform → draft at .sync/blog-drafts/openclaw-v2026.4.24-zh.json
+- Result: NO NEW RELEASE — awaiting v2026.4.25 stable
+
+---
+
 ## 2026-04-26 — No new release check + WeChat retry #41 (v2026.4.24)
 
 - Last synced: v2026.4.24
