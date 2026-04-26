@@ -1,3 +1,17 @@
+## 2026-04-26 — No new release check + WeChat retry #41 (v2026.4.24)
+
+- Last synced: v2026.4.24
+- Latest stable: v2026.4.24 (2026-04-25T18:15Z) — no new release (already synced)
+- Latest betas on GitHub: v2026.4.25-beta.1/2/3 (skipped — pre-release)
+- Blog EN: already published — https://pulseagent.io/en/blog/openclaw-v2026-4-24-google-meet-voice-deepseek-default
+- Blog ZH: already published — https://pulseagent.io/en/blog/openclaw-v2026-4-24-google-meet-voice-deepseek-zh
+- WeChat retry #41: FAILED — DNS cache overflow (sandbox network restriction; pulseagent.io unreachable from this environment)
+- Root cause: alternating between DNS cache overflow (sandbox) and HTTP 500 WeChat token error 40125 (invalid appsecret — server-side misconfiguration); fix required in PulseAgent WeChat integration settings
+- Draft preserved: .sync/blog-drafts/openclaw-v2026.4.24-zh.json
+- Result: NO NEW RELEASE — WeChat blocked by persistent failures (41 consecutive); awaiting v2026.4.25 stable
+
+---
+
 ## 2026-04-26 — No new release check
 
 **Checked**: v2026.4.24 == last-release → no new release to process.
