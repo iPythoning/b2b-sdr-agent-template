@@ -1,3 +1,11 @@
+## 2026-04-27 — No new release check (run 9)
+
+- **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
+- **Betas in flight**: v2026.4.25-beta.2 through beta.11 (2026-04-26/27, skipped — pre-release)
+- **Action**: Logged and exited per workflow rules. Awaiting v2026.4.25 stable.
+
+---
+
 ## 2026-04-27 — No new release check (run 8)
 
 - **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
