@@ -1,3 +1,13 @@
+## 2026-04-27 — No-op + WeChat retry (run 6)
+
+- **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
+- **Betas in flight**: v2026.4.25-beta.4 (2026-04-26, skipped — pre-release)
+- **WeChat retry**: FAILED — `40125 invalid appsecret rid: 69ef0212-791bd371-29b59d8b` (same persistent error across runs 4, 5, 6)
+- **Root cause**: WeChat Official Account appsecret stored in PulseAgent platform settings is invalid/stale. Must be reset by platform admin at PulseAgent dashboard → WeChat integration settings.
+- **Action**: Logged. No further automated retries until appsecret is corrected server-side.
+
+---
+
 ## 2026-04-27 — No-op check (run 5)
 
 - **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
