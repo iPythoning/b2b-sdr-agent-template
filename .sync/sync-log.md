@@ -1,3 +1,17 @@
+## 2026-04-27 — v2026.4.25 full sync (run 12)
+
+- **Release check**: v2026.4.24 → **v2026.4.25** (released 2026-04-27 11:55 UTC by @steipete) — NEW stable release
+- **Categorization**: RELEVANT — TTS full upgrade (ElevenLabs v3, Azure Speech, Volcengine, Xiaomi, Inworld, Local CLI), OTel observability expansion, iframe-aware browser automation, plugin cold-registry, PWA/Web Push, installation hardening; 200+ fixes
+- **BREAKING**: None
+- **CHANGELOG**: Updated CHANGELOG.md with v2026.4.25 section
+- **Blog EN**: PENDING — pulseagent.io API returning HTTP 522 (Cloudflare origin timeout); drafts written to `.sync/blog-drafts/openclaw-v2026.4.25-en.json`
+- **Blog ZH**: PENDING — same API outage; draft written to `.sync/blog-drafts/openclaw-v2026.4.25-zh.json`
+- **WeChat**: PENDING — blocked on ZH blog publish
+- **last-release**: Updated to v2026.4.25
+- **Note**: All content is ready and committed. Re-run workflow once API recovers to publish blogs and push WeChat.
+
+---
+
 ## 2026-04-27 — No new release check (run 11)
 
 - **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release

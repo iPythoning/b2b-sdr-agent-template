@@ -8,6 +8,41 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-27 — OpenClaw v2026.4.25 upstream sync
+
+### New Features
+
+- **Full TTS/Voice upgrade: `/tts latest`, session controls & 6 new providers**
+  Voice replies receive a comprehensive overhaul: `/tts latest` pins the most capable model for a provider, session-scoped auto-TTS toggles remember your preference across turns, and per-agent/per-account TTS persona overrides let different agents speak with different voices. Six new providers land: Azure Speech, Xiaomi, Local CLI, Inworld, Volcengine, and ElevenLabs v3 (with expanded voice library and improved prosody). For SDR teams running voice follow-up sequences or real-time call assistance, this means global-quality voice across every market.
+  Upstream: v2026.4.25
+
+- **Plugin registry: cold-persisted startup and install paths**
+  Plugin startup and install paths move to the cold persisted registry, eliminating broad manifest scans at every launch. Plugin update, repair, provider discovery, and install metadata are now fully deterministic. High-volume deployments that load dozens of plugins see meaningfully faster cold-start times.
+  Upstream: v2026.4.25
+
+- **OpenTelemetry observability: model calls, token usage, tool loops & process spans**
+  OTel coverage expands across model calls, token usage, tool loops, harness runs, and process execution — all with bounded low-cardinality attributes for efficient backend indexing. SDR pipeline SLAs (response time, tool-call depth, token spend) are now traceable in Grafana, Datadog, or any OTel-compatible backend without custom instrumentation.
+  Upstream: v2026.4.25
+
+- **Browser automation: iframe-aware snapshots & CDP readiness**
+  Role snapshots are now iframe-aware, capturing the full accessibility tree inside embedded frames — critical for CRM portals and SaaS lead tools that render key UI inside iframes. Chrome Discovery Protocol (CDP) readiness checks are adjusted for reliability, and tab URL safety prevents accidental navigation away from active automation targets.
+  Upstream: v2026.4.25
+
+- **Control UI: PWA and Web Push support**
+  The OpenClaw control interface can now be installed as a Progressive Web App with Web Push notifications, giving sales teams instant alerts for inbound lead messages without keeping a browser tab open.
+  Upstream: v2026.4.25
+
+- **Installation hardening across Windows, macOS, Linux & Docker**
+  Install and update flows receive cross-platform reliability improvements. Bundled plugin skill copy now runs consistently across OS environments, reducing first-run failures for teams self-hosting on diverse infrastructure.
+  Upstream: v2026.4.25
+
+### Fixed
+
+- 200+ bug fixes spanning TTS providers, plugin diagnostics, browser automation, channel integrations (Discord, Telegram), cron job scheduling, and media handling.
+  Upstream: v2026.4.25
+
+---
+
 ## 2026-04-25 — OpenClaw v2026.4.24 upstream sync
 
 > **Breaking change for plugin authors:** The Pi-only `api.registerEmbeddedExtensionFactory(...)` compatibility path has been removed. Custom tool-result transforms must now use `api.registerAgentToolResultMiddleware(...)` with a `contracts.agentToolResultMiddleware` declaration that names the targeted harnesses. Update any custom plugins before upgrading.
