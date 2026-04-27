@@ -1,3 +1,14 @@
+## 2026-04-27 — No new release check (run 3)
+
+- Last synced: v2026.4.24
+- Latest stable: v2026.4.24 — no new release (already synced)
+- Latest betas: v2026.4.25-beta.2 through beta.4 visible (skipped — pre-release)
+- Outlook: v2026.4.25 stable likely imminent; beta cadence active
+- No changes made to template repo
+- WeChat: pending — appsecret misconfiguration (error 40125) unresolved server-side; draft at .sync/blog-drafts/openclaw-v2026.4.24-zh.json
+
+---
+
 ## 2026-04-27 — No new release (v2026.4.25 still in beta, up to beta.10)
 
 - Last synced: v2026.4.24
