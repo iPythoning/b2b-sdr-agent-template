@@ -1,3 +1,11 @@
+## 2026-04-27 — No-op check (run 5)
+
+- **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
+- **Betas in flight**: v2026.4.25-beta.3 / beta.4 (2026-04-26, skipped — pre-release)
+- **Action**: Logged and exited per workflow rules. Awaiting next stable release.
+
+---
+
 ## 2026-04-27 — Blog republish + WeChat retry (run 4)
 
 - **Release check**: Latest stable = v2026.4.24 (same as last-release) — no new release
