@@ -1,3 +1,17 @@
+## 2026-04-28 — Blog + WeChat retry (run 21)
+
+- **Release check**: v2026.4.26 == last-release → no new release (latest stable is still OpenClaw 2026.4.26, published 2026-04-28 01:11 UTC)
+- **Blog EN retry**: FAILED — HTTP 500, empty body (9th consecutive failure)
+- **Blog ZH retry**: FAILED — HTTP 500, empty body (9th consecutive failure)
+- **WeChat retry**: FAILED — `WeChat API error: WeChat token error: 40125 invalid appsecret rid: 69f06a96-3b9f01de-16973397` (persistent config issue, unchanged)
+- **Diagnosis**: Minimal probe payload (`{"title":"Test",...}`) also returns HTTP 500 with empty body → hard server-side crash on every POST to `/api/blog/publish`, unrelated to content. `pulseagent.io` root returns HTTP 200; both API endpoints return HTTP 405 on GET (routes registered). Blog crash is backend code/DB/env issue, not infrastructure down.
+- **Action required**:
+  1. **URGENT — Blog API**: `/api/blog/publish` crashes with HTTP 500 (empty body) on ANY POST, including minimal payloads. Check server logs, crash handler, DB connection pool, missing env vars, or recent deployment regression. 9 consecutive failures across multiple days.
+  2. **URGENT — WeChat**: Error 40125 = wrong App Secret in PulseAgent platform WeChat settings. Update the App Secret to match the value in WeChat Official Account platform → MP settings → Development → Basic configuration.
+  3. Re-run once both are fixed; pending drafts: `.sync/blog-drafts/openclaw-v2026.4.26-en.json` + `*-zh.json` (plus large backlog from v2026.4.5 through v2026.4.25)
+
+---
+
 ## 2026-04-28 — Release check (run 20)
 
 - **Release check**: v2026.4.26 == last-release → no new release (latest stable on GitHub is still OpenClaw 2026.4.26). Exiting per workflow rules.
