@@ -1,3 +1,15 @@
+## 2026-04-28 — Release check + API probe (run 23)
+
+- **Release check**: v2026.4.26 == last-release → no new release. Latest stable on GitHub is still OpenClaw 2026.4.26 (published 2026-04-28). Exiting per workflow rules.
+- **Blog API probe**: FAILED — HTTP 500, empty body (10th consecutive failure). Server-side crash on every POST persists.
+- **WeChat API probe**: FAILED — `WeChat API error: WeChat token error: 40125 invalid appsecret rid: 69f0a372-27a85ee2-7a5fd081` (wrong App Secret, unchanged).
+- **Pending drafts**: `.sync/blog-drafts/openclaw-v2026.4.26-en.json` + `*-zh.json` (plus backlog from v2026.4.5–v2026.4.25). Will publish once APIs are restored.
+- **Action required** (unchanged from run 21):
+  1. **Blog API** `/api/blog/publish` — HTTP 500 on all POSTs incl. minimal payloads. Check server logs / crash handler / DB / env vars / recent deployment.
+  2. **WeChat** — Error 40125 = wrong App Secret. Update in PulseAgent platform → WeChat settings → App Secret to match WeChat MP platform → Development → Basic configuration.
+
+---
+
 ## 2026-04-28 — Release check (run 22)
 
 - **Release check**: v2026.4.26 == last-release → no new release. Latest stable on GitHub is still OpenClaw 2026.4.26 (published 2026-04-28). Exiting per workflow rules.
