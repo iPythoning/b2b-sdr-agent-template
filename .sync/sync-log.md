@@ -1,3 +1,16 @@
+## 2026-04-28 — Blog + WeChat retry (run 17)
+
+- **Release check**: v2026.4.26 == last-release → no new release
+- **Blog EN retry**: FAILED — HTTP 500 (6th+ consecutive failure; backend still down)
+- **Blog ZH retry**: FAILED — HTTP 500 (6th+ consecutive failure; backend still down)
+- **WeChat retry**: FAILED — `WeChat API error: 40125 invalid appsecret rid: 69f031b7-2e19d3a1-61464ef8` (persistent config issue, unchanged)
+- **Action required**:
+  1. Fix `pulseagent.io/api/blog/publish` backend (HTTP 500 across 6+ consecutive runs — likely a server/deployment/DB issue)
+  2. Fix WeChat appsecret in PulseAgent platform settings (error 40125 = wrong appsecret configured)
+  3. Re-run once both APIs are fixed; pending drafts: `.sync/blog-drafts/openclaw-v2026.4.26-en.json` + `*-zh.json` (plus older backlog)
+
+---
+
 ## 2026-04-28 — Blog + WeChat retry (run 16)
 
 - **Release check**: v2026.4.26 == last-release → no new release
