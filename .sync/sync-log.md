@@ -1,3 +1,10 @@
+## 2026-04-28 — Release check (run 20)
+
+- **Release check**: v2026.4.26 == last-release → no new release (latest stable on GitHub is still OpenClaw 2026.4.26). Exiting per workflow rules.
+- **No action taken**: APIs not retried (no new release to publish).
+
+---
+
 ## 2026-04-28 — Blog + WeChat retry (run 19)
 
 - **Release check**: v2026.4.26 == last-release → no new release (latest stable on GitHub is still OpenClaw 2026.4.26, released 2026-04-28)
