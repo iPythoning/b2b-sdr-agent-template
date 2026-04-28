@@ -1,3 +1,13 @@
+## 2026-04-28 — v2026.4.25 publish retry (run 13)
+
+- **Release check**: Latest stable = v2026.4.25 (same as last-release) — no new release; retrying pending publishes from run 12
+- **Blog EN**: PENDING — pulseagent.io `/api/blog/publish` returning HTTP 500 (empty body, backend server error; previously HTTP 522 Cloudflare origin timeout in run 12); draft ready at `.sync/blog-drafts/openclaw-v2026.4.25-en.json`
+- **Blog ZH**: PENDING — same HTTP 500 on `/api/blog/publish`; draft ready at `.sync/blog-drafts/openclaw-v2026.4.25-zh.json`
+- **WeChat**: PENDING — `/api/wechat/publish` returning HTTP 500 with `{"error":"WeChat API error: WeChat token error: 40125 invalid appsecret"}` — WeChat app credentials expired/invalid on server side
+- **Note**: All content is ready. Blog drafts are committed. Re-run when API team resolves backend 500 and rotates WeChat appsecret.
+
+---
+
 ## 2026-04-27 — v2026.4.25 full sync (run 12)
 
 - **Release check**: v2026.4.24 → **v2026.4.25** (released 2026-04-27 11:55 UTC by @steipete) — NEW stable release
