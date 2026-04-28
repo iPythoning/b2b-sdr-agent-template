@@ -1,3 +1,42 @@
+## 2026-04-28 — v2026.4.26 full sync (run 15)
+
+- **Release check**: v2026.4.25 → **v2026.4.26** (released 2026-04-28 01:11 UTC) — NEW stable release
+- **Categorization**:
+
+| Feature | Category |
+|---|---|
+| QQBot: full group chat (history, @-gating, activation modes, per-group config, FIFO queue) | RELEVANT |
+| Tencent Yuanbao external channel plugin | RELEVANT |
+| Google Live browser realtime Talk sessions (browser transport + Gateway relay) | RELEVANT |
+| `openclaw migrate` CLI (plan / dry-run / backup / onboarding detection) | RELEVANT |
+| Cerebras bundled provider plugin | RELEVANT |
+| Memory: asymmetric embedding endpoints + Ollama query prefixes | RELEVANT |
+| Plugin manifest: pre-runtime model normalization, transactional config helpers | WATCH |
+| Startup: deferred init + schema memoization | WATCH |
+| WhatsApp proxy support | RELEVANT |
+| LSP process cleanup, Windows path fix, Docker CA cert, Matrix E2EE | RELEVANT |
+| Mattermost DM routing, Discord model-picker persistence | WATCH |
+
+- **Template changes**:
+  - `README.md`: Updated banner to v2026.4.26 (QQBot, Google Live, migrate CLI, Cerebras)
+  - `README.zh-CN.md`: Updated Chinese banner to v2026.4.26
+  - `CHANGELOG.md`: Added full v2026.4.26 section (7 new features + 8 bug fixes)
+
+- **Blog EN**: PENDING — `/api/blog/publish` HTTP 500 (empty body, backend server error, 4th consecutive failure since run 12); draft at `.sync/blog-drafts/openclaw-v2026.4.26-en.json`
+- **Blog ZH**: PENDING — same HTTP 500; draft at `.sync/blog-drafts/openclaw-v2026.4.26-zh.json` (JSON fixed — had unescaped ASCII quotes from Chinese markdown)
+- **v2026.4.25 blog retry**: FAILED — same HTTP 500 on both EN and ZH drafts; `/api/blog/publish` backend remains down
+
+- **WeChat**: FAILED — `WeChat API error: 40125 invalid appsecret rid: 69f01958-7de9b83d-6281c0e5` (same persistent config issue as previous cycles)
+
+- **Action required**:
+  1. Fix `pulseagent.io/api/blog/publish` backend (HTTP 500, 4 consecutive failures across runs 12-15)
+  2. Update WeChat Official Account appsecret in PulseAgent platform settings
+  3. Re-publish pending drafts: `.sync/blog-drafts/openclaw-v2026.4.25-en.json`, `openclaw-v2026.4.25-zh.json`, `openclaw-v2026.4.26-en.json`, `openclaw-v2026.4.26-zh.json`
+
+- **last-release**: Updated to v2026.4.26
+
+---
+
 ## 2026-04-28 — v2026.4.25 publish retry (run 14)
 
 - **Release check**: Latest stable = v2026.4.25 (same as last-release) — no new release; retrying pending publishes from runs 12-13
