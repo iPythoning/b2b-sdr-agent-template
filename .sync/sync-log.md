@@ -1,3 +1,19 @@
+## 2026-04-29 — Run 28 — No new release; blogs re-confirmed live; WeChat 40125 persists
+
+**Checked**: v2026.4.26 == last-release → no new stable release.
+
+**Blog API**: All 4 drafts re-published successfully (HTTP 200, `action: updated`):
+- v2026.4.26 EN: https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration (postId: `660cb0c8-3d3a-4d28-a903-483981cfe8be`)
+- v2026.4.26 ZH: https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh (postId: `824dec4c-da07-44f2-9544-7994f81d2324`)
+- v2026.4.25 EN: https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-observability (postId: `366c183d-f53d-4f4a-a0ae-4e9a25bc5eff`)
+- v2026.4.25 ZH: https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh (postId: `279bf0de-7c57-48bf-8398-f08a2857a54e`)
+
+**WeChat**: HTTP 500, `40125 invalid appsecret` — platform-side WeChat appsecret misconfiguration persists. ZH posts not delivered to WeChat.
+
+**Action required (platform team)**: Fix WeChat appsecret in PulseAgent platform settings (WeChat Official Account backend → 开发 → 基本配置 → AppSecret).
+
+---
+
 ## 2026-04-29 03:14 UTC — Run 27 — Blogs re-published (v2026.4.24 + v2026.4.25 + v2026.4.26); WeChat 40125 persists
 
 **Checked**: v2026.4.26 == last-release → no new stable release.
