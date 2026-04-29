@@ -1,3 +1,13 @@
+## 2026-04-29 — Run 36 — No new release; WeChat 40125 persists (6th consecutive failure)
+
+**Checked**: v2026.4.26 == last-release → no new stable release upstream.
+
+**WeChat**: Retries suspended (40125 invalid appsecret, 6 consecutive failures across Runs 29–36). No retry attempted.
+
+**Status**: Nothing to do. Awaiting platform team WeChat credential fix.
+
+---
+
 ## 2026-04-29 — Run 35 — No new release; WeChat 40125 persists (5th consecutive failure)
 
 **Checked**: v2026.4.26 == last-release → no new stable release upstream.
