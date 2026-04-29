@@ -1,3 +1,20 @@
+## 2026-04-29 — Run 26 — No new release; blogs confirmed live; WeChat error code shifted to 1010
+
+**Checked**: v2026.4.26 == last-release → no new stable release. Latest GitHub stable remains OpenClaw 2026.4.26 (published 2026-04-28).
+
+**Blog API**: Re-confirmed live (action: `updated`). Both v2026.4.26 posts already published from Run 25:
+- EN: https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration
+- ZH: https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh
+
+**WeChat**: HTTP 403, `error code: 1010` — IP address not in WeChat IP whitelist (different error from previous 40125 appsecret issue; appsecret appears fixed but IP whitelist now blocking). Platform team must whitelist the PulseAgent server IP in WeChat Official Account backend → IP白名单.
+
+**Action required (platform team)**:
+1. Log into WeChat Official Account backend → 开发 → 基本配置 → IP白名单
+2. Add the PulseAgent API server's outbound IP to the whitelist
+3. Once fixed, re-run workflow to push ZH WeChat posts for v2026.4.26 and v2026.4.25
+
+---
+
 ## 2026-04-29 — Run 25 — Blog API RESTORED, all pending drafts published
 
 **Checked**: v2026.4.26 == last-release → no new stable release. Latest GitHub stable remains OpenClaw 2026.4.26 (published 2026-04-28).
