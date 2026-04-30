@@ -3154,3 +3154,25 @@
 **Action required (platform team)**:
 1. Fix WeChat appsecret error 40125 in PulseAgent platform settings
 2. Re-run WeChat publish step for v2026.4.25-zh and v2026.4.26-zh posts
+
+---
+
+## 2026-04-30 — Run 30 — v2026.4.27 blogs published; WeChat still blocked
+
+**Checked**: v2026.4.27 == last-release → no new stable release upstream.
+
+**Blog API**: Published 2 pending v2026.4.27 drafts:
+
+| Version | Lang | Post ID | URL |
+|---------|------|---------|-----|
+| v2026.4.27 | EN | 5301e349-6179-4a62-b105-444920f81ac9 | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy |
+| v2026.4.27 | ZH | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
+
+**WeChat**: STILL FAILING — error 40125 (invalid appsecret) on all 3 attempts (v2026.4.27, v2026.4.26, v2026.4.25 ZH). rid samples:
+- v2026.4.27: `69f2d8ff-645a01f5-1cfa1ca7`
+- v2026.4.26: `69f2d901-649492cc-119a9b0f`
+- v2026.4.25: `69f2d903-6f3e210a-4078b04f`
+
+**Action required (platform team)**:
+1. Fix WeChat appsecret error 40125 in PulseAgent platform settings — this has been failing for 2+ days across 3 release ZH posts
+2. Once fixed, re-push WeChat for: v2026.4.25-zh, v2026.4.26-zh, v2026.4.27-zh
