@@ -1,3 +1,27 @@
+## 2026-04-30 — Run 46 — No new release; WeChat Cloudflare 1010 (2nd consecutive IP block)
+
+**Checked**: v2026.4.27 == last-release → no new stable release upstream. Pre-release `v2026.4.29-beta.1` skipped per stable-only rule. Exit.
+
+**WeChat retry**: Attempted push of v2026.4.27-zh.
+
+| Version | Lang | WeChat result |
+|---------|------|---------------|
+| v2026.4.27 | ZH | HTTP 403 — Cloudflare error code 1010 (IP access denied) |
+
+**WeChat status**: Cloudflare 1010 returned again (also seen in Run 44; Run 45 got 40125). Errors are now alternating between `40125 invalid appsecret` and Cloudflare 1010 — both indicate the request is not reaching WeChat successfully. 16 consecutive failures across Runs 29–46.
+
+**Pending WeChat posts** (blocked — Cloudflare 1010 / 40125 appsecret):
+- v2026.4.25-zh
+- v2026.4.26-zh
+- v2026.4.27-zh
+
+**Action required (platform team)**:
+1. Fix WeChat appsecret — `40125 invalid appsecret` has been failing for 16 consecutive runs. Update the WeChat AppSecret in PulseAgent platform settings → WeChat integration.
+2. Investigate Cloudflare WAF rule blocking requests from this server IP (error 1010). May need IP allowlist or WAF rule adjustment.
+3. Once fixed, re-run workflow to push all three pending ZH posts.
+
+---
+
 ## 2026-04-30 — Run 45 — No new release; WeChat 40125 resumes (15th consecutive failure; Cloudflare 1010 from Run 44 was transient)
 
 **Checked**: v2026.4.27 == last-release → no new stable release upstream. Pre-release `2026.4.29-beta.1` skipped per stable-only rule. Exit.
