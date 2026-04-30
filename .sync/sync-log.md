@@ -1,3 +1,30 @@
+## 2026-04-30 — Run 37 — v2026.4.26 → v2026.4.27; WeChat 40125 (7th consecutive failure)
+
+**New release**: `v2026.4.26` → `v2026.4.27` (published 2026-04-29T22:12:19Z)
+
+**Changes categorized**:
+- RELEVANT: DeepInfra bundled provider, bounded memory top-K + streaming, QQBot/Yuanbao expanded channel support, Docker GPU passthrough, operator proxy routing
+- WATCH: Codex Computer Use marketplace discovery
+- SKIP: BlueBubbles TTS/iMessage, Plugin SDK test reorganization
+
+**Repo updates**:
+- `CHANGELOG.md` — added v2026.4.27 section
+- `README.md` — updated "New" announcement banner
+
+**Blog published**:
+| Lang | Post ID | URL |
+|------|---------|-----|
+| EN | `5301e349-6179-4a62-b105-444920f81ac9` | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy |
+| ZH | `a3e68ce5-a50d-467a-8c87-edb6221aff1a` | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
+
+**WeChat**: HTTP 500 — `40125 invalid appsecret` (rid: 69f2a617-5275779d-3d02d673) — 7th consecutive failure across Runs 29–37.
+
+**Action required (platform team)**:
+1. Fix WeChat appsecret (error 40125) in PulseAgent platform settings → WeChat Official Account → 开发 → 基本配置 → AppSecret
+2. Re-run WeChat publish for v2026.4.25-zh, v2026.4.26-zh, and v2026.4.27-zh posts
+
+---
+
 ## 2026-04-29 — Run 36 — No new release; WeChat 40125 persists (6th consecutive failure)
 
 **Checked**: v2026.4.26 == last-release → no new stable release upstream.

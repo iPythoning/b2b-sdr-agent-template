@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-04-28** — **OpenClaw v2026.4.26**: QQBot gains full group chat support (history tracking, @-mention gating, per-group config) for China-market B2B, Google Live browser realtime voice sessions land with Gateway relay, new `openclaw migrate` CLI enables zero-downtime enterprise upgrades with plan/dry-run/backup, and Cerebras joins as a bundled AI provider. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-04-30** — **OpenClaw v2026.4.27**: DeepInfra joins as a bundled AI provider for cost-efficient large-scale inference, memory search gains bounded top-K results and streaming support, Codex Computer Use adds marketplace discovery with fail-closed safety, Docker sandbox gets GPU passthrough, and operator-managed outbound proxy routing lands for enterprise network compliance. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 

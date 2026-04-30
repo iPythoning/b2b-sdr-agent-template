@@ -8,6 +8,44 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-04-30 — OpenClaw v2026.4.27 upstream sync
+
+### New Features
+
+- **DeepInfra: New bundled AI provider**
+  DeepInfra joins as a bundled provider plugin with model discovery and media generation capabilities. For B2B SDR pipelines, DeepInfra's GPU-cluster inference offers a cost-efficient path to running large models at scale — important for deployments processing thousands of daily conversations where provider API costs are a key unit-economics driver. Access open-weight models (Llama-3, Mistral) alongside proprietary options without additional infrastructure.
+  Upstream: v2026.4.27
+
+- **Memory search: Bounded top-K results & streaming support**
+  Lead memory retrieval now enforces a configurable maximum result count (bounded top-K), preventing oversized context injection from large lead databases that degraded response quality and inflated token costs. Memory loading also now streams results progressively rather than blocking, reducing perceived latency for agents with rich lead histories (100+ touchpoints) and allowing response generation to begin while memory loads in the background.
+  Upstream: v2026.4.27
+
+- **Codex Computer Use: Status/install commands with marketplace discovery**
+  Codex Computer Use gains `status` and `install` commands with ClawHub marketplace discovery and fail-closed MCP checks. For advanced SDR automation scenarios, this enables agent-driven tool installation and environment verification — useful for teams running OpenClaw on CI/CD pipelines or remote worker fleets where the full agent stack must be verified before routing production traffic.
+  Upstream: v2026.4.27
+
+- **Docker sandbox: GPU passthrough via `sandbox.docker.gpus`**
+  Docker-based deployments can now pass GPU resources into the sandbox container via the `sandbox.docker.gpus` configuration key. Enables on-premise LLM inference, TTS/STT models, and media generation to run directly within the OpenClaw sandbox — the key path to fully air-gapped AI SDR deployments for enterprises with strict data residency requirements.
+  Upstream: v2026.4.27
+
+- **Operator proxy: Managed outbound routing with strict validation**
+  Operator-managed outbound proxy routing with strict validation allows all agent traffic — API calls, webhook deliveries, channel messages — to route through a designated corporate proxy. With `strict: true`, any connection that cannot route through the proxy fails closed. Essential for regulated-market deployments (financial services, healthcare, government) where all outbound traffic must traverse a compliance inspection layer.
+  Upstream: v2026.4.27
+
+- **QQBot + Tencent Yuanbao: Expanded channel support**
+  Building on v2026.4.26's QQBot group chat debut, this release expands Tencent Yuanbao and QQBot channel support with additional group functionality and stability improvements. China-market B2B teams operating at scale on Tencent's platforms get a more robust and reliable channel layer.
+  Upstream: v2026.4.27
+
+### Fixed
+
+- Plugin startup now uses manifest-first metadata, reducing Gateway boot overhead for large plugin collections (20+ plugins)
+- Sensitive tokens and API keys now comprehensively redacted across all logging systems — no credential exposure in log aggregation platforms
+- Matrix approval scenarios: live metadata and chunked fallback improve E2EE channel reliability
+- Plugin SDK testing surfaces reorganized into focused, documented subpaths for improved developer experience
+  Upstream: v2026.4.27
+
+---
+
 ## 2026-04-28 — OpenClaw v2026.4.26 upstream sync
 
 ### New Features
