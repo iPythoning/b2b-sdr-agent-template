@@ -1,3 +1,27 @@
+## 2026-04-30 — Run 44 — No new release; WeChat now HTTP 403 / Cloudflare 1010 (14th consecutive failure, new error type)
+
+**Checked**: v2026.4.27 == last-release → no new stable release upstream. Exit.
+
+**WeChat retry**: Attempted push of v2026.4.27-zh.
+
+| Version | Lang | WeChat result |
+|---------|------|---------------|
+| v2026.4.27 | ZH | HTTP 403 — Cloudflare error code 1010 (IP access denied) |
+
+**WeChat status**: Now returning HTTP 403 / Cloudflare 1010 (IP ban), replacing the previous `40125 invalid appsecret` (500) errors seen in Runs 29–43. This is a **new error type** — Cloudflare WAF is blocking the request from this server IP. The WeChat appsecret issue may have been resolved upstream, but the request is now being blocked at the CDN layer before reaching the PulseAgent API.
+
+**Pending WeChat posts** (blocked — new: Cloudflare 1010):
+- v2026.4.25-zh
+- v2026.4.26-zh
+- v2026.4.27-zh
+
+**Action required (platform team)**:
+1. **New issue**: Cloudflare WAF / firewall is returning 1010 (IP access denied) for `POST https://pulseagent.io/api/wechat/publish` from this server's IP. Whitelist the agent runner IP in Cloudflare dashboard → Security → WAF → Tools → IP Access Rules.
+2. Previous WeChat appsecret error (40125) may or may not be resolved — cannot confirm until Cloudflare block is lifted.
+3. Re-run workflow to push all three pending ZH posts once unblocked.
+
+---
+
 ## 2026-04-30 — Run 43 — No new release; WeChat 40125 persists (13th consecutive failure)
 
 **Checked**: v2026.4.27 == last-release → no new stable release upstream. Exit.
