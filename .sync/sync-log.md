@@ -1,3 +1,26 @@
+## 2026-04-30 — Run 43 — No new release; WeChat 40125 persists (13th consecutive failure)
+
+**Checked**: v2026.4.27 == last-release → no new stable release upstream. Exit.
+
+**WeChat retry**: Attempted push of v2026.4.27-zh (rid: 69f33c96-1ceedc5a-118888f7).
+
+| Version | Lang | WeChat result |
+|---------|------|---------------|
+| v2026.4.27 | ZH | HTTP 500 — `40125 invalid appsecret` (rid: 69f33c96-1ceedc5a-118888f7) |
+
+**WeChat status**: `40125 invalid appsecret` persists (13 consecutive runs, Runs 29–43). v2026.4.25-zh and v2026.4.26-zh not retried (same credentials → same error).
+
+**Pending WeChat posts** (blocked on credential fix):
+- v2026.4.25-zh
+- v2026.4.26-zh
+- v2026.4.27-zh
+
+**Action required (platform team)**:
+1. Fix WeChat appsecret (error 40125) in PulseAgent platform settings → WeChat Official Account → 开发 → 基本配置 → AppSecret
+2. Re-run workflow to push all three pending ZH posts
+
+---
+
 ## 2026-04-30 — Run 42 — No new release; WeChat 40125 persists (12th consecutive failure)
 
 **Checked**: v2026.4.27 == last-release → no new stable release upstream. Exit.
