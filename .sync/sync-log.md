@@ -1,3 +1,9 @@
+## 2026-05-01 — Run 61 — No new release (v2026.4.29 already processed)
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream. Exit.
+
+---
+
 ## 2026-05-01 — Run 60 — No new release; WeChat re-push still failing (40125)
 
 **Checked**: v2026.4.29 (last-release) == v2026.4.29 (latest stable upstream) → no new stable release. Stable tags enumerated via `git ls-remote --tags`; newest stable is still v2026.4.29. All entries above it are pre-releases (v2026.4.29-beta.1 through beta.4). Exit.
