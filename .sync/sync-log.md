@@ -3433,3 +3433,9 @@ This is now the 17th+ consecutive WeChat failure. The appsecret has NOT been upd
 | v2026.4.29 | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
 
 **Action required (platform team)**: Update WeChat appsecret in PulseAgent → WeChat Official Account backend. Once fixed, all 4 ZH posts above can be re-pushed in a single run.
+
+---
+
+## 2026-05-01 — Run 50 — No new release (v2026.4.29 already processed)
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream. Exit.
