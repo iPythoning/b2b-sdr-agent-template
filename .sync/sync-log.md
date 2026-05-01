@@ -1,3 +1,16 @@
+## 2026-05-01 — Run 47 — No new release
+
+**Checked**: v2026.4.29 (last-release) == v2026.4.29 (latest stable upstream) → no new stable release. Pre-releases v2026.4.29-beta.3, v2026.4.29-beta.4 skipped per stable-only rule. Exit.
+
+**WeChat status**: Not retried this run — persistent Cloudflare 1010 / 40125 appsecret errors from prior runs (Runs 29–46). Platform team action still required before retry.
+
+**Pending WeChat posts** (blocked):
+- v2026.4.25-zh
+- v2026.4.26-zh
+- v2026.4.27-zh
+
+---
+
 ## 2026-04-30 — Run 46 — No new release; WeChat Cloudflare 1010 (2nd consecutive IP block)
 
 **Checked**: v2026.4.27 == last-release → no new stable release upstream. Pre-release `v2026.4.29-beta.1` skipped per stable-only rule. Exit.
