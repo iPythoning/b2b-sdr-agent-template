@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-04-30** — **OpenClaw v2026.4.27**: DeepInfra joins as a bundled AI provider for cost-efficient large-scale inference, memory search gains bounded top-K results and streaming support, Codex Computer Use adds marketplace discovery with fail-closed safety, Docker sandbox gets GPU passthrough, and operator-managed outbound proxy routing lands for enterprise network compliance. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-01** — **OpenClaw v2026.4.29**: People-aware Memory Wiki lands with person cards and relationship graphs (deduplicated across WhatsApp/Telegram/email), opt-in follow-up commitment system delivers heartbeat reminders automatically, NVIDIA joins as a bundled inference provider, and 6 new locales (Arabic, Vietnamese, Thai, Dutch, Italian, Persian) expand global reach. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 

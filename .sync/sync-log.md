@@ -3363,3 +3363,32 @@
 **Action required (platform team)**:
 1. Fix WeChat appsecret error 40125 in PulseAgent platform settings — this has been failing for 2+ days across 3 release ZH posts
 2. Once fixed, re-push WeChat for: v2026.4.25-zh, v2026.4.26-zh, v2026.4.27-zh
+
+---
+
+## 2026-05-01 — Run 47 — v2026.4.29 NEW RELEASE — blogs published; WeChat 40125 still failing
+
+**Release**: v2026.4.27 → v2026.4.29 (new stable release detected)
+
+**Categorization**:
+- BREAKING: Tool sections require explicit `alsoAllow` (no implicit profile widening)
+- RELEVANT: People-aware Memory Wiki (person cards, relationship graphs, alias dedup), opt-in follow-up commitments (heartbeat delivery), NVIDIA bundled provider, 6 new locales (Arabic, Vietnamese, Thai, Dutch, Italian, Persian), `OPENCLAW_SKIP_ONBOARDING` Docker env, Active Memory filters
+- WATCH: OpenGrep scanning, Bedrock Opus 4.7 parity, Gateway startup diagnostics
+- SKIP: Signal/Matrix/Feishu edge cases (not core B2B SDR flow)
+
+**Template updates**:
+- CHANGELOG.md: Added v2026.4.29 section (Breaking + 7 features + 7 fixes)
+- README.md: Updated "New" banner to v2026.4.29
+- README.zh-CN.md: Updated "最新" banner to v2026.4.29
+
+**Blog API**: Both posts published successfully (HTTP 200, `action: created`):
+
+| Version | Lang | Post ID | URL |
+|---------|------|---------|-----|
+| v2026.4.29 | EN | ad0f870d-de76-46d0-b306-2174079ef40e | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup |
+| v2026.4.29 | ZH | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
+
+**WeChat**: STILL FAILING — error 40125 (invalid appsecret). rid: `69f3f922-21182931-08f1ae7e`
+- This is the 16th+ consecutive WeChat failure across v2026.4.25/4.26/4.27/4.29 ZH posts
+- **Action required (platform team)**: Fix WeChat appsecret in PulseAgent platform → WeChat Official Account backend settings
+- Posts queued for re-push once fixed: v2026.4.25-zh, v2026.4.26-zh, v2026.4.27-zh, v2026.4.29-zh

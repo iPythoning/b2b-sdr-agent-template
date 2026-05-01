@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-04-28** — **OpenClaw v2026.4.26**：QQBot 完整群聊支持上线（历史追踪、@触发机制、分群配置），专为中国 B2B 市场打造；Google Live 浏览器实时语音会话支持 Gateway 中继；全新 `openclaw migrate` CLI 实现零停机企业迁移（plan/dry-run/backup）；Cerebras 推理提供商正式捆绑。[查看完整更新日志 →](./CHANGELOG.md)
+> 🚀 **最新 · 2026-05-01** — **OpenClaw v2026.4.29**：人脉感知记忆Wiki正式上线（人物卡片、关系图谱、跨渠道去重），智能跟进承诺系统自动心跳推送，NVIDIA正式加入捆绑推理提供商，新增阿拉伯语、越南语、泰语、荷兰语、意大利语、波斯语等6种语言。[查看完整更新日志 →](./CHANGELOG.md)
 
 **🌐 [English](./README.md) | 中文 | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 

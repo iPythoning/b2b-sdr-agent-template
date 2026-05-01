@@ -8,6 +8,61 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-01 — OpenClaw v2026.4.29 upstream sync
+
+### Breaking Changes
+
+- **Tool security: explicit `alsoAllow` required**
+  Configured tool sections no longer implicitly widen restrictive security profiles. Any tool-access expansion beyond a restrictive profile now requires an explicit `alsoAllow` entry in configuration. If you have custom tool-profile configurations relying on implicit widening, audit and add explicit entries before upgrading — implicit expansions now fail closed. This is the correct default for enterprise deployments where tool scope must be auditable and traceable.
+  Upstream: v2026.4.29
+
+### New Features
+
+- **Memory/wiki: People-aware knowledge base with relationship graphs**
+  The Memory system now maintains a structured people wiki alongside conversation memory. Each contact your AI SDR interacts with gets a person card (name, role, company, decision-making authority), canonical aliases deduplicated across channels (the same person on WhatsApp/Telegram/email merges into one record), relationship graphs mapping org structure and procurement chains, and provenance views tracing which conversations produced which facts. For B2B export teams, relationship graphs unlock org-structure reasoning: "Liu Wei is the procurement manager who reports to Director Zhang, who signed the last PO." That's the context that moves deals — previously only experienced sales reps carried it; now the AI does automatically.
+  Upstream: v2026.4.29
+
+- **Active Memory: Per-conversation channel filters**
+  Optional `allowedChatIds` and `deniedChatIds` per-conversation filters let you wall off memory context by channel or contact group. Keep enterprise account memory separate from SMB prospect pools, or enforce GDPR data-separation between regional deployments, without additional infrastructure.
+  Upstream: v2026.4.29
+
+- **Agents/commitments: Opt-in follow-up commitment system with heartbeat delivery**
+  When your AI SDR commits to a follow-up during a conversation ("I'll send the spec sheet tomorrow"), the commitment is now automatically detected, persisted, and delivered on schedule via heartbeat. Hidden batched extraction means zero UX friction on the conversation side; per-agent and per-channel scoping keeps WhatsApp and Telegram follow-up queues separate. This transforms the agent from a reactive chat interface into a proactive account manager that keeps its word without human hand-holding.
+  Upstream: v2026.4.29
+
+- **Providers/NVIDIA: New bundled inference provider**
+  NVIDIA joins as a bundled provider plugin with API-key onboarding and a static model catalog. Enables high-throughput inference for pipelines processing 1,000+ daily conversations, and — combined with v2026.4.27's Docker GPU passthrough — completes the story for fully air-gapped, on-premise AI SDR deployment on NVIDIA hardware. Use the NVIDIA cloud API with just an API key, or route through your own on-premise NVIDIA GPUs via Docker.
+  Upstream: v2026.4.29
+
+- **Docker: `OPENCLAW_SKIP_ONBOARDING` for automated installs**
+  New environment variable bypasses the interactive onboarding wizard, making Docker-based enterprise deployments fully scriptable for CI/CD pipelines and infrastructure-as-code workflows. Set `OPENCLAW_SKIP_ONBOARDING=1` in your Compose or Kubernetes manifest to deploy without any interactive prompts.
+  Upstream: v2026.4.29
+
+- **Localization: 6 new locales**
+  Persian (Farsi), Dutch, Vietnamese, Italian, Arabic, and Thai join the locale registry. B2B export teams can now operate natively in buyer languages across GCC/MENA (Arabic), Southeast Asia (Vietnamese, Thai), EU (Dutch, Italian), and Central Asia (Persian) markets without additional localization work on your end.
+  Upstream: v2026.4.29
+
+- **Messages/queue: Active-run queueing defaults to `steer` mode**
+  Message queue now defaults to `steer` with a 500ms followup fallback debounce, improving responsiveness in high-velocity conversation threads while preventing message storms during rapid back-and-forth exchanges.
+  Upstream: v2026.4.29
+
+- **Gateway diagnostics: Startup timeline recording**
+  Opt-in startup diagnostics now record a gateway lifecycle timeline covering plugin-load phases and event-loop readiness. Faster operational root-cause analysis when the Gateway is slow to accept connections — essential for debugging cold-start performance in large plugin collections (20+ plugins).
+  Upstream: v2026.4.29
+
+### Fixed
+
+- **WhatsApp**: Improved delivery confirmation and liveness checking — fewer silent failures when WhatsApp Web connectivity degrades during high-volume outbound sequences
+- **Telegram**: Long-polling client timeout fixes and improved message-edit durability for streaming — more reliable for broadcast sequences and real-time reply flows
+- **Slack**: Bot-authored messages with `allowBots=true` now require explicit channel allowlisting (security hardening — prevents unintended bot-to-bot relay in shared workspaces)
+- **OpenAI Codex**: Preserved wrapped streams during OAuth bearer injection; restored `openai-codex/gpt-5.4-mini` for ChatGPT/Codex OAuth runs
+- **Agents/subagents**: Bounded automatic orphan recovery with persisted tombstones prevents runaway orphaned sub-agent threads from consuming resources
+- **Security**: Timing-safe credential byte comparison for password checks; HTML tag stripping during plain-text sanitization
+- **Gateway/systemd**: Exit with sysexits 78 for supervised lock conflicts (cleaner process supervision)
+  Upstream: v2026.4.29
+
+---
+
 ## 2026-04-30 — OpenClaw v2026.4.27 upstream sync
 
 ### New Features
