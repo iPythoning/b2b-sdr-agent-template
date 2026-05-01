@@ -1,3 +1,14 @@
+## 2026-05-01 — Run 52 — No new release; WeChat re-push still failing (40125)
+
+**Checked**: v2026.4.29 (last-release) == v2026.4.29 (latest stable upstream) → no new stable release. Pre-releases v2026.4.29-beta.3, v2026.4.29-beta.4 confirmed on releases page, skipped. Exit.
+
+**WeChat re-push**: Attempted re-push for v2026.4.29-zh.
+**Result**: STILL FAILING — error 40125 (invalid appsecret). rid: `69f44a11-32d01ee2-0f3bfe98`
+
+This is now the 19th+ consecutive WeChat failure. Appsecret remains uncorrected.
+
+---
+
 ## 2026-05-01 — Run 51 — No new release; WeChat re-push still failing (40125)
 
 **Checked**: v2026.4.29 (last-release) == v2026.4.29 (latest stable upstream) → no new stable release. Pre-releases v2026.4.29-beta.3, v2026.4.29-beta.4 skipped per stable-only rule. Exit.
