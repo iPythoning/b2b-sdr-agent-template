@@ -1,3 +1,9 @@
+## 2026-05-02 — Run 76 — No new release
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream. Exiting.
+
+---
+
 ## 2026-05-02 — Run 75 — No new release; WeChat re-push attempted, still 40125
 
 **Checked**: v2026.4.29 == last-release → no new stable release upstream (latest stable on GitHub: v2026.4.29, tagged 2026-04-30).
