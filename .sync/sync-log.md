@@ -3807,3 +3807,25 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 | v2026.4.29 | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
 
 **Action required (platform team)**: Update WeChat appsecret in PulseAgent → WeChat Official Account backend. Once fixed, all 4 ZH posts above can be re-pushed in a single run.
+
+---
+
+## 2026-05-02 — Run 52 — No new release; WeChat still 40125
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream (latest stable on GitHub: v2026.4.29, tagged 2026-04-30).
+
+**WeChat re-push**: Attempted re-push for v2026.4.29-zh to test if appsecret was fixed.
+
+**Result**: STILL FAILING — error 40125 (invalid appsecret). rid: `69f61249-7a43a1aa-2a99373e`
+
+19th+ consecutive WeChat failure. Appsecret has NOT been updated in PulseAgent platform settings.
+
+**Pending WeChat queue** (4 posts awaiting re-push once appsecret is fixed):
+| Version | ZH Post ID | Blog URL |
+|---------|-----------|---------|
+| v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
+| v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
+| v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
+| v2026.4.29 | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
+
+**Action required (platform team)**: Update WeChat appsecret in PulseAgent → WeChat Official Account backend. Once fixed, all 4 ZH posts above can be re-pushed in a single run.
