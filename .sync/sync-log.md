@@ -1,3 +1,10 @@
+## 2026-05-02 — Run 78 — No new release
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream. Exiting.
+
+---
+
+
 ## 2026-05-02 — Run 77 — No new release
 
 **Checked**: v2026.4.29 == last-release → no new stable release upstream. Exiting.
