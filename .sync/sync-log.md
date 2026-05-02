@@ -1,3 +1,11 @@
+## 2026-05-02 — Run 81 — No new release
+
+**Checked**: v2026.4.29 == last-release → no new stable release upstream. Latest stable on GitHub: v2026.4.29 (stable, 2026-04-30); pre-releases above it: v2026.5.2-beta.2 (May 2 20:40 UTC), v2026.5.2-beta.3 (May 2 22:15 UTC). Exiting per workflow rules.
+
+**WeChat queue status**: 4 posts still pending (appsecret 40125 error persists — platform team action still required). See Run 75 for full queue table.
+
+---
+
 ## 2026-05-02 — Run 80 — No new release
 
 **Checked**: v2026.4.29 == last-release → no new stable release upstream. Latest on GitHub: v2026.4.29 (stable); only pre-release above it: v2026.5.2-beta.2. Exiting per workflow rules.
