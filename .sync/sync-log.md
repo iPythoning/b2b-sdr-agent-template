@@ -4085,3 +4085,8 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 **Action**: Logged and exited per workflow rules. No blog, no WeChat push.
 
 **WeChat queue status**: 4 posts still pending (appsecret 40125 error persists — platform team action still required).
+
+## 2026-05-03T17:14 UTC
+- Release check: latest=v2026.5.2, last=v2026.5.2 → NO NEW RELEASE
+- Step 0 WeChat queue drain: 4 items attempted, 4 still failing (HTTP 403 appsecret outage)
+- Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29
