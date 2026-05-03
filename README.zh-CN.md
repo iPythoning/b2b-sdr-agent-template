@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-05-01** — **OpenClaw v2026.4.29**：人脉感知记忆Wiki正式上线（人物卡片、关系图谱、跨渠道去重），智能跟进承诺系统自动心跳推送，NVIDIA正式加入捆绑推理提供商，新增阿拉伯语、越南语、泰语、荷兰语、意大利语、波斯语等6种语言。[查看完整更新日志 →](./CHANGELOG.md)
+> 🚀 **最新 · 2026-05-02** — **OpenClaw v2026.5.2**：ClawHub 插件管理中心上线（含诊断工具与审计记录），WhatsApp 精准触达细分路由更可靠，会话操作在 10,000+ 并发时保持稳定，200+ 项跨渠道与供应商修复落地。[查看完整更新日志 →](./CHANGELOG.md)
 
 **🌐 [English](./README.md) | 中文 | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 

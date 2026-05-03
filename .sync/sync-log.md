@@ -1,3 +1,36 @@
+## 2026-05-03 — Run 82 — v2026.4.29 → v2026.5.2
+
+**Release**: v2026.4.29 → v2026.5.2 (stable, published 2026-05-02 23:37 UTC, signed steipete, commit 8b2a6e5)
+
+**Categories**:
+- RELEVANT: ClawHub plugin management — diagnostics, install records, npm-first dependency resolution
+- RELEVANT: WhatsApp targeting fixes — improved segment routing reliability
+- RELEVANT: Session scale optimization — stable at 10K+ concurrent sessions
+- RELEVANT: Web search improvements — Brave, SearXNG, Firecrawl
+- RELEVANT: Provider streaming fixes — Anthropic edge-case interruptions, DeepSeek replay, OpenAI TTS
+- RELEVANT: Telegram slash-command feedback and high-traffic group stability
+- WATCH: Discord/Slack channel fixes (niche for most B2B export SDR teams)
+- WATCH: iOS PWA support, Control UI text contrast (UI-only)
+
+**Repo updates**: CHANGELOG.md (v2026.5.2 section), README.md + README.zh-CN.md (news banner updated)
+
+**Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-5-2-plugin-hub-whatsapp-session-scale (post_id: 81c1611b-dfba-4ed0-a3f4-8af4c2892054) ✅
+**Blog ZH**: https://pulseagent.io/en/blog/openclaw-v2026-5-2-plugin-hub-whatsapp-session-scale-zh (post_id: 577eb8de-2700-4120-ac0b-77d0e5e64639) ✅
+**WeChat**: FAILED — HTTP 403 / Cloudflare 1010 (IP/ASN block on WeChat API endpoint). Different from previous 40125 appsecret error.
+
+**WeChat queue status**: 5 posts now pending (4 from prior runs + v2026.5.2-zh):
+| Version | ZH Post ID | Blog URL |
+|---------|-----------|---------|
+| v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
+| v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
+| v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
+| v2026.4.29 | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
+| v2026.5.2 | 577eb8de-2700-4120-ac0b-77d0e5e64639 | https://pulseagent.io/en/blog/openclaw-v2026-5-2-plugin-hub-whatsapp-session-scale-zh |
+
+**Action required (platform team)**: Investigate WeChat API endpoint — new failure mode is HTTP 403 Cloudflare 1010 (IP/ASN block), not the previous 40125 appsecret error. May need to whitelist the server IP on Cloudflare or restore the WeChat API route.
+
+---
+
 ## 2026-05-02 — Run 81 — No new release
 
 **Checked**: v2026.4.29 == last-release → no new stable release upstream. Latest stable on GitHub: v2026.4.29 (stable, 2026-04-30); pre-releases above it: v2026.5.2-beta.2 (May 2 20:40 UTC), v2026.5.2-beta.3 (May 2 22:15 UTC). Exiting per workflow rules.

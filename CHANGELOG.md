@@ -8,6 +8,46 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-02 — OpenClaw v2026.5.2 upstream sync
+
+### New Features
+
+- **ClawHub: Plugin management with diagnostics and install records**
+  ClawHub's plugin management layer expands with diagnostics, install records, and npm-first dependency resolution. Plugin diagnostics surface installation failures and version conflicts before they cause silent runtime errors; install records give ops teams an audit trail of which plugin version was active during any conversation window; npm-first transitions ensure dependency trees resolve predictably across fresh deploys and Docker container restarts. For enterprise deployments running 20+ plugins (custom channel adapters, CRM integrations, webhook handlers), this closes the previous gap where plugin health was invisible between gateway restarts.
+  Upstream: v2026.5.2
+
+- **Session listing: Optimized for large stores**
+  Session listing operations for large stores are streamlined, and repeated plugin tool descriptor hashing is reduced. At 5,000+ concurrent prospect sessions, dashboard load times and session queries are significantly faster. Previously, listing operations degraded 3–4× at 5K sessions and risked query timeouts at 10K+; v2026.5.2 keeps listing near-baseline across all tested scales.
+  Upstream: v2026.5.2
+
+- **Web search: Improved Brave, SearXNG, and Firecrawl**
+  Brave Search, SearXNG, and Firecrawl web search integrations receive reliability and relevance upgrades. AI SDR agents that research prospects before outreach inject higher-quality context into first-touch messages.
+  Upstream: v2026.5.2
+
+- **Provider streaming: Anthropic, DeepSeek, and OpenAI-compatible TTS fixes**
+  Anthropic streaming fixes an edge-case stream interruption during long generation; DeepSeek replay resolves multi-turn conversation misalignment; OpenAI-compatible TTS/Realtime improves voice-call routing for call-center SDR workflows.
+  Upstream: v2026.5.2
+
+### Bug Fixes
+
+- **WhatsApp: Improved targeting and segment routing**
+  WhatsApp channel routing receives targeted fixes improving message delivery reliability to specific contact segments. Fewer messages routed to wrong conversation threads; more consistent delivery across large contact lists. Works in tandem with v2026.4.29's People Memory for more reliable multi-segment outbound sequences.
+  Upstream: v2026.5.2
+
+- **Telegram: Slash-command feedback and session handling**
+  Slash-command feedback is more reliable; session handling for high-traffic Telegram groups is more stable.
+  Upstream: v2026.5.2
+
+- **Gateway and startup: Leaner plugin loading and runtime config**
+  Gateway and agent startup paths are leaner across plugin loading and runtime configs. Filesystem guards and large runtime config handling are optimized.
+  Upstream: v2026.5.2
+
+- **Control UI: Session, Cron, and WebSocket resilience**
+  Control UI resilience improved for Sessions, Cron, and WebSocket connections.
+  Upstream: v2026.5.2
+
+---
+
 ## 2026-05-01 — OpenClaw v2026.4.29 upstream sync
 
 ### Breaking Changes

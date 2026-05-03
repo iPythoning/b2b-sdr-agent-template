@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-05-01** — **OpenClaw v2026.4.29**: People-aware Memory Wiki lands with person cards and relationship graphs (deduplicated across WhatsApp/Telegram/email), opt-in follow-up commitment system delivers heartbeat reminders automatically, NVIDIA joins as a bundled inference provider, and 6 new locales (Arabic, Vietnamese, Thai, Dutch, Italian, Persian) expand global reach. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-02** — **OpenClaw v2026.5.2**: ClawHub plugin hub ships with diagnostics & audit trails, WhatsApp targeting gets more reliable segment routing, session operations stay stable at 10K+ concurrent conversations, and 200+ fixes land across providers and channels. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 
