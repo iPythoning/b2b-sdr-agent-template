@@ -1,3 +1,20 @@
+## 2026-05-03 — Run 89 — No new release; WeChat still 40125
+
+**Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
+
+**Action**: No blog, no repo update, no WeChat push needed.
+
+**WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
+| Version | ZH Post ID | Blog URL |
+|---------|-----------|---------|
+| v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
+| v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
+| v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
+| v2026.4.29 | dd50bd46-dbe4-4280-a457-a0300fb3bec2 | https://pulseagent.io/en/blog/openclaw-v2026-4-29-people-memory-nvidia-followup-zh |
+| v2026.5.2 | 577eb8de-2700-4120-ac0b-77d0e5e64639 | https://pulseagent.io/en/blog/openclaw-v2026-5-2-plugin-hub-whatsapp-session-scale-zh |
+
+---
+
 ## 2026-05-03 — Run 88 — No new release; WeChat still 40125
 
 **Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
