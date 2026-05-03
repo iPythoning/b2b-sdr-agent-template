@@ -1,3 +1,11 @@
+## 2026-05-03 — Run 91 — No new release; skipping all steps
+
+**Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
+
+**Action**: No blog, no repo update, no WeChat push needed.
+
+---
+
 ## 2026-05-03 — Run 90 — No new release; skipping all steps
 
 **Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
