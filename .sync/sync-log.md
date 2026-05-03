@@ -1,3 +1,13 @@
+## 2026-05-03 — Run 85 — No new release; WeChat 40125 persists
+
+**Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
+
+**Action**: No blog, no repo update, no WeChat push needed.
+
+**WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required). Queue unchanged from Run 84.
+
+---
+
 ## 2026-05-03 — Run 84 — No new release; WeChat still 40125
 
 **Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2, published 2026-05-02 23:37 UTC). Exiting per workflow rules.
