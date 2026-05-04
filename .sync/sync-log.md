@@ -1,3 +1,12 @@
+## 2026-05-04 — Run 60 — No new release
+
+- Latest stable: v2026.5.2 (unchanged from last run, last-release=v2026.5.2)
+- Step 0 WeChat queue drain: 4 items attempted, 4 still failing (HTTP 403 — appsecret outage ongoing)
+- Queue: [v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29]
+- No blog publish, no template update
+
+---
+
 ## 2026-05-03 — Run 94 — No new release; skipping all steps
 
 **Checked**: v2026.5.2 == last-release → no new stable release upstream (latest stable on GitHub: v2026.5.2; only pre-releases visible: v2026.5.2-beta.3, v2026.5.2-beta.2). Exiting per workflow rules.
