@@ -4213,3 +4213,13 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 - Step 0 WeChat queue drain: 5 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3), all still failing HTTP 403 (appsecret outage ongoing)
 - Queue size: 5 → 5 (unchanged)
 - No blog publish, no template update
+
+## 2026-05-04 — v2026.5.3-1 — New stable hotfix release
+
+- **Previous release**: v2026.5.3 → **New release**: v2026.5.3-1
+- **Category**: RELEVANT — plugin security scanner false-positive hotfix
+- **Step 0 WeChat drain**: 5 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3), all still failing HTTP 403 (appsecret 40125 outage persists). Queue: 5 → 5.
+- **Step 3 CHANGELOG**: Added v2026.5.3-1 hotfix entry
+- **Step 4 Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-5-3-1-plugin-security-hotfix (updated)
+- **Step 4 Blog ZH**: https://pulseagent.io/blog/openclaw-v2026-5-3-1-plugin-security-hotfix-zh (created)
+- **Step 5 WeChat**: FAILED — appsecret 40125 outage. v2026.5.3-1 enqueued. Queue: 5 → 6 ([v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1])

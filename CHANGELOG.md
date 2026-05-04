@@ -8,6 +8,14 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-04 — OpenClaw v2026.5.3-1 hotfix
+
+### Bug Fixes
+
+- **Plugins/security: Official bundled plugin packages no longer blocked by install scanner**
+  The plugin install scanner introduced in v2026.5.3 was triggering false positives when `process.env` access and normal API sends appeared in distant parts of the same compiled bundle — incorrectly flagging and blocking official bundled plugins (file-transfer, memory, web-search) during installation. v2026.5.3-1 corrects the bundle-aware pattern matching logic. Official plugins install cleanly; security enforcement against untrusted packages is unchanged. No config changes required — update the npm package and the fix applies.
+  Upstream: v2026.5.3-1
+
 ## 2026-05-04 — OpenClaw v2026.5.3 upstream sync
 
 ### Breaking Changes
