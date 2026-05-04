@@ -4176,3 +4176,9 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 - **Latest tag**: v2026.5.3-beta.3 (skipped — prerelease)
 - **Step 0 WeChat drain**: All 4 queued versions (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29) still failing with HTTP 403 (appsecret outage persists). Queue size: 4 → 4.
 - **Action**: No blog published, no template update. Queue unchanged.
+
+## 2026-05-04 — Run 62 — No new release
+- Latest stable: v2026.5.3 (unchanged from last-release; blogs already published in prior run)
+- Step 0 WeChat queue drain: 5 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3), all still failing HTTP 403 (appsecret outage ongoing)
+- Queue size: 5 → 5 (unchanged)
+- No blog publish, no template update
