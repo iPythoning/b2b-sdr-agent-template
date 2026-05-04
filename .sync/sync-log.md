@@ -1,3 +1,15 @@
+## 2026-05-04 — NEW RELEASE v2026.5.3
+
+- **Release**: v2026.5.2 → v2026.5.3 (stable)
+- **Step 0 WeChat drain**: 4 queued (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29) all failed HTTP 403 (appsecret outage persists). Queue 4 → 4.
+- **Step 3 Template update**: CHANGELOG.md updated with breaking changes, new features, bug fixes.
+- **Step 4 Blog**: EN + ZH published via curl (Python urllib blocked by Cloudflare WAF).
+  - EN: https://pulseagent.io/en/blog/openclaw-v2026-5-3-file-transfer-whatsapp-newsletter-channel-hardening
+  - ZH: https://pulseagent.io/zh/blog/openclaw-v2026-5-3-file-transfer-whatsapp-newsletter-channel-hardening
+  - Post ID: 7fedc8ed-876e-4570-87cb-28505e6bfa93
+- **Step 5 WeChat**: FAILED — appsecret 40125 error. v2026.5.3 enqueued. Queue 4 → 5.
+- **Categorization**: BREAKING (invalid config fails closed; apply_patch implicit deny removed) | RELEVANT (File Transfer plugin, WhatsApp newsletter targets, /steer /side commands, gateway lazy-load, channel hardening) | WATCH (macOS updates, CLI device recovery)
+
 ## 2026-05-04 — Run 63 — No new release
 
 - Latest stable: v2026.5.2 (unchanged; newest tags are v2026.5.3-beta.2, v2026.5.3-beta.3 — skipped)

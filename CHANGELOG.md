@@ -8,6 +8,84 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-04 — OpenClaw v2026.5.3 upstream sync
+
+### Breaking Changes
+
+- **Gateway: Invalid config fails closed on startup/hot-reload**
+  Gateway startup and hot reload no longer auto-restore invalid config. If your config has validation errors, the gateway now fails closed rather than recovering silently. Run `openclaw doctor --fix` after upgrading to repair legacy config automatically. This is the correct behavior for production deployments where silent misconfiguration is dangerous.
+  Upstream: v2026.5.3
+
+- **Tools deny list: `apply_patch` no longer implicitly denied**
+  The tools deny list no longer implicitly denies `apply_patch`. If you relied on implicit patch write blocking, you must now explicitly add `apply_patch` to your deny list. Audit your tool security profiles before upgrading if patch writes are a concern.
+  Upstream: v2026.5.3
+
+### New Features
+
+- **File Transfer Plugin: Secure document delivery over AI SDR channels**
+  A new bundled File Transfer plugin adds `file_fetch`, `dir_list`, `dir_fetch`, and `file_write` tools for binary operations on paired nodes. Default-deny per-node path policy, symlink traversal controls, and a 16 MB per-round-trip ceiling make this a controlled, auditable document transfer layer built into the conversation runtime. For manufacturing, electronics, and textiles exporters where every inquiry involves spec sheets, MOQ tables, and compliance docs, AI SDR agents can now deliver documents inside the conversation without human escalation.
+  Upstream: v2026.5.3
+
+- **WhatsApp: Newsletter targets for broadcast outreach**
+  WhatsApp channel routing gains newsletter targets — the ability to broadcast messages to a defined contact list. Product launch announcements, trade show follow-ups, and seasonal promotions to distributor networks are now native capabilities without a separate broadcast tool. Works in tandem with the inbound reply dependency fix (`@whiskeysockets/libsignal-node`) also shipping in this release.
+  Upstream: v2026.5.3
+
+- **Session control: `/steer` and `/side` commands**
+  `/steer <message>` injects a steering message into the active session without starting a new turn — enabling SDR supervisors to adjust agent behavior mid-conversation without disrupting flow. `/side` (alias for `/btw`) handles side questions when idle without starting new turns. For human-in-the-loop escalation workflows, these commands make supervisor intervention cleaner.
+  Upstream: v2026.5.3
+
+- **Gateway performance: Lazy-loading of plugin discovery and session metadata**
+  Gateway startup now lazy-loads plugin discovery, cron, schema, and session metadata. Faster startup for container deployments that restart frequently; more responsive Control UI during high-load periods; optional tool factories skipped when blocked by deny lists, reducing hot-path overhead.
+  Upstream: v2026.5.3
+
+- **Plugin hardening: npm dependency reporting and official plugin install**
+  Official plugin installation, updates, and onboarding now behave like first-class package installs with improved npm dependency reporting. Manual setup can install optional official plugins with ClawHub-backed diagnostics. `plugins list --json` includes dependency install state.
+  Upstream: v2026.5.3
+
+- **Slack: Live transport QA runner with canary and mention-gating coverage**
+  Slack gains a live transport QA runner providing canary and mention-gating coverage. Delivery reliability is measurably verifiable for teams running Slack-based SDR workflows.
+  Upstream: v2026.5.3
+
+### Bug Fixes
+
+- **WhatsApp: Fixed `@whiskeysockets/libsignal-node` dependency preventing inbound replies**
+  Resolved the dependency issue that was blocking inbound WhatsApp replies. Full inbound/outbound reliability restored.
+  Upstream: v2026.5.3
+
+- **Telegram: Forum-topic conversation IDs correctly handled in embedded recall runs**
+  Scoped Telegram forum-topic IDs are now properly handled in embedded recall runs and Active Memory. SDR agents operating in Telegram groups with forum topics work reliably.
+  Upstream: v2026.5.3
+
+- **Discord: Native typing cue sent immediately after DM acceptance**
+  Discord now sends the native typing indicator immediately after DM acceptance, improving responsiveness perception for prospects.
+  Upstream: v2026.5.3
+
+- **Matrix: Blank progress-draft messages avoided when progress labels disabled**
+  Matrix channel no longer sends blank draft messages when progress labels are disabled.
+  Upstream: v2026.5.3
+
+- **Gateway systemd: Operator-added secrets preserved across re-staging**
+  Operator-added secrets are preserved during re-staging while OpenClaw-managed keys are cleared. No more manual secret restoration after gateway re-stages.
+  Upstream: v2026.5.3
+
+- **Cron: Startup state persisted to prevent repeated health-check repairs**
+  Repaired startup state is now persisted, preventing repeated health-check repair cycles on startup.
+  Upstream: v2026.5.3
+
+- **Memory/LanceDB: `apache-arrow` declared as bundled peer dependency**
+  Eliminates dependency resolution issues for deployments using LanceDB-backed Active Memory.
+  Upstream: v2026.5.3
+
+- **Web fetch: Optional proxy support via `useTrustedEnvProxy`**
+  Operator-controlled environments can now route web fetch calls through a trusted proxy.
+  Upstream: v2026.5.3
+
+- **`doctor --fix`: Commits safe legacy migrations even with unrelated validation issues**
+  `doctor --fix` no longer aborts safe migrations when unrelated validation issues are present.
+  Upstream: v2026.5.3
+
+---
+
 ## 2026-05-02 — OpenClaw v2026.5.2 upstream sync
 
 ### New Features
