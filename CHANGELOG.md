@@ -8,6 +8,98 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-05 — OpenClaw v2026.5.4
+
+### Highlights
+
+- **Google Meet/Voice: Gemini voice bridge with Twilio dial-in**
+  AI agents can now speak through Google Meet via Twilio dial-in, powered by the Gemini realtime voice bridge. Paced audio streaming, backpressure-aware buffering, and barge-in queue clearing give sales agents fluid, interruption-safe voice conversations in Meet calls. For SDR teams running voice prospecting workflows, this closes the loop on fully automated voice outreach without leaving Google Meet.
+  Upstream: v2026.5.4 (#77064)
+
+### New Features
+
+- **WhatsApp: Explicit Newsletter/Channel outbound targets**
+  WhatsApp channel routing now supports explicit `@newsletter` targets for outbound message sends. Broadcast campaigns to WhatsApp channels and newsletters are now first-class, letting B2B SDR agents push product announcements, trade fair follow-ups, and promotions to subscriber audiences at scale.
+  Upstream: v2026.5.4 (fixes #13417)
+
+- **Slack: Rich Block Kit progress drafts**
+  Slack streaming gains `streaming.progress.render: "rich"` for Block Kit progress drafts backed by structured progress line data, with automatic line trimming when Block Kit limits are hit. Sales notification pipelines in Slack now render structured agent progress instead of plain text.
+  Upstream: v2026.5.4
+
+- **Models/auth: Inspect saved auth profiles**
+  New `openclaw models auth list [--provider <id>] [--json]` command lets operators audit saved per-agent auth profiles without exposing secrets. Useful for multi-agent B2B SDR deployments with separate credentials per channel or customer segment.
+  Upstream: v2026.5.4
+
+- **Plugins/SDK: `before_agent_finalize` retry instructions**
+  Workflow plugins can now request one additional model pass via bounded `before_agent_finalize` retry instructions. Enables more sophisticated multi-step SDR qualification flows that can re-consult the model before finalizing agent output.
+  Upstream: v2026.5.4
+
+- **Control UI/chat: Agent-first filter and responsive layout**
+  The chat session picker gains an agent-first filter, responsive layout across phone/tablet/desktop, and collapsed duplicate heartbeat messages. Control UI becomes more usable for SDR supervisors monitoring multiple live conversations from mobile.
+  Upstream: v2026.5.4
+
+### Performance
+
+- **Agents: Workspace-scoped plugin metadata reuse**
+  Resolved workspace is now passed through BTW, compaction, embedded-run model generation, and PDF model setup, so agent-dir model refreshes reuse the current workspace-scoped plugin metadata snapshot instead of falling back to cold plugin metadata scans. Faster context switches in multi-agent SDR deployments.
+  Upstream: v2026.5.4 (#77519, #77532)
+
+- **Gateway startup: Deferred sidecars and fast-path bundled plugin metadata**
+  Non-readiness sidecars now defer until after the ready signal. Trusted bundled plugin metadata uses a fast path. Gateway startup benchmarks improve noticeably for containerized SDR deployments.
+  Upstream: v2026.5.4
+
+- **Prompt cache: Chat continuation cache reuse restored**
+  Per-turn runtime context is now kept out of ordinary chat system prompts while still delivering hidden current-turn context. Prompt-cache reuse on chat continuations is restored, reducing API costs for long-running SDR conversation threads.
+  Upstream: v2026.5.4 (fixes #77431)
+
+### Bug Fixes
+
+- **WhatsApp/onboarding: Allowlist entries now canonicalized to digit-only phone IDs**
+  Setup and pairing allowlist entries are canonicalized to WhatsApp's digit-only phone IDs, so E.164, JID, and `whatsapp:` inputs reliably match WhatsApp Web sender IDs after onboarding.
+  Upstream: v2026.5.4
+
+- **Docker: macOS EACCES workspace path fix**
+  Container-side `OPENCLAW_CONFIG_DIR` and `OPENCLAW_WORKSPACE_DIR` are now pinned in Compose, preventing host-style workspace paths from leaking into runtime code and causing `EACCES: permission denied, mkdir '/Users'` on macOS Docker deployments.
+  Upstream: v2026.5.4 (fixes #77436)
+
+- **Agents/subagents: Long sub-agent reports no longer silently lost**
+  Prefix-only completion announce replies are now detected and fall back to the captured child result. Sub-agent reports are no longer silently truncated in multi-step SDR qualification flows.
+  Upstream: v2026.5.4 (fixes #76412)
+
+- **CLI/sessions: Bounded session list output**
+  `openclaw sessions` is now capped at 100 rows by default with `--limit <n|all>` and JSON pagination metadata. Large SDR session stores no longer cause unbounded output fan-out.
+  Upstream: v2026.5.4 (fixes #77500)
+
+- **Active Memory: Bounded memory search query**
+  Memory sub-agent search queries are now bounded so channel/runtime metadata does not become the search string. Recall quality in long SDR conversation threads improves.
+  Upstream: v2026.5.4 (fixes #65309)
+
+- **Discord: IPv4 preference for reliable startup**
+  Discord REST and gateway WebSocket startup now prefer IPv4, fixing stalls on IPv4-only networks that previously blocked Gateway READY and inbound message dispatch.
+  Upstream: v2026.5.4 (fixes #77398)
+
+- **Control UI/Talk: Realtime voice error recovery**
+  Failed Talk startup errors are now dismissable; stale Talk error state clears on dismiss; next Talk click retries from a failed session without a separate stop click.
+  Upstream: v2026.5.4 (fixes #77071)
+
+- **Telegram: Persistent interactive buttons in replies**
+  Shared interactive reply buttons now render in Telegram reply delivery, so plugin approval messages correctly show inline keyboards.
+  Upstream: v2026.5.4 (#76238)
+
+### Security
+
+- **Browser/SSRF: Tab-scoped debug routes now enforce navigation policy**
+  Existing-session screenshots, snapshots, console, network request, trace, storage, and related tab-scoped debug routes now enforce the current-tab URL navigation policy before collection. Blocked tabs return a policy error rather than being read and redacted after the fact.
+  Upstream: v2026.5.4 (#75731)
+
+- **Windows: SystemRoot/WINDIR/LOCALAPPDATA/ComSpec hardening**
+  Multiple Windows security fixes: `icacls.exe`/`whoami.exe` resolution validated through Windows install root; `reg.exe` pinned to canonical install root; `LOCALAPPDATA` blocked from workspace `.env`; `.cmd`/`.bat` wrapper routed through install-root resolver. Workspace dotenv overrides can no longer redirect system binaries.
+  Upstream: v2026.5.4 (#74458, #74454, #77470, #77472)
+
+- **Exec approvals: `env -S` and `exec` carrier detection**
+  Approval explanations now detect `env -S` split-string command-carrier risks and POSIX `exec` inline-eval payloads, closing gaps where hidden payloads could bypass command risk checks.
+  Upstream: v2026.5.4
+
 ## 2026-05-04 — OpenClaw v2026.5.3-1 hotfix
 
 ### Bug Fixes

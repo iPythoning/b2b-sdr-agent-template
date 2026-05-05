@@ -1,3 +1,15 @@
+## 2026-05-05 — Run 77 — v2026.5.4
+
+- **Previous release**: v2026.5.3-1
+- **New release**: v2026.5.4 (published 2026-05-05T08:24:01Z)
+- **Category**: RELEVANT — Google Meet Gemini voice bridge, WhatsApp Newsletter/Channel broadcast, prompt-cache reuse fix, agent performance, 100+ fixes
+- **Step 0 WeChat queue drain**: 6 items attempted (v2026.4.25–v2026.5.3-1), all failed HTTP 403 Cloudflare 1010 (appsecret outage + CF IP block ongoing)
+- **Template update**: CHANGELOG.md, README.md, README.zh-CN.md updated
+- **Blog drafts**: openclaw-v2026.5.4-en.json, openclaw-v2026.5.4-zh.json written
+- **Blog API**: HTTP 403 Cloudflare 1010 (CF IP block, both en+zh); drafts ready for next run
+- **WeChat Step 5**: Failed CF 1010; v2026.5.4 added to pending queue
+- **Queue size**: 6 → 7 (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4)
+
 ## 2026-05-05 — Run 76 — No new release
 
 - **Latest stable**: v2026.5.3-1 (unchanged from last-release)

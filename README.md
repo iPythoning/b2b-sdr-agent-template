@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-05-02** — **OpenClaw v2026.5.2**: ClawHub plugin hub ships with diagnostics & audit trails, WhatsApp targeting gets more reliable segment routing, session operations stay stable at 10K+ concurrent conversations, and 200+ fixes land across providers and channels. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-05** — **OpenClaw v2026.5.4**: Google Meet voice agents via Gemini bridge, WhatsApp Newsletter/Channel outbound broadcast, prompt-cache reuse restored, Docker macOS workspace fix, 100+ fixes across agents, plugins, security, and channels. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 
