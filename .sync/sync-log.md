@@ -1,3 +1,10 @@
+## 2026-05-05 — Run 80 — No new release
+
+- **Latest stable**: v2026.5.4 (unchanged from last-release)
+- **Step 0 WeChat queue drain**: 7 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4), all failed HTTP 403 Forbidden (appsecret outage ongoing)
+- **Queue size**: 7 → 7 (unchanged)
+- No blog publish, no template update
+
 ## 2026-05-05 — Run 79 — No new release
 
 - **Latest stable**: v2026.5.4 (unchanged from last-release)
