@@ -4392,3 +4392,13 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 - Step 0 WeChat queue drain: 7 items attempted, 7 still failing (HTTP 403 — appsecret outage ongoing)
 - Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4
 - Action: queue state committed, no blog/template changes
+
+## 2026-05-06 — Run 84 — v2026.5.4 blog published (Run 77 backfill)
+
+- **Latest stable**: v2026.5.4 (no new release; blog backfill from Run 77 CF 1010 failure)
+- **Step 0 WeChat queue drain**: 7 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4), all failed HTTP 403 (appsecret 40125 outage ongoing)
+- **Queue size**: 7 → 7 (unchanged)
+- **Blog EN (v2)**: https://pulseagent.io/en/blog/openclaw-v2026-5-4-voice-calls-whatsapp-newsletter (postId: 24cb60a6-1516-4d12-bdb3-4fe5ea070bfe) ✅ created
+- **Blog ZH (v2)**: https://pulseagent.io/blog/openclaw-v2026-5-4-voice-calls-whatsapp-newsletter-zh (postId: 620b7bbb-4f1c-4af3-b0bd-1dd0419ae211) ✅ created
+- **WeChat**: FAILED (appsecret 40125 outage) — already queued as v2026.5.4 from Run 77
+- **README banners**: Updated to 2026-05-06 with B2B-specific wording (en + zh)
