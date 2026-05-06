@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-05-06** — **OpenClaw v2026.5.4**: AI SDR joins Google Meet calls via Gemini voice bridge, WhatsApp Newsletter outbound unlocks 1:many B2B broadcast, prompt-cache reuse restored for lower API costs, context-overflow loop guard, and Windows enterprise hardening. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-06** — **OpenClaw v2026.5.6**: Plugin fetch reliability hardened (symbol-metadata stripping, fixes #77846), Gateway timeout cleanup fixed (no more stuck tool lanes, #78439), debug proxy header normalization, and OpenAI config safeguard during `doctor --fix`. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 

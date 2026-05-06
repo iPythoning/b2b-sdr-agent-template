@@ -1,0 +1,6 @@
+{
+  "title": "OpenClaw v2026.5.6: Plugin Fetch & Gateway Stability",
+  "slug": "openclaw-v2026-5-6-plugin-fetch-gateway-stability",
+  "description": "OpenClaw v2026.5.6: four critical fixes — plugin fetch errors, stuck Gateway lanes, debug proxy bugs, and OpenAI config protection in doctor --fix.",
+  "author": "PulseAgent"
+}

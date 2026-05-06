@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-05-06** — **OpenClaw v2026.5.4**：AI SDR 通过 Gemini 语音桥接加入 Google Meet 通话，WhatsApp Newsletter 群发解锁 1 对多 B2B 广播，提示缓存复用恢复降低 API 成本，新增上下文溢出循环保护，五项 Windows 企业加固专项修复。[查看完整更新日志 →](./CHANGELOG.md)
+> 🚀 **最新 · 2026-05-06** — **OpenClaw v2026.5.6**：插件请求稳定性加固（Symbol 元数据剥离，修复 #77846），Gateway 超时清理修复（不再遗留活跃工具通道，#78439），调试代理请求头规范化，`doctor --fix` 新增 OpenAI 路由保护。[查看完整更新日志 →](./CHANGELOG.md)
 
 **🌐 [English](./README.md) | 中文 | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 

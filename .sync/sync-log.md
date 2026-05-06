@@ -1,3 +1,16 @@
+## 2026-05-06 — OpenClaw v2026.5.6 — Plugin Fetch & Gateway Stability
+
+- **Last release**: v2026.5.5 → **v2026.5.6** (NEW)
+- **Latest upstream stable**: v2026.5.6 (published 2026-05-06T17:51:03Z)
+- **Category**: RELEVANT — four bug fixes: plugin fetch symbol-metadata stripping (#77846), Gateway stuck lane timeout cleanup (#78439), debug proxy header normalization, OpenAI config safeguard in `doctor --fix`
+- **Step 0 WeChat queue drain**: 8 items attempted (v2026.4.25–v2026.5.5), all failed HTTP 403 (appsecret 40125 outage ongoing). Queue: 8 → 8
+- **Template updates**: CHANGELOG.md (v2026.5.6 entry), README.md + README.zh-CN.md (banner updated to v2026.5.6)
+- **Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-5-6-plugin-fetch-gateway-stability (postId: a5b140e8-40cd-41bc-b27c-2ff794dc445c) ✅ created
+- **Blog ZH**: https://pulseagent.io/en/blog/openclaw-v2026-5-6-plugin-fetch-gateway-stability-zh (postId: 3122cbe6-f727-42ae-a4ca-908381c2b38d) ✅ updated
+- **WeChat**: FAILED (appsecret 40125 outage, HTTP 500) → enqueued as v2026.5.6. Queue now: 9 items
+
+---
+
 ## 2026-05-06 — Hourly run (5th) — No new release / WeChat queue drain
 
 - **Last release**: v2026.5.5 (unchanged)

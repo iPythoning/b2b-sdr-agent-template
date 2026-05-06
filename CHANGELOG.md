@@ -8,6 +8,15 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-06 — OpenClaw v2026.5.6
+
+### Bug Fixes
+
+- **Doctor/OpenAI config**: `doctor --fix` now preserves existing OpenAI routes — the legacy Codex route rewrite is excluded from the v2026.5.6 release branch, so valid OpenAI model configs are never overwritten unless a supported repair path explicitly applies. SDR deployments using custom OpenAI-compatible providers are safe to run `doctor --fix` without risk of route regression. Upstream: v2026.5.6
+- **Plugins/runtime fetch**: Third-party symbol metadata is stripped from plain request header dictionaries before they are passed into native `fetch` or `Headers`, so SDK and guarded/proxy fetch paths no longer reject otherwise valid plugin requests. Fixes #77846. Upstream: v2026.5.6 (thanks @shakkernerd)
+- **Debug proxy**: Captured fetch header dictionaries are normalized before request replay, so symbol metadata from caller-owned header objects cannot cause debug-proxy fetches to fail. Upstream: v2026.5.6
+- **Web fetch/Gateway**: Guarded dispatcher cleanup is now bounded after request timeouts — timed-out fetches return proper tool errors instead of leaving Gateway tool lanes permanently active. Fixes #78439. Upstream: v2026.5.6 (thanks @obviyus)
+
 ## 2026-05-06 — OpenClaw v2026.5.5
 
 ### Highlights
