@@ -1,3 +1,12 @@
+## 2026-05-06 — v2026.5.5 release sync
+
+- **Release**: v2026.5.4 → v2026.5.5 (NEW)
+- **Step 0 WeChat queue drain**: 7 items attempted (v2026.4.25–v2026.5.4), all still failing HTTP 403 (appsecret 40125 outage ongoing). Queue: 7 → 7.
+- **CHANGELOG**: v2026.5.5 entry added (WhatsApp reply blocking, Feishu topic threading, Discord routing, first-token streaming, Docker hardening, plugin peer links, xAI/Grok fix)
+- **Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-5-5-channel-reliability-fixes (postId: 871b66f8-b230-4dd8-8a31-889f72e2d97f) ✅ created
+- **Blog ZH**: https://pulseagent.io/en/blog/openclaw-v2026-5-5-channel-reliability-fixes-zh (postId: 5d9a07b9-9743-44b4-a1c0-67b27d405015) ✅ created
+- **WeChat**: FAILED (appsecret 40125 outage) → enqueued as v2026.5.5. Queue: 7 → 8.
+
 ## 2026-05-06 — Run 84 — No new release
 
 - **Latest stable**: v2026.5.4 (unchanged from last-release)

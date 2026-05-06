@@ -8,6 +8,46 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-06 — OpenClaw v2026.5.5
+
+### Highlights
+
+- **WhatsApp: Reply-blocking stale TUI clients stopped correctly**
+  Only verified stale local TUI clients that degrade the Gateway event loop are now stopped; healthy Gateway traffic is unaffected. The `/new`/`/reset` session-memory hook also runs off the reply path, so memory captures no longer block WhatsApp message delivery. For SDR agents handling hundreds of leads per day, both fixes recover measurable response-rate. Upstream: v2026.5.5
+
+- **Feishu: Multi-turn topic sessions restored**
+  Missing native topic starter thread IDs are now hydrated before session routing, so the first turn and all follow-ups in a Feishu conversation stay in the same topic thread. Previously they scattered across disconnected sessions, silently fragmenting multi-turn qualification sequences. Fixes #78262. Upstream: v2026.5.5
+
+- **Gateway/OpenAI-compatible: First-token streaming fixed**
+  The initial assistant-role SSE chunk is now flushed correctly, eliminating the race where cold agent startup left `/v1/chat/completions` clients with a bodyless 200 response until idle timeout. Custom frontends, Zapier hooks, and CRM integrations built on OpenClaw's OpenAI-compatible API now receive the first token immediately. Upstream: v2026.5.5
+
+- **Docker security: NET_RAW/NET_ADMIN dropped + no-new-privileges**
+  The bundled `docker-compose.yml` now drops `NET_RAW` and `NET_ADMIN` capabilities and enables `no-new-privileges` for the gateway container, hardening production B2B SDR deployments in shared container infrastructure. Upstream: v2026.5.5
+
+### Bug Fixes
+
+- **Discord**: Live reasoning text now shown in progress drafts; plain-text control commands (`/steer` etc.) routed through proper authorization gate instead of being silently dropped. Upstream: v2026.5.5 (fixes #78080)
+- **LINE**: `dmPolicy: "open"` configs without wildcard `allowFrom` now rejected at validation instead of silently blocking inbound DMs after acknowledgement. Upstream: v2026.5.5 (fixes #78316)
+- **Telegram/Codex**: Message-tool-only progress drafts stay visible; native Codex tool progress rendered once per tool without duplicate lines. Upstream: v2026.5.5 (fixes #75641)
+- **Matrix/approvals**: Approval delivery retried up to 3× with backoff on transient Matrix send failures, preventing stranded approval prompts. Upstream: v2026.5.5 (#78179)
+- **Slack**: Socket Mode SDK error context and structured Slack API fields now preserved in reconnect logs. Upstream: v2026.5.5
+- **iOS pairing**: Setup-code and manual `ws://` connects allowed for private LAN/.local gateways; explicit gateway passwords preferred over stale bootstrap tokens. Fixes #47887. Upstream: v2026.5.5
+- **Providers/xAI**: OpenAI-style reasoning effort controls stripped from native Grok Responses models; bundled xAI thinking profile clamped to `off`, fixing `Invalid reasoning effort` on `xai/grok-4.3`. Upstream: v2026.5.5
+- **Providers/Fireworks**: Kimi K2.5/K2.6 models exposed as thinking-off-only with `thinking: disabled`; no unsupported `reasoning*` params sent. Upstream: v2026.5.5
+- **Plugins/install**: Managed npm plugin `openclaw` peer links re-asserted after every shared-root install/update/uninstall, preventing broken SDK resolution across plugins. Upstream: v2026.5.5
+- **Plugins/update**: Official plugins (Codex, Discord, WhatsApp, diagnostics) stay synced during host updates even when disabled or exact-pinned; corrupt managed plugin records tolerated. Upstream: v2026.5.5
+- **Hooks/session-memory**: Collision suffixes added to fallback memory filenames for same-minute `/new`/`/reset` invocations, preserving SDR audit trail. Upstream: v2026.5.5
+- **Control UI/sessions**: Agent runtime shown as filterable column in Sessions table; session history redesigned with modern checkpoint cards. Upstream: v2026.5.5
+- **Control UI/performance**: Chat and channel tabs stay responsive during slow history payloads; partial channel status labelled. Upstream: v2026.5.5
+- **TUI**: Clean exit on terminal loss; session picker bounded to recent rows for fast startup; heartbeat sessions no longer restored as chat session. Upstream: v2026.5.5
+- **Doctor/sessions**: Heartbeat-poisoned main session store entries moved to recovery keys; `doctor --fix` can now repair `agent:main:main` heartbeat history. Upstream: v2026.5.5
+- **Doctor/Codex**: Legacy `openai-codex/*` routes repaired to canonical `openai/*` across models, fallbacks, hooks, and channel overrides. Upstream: v2026.5.5
+- **Gateway/shutdown**: Delayed post-ready maintenance cancelled on close; maintenance/cron suppressed after quick restarts, eliminating orphaned background timers. Upstream: v2026.5.5
+- **Gateway/media**: Media sidecar skipped for unrelated HTTP routes; non-media requests no longer pay media initialization cost. Upstream: v2026.5.5
+- **CLI/sessions**: Orphaned transcript, checkpoint, and trajectory artifacts pruned during `sessions cleanup`. Fixes #77608. Upstream: v2026.5.5
+- **Auth profiles**: Provider cooldown not applied on format-level rejections, so fallback profiles can still be tried on unsupported model names. Upstream: v2026.5.5
+- **Exec approvals**: Guarded copy fallback on Windows rename-overwrite rejection for `exec-approvals.json`. Fixes #77785. Upstream: v2026.5.5
+
 ## 2026-05-05 — OpenClaw v2026.5.4
 
 ### Highlights
