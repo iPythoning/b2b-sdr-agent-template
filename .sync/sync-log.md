@@ -4378,3 +4378,10 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 - Step 0 WeChat queue drain: 7 → 7 (all HTTP 403 Forbidden — appsecret 40125 outage ongoing)
 - Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4
 - No blog publish, no template update
+
+## 2026-05-06 — No new release / WeChat queue drain attempt
+- Last release: v2026.5.4 (unchanged)
+- Latest upstream: v2026.5.4 (no new stable release)
+- Step 0 WeChat queue drain: 7 items attempted, 7 still failing (HTTP 403 — appsecret outage ongoing)
+- Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4
+- Action: queue state committed, no blog/template changes
