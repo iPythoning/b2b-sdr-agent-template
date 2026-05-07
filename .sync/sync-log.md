@@ -1,3 +1,10 @@
+## Run: 2026-05-07 (fifth run)
+- **Last release**: v2026.5.6 (unchanged)
+- **Latest upstream stable**: v2026.5.6 (no new release detected)
+- **Step 0 WeChat queue drain**: 9 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6), all failed HTTP 403 (appsecret 40125 outage ongoing)
+- **Queue size**: 9 → 9 (unchanged)
+- **Action**: No blog/template changes; exiting after queue drain
+
 ## 2026-05-06 — OpenClaw v2026.5.6 — Plugin Fetch & Gateway Stability
 
 - **Last release**: v2026.5.5 → **v2026.5.6** (NEW)
