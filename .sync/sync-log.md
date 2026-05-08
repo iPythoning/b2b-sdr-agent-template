@@ -4593,3 +4593,9 @@ This is now the 18th+ consecutive WeChat failure. The appsecret has NOT been upd
 - **Step 4 Blog (ZH)**: Published → https://pulseagent.io/en/blog/openclaw-v2026-5-7-whatsapp-routing-telegram-allowlists-cron-visibility-zh (postId: daccf08c-b9eb-49b6-8c6d-fbd8ba581b98, action: created)
 - **Step 5 WeChat**: FAILED — appsecret 40125 error (HTTP 500). v2026.5.7 enqueued for retry. Queue: 9 → 10
 - **Queue size**: 10 items pending (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7)
+
+## Run: 2026-05-08
+
+- **Release check**: Latest stable = v2026.5.7 (unchanged from last run — no new release)
+- **Step 0 WeChat queue drain**: Attempted re-push of 10 queued versions — all FAILED with HTTP 403 (appsecret outage still active). Queue unchanged: 10 items (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7)
+- **Action**: No blog/template update needed. Committed queue state for continuity.
