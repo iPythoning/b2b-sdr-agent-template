@@ -1,3 +1,11 @@
+## Run: 2026-05-09 (seventh run)
+- **Last release**: v2026.5.7 (unchanged)
+- **Latest upstream stable**: v2026.5.7 (no new release)
+- **Step 0 WeChat queue drain**: 10 items attempted (v2026.4.25 through v2026.5.7) — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 10 → 10
+- **Action**: No blog/template update needed. Committed sync log + queue file for continuity.
+
+---
+
 ## Run: 2026-05-09 (sixth run)
 - **Last release**: v2026.5.7 (unchanged)
 - **Latest upstream stable**: v2026.5.7 (no new release — latest stable on GitHub still v2026.5.7)
@@ -335,7 +343,7 @@
 
 **WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -358,7 +366,7 @@
 
 **WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -391,7 +399,7 @@
 
 **WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -426,7 +434,7 @@
 
 **WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -451,7 +459,7 @@ Note: Run 82 saw HTTP 403 Cloudflare 1010; that was transient. Core issue remain
 
 **WeChat queue status**: 5 posts still pending (appsecret 40125 error persists — platform team action required):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -484,7 +492,7 @@ Note: Run 82 saw HTTP 403 Cloudflare 1010; that was transient. Core issue remain
 
 **WeChat queue status**: 5 posts now pending (4 from prior runs + v2026.5.2-zh):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
@@ -550,7 +558,7 @@ This is now the 19th+ consecutive WeChat failure. The appsecret has NOT been upd
 
 **Pending WeChat queue** (4 posts awaiting re-push once appsecret is fixed):
 | Version | ZH Post ID | Blog URL |
-|---------|-----------|---------|
+|---------|-----------|----------|
 | v2026.4.25 | 279bf0de-7c57-48bf-8398-f08a2857a54e | https://pulseagent.io/en/blog/openclaw-v2026-4-25-tts-elevenlabs-v3-otel-zh |
 | v2026.4.26 | 824dec4c-da07-44f2-9544-7994f81d2324 | https://pulseagent.io/en/blog/openclaw-v2026-4-26-qqbot-group-chat-live-voice-migration-zh |
 | v2026.4.27 | a3e68ce5-a50d-467a-8c87-edb6221aff1a | https://pulseagent.io/en/blog/openclaw-v2026-4-27-deepinfra-memory-streaming-enterprise-proxy-zh |
