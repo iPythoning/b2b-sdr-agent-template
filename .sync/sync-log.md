@@ -1,3 +1,11 @@
+## 2026-05-15 — Run 124 — No new release (v2026.5.12 already processed)
+
+**Checked**: v2026.5.12 == last-release → no new stable release upstream (latest pre-release: v2026.5.14-beta.1, skipped). Step 0 queue drain only.
+
+**Step 0 WeChat queue drain**: 11 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12) — all FAILED HTTP 403 error code 1010 (appsecret 40125 outage ongoing). Queue: 11 → 11 (unchanged).
+
+---
+
 ## 2026-05-15 — Run 122 — No new release (v2026.5.12 already processed)
 
 **Checked**: v2026.5.12 == last-release → no new stable release upstream (latest: v2026.5.14-beta.1, skipped as prerelease). Step 0 queue drain only.
