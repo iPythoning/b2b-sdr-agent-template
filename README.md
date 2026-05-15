@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-05-07** — **OpenClaw v2026.5.7**: WhatsApp LID routing restored (#74925), Telegram `accessGroup:*` allowlists enforced across DMs/groups/commands (#78660), `cron list --json` now includes `status` field (#78701), `openai/chat-latest` model support, and agent compaction token safety (#54392). [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-14** — **OpenClaw v2026.5.12**: Externalized WhatsApp/Slack/Bedrock/Vertex deps for leaner installs, Telegram isolated polling + durable local spooling, transcript streaming memory cut from 252 MB → 27 MB (−89%), broad security hardening pass, and 150+ fixes. [See full changelog →](./CHANGELOG.md)
 
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 

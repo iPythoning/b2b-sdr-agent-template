@@ -8,6 +8,27 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-14 — OpenClaw v2026.5.12
+
+### Improvements
+
+- **Deps/Install**: Externalized WhatsApp (Baileys), Slack, Amazon Bedrock, and Anthropic Vertex dependencies — core installs only pull in active channel deps. Upstream: v2026.5.12
+- **Deps/Install**: pnpm upgraded to v11 with improved plugin install stability and peer-dependency preservation during updates. Upstream: v2026.5.12
+- **Telegram/Polling**: Isolated polling with durable local message spooling — inbound messages buffered to disk during network interruptions and drained in order on reconnect, eliminating silent message loss. Upstream: v2026.5.12
+- **Telegram/Media**: Safer group media handling — message ownership and attachment type validated before skill dispatch, preventing skill dispatch failures from unrecognized media types in group chats. Upstream: v2026.5.12
+- **Telegram/Streaming**: HTML/Markdown formatting preserved throughout streamed replies, not just the final chunk. Upstream: v2026.5.12
+- **Telegram/Auth**: Bot token rotation now reseeds polling state correctly; message sequencing fixed during high-load bursts. Upstream: v2026.5.12
+- **Transcript**: Peak transcript streaming memory reduced from +252 MB to +27 MB (−89%) for long sessions. Upstream: v2026.5.12
+- **Security/Gateway**: Command provenance validated at gateway boundary — untrusted-source commands rejected before reaching skill dispatch. Upstream: v2026.5.12
+- **Security/Pairing**: Device pairing requests now require explicit node-level approval; proxy-scoped access validated at binding time. Upstream: v2026.5.12
+- **Security/Creds**: Provider credential env vars read and validated at channel boot with stricter type checking; Slack no longer accepts malformed env var values. Upstream: v2026.5.12
+- **Codex/OpenAI**: Auth-profile-backed media tools — credentials resolved from active auth profile, fixing silent failures under non-default profiles. Upstream: v2026.5.12
+- **Codex/OpenAI**: Context-engine thread rotation and app-server/runtime fallback behavior improved; better MCP server projection for tool routing. Upstream: v2026.5.12
+- **UI**: Auto-scroll mode selector added to Control UI and WebChat; session history sequence preserved through live updates. Upstream: v2026.5.12
+- **Windows**: Credential path handling fixed for paths with spaces and non-ASCII characters. Upstream: v2026.5.12
+- **Docker**: Env var leakage between containers in multi-agent Docker Compose setups patched. Upstream: v2026.5.12
+- **iMessage**: Multiple reliability fixes. Upstream: v2026.5.12
+
 ## 2026-05-07 — OpenClaw v2026.5.7
 
 ### Bug Fixes

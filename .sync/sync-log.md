@@ -171,3 +171,22 @@
 **Checked**: v2026.5.7 == last-release → no new stable release upstream (latest pre-releases: v2026.5.10-beta.{3-6}, v2026.5.12-beta.{1-7}, all skipped). Step 0 queue drain only.
 
 **Step 0 WeChat queue drain**: 10 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7) — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 10 → 10 (unchanged).
+
+---
+
+## 2026-05-15 — Run 122 — New release v2026.5.12
+
+**Release**: v2026.5.7 → v2026.5.12 (new stable release)
+
+**Step 0 WeChat queue drain**: 10 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7) — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 10 → 10 (unchanged).
+
+**Step 2 Categorization**: RELEVANT — 150+ fixes, externalized WhatsApp/Slack/Bedrock/Vertex deps, Telegram isolated polling + durable local spooling, transcript streaming memory −89% (252 MB → 27 MB), security hardening pass (gateway, browser sandbox, Slack, node pairing), auto-scroll UI, Windows/Docker reliability. No breaking changes.
+
+**Step 3 Template repo**: README.md and CHANGELOG.md updated with v2026.5.12 highlights.
+
+**Step 4 Blog published**:
+- EN: https://pulseagent.io/en/blog/openclaw-v2026-5-12-slim-installs-telegram-resilience-security (postId: d3a86118-d0db-4adb-b3f2-ae4fa3df3ea2)
+- ZH: https://pulseagent.io/en/blog/openclaw-v2026-5-12-slim-installs-telegram-resilience-security-zh (postId: 487888e5-0fb6-48ab-8b17-0b060857c7f0)
+
+**Step 5 WeChat v2026.5.12**: FAILED (appsecret 40125 ongoing) → enqueued. Queue: 10 → 11.
+
