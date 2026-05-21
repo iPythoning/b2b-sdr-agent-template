@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-05-07** — **OpenClaw v2026.5.7**：WhatsApp LID 路由恢复（#74925），Telegram `accessGroup:*` 白名单全面执行（#78660），`cron list --json` 新增 `status` 字段（#78701），支持 `openai/chat-latest` 模型，智能体压缩 Token 安全保障（#54392）。[查看完整更新日志 →](./CHANGELOG.md)
+> 🚀 **最新 · 2026-05-20** — **OpenClaw v2026.5.19**：`--global` 全局技能标志（全节点共享技能）、Docker Python包支持（`OPENCLAW_IMAGE_PIP_PACKAGES`）、浏览器URL白名单强制执行、企业级QA一致性测试，以及 150+ 项跨渠道修复（WhatsApp文档交付、Telegram话题隔离、Slack去重）。[查看完整更新日志 →](./CHANGELOG.md)
 
 **🌐 [English](./README.md) | 中文 | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 

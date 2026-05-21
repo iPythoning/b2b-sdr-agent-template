@@ -8,6 +8,31 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-20 — OpenClaw v2026.5.19
+
+### Improvements
+
+- **Skills/CLI**: `openclaw skills install` and `openclaw skills update` now support `--global` flag — installs a skill once for all agents on the node, eliminating per-workspace duplication in multi-agent deployments. Upstream: v2026.5.19
+- **Docker**: `OPENCLAW_IMAGE_PIP_PACKAGES` build argument added — install Python packages (pandas, pypdf2, ML libs) at container build time without custom base images. Upstream: v2026.5.19
+- **Browser**: `openclaw browser evaluate --timeout-ms` added for per-evaluation execution budgets; URL allowlist enforcement active for `/act` and `/highlight` routes — blocks off-scope navigation in browser automation. Upstream: v2026.5.19
+- **QA-Lab**: `openclaw qa suite --runtime-parity-tier` command with first-hour 20-turn and optional 100-turn parity scenarios; `openclaw qa coverage --tools` for tool fixture coverage reporting. Upstream: v2026.5.19
+- **Gateway/Performance**: Startup probe and resource-count costs attributed in restart traces; overlapped startup logging with channel sidecars for faster agent boot. Upstream: v2026.5.19
+- **Deps**: `@openclaw/proxyline` updated to 0.3.3. Upstream: v2026.5.19
+
+### Fixes
+
+- **WhatsApp**: Forced document delivery for media sends now honored — product catalogs and PDFs arrive as downloadable files, not inline thumbnails. Upstream: v2026.5.19
+- **Telegram**: Forum topics no longer block sibling topic traffic — parallel lead conversations in different topics stay independent. Upstream: v2026.5.19
+- **Telegram**: Streamed reply previews preserved with tool-warning final messages. Upstream: v2026.5.19
+- **Slack**: Delivered inbound message IDs persisted — prevents duplicate reply sends under high-traffic conditions. Upstream: v2026.5.19
+- **Discord**: Streamed reply previews preserved with tool-warning final messages. Upstream: v2026.5.19
+- **Stability**: Port validation accepts values above 65535 (regression fix). Upstream: v2026.5.19
+- **Stability**: Memory search scan optimized — prevents multi-second Node.js main thread pins during semantic search. Upstream: v2026.5.19
+- **Stability**: Session rotation fixed when transcript files are missing on first boot. Upstream: v2026.5.19
+- **Providers**: DeepSeek MCP tool schemas normalized with `anyOf`/`oneOf` unions; Google Gemini tool-call thought signatures recovered during native replay; OpenAI deterministic tool payload ordering preserved for prompt-cache reuse. Upstream: v2026.5.19
+- **Auth/Config**: Gateway config writes no longer fail on unresolved auth-profile SecretRefs; CLI provider resume bindings cleared on non-subagent `/reset`. Upstream: v2026.5.19
+- **Memory**: QMD lexical search on raw hyphenated queries while normalizing semantic searches; incremental sync for missing/newer/resized files. Upstream: v2026.5.19
+
 ## 2026-05-18 — OpenClaw v2026.5.18
 
 ### Improvements

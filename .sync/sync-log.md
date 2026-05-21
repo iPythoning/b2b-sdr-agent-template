@@ -470,3 +470,21 @@
 **Checked**: v2026.5.18 == last-release → no new stable release upstream (latest pre-releases: v2026.5.19-beta.2, v2026.5.19-alpha.1 — skipped). Step 0 queue drain only.
 
 **Step 0 WeChat queue drain**: 12 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18) — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 12 → 12 (unchanged).
+
+## 2026-05-21 — New release v2026.5.19
+
+**Release**: v2026.5.18 → v2026.5.19 (published 2026-05-20)
+
+**Step 0 WeChat queue drain (pre-run)**: 12/12 still failing HTTP 500 — WeChat appsecret 40125 outage ongoing. Queue: 12 → 12.
+
+**Step 2 Analysis**: BREAKING + RELEVANT. Key highlights: `--global` skills flag, `OPENCLAW_IMAGE_PIP_PACKAGES` Docker build arg, 150+ fixes (2× v2026.5.18's 74+), WhatsApp forced document delivery fixed, Telegram forum topic isolation, Slack duplicate prevention, browser URL allowlists, `openclaw browser evaluate --timeout-ms`, QA-Lab runtime parity testing, port validation regression fix, memory search optimization.
+
+**Step 3 Template updates**: README.md, README.zh-CN.md, CHANGELOG.md updated with v2026.5.19 details.
+
+**Step 4 Blog**:
+- EN: https://pulseagent.io/en/blog/openclaw-v2026-5-19-global-skills-docker-pip-150-fixes (created, postId: 4726ffca-daf8-4143-b92c-7548ca7272fa)
+- ZH: https://pulseagent.io/zh/blog/openclaw-v2026-5-19-global-skills-docker-pip-150-fixes (updated same post)
+
+**Step 5 WeChat**: HTTP 500 — appsecret 40125 outage. v2026.5.19 enqueued. Queue: 12 → 13.
+
+**Step 0 re-drain (with browser UA)**: Confirmed all 13 items still failing HTTP 500 (WeChat backend error, not Cloudflare). Queue: 13 → 13.
