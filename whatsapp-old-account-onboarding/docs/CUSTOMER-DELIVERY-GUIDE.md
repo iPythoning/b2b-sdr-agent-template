@@ -34,14 +34,26 @@ The honest answer:
 ```
 Q1. Is the customer using Business API, Business App, or a personal account?
    ├─ Business API           → Path A
-   ├─ Business App (phone)   → Path B
-   └─ Personal account       → Path C (same as B + ToS disclaimer)
+   ├─ Business App (phone)   → Path B  (or Path D — see Q2.5)
+   └─ Personal account       → Path C  (or Path D — see Q2.5)
 
 Q2. (B and C only) What's the customer's phone OS?
    ├─ iOS    → B.1 / C.1   (iTunes backup or iMazing)
    └─ Android → B.2 / C.2  (msgstore.db.crypt15 extraction)
 
-Q3. Do they have a recent backup?
+Q2.5 — Path D consideration (Multi-Device sync via PulseAgent)
+   Path D is the lowest-friction option BUT requires:
+   - PA whatsapp-relay running with SYNC_HISTORY=1
+   - Customer's WhatsApp can tolerate 30 min – 6 hours of background sync
+   - Customer is willing to do a fresh QR scan (= temporary disconnect
+     of any currently-linked WhatsApp Web sessions)
+   - Customer's iPhone has "Device History → All chat history" enabled
+     (Settings → Chats → Device History)
+
+   If all four are true → Path D
+   If any is false      → fall back to Path B/C device backup
+
+Q3. (B/C only) Do they have a recent backup?
    ├─ Yes, < 24h    → proceed
    ├─ Yes, > 7 days → ask them to take a fresh backup first
    └─ No / never    → backup creation is Step 0 of the delivery

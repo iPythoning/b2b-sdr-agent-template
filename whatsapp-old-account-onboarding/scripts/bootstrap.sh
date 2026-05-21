@@ -158,10 +158,37 @@ case "${DELIVERY_PATH}" in
     B|C)
         say ""
         ask_choice "Extraction method?" EXTRACT_METHOD \
-            "Auto (use built-in extractor — recommended)" \
-            "Manual (I already have .txt files in exports/)"
+            "Path D — fetch from PulseAgent (no USB, no password; needs Multi-Device sync done)" \
+            "Auto — built-in iOS/Android backup extractor (recommended for first delivery)" \
+            "Manual — I already have .txt files in exports/"
 
-        if [[ "${EXTRACT_METHOD}" == Auto* ]]; then
+        # Path D — pull from PA after Multi-Device history sync
+        if [[ "${EXTRACT_METHOD}" == Path\ D* ]]; then
+            say ""
+            say "    Path D prerequisites checklist:"
+            say "    a) PA whatsapp-relay running with SYNC_HISTORY=1"
+            say "    b) Customer's iPhone: WhatsApp → Settings → Chats →"
+            say "       Device History → 'All chat history'"
+            say "    c) POST /qr-refresh on the relay (regenerates QR)"
+            say "    d) Customer scans the new QR with their WhatsApp"
+            say "    e) WAIT for Multi-Device sync (30 min – 6 hours by account size)"
+            say "    f) Check /v1/relay/heartbeat to confirm import finished"
+            say ""
+            ask "Have steps a-f all completed? Press Enter to proceed..." _CONFIRM
+            ask "Owner display name to write as 'me' (e.g. 'Sarah Fan')" OWNER_NAME
+            info "Fetching imported history from PulseAgent..."
+            if python3 "${SCRIPT_DIR}/fetch-from-pa.py" \
+                --owner-name "${OWNER_NAME}" \
+                --output "${EXPORTS_DIR}" 2>&1 | tee -a "${LOG_FILE}"; then
+                ok "Path D fetch complete."
+            else
+                warn "Path D fetch failed (likely no history yet). Falling back to manual."
+                say ""
+                say "    Drop .txt files into:"
+                say "       ${EXPORTS_DIR}"
+                ask "Press Enter once .txt files are in place..." _CONFIRM
+            fi
+        elif [[ "${EXTRACT_METHOD}" == Auto* ]]; then
             # Install extract-only deps once
             if ! python3 -c "import iphone_backup_decrypt, wa_crypt_tools" >/dev/null 2>&1; then
                 info "Installing extraction dependencies (one-time)..."

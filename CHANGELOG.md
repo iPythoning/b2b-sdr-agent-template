@@ -8,6 +8,47 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-22 — WhatsApp Onboarding Spec v0.5 (Path D — Multi-Device sync)
+
+Adds Path D: pull WhatsApp history directly from PulseAgent (no phone
+backup, no password, no USB). Customer scans a fresh QR, waits for
+Multi-Device sync to complete, then `bootstrap.sh` pulls the resulting
+.txt files from PA. Output is byte-compatible with v0.4 backup
+extractors so the downstream pipeline is unchanged.
+
+### Added
+
+- **scripts/fetch-from-pa.py** — Client-side downloader that calls PA's
+  `/whatsapp/export-history` endpoint and unpacks the ZIP into the
+  exports/ directory. 404 from PA = "history not yet imported", exits
+  with code 2 so wrapper scripts can fall back.
+- **bootstrap.sh** — Path B/C now offers a three-way choice:
+  Path D (PA fetch) / Auto (backup extractor) / Manual (drop files).
+  Path D prerequisites checklist explicit in the prompt — 6 steps
+  with the unavoidable "wait 30 min – 6 hours" expectation set
+  up-front so no client feels stalled.
+- **docs/UPSTREAM-POLICY.md** — Frozen policy. PA has zero source-level
+  coupling with upstream openclaw; cherry-pick rules only become
+  necessary if that ever changes.
+
+### Backend dependency (lives in PulseAgent repo)
+
+Path D requires a recent PulseAgent backend (≥ commit b1300a1):
+- `whatsapp_history_imports` table
+- `POST /v1/relay/history-batch` (Bearer bridge token)
+- `GET /whatsapp/export-history` (Bearer user token, ZIP response)
+
+And the relay must run with `SYNC_HISTORY=1`.
+
+### Why not just Path D for everyone
+
+Path D's hidden cost: WhatsApp Multi-Device sync only fires on a fresh
+QR scan. An already-linked device cannot retroactively backfill history
+even after `syncFullHistory: true` is set. So Path D = "tear down and
+re-link", which for a tenant whose AI has been running on WhatsApp
+means hours of downtime. Backup extraction (v0.4) stays the default
+for tenants that need zero-downtime onboarding.
+
 ## 2026-05-22 — WhatsApp Onboarding Spec v0.4 (backup extractors)
 
 Removes the biggest manual step in the delivery pipeline: extracting .txt
