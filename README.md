@@ -14,6 +14,8 @@
 
 > 🚀 **New · 2026-05-20** — **OpenClaw v2026.5.19**: `--global` flag for node-wide shared skill management, Docker Python package support (`OPENCLAW_IMAGE_PIP_PACKAGES`), URL allowlists for browser automation, enterprise QA parity testing, and 150+ channel reliability fixes across WhatsApp, Telegram, Slack & Discord. [See full changelog →](./CHANGELOG.md)
 
+> 📦 **Add-on · 2026-05-21** — **[WhatsApp Legacy Account Onboarding Spec v0.1](./whatsapp-old-account-onboarding/docs/README.md)**: Port years of accumulated WhatsApp B2B sales conversations into an AI Agent's customer memory + style + history. Three-layer architecture (MemOS profile + KB playbook + per-customer history), strict auto-onboard gate, shadow → whitelist → graduated rollout. [Release notes →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.1)
+
 An open-source, production-ready template for building AI Sales Development Representatives (SDRs) that handle the **full sales pipeline** — from lead capture to deal closing — across WhatsApp, Telegram, and email.
 
 Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export companies.

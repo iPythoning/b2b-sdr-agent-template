@@ -8,6 +8,8 @@
 
 > 🚀 **最新 · 2026-05-20** — **OpenClaw v2026.5.19**：`--global` 全局技能标志（全节点共享技能）、Docker Python包支持（`OPENCLAW_IMAGE_PIP_PACKAGES`）、浏览器URL白名单强制执行、企业级QA一致性测试，以及 150+ 项跨渠道修复（WhatsApp文档交付、Telegram话题隔离、Slack去重）。[查看完整更新日志 →](./CHANGELOG.md)
 
+> 📦 **附加模块 · 2026-05-21** — **[WhatsApp 老号接入规范 v0.1](./whatsapp-old-account-onboarding/docs/README.zh-CN.md)**：把多年积累的 WhatsApp 销售对话转化成 AI Agent 的客户档案 + 销售风格 + 历史记忆。三层架构（MemOS 档案 + KB 话术库 + 单客户隔离历史），严格自动接入闸，影子 → 白名单 → 灰度上线。[Release 说明 →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.1)
+
 **🌐 [English](./README.md) | 中文 | [Español](./README.es.md) | [Français](./README.fr.md) | [العربية](./README.ar.md) | [Português](./README.pt-BR.md) | [日本語](./README.ja.md) | [Русский](./README.ru.md)**
 
 ---
