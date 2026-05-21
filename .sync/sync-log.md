@@ -488,3 +488,11 @@
 **Step 5 WeChat**: HTTP 500 — appsecret 40125 outage. v2026.5.19 enqueued. Queue: 12 → 13.
 
 **Step 0 re-drain (with browser UA)**: Confirmed all 13 items still failing HTTP 500 (WeChat backend error, not Cloudflare). Queue: 13 → 13.
+
+---
+## Run 2026-05-21
+
+**Step 0 WeChat queue drain**: All 13 queued versions attempted re-push. All still failing HTTP 403 Forbidden. WeChat appsecret 40125 outage continues. Queue: 13 → 13.
+Items: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19
+
+**Step 1 Release check**: last=v2026.5.19, latest=v2026.5.19 → No new release. Exiting.
