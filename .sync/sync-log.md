@@ -496,3 +496,21 @@
 Items: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19
 
 **Step 1 Release check**: last=v2026.5.19, latest=v2026.5.19 → No new release. Exiting.
+
+---
+## Run 2026-05-22
+
+**Step 0 WeChat queue drain**: All 13 queued versions attempted re-push. All still failing HTTP 403 Forbidden (appsecret 40125 invalid — WeChat backend outage ongoing). Queue: 13 → 13 unchanged.
+Items: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19
+
+**Step 1 Release check**: last=v2026.5.19, latest=v2026.5.20 → NEW RELEASE.
+
+**Step 2 Analysis**: RELEVANT. Key: Discord voice AI (multi-user handoff, DAVE recovery, allowed-channel checks, bootstrapContextFiles injection), Policy plugin (channel conformance checks, doctor lint, opt-in workspace repair), xAI device-code OAuth (headless/Docker support), OpenRouter provider routing policies, `agents.list[].experimental.localModelLean` per-agent lean mode. 40+ reliability fixes (bounded compaction, cron lane isolation, 120s image watchdog, stable messageId). 39 contributors.
+
+**Step 3 Template updates**: README.md and README.zh-CN.md updated with v2026.5.20 banner. CHANGELOG.md upstream sync section added.
+
+**Step 4 Blog**:
+- EN: https://pulseagent.io/en/blog/openclaw-v2026-5-20-discord-voice-policy-plugin-xai-oauth (created, postId: ee99962a-967d-42ed-8fac-1f03e790f5f2)
+- ZH: https://pulseagent.io/zh/blog/openclaw-v2026-5-20-discord-voice-policy-plugin-xai-oauth (created, postId: c53acfff-1343-4ab1-a4e3-98a95952a5c3)
+
+**Step 5 WeChat**: WeChat API error 40125 invalid appsecret — outage ongoing. v2026.5.20 enqueued. Queue: 13 → 14.

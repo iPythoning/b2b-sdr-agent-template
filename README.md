@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> 🚀 **New · 2026-05-20** — **OpenClaw v2026.5.19**: `--global` flag for node-wide shared skill management, Docker Python package support (`OPENCLAW_IMAGE_PIP_PACKAGES`), URL allowlists for browser automation, enterprise QA parity testing, and 150+ channel reliability fixes across WhatsApp, Telegram, Slack & Discord. [See full changelog →](./CHANGELOG.md)
+> 🚀 **New · 2026-05-21** — **OpenClaw v2026.5.20**: Discord voice AI sessions (multi-user handoff, DAVE recovery, allowed-channel checks), Policy plugin for channel conformance governance, xAI device-code OAuth for headless deployments, agent-level local model lean mode, and 40+ reliability fixes (bounded compaction, cron lane isolation, 120s image watchdog). [See full changelog →](./CHANGELOG.md)
 
 > 📦 **Add-on · 2026-05-22** — **[WhatsApp Legacy Account Onboarding Spec v0.5](./whatsapp-old-account-onboarding/docs/README.md)** *(Path D — Multi-Device fetch)*: Lowest-friction history acquisition — customer scans one QR, waits for Multi-Device sync, `bootstrap.sh` pulls .txt files straight from PulseAgent. No backup, no password, no USB. Backup-extraction (v0.4) still default for zero-downtime tenants. Three-layer architecture (MemOS + sales_playbook + conversation_history), A/B/C/D delivery decision tree, strict auto-onboard gate. [Release notes →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.5)
 

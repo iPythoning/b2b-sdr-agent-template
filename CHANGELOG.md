@@ -8,6 +8,25 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-21 — OpenClaw v2026.5.20 upstream sync
+
+Upstream: [openclaw/openclaw v2026.5.20](https://github.com/openclaw/openclaw/releases/tag/v2026.5.20) — 39 contributors.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **Discord voice AI sessions**: voice follows configured users into channels with allowed-channel checks, multi-user handoff, bounded reconciliation, and DAVE recovery. IDENTITY.md / USER.md / SOUL.md injected by default via `voice.realtime.bootstrapContextFiles`.
+- **Policy plugin**: bundled policy-backed channel conformance checks, `openclaw doctor` lint findings, opt-in workspace auto-repair (`--fix`).
+- **xAI device-code OAuth**: headless/Docker authorizations no longer require a localhost browser callback.
+- **OpenRouter**: provider-level routing policies now honored.
+- **Agent-level local model lean**: `agents.list[].experimental.localModelLean` enables lean mode per agent without global toggle.
+- Fix: stale completion announcements now auto-recover (no more pipeline hangs).
+- Fix: subagent wildcard allowlist constraints work correctly in multi-tier hierarchies.
+- Fix: plugin compaction timeouts are bounded (no indefinite workspace hangs).
+- Fix: cron session lane isolation prevents scheduled tasks stealing interactive slots.
+- Fix: image generation 120s watchdog timer added.
+- Fix: embedding provider cleanup on search timeouts (prevents memory leaks).
+- Fix: `openclaw message` now includes stable `messageId` for audit trails.
+
 ## 2026-05-22 — WhatsApp Onboarding Spec v0.5 (Path D — Multi-Device sync)
 
 Adds Path D: pull WhatsApp history directly from PulseAgent (no phone

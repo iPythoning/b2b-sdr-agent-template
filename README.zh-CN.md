@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-05-20** — **OpenClaw v2026.5.19**：`--global` 全局技能标志（全节点共享技能）、Docker Python包支持（`OPENCLAW_IMAGE_PIP_PACKAGES`）、浏览器URL白名单强制执行、企业级QA一致性测试，以及 150+ 项跨渠道修复（WhatsApp文档交付、Telegram话题隔离、Slack去重）。[查看完整更新日志 →](./CHANGELOG.md)
+> 🚀 **最新 · 2026-05-21** — **OpenClaw v2026.5.20**：Discord 多用户语音 AI 会话（多用户交接、DAVE 加密恢复、频道白名单）、策略合规插件（渠道治理）、xAI 设备码 OAuth（无头部署）、代理级本地模型精简模式，以及 40+ 项可靠性修复（有界压缩、Cron 通道隔离、120 秒图像看门狗）。[查看完整更新日志 →](./CHANGELOG.md)
 
 > 📦 **附加模块 · 2026-05-22** — **[WhatsApp 老号接入规范 v0.5](./whatsapp-old-account-onboarding/docs/README.zh-CN.md)** *（Path D — Multi-Device 同步）*：摩擦最小的历史获取路径——客户扫一次 QR，等 Multi-Device 同步，`bootstrap.sh` 直接从 PulseAgent 拉 .txt。无备份、无密码、无 USB。v0.4 备份提取仍是零停机租户的默认。三层架构（MemOS + sales_playbook + conversation_history）、A/B/C/D 交付决策树、严格自动接入闸。[Release 说明 →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.5)
 
