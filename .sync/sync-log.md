@@ -1,3 +1,19 @@
+## 2026-05-22 — NEW RELEASE v2026.5.20 processed
+
+**Release**: v2026.5.19 → v2026.5.20 (published May 21, 2026, 20:44 UTC)
+
+**Category**: RELEVANT — Discord voice follow, Policy plugin, xAI OAuth, security hardening.
+
+**Step 0 WeChat queue drain**: 13 items attempted — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 13 → 13 (unchanged, all still queued).
+
+**Blog API**: EN + ZH drafts written and saved. Blog API calls returned HTTP 403 (container outbound network policy blocks pulseagent.io). Drafts ready at `.sync/blog-drafts/openclaw-v2026.5.20-{en,zh}.json` for manual publish or next run with network access.
+
+**WeChat**: v2026.5.20 enqueued for retry. Queue: 13 → 14.
+
+**CHANGELOG.md**: Updated with v2026.5.20 highlights.
+
+---
+
 ## 2026-05-20 — No new release (v2026.5.18 already processed, run #6)
 
 **Checked**: v2026.5.18 == last-release → no new stable release (upstream has v2026.5.19-alpha.1, v2026.5.19-beta.1, v2026.5.19-beta.2 — all pre-release, skipped). Step 0 queue drain only.

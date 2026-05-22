@@ -8,6 +8,26 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-22 — OpenClaw v2026.5.20 sync
+
+Tracked upstream release v2026.5.20 (May 21, 2026).
+
+### Upstream highlights (openclaw/openclaw v2026.5.20)
+- **Discord voice follow**: voice sessions track configured users across voice channels with allowed-channel checks, multi-user handoff, bounded reconciliation, and DAVE recovery preservation
+- **Discord voice profile context**: IDENTITY.md, USER.md, SOUL.md auto-injected into realtime voice session instructions
+- **Bundled Policy plugin**: `openclaw policy` — policy-backed channel conformance checks and workspace repair
+- **Per-agent local-model lean mode**: `agents.list[].experimental.localModelLean`
+- **xAI device-code OAuth**: headless/remote authorization without localhost browser callback
+- **OpenRouter provider routing**: honors `params.provider` with model and agent overrides
+- **WhatsApp**: Baileys updated to 7.0.0-rc12
+- **Security**: fail-closed `tryReadSecretFileSync` with symlink rejection; browser image sanitization limits enforced
+- **Cron**: scheduled work on cron-owned wake lanes preserving reply delivery context
+- No breaking changes
+
+### Blog posts drafted
+- EN: `.sync/blog-drafts/openclaw-v2026.5.20-en.json`
+- ZH: `.sync/blog-drafts/openclaw-v2026.5.20-zh.json`
+
 ## 2026-05-22 — WhatsApp Onboarding Spec v0.5 (Path D — Multi-Device sync)
 
 Adds Path D: pull WhatsApp history directly from PulseAgent (no phone
