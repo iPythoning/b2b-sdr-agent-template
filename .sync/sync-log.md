@@ -93,3 +93,9 @@
 - WeChat queue drain: 15 items attempted, all returned HTTP 403 (appsecret outage ongoing)
 - Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
 - Action: no new blog/WeChat publish; queue committed for next run
+
+## 2026-05-26 — Hourly run
+- Latest stable: v2026.5.22 (no new release since last sync)
+- WeChat queue drain: 15 items attempted, all returned HTTP 403 (appsecret outage ongoing)
+- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
+- Action: no new blog/WeChat publish; queue committed for next run
