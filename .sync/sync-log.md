@@ -1,3 +1,13 @@
+## 2026-05-26 12:09 UTC — No new release (still v2026.5.22)
+
+**Release check**: latest stable = v2026.5.22 (May 24, 2026), last-release = v2026.5.22 → no new release. Betas v2026.5.24-beta.1/2 and v2026.5.25-beta.1 seen and skipped.
+
+**Step 0 WeChat queue drain**: 15 items attempted — all FAILED HTTP 403 error 1010 (Cloudflare IP block; same ongoing outage). Queue: 15 → 15 (unchanged).
+
+**Action**: No blog publish, no template update. Queue persisted for next run.
+
+---
+
 ## 2026-05-25 run-1 — No new release (still v2026.5.22)
 
 **Release check**: latest stable = v2026.5.22, last-release = v2026.5.22 → no new release.
