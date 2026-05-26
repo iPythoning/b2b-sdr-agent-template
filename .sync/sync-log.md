@@ -121,3 +121,9 @@
 - Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 (appsecret 40125 outage ongoing)
 - Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
 - Action: no new blog/WeChat publish; queue persisted for next run
+
+## 2026-05-26 — Hourly run
+- Latest stable: v2026.5.22 (no new release; betas v2026.5.24-beta.1, v2026.5.24-beta.2, v2026.5.25-beta.1 seen and skipped)
+- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 error code 1010 (appsecret 40125 / Cloudflare outage ongoing)
+- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
+- Action: no new blog/WeChat publish; queue committed for next run
