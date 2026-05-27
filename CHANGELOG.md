@@ -8,6 +8,25 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-27 — OpenClaw v2026.5.26 upstream sync
+
+Upstream: [openclaw/openclaw v2026.5.26](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26) — 100+ contributors.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **Gateway startup optimization**: Plugin metadata, package paths, and session data are now cached on first load — eliminating repeated scans on every gateway restart. High-availability deployments see faster cold-start recovery during rolling restarts.
+- **Security hardening**: SSRF policy enforced on browser snapshots; system-event text sanitized before LLM context (closes prompt-injection class); fetched file text wrapped as external content; stale device tokens rejected; ClickClack sender allowlists enforced; tool-call serialization scrubbed from outbound replies.
+- **Reaction-based channel approvals**: Signal, iMessage, and WhatsApp now accept emoji reactions as approval signals — no text commands required. Operators approve agent actions by reacting to a message. Logged and traceable.
+- **Realtime Talk controls**: Inspectable, steerable, and cancellable from Web UI and Discord. Wake-name handling more tolerant of ambient speech. Shared turn-context tracking synchronized across voice SDKs.
+- **Activity tab + OpenTelemetry**: New Activity tab in Web UI shows sanitized tool-activity summaries. OpenTelemetry LLM spans emitted for gateway operations. New telemetry signals: blocked tools, failover events, stale session warnings, gateway secret-prep traces.
+- **Transcript-backed architecture**: Meeting summaries and media provenance unified in a persistent, queryable transcript store — enables meeting-aware follow-up personalization in SDR workflows.
+- **Image processing: Sharp → Rastermill**: Drop-in replacement with better Alpine Linux compatibility and more predictable memory behavior for containerized deployments.
+- Fix: Telegram forum topic threading preserved through channel operations.
+- Fix: Discord voice playback reliability improved.
+- Fix: iMessage attachment root handling corrected.
+- Fix: WhatsApp group/media behavior restored.
+- Fix: Android/iOS mobile improvements across notification delivery and session handling.
+
 ## 2026-05-24 — OpenClaw v2026.5.22 upstream sync
 
 Upstream: [openclaw/openclaw v2026.5.22](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) — 140+ contributors.
