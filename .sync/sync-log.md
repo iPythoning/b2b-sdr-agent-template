@@ -155,3 +155,13 @@
 - Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 error code 1010 (appsecret 40125 outage ongoing)
 - Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
 - Action: no new blog/WeChat publish; queue committed for next run
+
+## 2026-05-27 — v2026.5.26
+
+- **Release**: v2026.5.22 → v2026.5.26
+- **Category**: RELEVANT — gateway optimization, security hardening, reaction approvals
+- **Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-5-26-faster-gateway-security-reaction-approvals (created)
+- **Blog ZH**: https://pulseagent.io/zh/blog/openclaw-v2026-5-26-faster-gateway-security-reaction-approvals (updated)
+- **WeChat**: FAILED (500) → enqueued v2026.5.26 for retry
+- **WeChat queue size**: 16 (15 prior + v2026.5.26)
+- **Step 0 drain**: 15 items → 15 items (403 Forbidden, appsecret outage ongoing)
