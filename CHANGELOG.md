@@ -8,6 +8,26 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-05-27 — OpenClaw v2026.5.26 upstream sync
+
+Upstream: [openclaw/openclaw v2026.5.26](https://github.com/openclaw/openclaw/releases/tag/v2026.5.26) — 140+ contributors.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **Faster gateway startup**: Eliminates redundant plugin, channel, session, usage-cost, and filesystem scans on boot — agent response latency drops noticeably in high-load deployments; first-message cold-start lag is gone.
+- **Transcript infrastructure**: Transcript core now backs meeting summaries, source-provider chunks, user turns, media provenance, and CLI/TUI replay — sets the foundation for meeting-aware SDR follow-ups and call-to-CRM pipelines.
+- **Multi-channel stability** (Signal, iMessage, WhatsApp, Discord): Reaction approval flows added; media handling and delivery edge cases fixed across all four channels — more reliable multi-channel outreach at scale.
+- **Voice — Realtime Talk control**: Inspection, steering, and cancellation of live voice sessions now available from Web UI and Discord; wake-name tolerance improved — better live voice sales call management.
+- **Named authentication profiles**: Credential migration support lands — easier multi-account management for SDR teams running multiple WhatsApp/Telegram identities.
+- **Security hardening**: Browser snapshots respect SSRF policy; system-event text cannot spoof prompt markers; fetched files wrapped as external content; device tokens validated — enterprise-grade hardening for multi-tenant deployments.
+- **OpenTelemetry LLM spans**: Diagnostic spans for LLM content added — full observability for debugging slow or failed AI responses in production.
+- **Rastermill replaces Sharp**: Better image processing pipeline (media attachments, lead profile photos).
+- **Codex CLI bundled** (v0.134.0): Embedded AI coding tool available in all installations.
+- **Alpine Linux support**: Installation now works on Alpine-based Docker images — smaller production containers.
+- Fix: Plugin metadata now cached for performance (no repeated plugin scans).
+- Fix: OpenAI sampling, Codex recovery, Ollama normalization, and tool-schema guards hardened.
+- Fix: Activity tab, gateway tracing, and systemd Gateway hygiene improved.
+
 ## 2026-05-24 — OpenClaw v2026.5.22 upstream sync
 
 Upstream: [openclaw/openclaw v2026.5.22](https://github.com/openclaw/openclaw/releases/tag/v2026.5.22) — 140+ contributors.

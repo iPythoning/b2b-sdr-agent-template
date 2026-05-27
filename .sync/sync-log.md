@@ -1,3 +1,21 @@
+## 2026-05-27 — New release v2026.5.26 processed
+
+**Release check**: latest stable = v2026.5.26 (May 27, 2026), last-release = v2026.5.22 → **NEW RELEASE**.
+
+**Step 0 WeChat queue drain**: 15 items attempted — all FAILED HTTP 403 error 1010 (Cloudflare IP block; same ongoing outage). Queue: 15 → 15 (unchanged).
+
+**Step 2 Categorization**: RELEVANT — faster gateway startup (redundant scan elimination), transcript core infrastructure, multi-channel stability (Signal/iMessage/WhatsApp/Discord reaction approvals), Realtime Talk voice control, named auth profiles, SSRF + prompt-injection security hardening, OpenTelemetry LLM spans, Alpine Linux support.
+
+**Step 3 Template update**: CHANGELOG.md + README.md + README.zh-CN.md updated with v2026.5.26 highlights.
+
+**Step 4 Blog publish**: EN + ZH drafts written to `.sync/blog-drafts/`. Blog API returned HTTP 403 error 1010 (Cloudflare IP block) for both. Drafts saved; retry on next run when API is accessible.
+
+**Step 5 WeChat**: Push FAILED (same Cloudflare block). v2026.5.26 enqueued → queue now 16 items.
+
+**Action**: Template updated and pushed. Blog drafts saved. Queue: 15 → 16 (v2026.5.26 added).
+
+---
+
 ## 2026-05-27 — No new release (still v2026.5.22)
 
 **Release check**: latest stable = v2026.5.22 (May 24, 2026), last-release = v2026.5.22 → no new release.
