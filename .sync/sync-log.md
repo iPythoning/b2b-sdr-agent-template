@@ -1,3 +1,19 @@
+## 2026-05-28 — Run 2: Blog published, WeChat still failing
+
+**Release check**: latest stable = v2026.5.26 (May 27, 2026), last-release = v2026.5.26 → no new release.
+
+**Fix**: Recovered 31 orphaned commits from detached HEAD → fast-forwarded `main`.
+
+**Blog retry (v2026.5.26)**: Previously blocked by Cloudflare 403 — retried with `User-Agent: PulseAgent-SyncBot/1.0`:
+- EN: `https://pulseagent.io/en/blog/openclaw-v2026-5-26-faster-startup-transcripts-voice-control` ✅ (action: created)
+- ZH: same postId, action: updated ✅
+
+**Step 0 WeChat queue drain**: 16 items attempted — all FAILED HTTP 500 `WeChat token error: 40125 invalid appsecret` (appsecret outage ongoing). Queue: 16 → 16 (unchanged).
+
+**Action**: Blog now live. Queue persisted. WeChat self-heal will drain once appsecret 40125 is fixed in PulseAgent backend.
+
+---
+
 ## 2026-05-28 — No new release (still v2026.5.26)
 
 **Release check**: latest stable = v2026.5.26 (May 27, 2026), last-release = v2026.5.26 → no new release.
