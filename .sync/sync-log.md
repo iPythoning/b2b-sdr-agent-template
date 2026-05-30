@@ -1,3 +1,13 @@
+## 2026-05-30 — Hourly run #7 (no new release, still v2026.5.27)
+
+**Release check**: latest stable = v2026.5.27 (betas v2026.5.28-beta.1–4 seen but skipped), last-release = v2026.5.27 → no new release.
+
+**Step 0 WeChat drain**: 17 items attempted — all FAILED HTTP 403 (appsecret 40125 outage ongoing). Queue: 17 → 17 (unchanged).
+
+- Action: no new blog/WeChat publish; queue committed for next run
+
+---
+
 ## 2026-05-29 — Hourly run #6 (no new release, still v2026.5.27)
 
 **Release check**: latest stable = v2026.5.27 (betas v2026.5.28-beta.1, v2026.5.28-beta.2 seen but skipped), last-release = v2026.5.27 → no new release.
