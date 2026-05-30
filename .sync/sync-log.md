@@ -237,3 +237,12 @@
 - **Blog API ZH**: FAILED — HTTP 403 error code 1010 (Cloudflare ASN block)
 - **WeChat Step 5**: Not attempted (blog publish failed) — v2026.5.28 enqueued. Queue size: 18 (v2026.4.25 through v2026.5.28)
 - **Note**: Blog API and WeChat API share same Cloudflare block; will auto-publish/drain when backend connectivity restores
+
+---
+
+## 2026-05-30T(run8)
+- Latest stable: v2026.5.28 == last-release (v2026.5.28) → no new release
+- Step 0: WeChat queue drain attempted — all 18 versions failed (HTTP 403 Forbidden, appsecret outage / Cloudflare ASN block ongoing)
+- Queue size: 18 → 18 (v2026.4.25 through v2026.5.28)
+- No blog/WeChat publish triggered; no sync state change
+- Awaiting backend fix for auto-drain
