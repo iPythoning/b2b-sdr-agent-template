@@ -122,17 +122,9 @@
 
 **Release check**: latest stable = v2026.5.22, last-release = v2026.5.22 → no new release.
 
-**Step 0 WeChat queue drain**: 15 items attempted — all FAILED HTTP 403 Forbidden (appsecret outage ongoing). Queue: 15 → 15 (unchanged).
+**Step 0 WeChat drain**: 15 items attempted — all FAILED HTTP 403 Forbidden (appsecret outage ongoing). Queue: 15 → 15 (unchanged).
 
 **Action**: No blog publish, no template update. Queue persisted for next run.
-
----
-
-## 2026-05-24 run-2 — No new release (still v2026.5.22)
-
-**Release check**: latest stable = v2026.5.22, last-release = v2026.5.22 → no new release.
-
-**Step 0 WeChat queue drain**: 15 items attempted — all FAILED HTTP 403 Forbidden (appsecret outage ongoing). Queue: 15 → 15 (unchanged).
 
 ---
 
@@ -159,105 +151,6 @@
 
 ---
 
-## 2026-05-23 — No new release (v2026.5.20 already processed, run #5)
-
-**Checked**: v2026.5.20 == last-release → no new stable release. Latest upstream: v2026.5.20 (May 21). Step 0 queue drain only.
-
-**Step 0 WeChat queue drain**: 14 items attempted (v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19, v2026.5.20) — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 14 → 14 (unchanged).
-
-**Action**: No blog publish, no template update. Queue persisted for next run.
-
----
-
-## Run: 2026-05-25
-
-- **Release check**: No new release. Latest stable = v2026.5.22 (unchanged). Betas 2026.5.24-beta.1 and 2026.5.24-beta.2 seen but skipped.
-- **Step 0 WeChat queue drain**: All 15 attempts failed — HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-  - Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19, v2026.5.20, v2026.5.22
-  - Queue size: 15 → 15 (no change)
-- **Action**: No blog publish, no template update. Queue persisted for next run.
-
----
-## Run: 2026-05-25 (run-2)
-
-- **Release check**: No new release. Latest stable = v2026.5.22 (unchanged). Betas v2026.5.24-beta.1 and v2026.5.24-beta.2 seen but skipped.
-- **Step 0 WeChat queue drain**: All 15 attempts failed — HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-  - Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19, v2026.5.20, v2026.5.22
-  - Queue size: 15 → 15 (no change)
-- **Action**: No blog publish, no template update. Queue persisted for next run.
-
-## 2026-05-25 — No new release (latest stable: v2026.5.22)
-- Step 0: WeChat drain attempted — all 15 queued versions still failing HTTP 403 (appsecret outage ongoing)
-- Queue size: 15 → 15 (unchanged)
-- No new blog or WeChat publish needed
-
-## 2026-05-25 (run-3)
-- Release check: No new release. Latest stable = v2026.5.22 (unchanged). Betas v2026.5.24-beta.1 and v2026.5.24-beta.2 seen but skipped.
-- Step 0 WeChat drain: All 15 attempts failed — HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-  - Queue: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19, v2026.5.20, v2026.5.22
-  - Queue size: 15 → 15 (no change)
-- Action: No blog publish, no template update. Queue persisted for next run.
-
-## 2026-05-25 — Hourly run
-- Latest stable: v2026.5.22 (no new release since last sync)
-- WeChat queue drain: 15 items attempted, all returned HTTP 403 (appsecret outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-26 — Hourly run
-- Latest stable: v2026.5.22 (no new release since last sync)
-- WeChat queue drain: 15 items attempted, all returned HTTP 403 (appsecret outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-26 — Hourly run
-- Latest stable: v2026.5.22 (no new release since last sync)
-- WeChat queue drain: 15 items attempted, all returned HTTP 403 (appsecret outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-26 — Hourly run
-- Latest stable: v2026.5.22 (no new release since last sync); beta v2026.5.25-beta.1 seen and skipped
-- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 (appsecret 40125 outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue persisted for next run
-
-## 2026-05-26 — Hourly run
-- Latest stable: v2026.5.22 (no new release; betas v2026.5.24-beta.1, v2026.5.24-beta.2, v2026.5.25-beta.1 seen and skipped)
-- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 error code 1010 (appsecret 40125 / Cloudflare outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-27 — Hourly run
-- Latest stable: v2026.5.22 (no new release; betas v2026.5.24-beta.2, v2026.5.25-beta.1, v2026.5.26-beta.1, v2026.5.26-beta.2 seen and skipped)
-- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 (appsecret 40125 outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-27 — Hourly run
-- Latest stable: v2026.5.22 (no new release; betas v2026.5.25-beta.1, v2026.5.26-beta.1, v2026.5.26-beta.2 seen and skipped)
-- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-27 — Hourly run
-- Latest stable: v2026.5.22 (no new release; betas v2026.5.24-beta.2, v2026.5.25-beta.1, v2026.5.26-beta.1, v2026.5.26-beta.2 seen and skipped)
-- Step 0 WeChat drain: 15 items attempted, all returned HTTP 403 error code 1010 (appsecret 40125 outage ongoing)
-- Queue size unchanged: 15 pending (v2026.4.25 through v2026.5.22)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-27 — Hourly run
-- Latest stable: v2026.5.26 (no new release; already processed)
-- Step 0 WeChat drain: 16 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 16 pending (v2026.4.25 through v2026.5.26)
-- Action: no new blog/WeChat publish; queue committed for next run
-
-## 2026-05-28 — Hourly run
-- Latest stable: v2026.5.26 (no new release; v2026.5.27-beta.1 seen and skipped)
-- Step 0 WeChat drain: 16 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 16 pending (v2026.4.25 through v2026.5.26)
-- Action: no new blog/WeChat publish; queue committed for next run
-
 ## 2026-05-28 — OpenClaw v2026.5.27 release sync
 
 **Release**: v2026.5.26 → v2026.5.27 (May 28, 2026) — new release detected and processed.
@@ -273,84 +166,11 @@
 
 **WeChat Step 5**: FAILED (appsecret 40125) — v2026.5.27 enqueued. Queue size: 17 (v2026.4.25 through v2026.5.27).
 
-## 2026-05-29 — Hourly run
-- Latest stable: v2026.5.27 (no new release; v2026.5.28-beta.1 seen and skipped)
-- Step 0 WeChat drain: 17 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 17 pending (v2026.4.25 through v2026.5.27)
-- Action: no new blog/WeChat publish; queue committed for next run
+---
 
-## 2026-05-29 — Hourly run (second)
-- Latest stable: v2026.5.27 (no new release; same as last tracked)
-- Step 0 WeChat drain: 17 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size: 17 → 17 (unchanged; v2026.4.25 through v2026.5.27)
-- Action: no new blog/WeChat publish; exiting after queue drain
-
-## 2026-05-29 — Hourly run (third)
-- Latest stable: v2026.5.27 (no new release; same as last tracked)
-- Step 0 WeChat drain: 17 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size: 17 → 17 (unchanged; v2026.4.25 through v2026.5.27)
-- Action: no new blog/WeChat publish; exiting after queue drain
-
-## Run: 2026-05-29 17:06 UTC
-- Release check: v2026.5.27 (latest) == v2026.5.27 (last) → no new release
-- Step 0 WeChat drain: 17 queued → 17 remaining (all HTTP 403, appsecret still broken)
-
-## 2026-05-29 (no new release)
-- Checked latest stable: v2026.5.27 (matches last-release)
-- Step 0 WeChat queue drain: 17 items, all still returning HTTP 403 (appsecret outage ongoing)
-- Queue size unchanged: 17
-- No blog/WeChat publish triggered
-
-## 2026-05-29 (run: latest check)
-- Checked latest stable: v2026.5.27 (matches last-release v2026.5.27) → no new release
-- v2026.5.28-beta.1/2/3 skipped (pre-release)
-- Step 0 WeChat queue drain: 17 items, all HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 17
-- No blog/WeChat publish triggered
-
-## 2026-05-29T17:30 UTC
-- Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
-- v2026.5.28-beta.1/2/3 visible on GitHub, skipped (pre-release)
-- Step 0 WeChat queue drain: 17 items attempted, all HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 17 (v2026.4.25 through v2026.5.27)
-- No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
-
-## 2026-05-29
-- No new release (latest stable: v2026.5.27, unchanged)
-- Step 0: WeChat queue drain attempted — all 17 versions still failing (403 Forbidden, appsecret outage ongoing)
-- Queue size: 17 → 17 (v2026.4.25 through v2026.5.27)
-
-## 2026-05-29T22:07Z
-- Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
-- v2026.5.28-beta.1/2/3 visible on GitHub, skipped (pre-release)
-- Step 0 WeChat queue drain: 17 items attempted, all HTTP 403 Forbidden (appsecret 40125 outage ongoing)
-- Queue size unchanged: 17 (v2026.4.25 through v2026.5.27)
-- No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
-
-## 2026-05-30
-- Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
-- v2026.5.28-beta.* visible on GitHub, skipped (pre-release)
-- Step 0: WeChat queue drain attempted — all 17 versions still failing (HTTP 403 Forbidden, appsecret 40125 outage ongoing)
-- Queue size: 17 → 17 (v2026.4.25 through v2026.5.27)
-- No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
-
-## 2026-05-30T(run2)
+## 2026-05-30T(run6)
 - Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
 - v2026.5.28-beta.1/2/3/4 visible on GitHub, skipped (pre-release)
-- Step 0: WeChat queue drain attempted — all 17 versions still failing (HTTP 403 Forbidden, appsecret 40125 outage ongoing)
-- Queue size: 17 → 17 (v2026.4.25 through v2026.5.27)
-- No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
-
-## 2026-05-30T(run3)
-- Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
-- v2026.5.28-beta.1/2/3/4 visible on GitHub, skipped (pre-release)
-- Step 0: WeChat queue drain attempted — all 17 versions still failing (HTTP 403 Forbidden, appsecret 40125 outage ongoing)
-- Queue size: 17 → 17 (v2026.4.25 through v2026.5.27)
-- No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
-
-## 2026-05-30T(run5)
-- Latest stable: v2026.5.27 == last-release (v2026.5.27) → no new release
-- Note: unauthenticated GitHub API rate-limited; used WebFetch to confirm v2026.5.27 still latest stable
 - Step 0: WeChat queue drain attempted — all 17 versions still failing (HTTP 403 Forbidden, appsecret 40125 outage ongoing)
 - Queue size: 17 → 17 (v2026.4.25 through v2026.5.27)
 - No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
