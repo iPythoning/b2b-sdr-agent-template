@@ -1,3 +1,13 @@
+## 2026-05-30 — Hourly run #10 (no new release, still v2026.5.27)
+
+**Release check**: latest stable = v2026.5.27 (betas v2026.5.28-beta.1–4 visible on GitHub, skipped), last-release = v2026.5.27 → no new release.
+
+**Step 0 WeChat drain**: 17 items attempted — all FAILED HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 17 → 17 (unchanged).
+
+**Action**: No blog/WeChat publish. Queue persists for next run. Self-heal will drain automatically once appsecret is fixed in PulseAgent backend.
+
+---
+
 ## 2026-05-30 — Hourly run #9 (no new release, still v2026.5.27)
 
 **Release check**: latest stable = v2026.5.27 (betas v2026.5.28-beta.1–4 visible on GitHub, skipped), last-release = v2026.5.27 → no new release.
