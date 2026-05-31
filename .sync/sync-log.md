@@ -283,3 +283,8 @@
 - Queue size: 18 → 18 (v2026.4.25 through v2026.5.28)
 - No blog/WeChat publish triggered; no sync state change
 - Awaiting backend fix for auto-drain
+
+## 2026-05-31 13:06 UTC
+- **Release check**: v2026.5.28 (no new release, last was v2026.5.28)
+- **Step 0 WeChat drain**: 18 items queued → 18 remaining (all 403 Forbidden — appsecret outage ongoing)
+- **Action**: No blog published, no template update. Queue unchanged.
