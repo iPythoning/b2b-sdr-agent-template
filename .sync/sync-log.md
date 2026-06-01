@@ -363,3 +363,9 @@
 - Step 0 WeChat queue drain: 18 items attempted, all returned HTTP 403 Forbidden (appsecret 40125 outage ongoing)
 - Queue size: 18 → 18 (unchanged; v2026.4.25 through v2026.5.28)
 - No blog/WeChat publish triggered; awaiting appsecret fix for auto-drain
+
+## 2026-06-01 — Hourly run (second)
+- **Release check**: Atom feed shows only v2026.6.1-beta.1, v2026.6.1-alpha.1, v2026.5.31-beta.4 → all pre-release, skipped. Latest stable remains v2026.5.28 == last-release → no new release.
+- **Step 0 WeChat drain**: 18 items attempted → all HTTP 403 Forbidden (appsecret 40125 outage ongoing)
+- **Queue size**: 18 → 18 (unchanged; v2026.4.25 through v2026.5.28)
+- **Action**: No blog published, no template update. Queue persisted. Awaiting backend appsecret fix.
