@@ -482,3 +482,9 @@
 - **Step 0 WeChat drain:** 18 items attempted → all HTTP 403 Forbidden (appsecret 40125 outage ongoing)
 - **Queue size:** 18 → 18 (v2026.4.25 through v2026.5.28 still pending)
 - **Action:** No blog published, no template update. Queue unchanged. Awaiting backend appsecret fix.
+
+## 2026-06-02 — Hourly Run (no new release, fourteenth)
+- **Release check:** Latest stable = v2026.5.28 (unchanged). Pre-releases visible: v2026.5.31-beta.{1-4}, v2026.6.1-beta.{1-2} — all skipped.
+- **Step 0 WeChat drain:** 18 items attempted → all HTTP 403 error code 1010 (Cloudflare/appsecret outage blocking cloud IP)
+- **Queue size:** 18 → 18 (v2026.4.25 through v2026.5.28 still pending)
+- **Action:** No blog published, no template update. Queue unchanged. Awaiting backend appsecret fix.
