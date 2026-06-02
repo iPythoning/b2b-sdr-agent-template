@@ -1,3 +1,10 @@
+## 2026-06-02 — Hourly Run (no new release, run 2)
+- **Release check:** Latest stable = v2026.5.28 (unchanged, no new release)
+- **New betas seen:** v2026.5.31-beta.{1-4}, v2026.6.1-beta.{1-2} — all skipped (pre-release)
+- **Step 0 WeChat drain:** 18 items in queue, all still failing HTTP 403 Forbidden (appsecret 40125 outage ongoing)
+- **Queue size:** 18 → 18 (v2026.4.25 through v2026.5.28)
+- **Action:** No blog published. Queue committed. Waiting for backend appsecret fix.
+
 ## 2026-06-01T(run18)
 - Latest stable: v2026.5.28 == last-release (v2026.5.28) → no new release (v2026.6.1-beta.2 visible — skipped as pre-release)
 - Step 0: WeChat queue drain attempted — all 18 versions failed (HTTP 403 Forbidden, appsecret outage ongoing)
