@@ -8,6 +8,26 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-06-03 — OpenClaw v2026.6.1 upstream sync
+
+Upstream: [openclaw/openclaw v2026.6.1](https://github.com/openclaw/openclaw/releases/tag/v2026.6.1) — first stable release of the v2026.6.x cycle.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **8-platform channel delivery hardening**: WhatsApp, Telegram, iMessage, Slack, Discord, Microsoft Teams, Google Chat, and iOS Realtime Talk all receive delivery hardening for steadier message delivery — fewer dropped messages in overnight outreach sequences.
+- **Multi-agent workboard orchestration primitives**: Coordination layer for distributing work across agents — assign prospect-research to a dedicated agent, route qualified leads to a closer, run parallel enrichment and personalization; workboard supports persistent shared state, proposal review queues, and async handoff between agents.
+- **Skill Workshop Control UI**: Proposal lists, today-actions queue, revision handoff, searchable file previews, review states, locale coverage tracking, and reusable session routing — reduces daily management overhead for teams running 10+ active markets.
+- **Agent and runtime recovery**: Interrupted tool calls, stale session bindings, compaction handoffs, and media delivery retries all handled cleanly — long SDR conversations no longer lose early qualification context on compaction.
+- **6-category hot-path performance**: Skills metadata, session metadata reads, gateway runtime state, plugin metadata fingerprints, memory watcher deduplication, and store write coalescing — CRM lookups and enrichment calls faster within a session.
+- **iMessage SQLite state tracking**: Monitor state, inbound queues, and plugin install ledgers now SQLite-backed — iMessage context survives restarts and redeployments.
+- **MiniMax M3 + GitHub Copilot agent runtime**: MiniMax M3 available for high-volume lead scoring and intent classification; GitHub Copilot agent runtime plugin for code-generating SDR tooling agents.
+
+### Migration notes
+
+- No breaking changes. All new features are additive.
+- iMessage SQLite database created automatically on first restart after upgrade.
+- Workboard and Skill Workshop Control UI require no configuration to activate.
+
 ## 2026-05-30 — OpenClaw v2026.5.28 upstream sync
 
 Upstream: [openclaw/openclaw v2026.5.28](https://github.com/openclaw/openclaw/releases/tag/v2026.5.28) — 35 contributors.

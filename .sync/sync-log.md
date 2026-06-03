@@ -566,3 +566,16 @@
   - All 18 queued versions (v2026.4.25 through v2026.5.28) have drafts ready
   - Queue unchanged: will retry next run
 - **Action**: No blog/template update needed. Queue committed.
+
+---
+
+## 2026-06-03 — v2026.6.1 sync
+
+- **Release**: v2026.5.28 → v2026.6.1 (first stable of v2026.6.x cycle, published 2026-06-03)
+- **Category**: RELEVANT — multi-agent workboard, Skill Workshop Control UI, 8-platform channel hardening, SQLite state, 6 hot-path optimizations
+- **Blog EN**: https://pulseagent.io/en/blog/openclaw-v2026-6-1-workboard-skills-8-platform-delivery (created)
+- **Blog ZH**: https://pulseagent.io/blog/openclaw-v2026-6-1-workboard-skills-8-platform-delivery (created)
+- **WeChat**: FAILED (HTTP 500 — appsecret still broken) → enqueued as v2026.6.1
+- **WeChat queue drain (Step 0)**: 18 → 18 (all 403 Forbidden — appsecret still broken)
+- **WeChat queue size**: 19 (v2026.4.25 through v2026.6.1)
+- **Repo**: CHANGELOG.md + README.md updated with v2026.6.1 highlights
