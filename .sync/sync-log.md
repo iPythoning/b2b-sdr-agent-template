@@ -527,3 +527,12 @@
   - All 18 queued versions have drafts ready
   - Queue unchanged: will retry next run
 - **Action**: No blog/template update needed. Queue committed.
+
+## 2026-06-03 — Hourly Run
+
+- **Latest stable release**: v2026.5.28 (no new release since last run)
+- **Pre-releases seen**: v2026.6.3-alpha.1, v2026.6.1-beta.3, v2026.6.2-alpha.2, v2026.6.2-alpha.1, v2026.6.1-beta.2 — all skipped
+- **Step 0 WeChat drain**: 18 → 18 (all 403 Forbidden — appsecret still broken)
+  - All 18 queued versions (v2026.4.25 through v2026.5.28) have drafts ready
+  - Queue unchanged: will retry next run
+- **Action**: No blog/template update needed. Queue committed.
