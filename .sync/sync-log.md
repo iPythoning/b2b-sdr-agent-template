@@ -579,3 +579,8 @@
 - **WeChat queue drain (Step 0)**: 18 → 18 (all 403 Forbidden — appsecret still broken)
 - **WeChat queue size**: 19 (v2026.4.25 through v2026.6.1)
 - **Repo**: CHANGELOG.md + README.md updated with v2026.6.1 highlights
+
+## 2026-06-03 — Hourly drain run
+- **New release**: None (latest stable still v2026.6.1; only beta releases newer: v2026.6.1-beta.1/2/3, v2026.5.31-beta.3/4)
+- **Step 0 WeChat drain**: 19 queued → 19 remaining (all 403 Forbidden — appsecret still broken)
+- **Action**: No blog or template changes; queue unchanged; log committed
