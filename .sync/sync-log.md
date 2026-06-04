@@ -655,3 +655,10 @@
 - Step 0 WeChat queue drain: 19 items attempted, 19 still failing (HTTP 403 — appsecret fix pending)
 - Queue size: 19 → 19 (unchanged)
 - No new release → exiting after queue drain
+
+## 2026-06-04 (hourly run #2)
+- Latest stable: v2026.6.1 (no change from last run)
+- Releases checked: only v2026.6.4-alpha.1, v2026.6.3-alpha.1, v2026.6.2-beta.1 above — all pre-release, skipped
+- Step 0 WeChat queue drain: 19 items attempted, all still HTTP 403 (appsecret fix still pending)
+- Queue size: 19 → 19 (unchanged)
+- No new release → exiting after queue drain
