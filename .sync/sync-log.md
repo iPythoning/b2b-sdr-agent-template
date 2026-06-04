@@ -614,3 +614,8 @@
 - **Step 0 WeChat drain**: 19 queued → 19 remaining (all HTTP 403 Forbidden — appsecret still broken)
   - Queue: v2026.4.25 through v2026.6.1 (all drafts present)
 - **Action**: No blog or template changes. Queue committed; awaiting appsecret fix in PulseAgent backend.
+
+## 2026-06-04 (automated)
+- **Release check**: latest stable = v2026.6.1 = last-release → no new release
+- **Step 0 WeChat queue drain**: 19 items attempted, 19 still failing (HTTP 403 — appsecret 40125 still broken). Queue size: 19 → 19
+- Queued versions: v2026.4.25, v2026.4.26, v2026.4.27, v2026.4.29, v2026.5.3, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.18, v2026.5.19, v2026.5.20, v2026.5.22, v2026.5.26, v2026.5.27, v2026.5.28, v2026.6.1
