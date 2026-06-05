@@ -1,3 +1,9 @@
+## 2026-06-05 — Hourly drain run (WeChat self-heal attempt #9)
+- **New release**: None (latest stable = v2026.6.1, unchanged; v2026.6.4-alpha.1 / v2026.6.3-alpha.1 / v2026.6.2-beta.1 are pre-release — skipped)
+- **Step 0 WeChat drain**: 19 queued → 19 remaining (all HTTP 403 — appsecret `40125 invalid appsecret` still broken)
+  - Queue: v2026.4.25 through v2026.6.1 (all 19 drafts present)
+- **Action**: No blog or template changes. Queue unchanged; awaiting appsecret fix in PulseAgent backend.
+
 ## 2026-06-04 — Hourly drain run (WeChat self-heal attempt #8)
 - **New release**: None (latest stable = v2026.6.1, unchanged; v2026.6.2-beta.1 pre-release — skipped)
 - **Step 0 WeChat drain**: 19 queued → 19 remaining (all HTTP 403 Forbidden — appsecret 40125 still broken)
