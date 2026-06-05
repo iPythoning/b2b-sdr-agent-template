@@ -707,3 +707,10 @@
 - Step 0 WeChat queue drain: 19 items attempted, all still HTTP 403 (appsecret 40125 fix still pending in PulseAgent backend)
 - Queue size: 19 → 19 (unchanged)
 - No new release → exiting after queue drain
+
+## 2026-06-05 — No new release
+
+- Latest stable: v2026.6.1 (unchanged)
+- Step 0 WeChat queue drain: 19/19 items still failing (HTTP 403 — appsecret outage ongoing)
+- Queue size: 19 (unchanged)
+- No blog/WeChat publish needed
