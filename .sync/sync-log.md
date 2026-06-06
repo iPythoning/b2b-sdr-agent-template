@@ -769,3 +769,9 @@
 - Step 0 WeChat queue drain: 19 items attempted, all still HTTP 403 (appsecret/WAF block ongoing)
 - Queue size: 19 → 19 (unchanged)
 - No new release → exiting after queue drain
+
+## 2026-06-06 (hourly run #2)
+- Latest stable: v2026.6.1 — unchanged from last-release (page 1: v2026.6.5-beta.1 skipped, v2026.6.2-beta.1 skipped)
+- Step 0 WeChat queue drain: 19 items attempted, all HTTP 403 error code 1010 (Cloudflare WAF block from remote IP — distinct from appsecret 40125 outage)
+- Queue size: 19 → 19 (unchanged)
+- No new release → exiting after queue drain
