@@ -1,3 +1,10 @@
+## 2026-06-06 — Hourly drain run (WeChat self-heal attempt #19)
+- **New release**: None (latest stable = v2026.6.1, unchanged; v2026.6.5-beta.1 pre-release skipped)
+- **Step 0 WeChat drain**: 19 queued → 19 remaining (all HTTP 403 Forbidden — appsecret outage ongoing)
+  - GitHub releases confirmed via WebFetch (API rate-limited from execution IP)
+  - All 19 drafts confirmed present; queue unchanged
+- **Action**: No blog or template changes. Queue persisted; awaiting appsecret fix.
+
 ## 2026-06-06 — Hourly drain run (WeChat self-heal attempt #18)
 - **New release**: None (latest stable = v2026.6.1, unchanged; v2026.6.5-beta.1 pre-release skipped)
 - **Step 0 WeChat drain**: 19 queued → 19 remaining (all HTTP 403 Forbidden — appsecret outage / Cloudflare WAF block ongoing)
