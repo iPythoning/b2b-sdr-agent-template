@@ -6,7 +6,9 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> 🚀 **最新 · 2026-05-27** — **OpenClaw v2026.5.26**：网关启动提速（消除冗余扫描）、会议转录基础架构（支持销售跟进与通话→CRM 管线）、Signal/iMessage/WhatsApp/Discord 多渠道稳定性升级、实时语音通话控制、命名认证配置（多账号 SDR 团队）、SSRF + 提示注入安全加固，以及 OpenTelemetry LLM 全链路追踪。[查看完整更新日志 →](./CHANGELOG.md)
+> ✅ **最新 · 2026-06-07** — **Template v3.7.0**：新增本地 `npm test` 验收、部署时 ChromaDB 记忆开关对齐、README 元数据清理，并覆盖产品知识库、PI 生成、Chroma 记忆、OpenClaw 配置生成的 release smoke test。[查看完整更新日志 →](./CHANGELOG.md)
+
+> 🚀 **平台 · 2026-06-03** — **OpenClaw v2026.6.1**：多 Agent workboard 编排、重构 Skill Workshop 控制台、8 平台渠道投递加固、iMessage SQLite 状态持久化、6 类热路径性能优化，以及 MiniMax M3 + GitHub Copilot agent runtime。[查看完整更新日志 →](./CHANGELOG.md)
 
 > 📦 **附加模块 · 2026-05-22** — **[WhatsApp 老号接入规范 v0.5](./whatsapp-old-account-onboarding/docs/README.zh-CN.md)** *（Path D — Multi-Device 同步）*：摩擦最小的历史获取路径——客户扫一次 QR，等 Multi-Device 同步，`bootstrap.sh` 直接从 PulseAgent 拉 .txt。无备份、无密码、无 USB。v0.4 备份提取仍是零停机租户的默认。三层架构（MemOS + sales_playbook + conversation_history）、A/B/C/D 交付决策树、严格自动接入闸。[Release 说明 →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.5)
 
@@ -24,13 +26,13 @@
 │  SOUL.md       → 人格、价值观、底线                │
 │  AGENTS.md     → 全链路销售工作流（10 阶段）        │
 │  USER.md       → 负责人画像、ICP、评分             │
-│  HEARTBEAT.md  → 13 项自动化 Pipeline 巡检        │
-│  MEMORY.md     → 三引擎记忆架构                   │
+│  HEARTBEAT.md  → 14 项自动化 Pipeline 巡检        │
+│  MEMORY.md     → 4 层反失忆协议                   │
 │  TOOLS.md      → CRM、渠道、集成                  │
 ├─────────────────────────────────────────────────┤
 │  Skills        → 可扩展能力                       │
 │  产品知识库     → 你的产品目录                      │ 
-│  Cron Jobs     → 13 个自动化定时任务               │
+│  Cron Jobs     → 14 个自动化 Pipeline 检查         │
 ├─────────────────────────────────────────────────┤
 │  OpenClaw Gateway (WhatsApp / Telegram / Email)  
 └─────────────────────────────────────────────────┘
@@ -83,7 +85,15 @@ cp config.sh.example config.sh
 vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 ```
 
-#### 3. 一键部署
+#### 3. 本地验收
+
+```bash
+npm test
+```
+
+这会在连接服务器前检查模板结构、Shell 脚本、产品知识库 JSON、形式发票生成、Chroma 记忆 smoke flow，以及生成后的 OpenClaw 配置。
+
+#### 4. 一键部署
 
 ```bash
 ./deploy.sh my-company
@@ -92,7 +102,8 @@ vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 # ✅ 部署完成: my-company
 # Gateway:  ws://your-server:18789
 # WhatsApp: 已启用
-# Skills:   b2b_trade (28 个)
+# ChromaDB Memory: Enabled (chromadb + local chroma-memory)
+# Skills:   b2b_trade (41 个)
 ```
 
 完成。你的 AI SDR 已在 WhatsApp 上线，准备好卖货了。
@@ -114,10 +125,11 @@ vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 | **9. 邮件开发** | 个性化冷开发信序列（Day 1/3/7/14），自动跟进 |
 | **10. 多渠道协同** | 跨渠道协调（WhatsApp + Email + Telegram），自动切换 |
 
-### 自动化定时任务（13 个 Cron Jobs）
+### 自动化定时任务（14 个 Pipeline 检查）
 
 | 时间 | 任务 |
 |------|------|
+| 每次 heartbeat | 新线索、报价跟踪、会议准备、数据质量检查 |
 | 每 30 分钟 | Gmail 收件箱扫描，检查客户回复 |
 | 每日 09:00 | Pipeline 报告发送至 WhatsApp |
 | 每日 10:00 | AI 主动获客（市场轮换：非洲/中东/东南亚/拉美） |
@@ -126,6 +138,10 @@ vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 | 每周三 | 养育活动 |
 | 每周五 | 竞品情报收集 |
 | 每周一 | 周报汇总 |
+| 每日 12:00 | CRM 快照写入 ChromaDB（L4 灾备） |
+| 每日 14:00 | 记忆健康检查（Supermemory + ChromaDB stats） |
+| 每次 heartbeat | Microsoft Teams 提及/私信检查，支持销售交接 |
+| 每 30 分钟 | WhatsApp 72h 窗口过期检查，自动切换 Telegram/Email |
 
 ### 拟人化对话
 - 自动检测并用客户语言回复
@@ -138,11 +154,6 @@ vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 - 初始分基于 5 个加权维度（采购量、产品匹配、区域、支付能力、决策权）
 - **根据互动自动调整**：快速回复 +1、索要报价 +2、提及竞品 +2、7 天无回复 -1
 - 热线索（ICP>=7）自动标记，立即通知负责人
-
-### 智能记忆（3 引擎）
-- **Supermemory**：研究笔记、竞品情报、市场洞察 — 外联前自动查询
-- **MemoryLake**：会话上下文、对话摘要 — 按会话自动回忆
-- **MemOS Cloud**：跨会话行为模式 — 自动捕获
 
 ### 4 层反失忆系统
 
@@ -177,8 +188,8 @@ AI 在长对话和跨会话时会丢失上下文。我们的 **4 层反失忆架
 | **灵魂层** | `SOUL.md` | AI 人格、沟通风格、底线、成长机制 |
 | **操作层** | `AGENTS.md` | 10 阶段销售工作流、BANT 筛选、多渠道协同 |
 | **用户层** | `USER.md` | 负责人画像、产品线、ICP 评分、竞品 |
-| **巡检层** | `HEARTBEAT.md` | 自动 Pipeline 巡检 — 新线索、停滞、数据质量 |
-| **记忆层** | `MEMORY.md` | 三层记忆架构、SDR 有效原则 |
+| **巡检层** | `HEARTBEAT.md` | 14 项自动 Pipeline 巡检 — 新线索、停滞、数据质量、记忆健康 |
+| **记忆层** | `MEMORY.md` | 4 层反失忆协议（MemOS + 主动摘要 + ChromaDB + CRM） |
 | **工具层** | `TOOLS.md` | CRM 命令、渠道配置、搜索、邮件 |
 
 ## Skills 技能
@@ -199,7 +210,7 @@ AI 在长对话和跨会话时会丢失上下文。我们的 **4 层反失忆架
 
 | 预设 | 技能数 | 适用场景 |
 |------|--------|----------|
-| `b2b_trade` | 28 | 外贸 B2B 企业（默认） |
+| `b2b_trade` | 41 | 外贸 B2B 企业（默认） |
 | `lite` | 16 | 快速启动、低量级 |
 | `social` | 14 | 社媒驱动销售 |
 | `full` | 40+ | 全部启用 |

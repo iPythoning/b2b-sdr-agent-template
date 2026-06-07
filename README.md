@@ -12,6 +12,8 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
+> ✅ **New · 2026-06-07** — **Template v3.7.0**: Local `npm test` validation, deploy-time ChromaDB memory alignment, README metadata cleanup, and release smoke tests for product KB, PI generation, Chroma memory, and generated OpenClaw config. [See full changelog →](./CHANGELOG.md)
+
 > 🚀 **New · 2026-06-03** — **OpenClaw v2026.6.1**: Multi-agent workboard orchestration, rebuilt Skill Workshop Control UI (proposal lists, today actions, review states, locale coverage), 8-platform channel delivery hardening, iMessage SQLite state persistence, 6-category hot-path performance gains, and MiniMax M3 + GitHub Copilot agent runtime. [See full changelog →](./CHANGELOG.md)
 
 > 📦 **Add-on · 2026-05-22** — **[WhatsApp Legacy Account Onboarding Spec v0.5](./whatsapp-old-account-onboarding/docs/README.md)** *(Path D — Multi-Device fetch)*: Lowest-friction history acquisition — customer scans one QR, waits for Multi-Device sync, `bootstrap.sh` pulls .txt files straight from PulseAgent. No backup, no password, no USB. Backup-extraction (v0.4) still default for zero-downtime tenants. Three-layer architecture (MemOS + sales_playbook + conversation_history), A/B/C/D delivery decision tree, strict auto-onboard gate. [Release notes →](https://github.com/iPythoning/b2b-sdr-agent-template/releases/tag/whatsapp-onboarding-v0.5)
@@ -34,13 +36,13 @@ Built on [OpenClaw](https://openclaw.dev), battle-tested with real B2B export co
 │  SOUL.md       → Personality, values, rules     │
 │  AGENTS.md     → Full sales workflow (10 stages)│
 │  USER.md       → Owner profile, ICP, scoring    │
-│  HEARTBEAT.md  → 13-item pipeline inspection    │
+│  HEARTBEAT.md  → 14-item pipeline inspection    │
 │  MEMORY.md     → 4-layer anti-amnesia protocol  │
 │  TOOLS.md      → CRM, channels, integrations    │
 ├─────────────────────────────────────────────────┤
 │  Skills        → Extensible capabilities        │
 │  Product KB    → Your product catalog           │
-│  Cron Jobs     → 13 automated scheduled tasks   │
+│  Cron Jobs     → 14 automated pipeline checks   │
 ├─────────────────────────────────────────────────┤
 │  OpenClaw Gateway (WhatsApp / Telegram / Email) │
 └─────────────────────────────────────────────────┘
@@ -107,7 +109,15 @@ cp config.sh.example config.sh
 vim config.sh               # Fill in: server IP, API key, WhatsApp number
 ```
 
-#### 3. Deploy
+#### 3. Validate Locally
+
+```bash
+npm test
+```
+
+This checks the template structure, shell scripts, product KB JSON, proforma invoice generation, Chroma memory smoke flow, and generated OpenClaw config before you touch a server.
+
+#### 4. Deploy
 
 ```bash
 ./deploy.sh my-company
@@ -116,7 +126,8 @@ vim config.sh               # Fill in: server IP, API key, WhatsApp number
 # ✅ Deploy Complete: my-company
 # Gateway:  ws://your-server:18789
 # WhatsApp: Enabled
-# Skills:   b2b_trade (28 skills)
+# ChromaDB Memory: Enabled (chromadb + local chroma-memory)
+# Skills:   b2b_trade (41 skills)
 ```
 
 That's it. Your AI SDR is live on WhatsApp and ready to sell.
@@ -138,10 +149,11 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 | **9. Email Outreach** | Personalized cold email sequences (Day 1/3/7/14), auto follow-up |
 | **10. Multi-Channel Orchestration** | Cross-channel coordination (WhatsApp + Email + Telegram), auto-switching |
 
-### Automated Scheduling (13 Cron Jobs)
+### Automated Scheduling (14 Pipeline Checks)
 
 | Schedule | Task |
 |----------|------|
+| Every heartbeat | New lead intake, quote tracking, meeting prep, and data-quality checks |
 | Every 30 min | Gmail inbox scan for client replies |
 | Daily 09:00 | Pipeline report to owner via WhatsApp |
 | Daily 10:00 | AI lead discovery (market rotation: Africa/ME/SEA/LatAm) |
@@ -152,6 +164,7 @@ That's it. Your AI SDR is live on WhatsApp and ready to sell.
 | Weekly Mon | Weekly summary report |
 | Daily 12:00 | CRM snapshot to ChromaDB (L4 disaster recovery) |
 | Daily 14:00 | Memory health check (Supermemory + ChromaDB stats) |
+| Every heartbeat | Microsoft Teams mention/DM scan for sales handoff |
 | Every 30 min | WhatsApp 72h window expiry check → auto-switch to Telegram |
 
 ### Human-Like Conversations
@@ -199,7 +212,7 @@ Message In ──→ L1 MemOS auto-recall (structured memory injection)
 | **Soul** | `SOUL.md` | AI personality, communication style, hard rules, growth mindset |
 | **Agents** | `AGENTS.md` | 10-stage sales workflow, BANT qualification, multi-channel orchestration |
 | **User** | `USER.md` | Owner profile, product lines, ICP scoring, competitors |
-| **Heartbeat** | `HEARTBEAT.md` | 13-item automated pipeline inspection + memory health |
+| **Heartbeat** | `HEARTBEAT.md` | 14-item automated pipeline inspection + memory health |
 | **Memory** | `MEMORY.md` | 4-layer anti-amnesia protocol (MemOS + Summary + ChromaDB + CRM) |
 | **Tools** | `TOOLS.md` | CRM commands, channel config, web research, email access |
 
@@ -224,7 +237,7 @@ Choose a pre-configured skill set based on your needs:
 
 | Profile | Skills | Best For |
 |---------|--------|----------|
-| `b2b_trade` | 28 skills | B2B export companies (default) |
+| `b2b_trade` | 41 skills | B2B export companies (default) |
 | `lite` | 16 skills | Getting started, low-volume |
 | `social` | 14 skills | Social media-focused sales |
 | `full` | 40+ skills | Everything enabled |

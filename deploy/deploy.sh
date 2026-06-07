@@ -283,6 +283,10 @@ if [ -n "${EXTRA_SKILLS:-}" ]; then
   SKILL_LIST="$SKILL_LIST ${EXTRA_ARR[*]}"
 fi
 
+if [ "${CHROMADB_ENABLED:-false}" = true ]; then
+  SKILL_LIST="$SKILL_LIST chromadb"
+fi
+
 SKILL_LIST=$(echo "$SKILL_LIST" | tr ' ' '\n' | sort -u | tr '\n' ' ')
 SKILL_COUNT=$(echo "$SKILL_LIST" | wc -w | tr -d ' ')
 
@@ -318,6 +322,7 @@ echo "  Gateway Token:    [hidden — see /root/.openclaw/openclaw.json]"
 echo ""
 echo "  WhatsApp:         $( [ "$WHATSAPP_ENABLED" = true ] && echo 'Enabled' || echo 'Disabled' )"
 echo "  Telegram:         $( [ "$TELEGRAM_ENABLED" = true ] && echo 'Enabled' || echo 'Disabled' )"
+echo "  ChromaDB Memory:  $( [ "${CHROMADB_ENABLED:-false}" = true ] && echo 'Enabled (chromadb + local chroma-memory)' || echo 'Off (set CHROMADB_ENABLED=true)' )"
 echo "  IP Isolation:     $( [ "${IP_ISOLATE:-false}" = true ] && echo 'Active (WARP proxy)' || echo 'Off (run ip-isolate.sh to enable)' )"
 echo "  Skills:           ${SKILL_PROFILE:-b2b_trade} ($SKILL_COUNT skills)"
 echo ""

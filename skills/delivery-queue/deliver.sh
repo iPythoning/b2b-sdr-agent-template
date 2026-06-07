@@ -6,6 +6,7 @@ set -euo pipefail
 
 QUEUE_DIR="${OPENCLAW_HOME:-$HOME/.openclaw}/delivery-queue"
 mkdir -p "$QUEUE_DIR"
+shopt -s nullglob
 
 # ─── Input Validation ────────────────────────────────────
 validate_channel() {
@@ -74,7 +75,7 @@ EOF
   list)
     # List all pending deliveries
     echo "=== Pending Deliveries ==="
-    for f in "$QUEUE_DIR"/*.json 2>/dev/null; do
+    for f in "$QUEUE_DIR"/*.json; do
       [ -f "$f" ] || continue
       python3 -c "
 import json, sys
@@ -115,7 +116,7 @@ with open(path, 'r+') as f:
     # Send all pending messages immediately
     NOW=$(date +%s)
     SENT=0
-    for f in "$QUEUE_DIR"/*.json 2>/dev/null; do
+    for f in "$QUEUE_DIR"/*.json; do
       [ -f "$f" ] || continue
       STATUS=$(python3 -c "import json,sys; print(json.load(open(sys.argv[1]))['status'])" "$f")
       [ "$STATUS" = "pending" ] || continue
@@ -136,7 +137,7 @@ with open(path, 'r+') as fh:
     # Remove completed/cancelled deliveries older than 7 days
     CUTOFF=$(($(date +%s) - 604800))
     CLEANED=0
-    for f in "$QUEUE_DIR"/*.json 2>/dev/null; do
+    for f in "$QUEUE_DIR"/*.json; do
       [ -f "$f" ] || continue
       python3 -c "
 import json, sys

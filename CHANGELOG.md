@@ -8,6 +8,18 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-06-07 — Template v3.7.0 validation + memory deployment alignment
+
+### Added
+
+- **Template validation entrypoint**: Added `package.json` with `npm test` / `npm run validate` so contributors and release operators can verify the template without a live server.
+- **`scripts/validate-template.sh`**: Smoke-tests required template files, shell syntax, product KB JSON, proforma invoice generation, local Chroma memory store/search, and generated `openclaw.json`.
+
+### Fixed
+
+- **ChromaDB deployment flag now has release behavior**: `CHROMADB_ENABLED=true` now installs the `chromadb` dependency, keeps it enabled by default for L3/L4 memory, and reports memory status in deploy output.
+- **Docs consistency**: Updated the template metadata and README copy to reflect 14 pipeline checks, the current 4-layer anti-amnesia memory model, and the actual 41-skill `b2b_trade` profile.
+
 ## 2026-06-03 — OpenClaw v2026.6.1 upstream sync
 
 Upstream: [openclaw/openclaw v2026.6.1](https://github.com/openclaw/openclaw/releases/tag/v2026.6.1) — first stable release of the v2026.6.x cycle.

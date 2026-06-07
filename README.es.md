@@ -88,7 +88,7 @@ vim config.sh               # Completa: IP del servidor, clave API, número de W
 # ✅ Deploy Complete: my-company
 # Gateway:  ws://your-server:18789
 # WhatsApp: Enabled
-# Skills:   b2b_trade (28 skills)
+# Skills:   b2b_trade (41 skills)
 ```
 
 Eso es todo. Tu SDR con IA está en vivo en WhatsApp y listo para vender.
@@ -197,7 +197,7 @@ Elige un conjunto de skills preconfigurado según tus necesidades:
 
 | Perfil | Skills | Mejor Para |
 |---------|--------|------------|
-| `b2b_trade` | 28 skills | Empresas de exportación B2B (predeterminado) |
+| `b2b_trade` | 41 skills | Empresas de exportación B2B (predeterminado) |
 | `lite` | 16 skills | Empezar, bajo volumen |
 | `social` | 14 skills | Ventas enfocadas en redes sociales |
 | `full` | 40+ skills | Todo habilitado |

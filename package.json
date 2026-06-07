@@ -1,0 +1,15 @@
+{
+  "name": "b2b-sdr-agent-template",
+  "version": "3.7.0",
+  "private": true,
+  "description": "Open-source B2B AI SDR template for OpenClaw deployments.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "validate": "bash scripts/validate-template.sh",
+    "test": "npm run validate"
+  }
+}

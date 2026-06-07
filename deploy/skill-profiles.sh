@@ -8,7 +8,6 @@
 SKILLS_CORE=(
   "sales"
   "supermemory"
-  "chromadb"
   "tavily-search"
   "pdf"
   "find-skills"
