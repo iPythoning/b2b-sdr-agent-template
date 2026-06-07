@@ -62,7 +62,13 @@ cp deploy/config.sh.example deploy/config.sh
 
 # Template smoke tests
 npm test
+
+# Post-deploy remote health check
+cd deploy
+./doctor.sh
 ```
+
+Pull requests to `main` run the same `npm test` checks in GitHub Actions.
 
 ## License
 

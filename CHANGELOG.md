@@ -8,6 +8,20 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-06-07 — Template v3.8.0 CI + deploy doctor
+
+### Added
+
+- **GitHub Actions CI**: Added `.github/workflows/validate.yml` so pushes and pull requests to `main` run `npm test` automatically.
+- **Post-deploy doctor**: Added `deploy/doctor.sh` for SSH-based health checks covering Node/npm, OpenClaw CLI, config permissions, workspace files, local skills, Gateway service, Gateway health endpoint, and Chroma memory.
+- **Remote path configuration**: Added `REMOTE_HOME`, `REMOTE_OPENCLAW_HOME`, `REMOTE_CONFIG_HOME`, and `REMOTE_WORKSPACE_DIR` so non-root or custom-path deployments no longer require editing deploy scripts.
+- **IP isolation path alignment**: `deploy/ip-isolate.sh` now uses the configured OpenClaw and systemd user paths when injecting Gateway proxy settings.
+
+### Fixed
+
+- **Generated workspace path**: `deploy/generate-config.sh` now writes `agents.defaults.workspace` from the configured remote workspace path instead of hardcoding `/root/.openclaw/workspace`.
+- **Validation coverage**: `npm test` now verifies the CI workflow, doctor script, current `b2b_trade` skill count, and non-root workspace path generation.
+
 ## 2026-06-07 — Template v3.7.0 validation + memory deployment alignment
 
 ### Added

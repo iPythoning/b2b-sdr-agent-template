@@ -7,6 +7,17 @@ set -euo pipefail
 CONFIG_DIR="${1:-.}"
 source "$CONFIG_DIR/config.sh"
 
+SERVER_USER="${SERVER_USER:-root}"
+if [ -z "${REMOTE_HOME:-}" ]; then
+  if [ "$SERVER_USER" = "root" ]; then
+    REMOTE_HOME="/root"
+  else
+    REMOTE_HOME="/home/$SERVER_USER"
+  fi
+fi
+REMOTE_OPENCLAW_HOME="${REMOTE_OPENCLAW_HOME:-$REMOTE_HOME/.openclaw}"
+REMOTE_WORKSPACE_DIR="${REMOTE_WORKSPACE_DIR:-$REMOTE_OPENCLAW_HOME/workspace}"
+
 # Auto-generate Gateway Token if not set
 if [ -z "$GATEWAY_TOKEN" ]; then
   GATEWAY_TOKEN=$(openssl rand -hex 24 2>/dev/null || head -c 48 /dev/urandom | xxd -p | tr -d '\n' | head -c 48)
@@ -144,7 +155,7 @@ $PROVIDERS
         \"fallbacks\": [\"$FALLBACK_PROVIDER/$FALLBACK_MODEL_ID\"]" || true)
       },
       "models": $AGENT_MODELS,
-      "workspace": "/root/.openclaw/workspace",
+      "workspace": "$REMOTE_WORKSPACE_DIR",
       "contextTokens": 60000,
       "heartbeat": {"every": "30m", "target": "last", "directPolicy": "allow"},
       "maxConcurrent": 4$([ -n "${COMPACTION_PROVIDER:-}" ] && echo ",

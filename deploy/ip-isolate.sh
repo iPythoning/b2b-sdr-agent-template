@@ -52,6 +52,28 @@ fi
 
 source "$CONFIG_FILE"
 
+SERVER_USER="${SERVER_USER:-root}"
+SERVER_PORT="${SERVER_PORT:-22}"
+if [ -z "${REMOTE_HOME:-}" ]; then
+  if [ "$SERVER_USER" = "root" ]; then
+    REMOTE_HOME="/root"
+  else
+    REMOTE_HOME="/home/$SERVER_USER"
+  fi
+fi
+REMOTE_OPENCLAW_HOME="${REMOTE_OPENCLAW_HOME:-$REMOTE_HOME/.openclaw}"
+REMOTE_CONFIG_HOME="${REMOTE_CONFIG_HOME:-$REMOTE_HOME/.config}"
+
+validate_remote_path() {
+  if ! [[ "$1" =~ ^/[a-zA-Z0-9._/-]+$ ]]; then
+    err "Invalid remote path: $1"
+    exit 1
+  fi
+}
+validate_remote_path "$REMOTE_HOME"
+validate_remote_path "$REMOTE_OPENCLAW_HOME"
+validate_remote_path "$REMOTE_CONFIG_HOME"
+
 # ─── SSH Setup ───────────────────────────────────────────
 SSH_OPTS="-o StrictHostKeyChecking=accept-new -o ConnectTimeout=10"
 [ -n "${SSH_KEY:-}" ] && SSH_OPTS="$SSH_OPTS -i $SSH_KEY"
@@ -83,6 +105,10 @@ echo "  WhatsApp IP Isolation — $TENANT_NAME"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 info "Server: ${SERVER_USER}@${SERVER_HOST}:${SERVER_PORT:-22}"
+info "OpenClaw Home: ${REMOTE_OPENCLAW_HOME}"
+if [ "$SERVER_USER" != "root" ]; then
+  warn "IP isolation installs system services; non-root users need passwordless privileges for /usr/local/bin, /etc/suiwarp, and systemd."
+fi
 
 # ─── Step 1: Test connection & detect architecture ───────
 info "Step 1/5: Checking server..."
@@ -237,9 +263,9 @@ info "Step 5/5: Configuring tenant container..."
 remote "
   # Find tenant .env (Docker multi-tenant or standalone)
   ENV_FILE=''
-  for path in \
-    '/opt/openclaw/tenants/${TENANT_NAME}/.env' \
-    '/root/.openclaw/.env'; do
+	  for path in \
+	    '/opt/openclaw/tenants/${TENANT_NAME}/.env' \
+	    '$REMOTE_OPENCLAW_HOME/.env'; do
     if [ -f \"\$path\" ]; then
       ENV_FILE=\"\$path\"
       break
@@ -266,7 +292,7 @@ remote "
   else
     # Standalone mode: set env for systemd service
     echo \"No Docker .env found, setting proxy in systemd\"
-    UNIT='/root/.config/systemd/user/openclaw-gateway.service'
+	    UNIT='$REMOTE_CONFIG_HOME/systemd/user/openclaw-gateway.service'
     if [ -f \"\$UNIT\" ] && ! grep -q 'ALL_PROXY' \"\$UNIT\"; then
       sed -i \"/\\[Service\\]/a Environment=ALL_PROXY=socks5://127.0.0.1:${SOCKS_PORT}\" \"\$UNIT\"
       systemctl --user daemon-reload

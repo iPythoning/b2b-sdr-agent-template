@@ -12,6 +12,16 @@ SERVER_PORT=22              # SSH port
 SSH_KEY=""                  # SSH key path (leave empty for default)
 SSH_PASS=""                 # SSH password (key preferred, password as fallback)
 
+# ─── Remote Paths ────────────────────────────────────────
+# Defaults:
+#   root user     -> /root/.openclaw
+#   non-root user -> /home/<SERVER_USER>/.openclaw
+# Override these when the server uses a custom home directory or OpenClaw path.
+REMOTE_HOME=""
+REMOTE_OPENCLAW_HOME=""
+REMOTE_CONFIG_HOME=""
+REMOTE_WORKSPACE_DIR=""
+
 # ─── OpenClaw Gateway ────────────────────────────────────
 GATEWAY_PORT=18789          # Gateway port
 GATEWAY_TOKEN=""            # Auth token (auto-generated if empty)

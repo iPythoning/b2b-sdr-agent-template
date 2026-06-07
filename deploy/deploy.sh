@@ -43,6 +43,19 @@ fi
 # ─── Load Config ──────────────────────────────────────────
 source "$CONFIG_FILE"
 
+SERVER_USER="${SERVER_USER:-root}"
+SERVER_PORT="${SERVER_PORT:-22}"
+if [ -z "${REMOTE_HOME:-}" ]; then
+  if [ "$SERVER_USER" = "root" ]; then
+    REMOTE_HOME="/root"
+  else
+    REMOTE_HOME="/home/$SERVER_USER"
+  fi
+fi
+REMOTE_OPENCLAW_HOME="${REMOTE_OPENCLAW_HOME:-$REMOTE_HOME/.openclaw}"
+REMOTE_CONFIG_HOME="${REMOTE_CONFIG_HOME:-$REMOTE_HOME/.config}"
+REMOTE_WORKSPACE_DIR="${REMOTE_WORKSPACE_DIR:-$REMOTE_OPENCLAW_HOME/workspace}"
+
 missing=()
 [ -z "$SERVER_HOST" ] && missing+=("SERVER_HOST")
 [ -z "$PRIMARY_API_KEY" ] && [ -z "$FALLBACK_API_KEY" ] && missing+=("At least one model API key")
@@ -58,6 +71,16 @@ fi
 if ! [[ "${SERVER_PORT:-22}" =~ ^[0-9]+$ ]]; then
   err "Invalid SERVER_PORT: ${SERVER_PORT}"; exit 1
 fi
+validate_remote_path() {
+  if ! [[ "$1" =~ ^/[a-zA-Z0-9._/-]+$ ]]; then
+    err "Invalid remote path: $1"
+    exit 1
+  fi
+}
+validate_remote_path "$REMOTE_HOME"
+validate_remote_path "$REMOTE_OPENCLAW_HOME"
+validate_remote_path "$REMOTE_CONFIG_HOME"
+validate_remote_path "$REMOTE_WORKSPACE_DIR"
 
 echo ""
 echo "═══════════════════════════════════════════════════════════"
@@ -67,6 +90,7 @@ echo ""
 info "Server: ${SERVER_USER}@${SERVER_HOST}:${SERVER_PORT:-22}"
 info "Primary Model: ${PRIMARY_PROVIDER}/${PRIMARY_MODEL_ID}"
 info "Gateway Port: ${GATEWAY_PORT}"
+info "OpenClaw Home: ${REMOTE_OPENCLAW_HOME}"
 echo ""
 
 if [ "$DRY_RUN" = true ]; then
@@ -145,7 +169,7 @@ fi
 
 # Ensure exec-approvals are set to full (default since 2026.4.2; explicit for forward-compatibility)
 info "  Setting exec approvals to full..."
-remote "cat > /root/.openclaw/exec-approvals.json << 'EAEOF'
+remote "mkdir -p '$REMOTE_OPENCLAW_HOME' && cat > '$REMOTE_OPENCLAW_HOME/exec-approvals.json' << 'EAEOF'
 {
   \"version\": 1,
   \"defaults\": {
@@ -156,7 +180,7 @@ remote "cat > /root/.openclaw/exec-approvals.json << 'EAEOF'
   \"agents\": {}
 }
 EAEOF
-chmod 600 /root/.openclaw/exec-approvals.json"
+chmod 600 '$REMOTE_OPENCLAW_HOME/exec-approvals.json'"
 log "  Exec approvals configured (security=full)"
 
 # ─── Step 3: Check Node.js ───────────────────────────────
@@ -191,7 +215,7 @@ log "  graphify installed"
 info "Step 4/8: Generating config..."
 
 # Backup existing config before overwriting
-remote "[ -f /root/.openclaw/openclaw.json ] && cp /root/.openclaw/openclaw.json /root/.openclaw/openclaw.json.bak.\$(date +%s) || true" 2>/dev/null
+remote "[ -f '$REMOTE_OPENCLAW_HOME/openclaw.json' ] && cp '$REMOTE_OPENCLAW_HOME/openclaw.json' '$REMOTE_OPENCLAW_HOME/openclaw.json.bak.'\$(date +%s) || true" 2>/dev/null
 
 bash "$SCRIPT_DIR/generate-config.sh" "$SCRIPT_DIR"
 log "openclaw.json generated"
@@ -206,17 +230,17 @@ fi
 # ─── Step 5: Deploy Files ────────────────────────────────
 info "Step 5/8: Deploying files..."
 
-remote "mkdir -p /root/.openclaw/{workspace,memory,skills,delivery-queue}"
+remote "mkdir -p '$REMOTE_WORKSPACE_DIR' '$REMOTE_OPENCLAW_HOME/memory' '$REMOTE_WORKSPACE_DIR/skills' '$REMOTE_OPENCLAW_HOME/delivery-queue'"
 
-remote_upload "$SCRIPT_DIR/openclaw.json" "/root/.openclaw/openclaw.json"
-remote "chmod 600 /root/.openclaw/openclaw.json"
+remote_upload "$SCRIPT_DIR/openclaw.json" "$REMOTE_OPENCLAW_HOME/openclaw.json"
+remote "chmod 600 '$REMOTE_OPENCLAW_HOME/openclaw.json'"
 log "  openclaw.json deployed (permissions: 600)"
 
 # Upload workspace MD files
 WORKSPACE_DIR="$(dirname "$SCRIPT_DIR")/workspace"
 for md in IDENTITY.md SOUL.md USER.md AGENTS.md MEMORY.md HEARTBEAT.md TOOLS.md; do
   if [ -f "$WORKSPACE_DIR/$md" ]; then
-    remote_upload "$WORKSPACE_DIR/$md" "/root/.openclaw/workspace/$md"
+    remote_upload "$WORKSPACE_DIR/$md" "$REMOTE_WORKSPACE_DIR/$md"
     log "  $md deployed"
   fi
 done
@@ -226,11 +250,11 @@ SKILLS_DIR="$(dirname "$SCRIPT_DIR")/skills"
 for skill_dir in "$SKILLS_DIR"/*/; do
   skill_name=$(basename "$skill_dir")
   if [ -f "$skill_dir/SKILL.md" ]; then
-    remote "mkdir -p /root/.openclaw/workspace/skills/$skill_name"
-    remote_upload "$skill_dir/SKILL.md" "/root/.openclaw/workspace/skills/$skill_name/SKILL.md"
+    remote "mkdir -p '$REMOTE_WORKSPACE_DIR/skills/$skill_name'"
+    remote_upload "$skill_dir/SKILL.md" "$REMOTE_WORKSPACE_DIR/skills/$skill_name/SKILL.md"
     # Upload any script files (.mjs, .sh) alongside the SKILL.md
     for script in "$skill_dir"*.mjs "$skill_dir"*.sh; do
-      [ -f "$script" ] && remote_upload "$script" "/root/.openclaw/workspace/skills/$skill_name/$(basename "$script")"
+      [ -f "$script" ] && remote_upload "$script" "$REMOTE_WORKSPACE_DIR/skills/$skill_name/$(basename "$script")"
     done
     log "  skill/$skill_name deployed"
   fi
@@ -239,9 +263,9 @@ done
 # ─── Step 6: Start Gateway ───────────────────────────────
 info "Step 6/8: Starting Gateway..."
 
-remote "mkdir -p /root/.config/systemd/user"
+remote "mkdir -p '$REMOTE_CONFIG_HOME/systemd/user'"
 SAFE_PORT=$(printf '%d' "$GATEWAY_PORT")
-remote "cat > /root/.config/systemd/user/openclaw-gateway.service << SVCEOF
+remote "cat > '$REMOTE_CONFIG_HOME/systemd/user/openclaw-gateway.service' << SVCEOF
 [Unit]
 Description=OpenClaw Gateway
 After=network-online.target
@@ -250,11 +274,11 @@ After=network-online.target
 ExecStart=/usr/bin/openclaw gateway --port $SAFE_PORT
 Restart=always
 RestartSec=5
-Environment=HOME=/root
-Environment=PATH=/root/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=HOME=$REMOTE_HOME
+Environment=PATH=$REMOTE_HOME/.local/bin:/usr/local/bin:/usr/bin:/bin
 NoNewPrivileges=yes
 ProtectSystem=strict
-ReadWritePaths=/root/.openclaw /root/.config /tmp
+ReadWritePaths=$REMOTE_OPENCLAW_HOME $REMOTE_CONFIG_HOME /tmp
 PrivateTmp=yes
 
 [Install]
@@ -296,7 +320,7 @@ if [ -n "$SKILL_LIST" ] && [ "$SKILL_COUNT" -gt 0 ]; then
     if [[ ! "$skill" =~ ^[a-zA-Z0-9_-]+$ ]]; then
       warn "  Skipping invalid skill name: $skill"; continue
     fi
-    remote "cd /root/.openclaw/workspace/skills && clawhub install $(printf '%q' "$skill") --force --no-input 2>&1 | tail -1" 2>/dev/null || true
+    remote "cd '$REMOTE_WORKSPACE_DIR/skills' && clawhub install $(printf '%q' "$skill") --force --no-input 2>&1 | tail -1" 2>/dev/null || true
   done
   log "  Skills installed"
 fi
@@ -318,7 +342,8 @@ echo "════════════════════════�
 echo ""
 echo "  Server:           ${SERVER_HOST}"
 echo "  Gateway:          ws://${SERVER_HOST}:${GATEWAY_PORT}"
-echo "  Gateway Token:    [hidden — see /root/.openclaw/openclaw.json]"
+echo "  OpenClaw Home:    ${REMOTE_OPENCLAW_HOME}"
+echo "  Gateway Token:    [hidden — see ${REMOTE_OPENCLAW_HOME}/openclaw.json]"
 echo ""
 echo "  WhatsApp:         $( [ "$WHATSAPP_ENABLED" = true ] && echo 'Enabled' || echo 'Disabled' )"
 echo "  Telegram:         $( [ "$TELEGRAM_ENABLED" = true ] && echo 'Enabled' || echo 'Disabled' )"
@@ -330,4 +355,5 @@ echo "  Commands:"
 echo "    Status:  ssh ${SERVER_USER}@${SERVER_HOST} systemctl --user status openclaw-gateway"
 echo "    Logs:    ssh ${SERVER_USER}@${SERVER_HOST} journalctl --user -u openclaw-gateway -f"
 echo "    Restart: ssh ${SERVER_USER}@${SERVER_HOST} systemctl --user restart openclaw-gateway"
+echo "    Doctor:  cd deploy && ./doctor.sh"
 echo ""

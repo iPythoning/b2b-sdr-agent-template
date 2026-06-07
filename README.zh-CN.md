@@ -6,7 +6,7 @@
 
 基于 [OpenClaw](https://openclaw.dev) 构建，已在真实外贸企业验证。
 
-> ✅ **最新 · 2026-06-07** — **Template v3.7.0**：新增本地 `npm test` 验收、部署时 ChromaDB 记忆开关对齐、README 元数据清理，并覆盖产品知识库、PI 生成、Chroma 记忆、OpenClaw 配置生成的 release smoke test。[查看完整更新日志 →](./CHANGELOG.md)
+> ✅ **最新 · 2026-06-07** — **Template v3.8.0**：新增 GitHub Actions 自动跑 `npm test`、部署后 `deploy/doctor.sh` 健康检查、非 root 部署远端路径配置，并扩展技能数量与 workspace 路径生成验收。[查看完整更新日志 →](./CHANGELOG.md)
 
 > 🚀 **平台 · 2026-06-03** — **OpenClaw v2026.6.1**：多 Agent workboard 编排、重构 Skill Workshop 控制台、8 平台渠道投递加固、iMessage SQLite 状态持久化、6 类热路径性能优化，以及 MiniMax M3 + GitHub Copilot agent runtime。[查看完整更新日志 →](./CHANGELOG.md)
 
@@ -88,6 +88,7 @@ vim config.sh               # 填入：服务器 IP、API Key、WhatsApp 号码
 #### 3. 本地验收
 
 ```bash
+cd ..
 npm test
 ```
 
@@ -96,6 +97,7 @@ npm test
 #### 4. 一键部署
 
 ```bash
+cd deploy
 ./deploy.sh my-company
 
 # 输出:
@@ -105,6 +107,14 @@ npm test
 # ChromaDB Memory: Enabled (chromadb + local chroma-memory)
 # Skills:   b2b_trade (41 个)
 ```
+
+#### 5. 远端健康检查
+
+```bash
+./doctor.sh
+```
+
+Doctor 会检查 SSH、Node/npm、OpenClaw CLI、`openclaw.json` 权限、workspace 上下文文件、本地 skills、Gateway 服务状态、Gateway `/health`，以及 Chroma 记忆脚本。
 
 完成。你的 AI SDR 已在 WhatsApp 上线，准备好卖货了。
 
@@ -271,6 +281,20 @@ Token 在部署时自动生成并显示在输出中。请妥善保管 — 拥有
 - Node.js 18+
 - AI 模型 API Key（OpenAI、Anthropic、Google、Kimi 等）
 - WhatsApp Business 账号（可选但推荐）
+
+### 配置
+
+所有部署配置都在 `deploy/config.sh`。非 root 服务器或自定义 OpenClaw 路径时，不要改部署脚本，直接配置远端路径：
+
+```bash
+SERVER_USER="openclaw"
+REMOTE_HOME="/srv/openclaw"
+REMOTE_OPENCLAW_HOME="/srv/openclaw/.openclaw"
+REMOTE_CONFIG_HOME="/srv/openclaw/.config"
+REMOTE_WORKSPACE_DIR="/srv/openclaw/.openclaw/workspace"
+```
+
+CI 会在每次 push 和 pull request 到 `main` 时自动运行 `npm test`。
 
 ### WhatsApp 配置
 

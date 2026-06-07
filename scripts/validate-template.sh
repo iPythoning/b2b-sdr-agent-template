@@ -21,9 +21,10 @@ require_cmd jq
 
 for file in \
   README.md README.zh-CN.md CHANGELOG.md SKILL.md \
+  .github/workflows/validate.yml \
   workspace/IDENTITY.md workspace/SOUL.md workspace/AGENTS.md workspace/USER.md \
   workspace/MEMORY.md workspace/HEARTBEAT.md workspace/TOOLS.md \
-  deploy/config.sh.example deploy/deploy.sh deploy/generate-config.sh deploy/skill-profiles.sh \
+  deploy/config.sh.example deploy/deploy.sh deploy/doctor.sh deploy/generate-config.sh deploy/skill-profiles.sh \
   skills/chroma-memory/SKILL.md skills/chroma-memory/chroma.mjs \
   product-kb/catalog.json product-kb/scripts/generate-pi.js
 do
@@ -62,6 +63,12 @@ OPENCLAW_HOME="$TMP_DIR/openclaw" node "$ROOT/skills/chroma-memory/chroma.mjs" s
 jq -e 'length == 1 and .[0].has_quote == true and .[0].has_commitment == true' "$TMP_DIR/chroma-search.json" >/dev/null
 pass "Chroma memory smoke test works"
 
+source "$ROOT/deploy/skill-profiles.sh"
+skill_list="$(get_skills_for_profile b2b_trade) chromadb"
+skill_count="$(printf '%s\n' $skill_list | sort -u | wc -l | tr -d ' ')"
+[ "$skill_count" = "41" ] || fail "Expected b2b_trade profile to install 41 skills, got $skill_count"
+pass "b2b_trade skill profile count is current"
+
 mkdir -p "$TMP_DIR/deploy"
 awk '
   /^SERVER_HOST=/ { print "SERVER_HOST=\"127.0.0.1\""; next }
@@ -76,8 +83,22 @@ jq -e '
   .gateway.port == 18789 and
   .channels.whatsapp.enabled == true and
   .agents.defaults.model.primary == "deepseek/deepseek-v4-flash" and
+  .agents.defaults.workspace == "/root/.openclaw/workspace" and
   .plugins.entries.whatsapp.enabled == true
 ' "$TMP_DIR/deploy/openclaw.json" >/dev/null
 pass "OpenClaw config generation works"
+
+awk '
+  /^SERVER_HOST=/ { print "SERVER_HOST=\"127.0.0.1\""; next }
+  /^SERVER_USER=/ { print "SERVER_USER=\"openclaw\""; next }
+  /^PRIMARY_API_KEY=/ { print "PRIMARY_API_KEY=\"sk-validation-primary\""; next }
+  /^FALLBACK_API_KEY=/ { print "FALLBACK_API_KEY=\"sk-validation-fallback\""; next }
+  { print }
+' "$ROOT/deploy/config.sh.example" > "$TMP_DIR/deploy/config-nonroot.sh"
+mv "$TMP_DIR/deploy/config.sh" "$TMP_DIR/deploy/config-root.sh"
+mv "$TMP_DIR/deploy/config-nonroot.sh" "$TMP_DIR/deploy/config.sh"
+bash "$ROOT/deploy/generate-config.sh" "$TMP_DIR/deploy" >/dev/null
+jq -e '.agents.defaults.workspace == "/home/openclaw/.openclaw/workspace"' "$TMP_DIR/deploy/openclaw.json" >/dev/null
+pass "Non-root OpenClaw workspace path generation works"
 
 printf '\nAll template checks passed.\n'

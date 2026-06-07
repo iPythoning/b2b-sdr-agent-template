@@ -12,7 +12,7 @@
 
 > Turn any B2B export business into an AI-powered sales machine in 5 minutes.
 
-> ✅ **New · 2026-06-07** — **Template v3.7.0**: Local `npm test` validation, deploy-time ChromaDB memory alignment, README metadata cleanup, and release smoke tests for product KB, PI generation, Chroma memory, and generated OpenClaw config. [See full changelog →](./CHANGELOG.md)
+> ✅ **New · 2026-06-07** — **Template v3.8.0**: GitHub Actions CI for `npm test`, post-deploy `deploy/doctor.sh` health checks, configurable remote OpenClaw paths for non-root deployments, and expanded validation for skill counts + workspace path generation. [See full changelog →](./CHANGELOG.md)
 
 > 🚀 **New · 2026-06-03** — **OpenClaw v2026.6.1**: Multi-agent workboard orchestration, rebuilt Skill Workshop Control UI (proposal lists, today actions, review states, locale coverage), 8-platform channel delivery hardening, iMessage SQLite state persistence, 6-category hot-path performance gains, and MiniMax M3 + GitHub Copilot agent runtime. [See full changelog →](./CHANGELOG.md)
 
@@ -112,6 +112,7 @@ vim config.sh               # Fill in: server IP, API key, WhatsApp number
 #### 3. Validate Locally
 
 ```bash
+cd ..
 npm test
 ```
 
@@ -120,6 +121,7 @@ This checks the template structure, shell scripts, product KB JSON, proforma inv
 #### 4. Deploy
 
 ```bash
+cd deploy
 ./deploy.sh my-company
 
 # Output:
@@ -129,6 +131,14 @@ This checks the template structure, shell scripts, product KB JSON, proforma inv
 # ChromaDB Memory: Enabled (chromadb + local chroma-memory)
 # Skills:   b2b_trade (41 skills)
 ```
+
+#### 5. Verify Remote Health
+
+```bash
+./doctor.sh
+```
+
+Doctor checks SSH, Node/npm, OpenClaw CLI, `openclaw.json` permissions, workspace context files, local skills, Gateway service state, Gateway `/health`, and Chroma memory.
 
 That's it. Your AI SDR is live on WhatsApp and ready to sell.
 
@@ -346,6 +356,18 @@ SHEETS_SPREADSHEET_ID="your-google-sheets-id"
 # Admin (who can manage the AI)
 ADMIN_PHONES="+1234567890"
 ```
+
+For non-root servers or custom OpenClaw locations, set the remote paths instead of editing deploy scripts:
+
+```bash
+SERVER_USER="openclaw"
+REMOTE_HOME="/srv/openclaw"
+REMOTE_OPENCLAW_HOME="/srv/openclaw/.openclaw"
+REMOTE_CONFIG_HOME="/srv/openclaw/.config"
+REMOTE_WORKSPACE_DIR="/srv/openclaw/.openclaw/workspace"
+```
+
+CI runs `npm test` on every push and pull request to `main`.
 
 ### WhatsApp IP Isolation (Multi-Tenant)
 
