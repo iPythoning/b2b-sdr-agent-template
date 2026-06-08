@@ -1,3 +1,10 @@
+## 2026-06-08 — Hourly WeChat Queue Drain (run #18)
+- Latest stable release: v2026.6.1 (no change; v2026.6.5-beta.2, v2026.6.5-beta.1, v2026.6.2-beta.1 observed — skipped)
+- Step 0: Attempted re-push of 19 queued WeChat versions
+- Result: ALL 19 failed — HTTP 403 Cloudflare/1010 (WAF blocking requests from execution environment; previously was WeChat appsecret 40125)
+- Queue size unchanged: 19 items
+- Action: None (pending resolution — may require Cloudflare allowlist or proxy fix on PulseAgent backend)
+
 ## 2026-06-08 — Hourly WeChat Queue Drain (run #17)
 - Latest stable release: v2026.6.1 (no change; v2026.6.5-beta.2, v2026.6.5-beta.1, v2026.6.2-beta.1 observed — skipped)
 - Step 0: Attempted re-push of 19 queued WeChat versions
