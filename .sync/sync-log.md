@@ -1015,3 +1015,10 @@
 - Result: ALL 19 failed — HTTP 403 Forbidden (WeChat appsecret 40125 still broken)
 - Queue size unchanged: 19 items
 - Action: None (pending appsecret fix in PulseAgent backend)
+
+---
+## Run: 2026-06-08
+- **Release check**: last=v2026.6.1, latest=v2026.6.1 → No new stable release
+- **WeChat queue drain (Step 0)**: 19 items in queue, all failed HTTP 403 (appsecret outage ongoing). Queue unchanged.
+- **Pre-releases seen (skipped)**: v2026.6.5-beta.2 (Jun 7), v2026.6.5-beta.1 (Jun 6), v2026.6.2-beta.1 (Jun 3)
+- **Action**: No blog publish. No template update. Queue persists for next run.
