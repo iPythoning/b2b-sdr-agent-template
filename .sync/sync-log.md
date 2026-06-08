@@ -987,3 +987,10 @@
 - Result: ALL 19 failed — HTTP 403 Forbidden (WeChat appsecret 40125 still broken)
 - Queue size unchanged: 19 items
 - Action: None (pending appsecret fix in PulseAgent backend)
+
+## 2026-06-08 — Hourly WeChat Queue Drain (run #2)
+- Latest stable release: v2026.6.1 (no change; pre-releases v2026.6.5-beta.2, v2026.6.5-beta.1, v2026.6.2-beta.1 observed — skipped)
+- Step 0: Attempted re-push of 19 queued WeChat versions (v2026.4.25 through v2026.6.1)
+- Result: ALL 19 failed — WeChat token error 40125 invalid appsecret (appsecret still broken)
+- Queue size unchanged: 19 items
+- Action: None (pending appsecret fix in PulseAgent backend)
