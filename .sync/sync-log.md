@@ -1,3 +1,9 @@
+## 2026-06-09 — Hourly WeChat Queue Drain (run #25)
+- Latest stable release: v2026.6.1 (no change; v2026.6.5-beta.6 latest pre-release, all skipped)
+- Step 0: Attempted re-push of 19 queued WeChat versions — ALL 19 failed HTTP 403 Forbidden (appsecret 40125 outage ongoing)
+- Queue size: 19 → 19 (unchanged)
+- No new release → no blog publish, no template update
+
 ## 2026-06-09 — Hourly WeChat Queue Drain (run #24)
 - Latest stable release: v2026.6.1 (no change; v2026.6.5-beta.6 latest pre-release, all skipped)
 - Step 0: Attempted re-push of 19 queued WeChat versions — ALL 19 failed HTTP 403 Forbidden (appsecret 40125 outage ongoing)
