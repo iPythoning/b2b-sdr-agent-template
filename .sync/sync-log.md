@@ -1050,3 +1050,10 @@
 - **Pre-releases seen (skipped)**: v2026.6.9-alpha.1 (Jun 9), v2026.6.8-alpha.1 (Jun 8), v2026.6.5-beta.5 (Jun 8), v2026.6.5-beta.3 (Jun 8), v2026.6.5-beta.2 (Jun 7), v2026.6.5-beta.1 (Jun 6), v2026.6.2-beta.1 (Jun 3)
 - **WeChat queue drain (Step 0)**: 19 items in queue (v2026.4.25 through v2026.6.1), all failed HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue unchanged at 19 items.
 - **Action**: No blog publish. No template update. Queue persists for next run.
+
+---
+## Run: 2026-06-09 (run 2)
+- **Release check**: last=v2026.6.1, latest=v2026.6.1 → No new stable release
+- **Pre-releases seen (skipped)**: v2026.6.5-beta.6 (Jun 9), v2026.6.5-beta.5 (Jun 8), v2026.6.5-beta.3/2/1 (Jun 6-8)
+- **WeChat queue drain (Step 0)**: 19 items in queue (v2026.4.25 through v2026.6.1), all failed HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue size: 19 → 19 (unchanged).
+- **Action**: No blog publish. No template update. Queue persists for next run.
