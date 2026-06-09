@@ -1,3 +1,12 @@
+## 2026-06-09 — New Release v2026.6.5 (run #26)
+- Previous: v2026.6.1 → Latest: **v2026.6.5** (new stable release)
+- Step 0: WeChat queue drain attempted — ALL 19 items failed HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 19 → 19.
+- Step 2: Category = RELEVANT — Parallel web search provider, extended-thinking recovery, MCP tool coercion, QQBot reasoning strip, SQLite auth, WhatsApp startup bounds, Matrix voice/threading, Vertex ADC fixes.
+- Step 3: CHANGELOG.md updated with v2026.6.5 upstream highlights.
+- Step 4: Blog published — EN: https://pulseagent.io/en/blog/openclaw-v2026-6-5-parallel-search-ai-session-recovery (created) | ZH: updated same slug.
+- Step 5: WeChat push failed — error 40125 invalid appsecret. v2026.6.5 enqueued. Queue: 19 → 20.
+- Step 6: last-release updated to v2026.6.5. Committed.
+
 ## 2026-06-09 — Hourly WeChat Queue Drain (run #25)
 - Latest stable release: v2026.6.1 (no change; v2026.6.5-beta.6 latest pre-release, all skipped)
 - Step 0: Attempted re-push of 19 queued WeChat versions — ALL 19 failed HTTP 403 Forbidden (appsecret 40125 outage ongoing)

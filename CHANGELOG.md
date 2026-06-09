@@ -8,6 +8,25 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-06-09 — OpenClaw v2026.6.5 upstream sync
+
+Upstream: [openclaw/openclaw v2026.6.5](https://github.com/openclaw/openclaw/releases/tag/v2026.6.5) — first stable release under YYYY.M.PATCH monthly patch numbering.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **Built-in Parallel web search provider**: Native web search with API key auto-discovery, cache-safe session management, and endpoint normalization — lead research workflows (firmographic lookups, LinkedIn signal enrichment, buying trigger detection) now run concurrently across multiple prospects.
+- **Anthropic extended-thinking session recovery**: Long AI reasoning sessions recover automatically after prompt-cache expiry via deferred stream start events — 10+ step deal analysis and stakeholder mapping workflows complete reliably without silent mid-chain failures.
+- **MCP tool result coercion**: Non-text/image blocks (JSON objects, numeric scores, status objects) are automatically coerced to Anthropic-accepted formats — CRM lookups, lead scoring, and multi-step tool chains no longer corrupt session history.
+- **QQBot reasoning stripping**: Raw `<thinking>` scaffolding is stripped before channel delivery — professional outreach output reaches recipients cleanly.
+- **Auth profiles migrated to SQLite**: Credentials survive agent restarts; npm plugin installs preserve trusted pins; prerelease fallback integrity checks prevent stale auth after upgrades.
+- **Bounded WhatsApp startup waits**: Prevents infinite hang when WhatsApp API is slow at boot, unblocking all other channel initialization.
+- **Matrix voice preflighting + thread-aware replies**: Voice notes validated before delivery; replies attach to source thread rather than creating orphaned top-level messages.
+- **Google Vertex ADC improvements**: Static catalog rows restored, runtime model resolution fixed, cooldown recovery more reliable.
+- **macOS Node stability**: Prevents silent self-reconnection away from healthy Gateway sessions.
+- **Cron legacy JSON migration + safer env placeholders**: Scheduled job config survives upgrades; `${VAR}` literals blocked from reaching APIs when env vars are unset.
+
+---
+
 ## 2026-06-07 — Template v3.8.0 CI + deploy doctor
 
 ### Added
