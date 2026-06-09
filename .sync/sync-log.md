@@ -1115,3 +1115,8 @@
 - **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
 - **WeChat queue drain (Step 0)**: 20 items in queue (v2026.4.25 through v2026.6.5), all failed HTTP 403 Forbidden (WeChat appsecret still blocked). Queue size: 20 → 20 (unchanged).
 - **Action**: No blog publish. No template update. Queue persists for next run.
+
+## Run: 2026-06-09 (run 8)
+- **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
+- **WeChat queue drain (Step 0)**: 20 items in queue (v2026.4.25 through v2026.6.5), all failed HTTP 403 Forbidden (WeChat appsecret still blocked). Queue size: 20 → 20 (unchanged).
+- **Action**: No blog publish. No template update. Queue persists for next run.
