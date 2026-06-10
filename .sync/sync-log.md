@@ -1156,3 +1156,8 @@
 - **WeChat v2026.6.5**: FAILED (HTTP 500) → queued for retry (queue: 13 items)
 - **README.md**: updated announcement to v2026.6.5
 - Note: previous sessions were committing to detached HEAD; this run targets origin/main directly
+
+## 2026-06-10 — Hourly Drain (run #31)
+- **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
+- **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
+- **Action**: No blog publish. No template update. Sync state unchanged.
