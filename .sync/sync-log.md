@@ -1,3 +1,8 @@
+## 2026-06-10 — Hourly Drain (run #34)
+- **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release (`v2026.6.6-beta.1` is prerelease, skipped)
+- **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
+- **Action**: No blog publish. No template update. Sync state unchanged.
+
 ## 2026-06-10 — No New Release (run #33)
 - Last release: v2026.6.5 (unchanged). Latest stable on openclaw/openclaw is also v2026.6.5.
 - Step 0: WeChat queue drain — queue was empty (0 items). No re-push attempts.
