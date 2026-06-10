@@ -1,3 +1,8 @@
+## 2026-06-10 — No New Release (run #29)
+- Last release: v2026.6.5 (unchanged). No new stable release found.
+- Step 0: WeChat queue drain — v2026.4.29 REPUSHED successfully. Queue: 1 → 0. Queue now empty.
+- Committed queue update. Exiting.
+
 ## 2026-06-10 — No New Release (run #28)
 - Last release: v2026.6.5 (unchanged). No new stable release found.
 - Step 0: WeChat queue drain — 12/13 re-pushed successfully (v2026.4.25, v2026.4.26, v2026.4.27, v2026.5.3-1, v2026.5.4, v2026.5.5, v2026.5.18, v2026.5.19, v2026.5.22, v2026.5.28, v2026.6.1, v2026.6.5). v2026.4.29 still HTTP 500. Queue: 13 → 1.
