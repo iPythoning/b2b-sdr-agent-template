@@ -1161,3 +1161,8 @@
 - **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
 - **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
 - **Action**: No blog publish. No template update. Sync state unchanged.
+
+## 2026-06-10 — Hourly Drain (run #32)
+- **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
+- **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
+- **Action**: No blog publish. No template update. Sync state unchanged.
