@@ -1131,3 +1131,13 @@
 - **Pre-releases seen (skipped)**: v2026.6.5-beta.2 through v2026.6.5-beta.6 — all pre-release, skipped per policy
 - **WeChat queue drain (Step 0)**: 20 items in queue (v2026.4.25 through v2026.6.5), all failed HTTP 403 Forbidden (WeChat appsecret 40125 outage ongoing). Queue size: 20 → 20 (unchanged).
 - **Action**: No blog publish. No template update. Queue persists for next run.
+
+## 2026-06-10 — Release v2026.6.5 Full Sync (clean commit on origin/main)
+
+- **Release check**: last = v2026.6.1 (per remote README), latest = v2026.6.5 → **new release processed**
+- **Step 0 WeChat queue drain**: 19 → 12 items (7 repushed: v2026.5.3, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.20, v2026.5.26, v2026.5.27)
+- **Blog EN**: published → https://pulseagent.io/en/blog/openclaw-v2026-6-5-parallel-search-skills-channel-fixes
+- **Blog ZH**: published → https://pulseagent.io/en/blog/openclaw-v2026-6-5-parallel-search-skills-channel-fixes-zh
+- **WeChat v2026.6.5**: FAILED (HTTP 500) → queued for retry (queue: 13 items)
+- **README.md**: updated announcement to v2026.6.5
+- Note: previous sessions were committing to detached HEAD; this run targets origin/main directly
