@@ -1,3 +1,8 @@
+## 2026-06-10 — No New Release (run #27)
+- Last release: v2026.6.5 (unchanged). No new stable release found.
+- Step 0: WeChat queue drain — 7 re-pushed successfully (v2026.5.3, v2026.5.6, v2026.5.7, v2026.5.12, v2026.5.20, v2026.5.26, v2026.5.27). 13 still failing HTTP 500. Queue: 20 → 13.
+- Committed queue update. Exiting.
+
 ## 2026-06-09 — New Release v2026.6.5 (run #26)
 - Previous: v2026.6.1 → Latest: **v2026.6.5** (new stable release)
 - Step 0: WeChat queue drain attempted — ALL 19 items failed HTTP 403 Forbidden (appsecret 40125 outage ongoing). Queue: 19 → 19.
