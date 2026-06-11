@@ -1,3 +1,8 @@
+## 2026-06-11 — Hourly Drain (run #36)
+- **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release (`v2026.6.6-beta.1` is prerelease, skipped)
+- **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
+- **Action**: No blog publish. No template update. Sync state unchanged.
+
 ## 2026-06-11 — Hourly Drain (run #35)
 - **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release (`v2026.6.6-beta.1` is prerelease, skipped)
 - **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
