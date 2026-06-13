@@ -1280,3 +1280,9 @@
 - **WeChat queue drain (Step 0)**: Attempted re-push for v2026.6.6 → STILL FAILING (HTTP 500, backend appsecret issue persists)
 - **Queue size**: 1 item remaining (v2026.6.6)
 - **Action**: No blog published. Queue state committed.
+
+## Run: 2026-06-13 hourly drain run#5
+- **Last release**: v2026.6.6 (no new release — latest stable confirmed via GitHub releases page)
+- **Step 0 WeChat queue drain**: v2026.6.6 → HTTP 500 (appsecret outage persists). Queue: 1→1.
+- **Step 1**: No new release detected. Skipping blog publish.
+- **Git state**: Reconciled detached HEAD orphan chain onto main (origin/main already at v2026.6.6).
