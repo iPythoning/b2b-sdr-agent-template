@@ -1201,3 +1201,8 @@
 - **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release
 - **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.
 - **Action**: No blog publish. No template update. Sync state unchanged.
+
+## 2026-06-13 05:05 UTC — No new release
+- Last tracked: v2026.6.6 | Latest stable: v2026.6.6 → NO NEW RELEASE
+- Step 0 WeChat drain: attempted v2026.6.6 → STILL FAILING (HTTP 500, appsecret issue persists)
+- Queue size: 1 (v2026.6.6 remains pending)
