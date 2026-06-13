@@ -1,3 +1,8 @@
+## 2026-06-13 — Hourly Drain (run #6)
+- **Release check**: last=v2026.6.6, latest stable=v2026.6.6 (v2026.6.8-beta.1, v2026.6.7-beta.1 skipped) → NO NEW RELEASE
+- **WeChat queue drain (Step 0)**: 1 item in queue (v2026.6.6). Re-push attempted → HTTP 500 (appsecret still down). Queue: 1→1.
+- **Action**: No blog published. No template update.
+
 ## 2026-06-13 — Hourly Drain (run #5)
 - **Release check**: last=v2026.6.6, latest=v2026.6.6 → No new stable release (v2026.6.8-beta.1, v2026.6.7-beta.1 skipped)
 - **WeChat queue drain (Step 0)**: Queue had 1 item (v2026.6.6). Re-push attempted → HTTP 500 (appsecret still down). Queue unchanged, size 1.
