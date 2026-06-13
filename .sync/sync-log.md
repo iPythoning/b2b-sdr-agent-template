@@ -1,3 +1,13 @@
+## 2026-06-13 — New Release Sync (v2026.6.6)
+- **Release check**: last=v2026.6.5, latest=v2026.6.6 → NEW STABLE RELEASE
+- **WeChat queue drain (Step 0)**: Queue was empty before this run. No re-push attempts needed.
+- **Step 2 categorization**: RELEVANT — security hardening (10+ vectors), multi-channel delivery fixes (Telegram/iMessage/WhatsApp), Claude Fable 5 adaptive thinking, UI performance gains.
+- **Step 3 template update**: README.md banner updated, CHANGELOG.md entry added for v2026.6.6.
+- **Step 4 blog publish**:
+  - EN: `https://pulseagent.io/en/blog/openclaw-v2026-6-6-security-multi-channel-reliability` ✅ (postId: 10e09015-1286-47f8-b33e-1e82046cadd0)
+  - ZH: `https://pulseagent.io/blog/openclaw-v2026-6-6-anquan-duoqudao-fable5` ✅ (postId: 421a40a8-1728-4176-b06c-3f05c37720ed)
+- **Step 5 WeChat push**: FAILED (HTTP 500 — appsecret likely still down). v2026.6.6 enqueued in `.sync/wechat-pending.json` for next run retry.
+
 ## 2026-06-11 — Hourly Drain (run #36)
 - **Release check**: last=v2026.6.5, latest=v2026.6.5 → No new stable release (`v2026.6.6-beta.1` is prerelease, skipped)
 - **WeChat queue drain (Step 0)**: Queue was already empty (0 items). No re-push attempts needed.

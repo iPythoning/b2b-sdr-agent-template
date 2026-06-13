@@ -8,6 +8,26 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+## 2026-06-12 — OpenClaw v2026.6.6 upstream sync
+
+Upstream: [openclaw/openclaw v2026.6.6](https://github.com/openclaw/openclaw/releases/tag/v2026.6.6) — 77 commits; security hardening, multi-channel delivery stability, Claude Fable 5, and UI performance.
+
+### Upstream highlights (cherry-picked for SDR deployments)
+
+- **Security hardening across 10+ vectors**: Transcript boundaries, sandbox binds, MCP stdio, Codex HTTP, elevated sender verification, and deleted-agent ACP bypass paths all tightened. Exec approvals now fail closed on timeout — a pending approval prompt no longer silently permits task execution.
+- **Claude Fable 5 adaptive thinking**: Native support for Fable 5 with adaptive thinking enabled — high-value prospect conversations can leverage deep reasoning before composing replies, while simpler sequences route to faster models.
+- **Telegram account-scoped topic routing**: Topics now route to the correct agents; streamed text survives tool calls without truncation; unauthorized DM text no longer leaks into cache or prompt context.
+- **iMessage always-on inbound restart**: Channel recovers automatically without manual intervention; durable echo markers prevent duplicate sends; idle approval discovery improves reliability for long threads.
+- **WhatsApp successor-controller fix**: Captured replies stay bound to the correct successor controller after service restart — critical for sequences where prospects reply hours later.
+- **Feishu rate-limit retries / Mattermost thread preservation / LINE webhook normalization**: Cross-platform delivery reliability improvements.
+- **UI startup latency reduction**: Model metadata cached at startup, catalog wait removed from critical path, slash commands lazy-loaded — visibly snappier TUI for teams managing many simultaneous sequences.
+- **Slow-reply diagnostics + first-event tracing**: Actionable signal when replies take longer than expected, replacing silent timeouts.
+- **OpenRouter OAuth onboarding**: Standard OAuth flow replaces manual token copy-paste for OpenRouter users.
+- **Gemma 4 reasoning replay preservation**: Reasoning content correctly preserved across session compaction.
+- **Local llama.cpp plugin isolation**: Moved into dedicated provider plugin; local models skip guardian review for faster iteration.
+
+---
+
 ## 2026-06-09 — OpenClaw v2026.6.5 upstream sync
 
 Upstream: [openclaw/openclaw v2026.6.5](https://github.com/openclaw/openclaw/releases/tag/v2026.6.5) — first stable release under YYYY.M.PATCH monthly patch numbering.

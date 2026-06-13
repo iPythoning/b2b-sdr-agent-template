@@ -1,0 +1,14 @@
+{
+  "title": "OpenClaw v2026.6.6：安全加固、多渠道稳定投递与 Claude Fable 5",
+  "slug": "openclaw-v2026-6-6-anquan-duoqudao-fable5",
+  "description": "OpenClaw v2026.6.6 全面加固安全边界，修复 Telegram、WhatsApp、iMessage 消息投递，支持 Claude Fable 5 自适应思考，并大幅降低界面启动延迟。",
+  "content": "# OpenClaw v2026.6.6：安全加固、多渠道稳定投递与 Claude Fable 5\n\n2026 年 6 月 12 日，OpenClaw v2026.6.6 正式发布，包含 77 个提交。核心方向：安全边界全面加固、Telegram/iMessage/WhatsApp 消息投递修复、Claude Fable 5 自适应思考支持，以及显著的 UI 性能提升。对于规模化 B2B 销售外联团队，这是值得立即升级的版本。\n\n## 核心变更速览\n\n| 维度 | v2026.6.5 | v2026.6.6 |\n|------|-----------|-----------|\n| 安全边界 | 基础防护 | 10+ 向量加固，审批超时关闭失败 |\n| Telegram 投递 | 基础路由 | 账号级话题路由，流式文本稳定 |\n| iMessage | 周期性重启恢复 | 常驻入站，持久回显标记 |\n| WhatsApp 恢复 | 重启后丢失回复绑定 | 后继控制器修复 |\n| Claude Fable 5 | 不支持 | 自适应思考已启用 |\n| 界面启动延迟 | 标准 | 元数据缓存，懒加载优化 |\n\n## 安全：企业级边界加固\n\nv2026.6.6 最核心的主题是安全。团队对以下方向全面收紧：转录记录边界、沙箱绑定、宿主环境继承、MCP stdio 通道、Codex HTTP 访问、原生搜索策略、提权发送者校验，以及已删除 Agent 的 ACP 绕过路径。\n\n最具运营意义的变更：**执行审批现在在超时后关闭失败**。挂起的审批提示不再默许任务继续执行——未被回应的审批会阻止操作。对于处理客户数据和 CRM 集成的 B2B 团队，这直接对应企业采购方的安全审查要求：数据边界隔离、Agent 权限管控、审批流程保障。\n\n## 多渠道投递修复\n\n**Telegram**：账号级话题现在路由到正确的 Agent。流式文本在工具调用期间不再被截断。未授权的私信文本不再泄漏到提示词上下文或缓存中。\n\n**iMessage**：常驻入站重启机制让渠道无需人工干预即可自动恢复。持久回显标记防止重复发送。块级流式传输和空闲审批发现提升了长对话线程的稳定性。\n\n**WhatsApp**：捕获的回复在服务重启后仍能绑定到后继控制器——这是多步骤序列的关键修复，尤其当潜在客户在原始消息发出数小时后才回复时。\n\n**飞书、Mattermost、LINE**：飞书限速重试、Mattermost 线程回复保留、LINE Webhook 路径规范化，全面提升跨平台投递可靠性。\n\n## Claude Fable 5 自适应思考\n\nv2026.6.6 原生支持 Claude Fable 5 的自适应思考模式。您的 AI Agent 在撰写回复前可以深度推理复杂客户场景——多决策人交易、细微的异议处理、多语言本地化。\n\n配合现有的多模型路由能力，您可以将 Fable 5 分配给高价值对话，同时将更简单的序列路由到更快速、更低成本的模型。\n\n## UI 性能：更快的启动与诊断\n\nv2026.6.6 的启动序列现在缓存模型元数据（而非每次启动重新获取）、从关键路径中移除目录等待、懒加载斜杠命令。对于同时管理大量外联序列的团队，TUI 界面响应速度有明显提升。\n\n新增慢回复诊断和首事件追踪——当回复延迟时，您获得信号而非沉默。\n\n## 提供商扩展\n\nOpenRouter 获得标准 OAuth 接入流程。Gemma 4 推理内容在会话压缩中得到正确保留。本地 llama.cpp 迁移到独立提供商插件，本地模型跳过守护者审查，加快迭代速度。\n\n## 如何升级\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/iPythoning/b2b-sdr-agent-template/main/install.sh | bash\n```\n\n已在运行 OpenClaw：\n```bash\nnpm install -g openclaw@2026.6.6\n```\n\n## 常见问题\n\n**v2026.6.6 需要修改配置文件吗？**  \n不需要。安全加固对配置透明。OpenRouter 用户首次启动时会看到新的 OAuth 授权提示。\n\n**Claude Fable 5 在哪些套餐下可用？**  \nFable 5 可用性取决于您的 Anthropic API 权限级别。OpenClaw 透传您的 API Key 所能访问的所有模型。\n\n**企业部署的最低推荐版本是什么？**  \nv2026.6.6——鉴于本次安全加固，这是企业团队的推荐基准版本。\n\n**WhatsApp 修复会影响正在进行的序列吗？**  \n会，而且是正面影响。升级后，活跃序列立即受益于后继控制器绑定修复。\n\n---\n\n准备好通过 WhatsApp、Telegram 和 iMessage 运行 AI 驱动的 B2B 销售外联？\n\n**[免费开始使用 PulseAgent →](https://pulseagent.io/app/login?ref=blog&utm_source=blog&utm_medium=release-post&utm_campaign=openclaw-v2026.6.6)**\n\n- [WhatsApp 销售自动化](/solutions/whatsapp-sales-automation)\n- [外贸 B2B AI SDR](/solutions/ai-sdr-for-b2b-export)\n- [多渠道销售管道](/solutions/multi-channel-sales-pipeline)\n- [查看价格方案](https://pulseagent.io/pricing?ref=blog&utm_source=blog&utm_medium=release-post&utm_campaign=openclaw-v2026.6.6)\n",
+  "author": "PulseAgent",
+  "tags": [
+    "openclaw",
+    "发布",
+    "安全",
+    "多渠道",
+    "b2b-sdr"
+  ]
+}
