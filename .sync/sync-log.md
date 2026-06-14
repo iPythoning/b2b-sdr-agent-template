@@ -1366,3 +1366,8 @@
 - **WeChat queue drain (Step 0)**: Attempted re-push for v2026.6.6 → REPUSH ERROR (HTTP 500, appsecret outage persists)
 - **Queue size**: 1 item remaining (v2026.6.6)
 - **Action**: No blog published. No template update. Queue state committed.
+
+## 2026-06-14 (scheduled run)
+- No new release (last: v2026.6.6, latest stable: 2026.6.6)
+- WeChat queue drain: 1 item (v2026.6.6) → STILL FAILING (HTTP 500 — appsecret issue ongoing)
+- Queue size unchanged: 1
