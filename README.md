@@ -1,5 +1,9 @@
 # B2B SDR Agent Template
 
+<!-- bmc:front -->
+<p align="center"><a href="https://buymeacoffee.com/dayongfan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&amp;emoji=&amp;slug=dayongfan&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" alt="Buy me a coffee"></a></p>
+<!-- /bmc:front -->
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Stars](https://img.shields.io/github/stars/iPythoning/b2b-sdr-agent-template)](https://github.com/iPythoning/b2b-sdr-agent-template/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/iPythoning/b2b-sdr-agent-template)](https://github.com/iPythoning/b2b-sdr-agent-template/issues)
@@ -213,6 +217,10 @@ Message In ──→ L1 MemOS auto-recall (structured memory injection)
 **Result**: Your AI SDR remembers every customer, every quote, every commitment — even after 100+ turns, weeks of silence, or system restarts.
 
 > See **[ANTI-AMNESIA.md](./ANTI-AMNESIA.md)** for the full implementation spec with code, prompts, and deployment guide.
+
+<!-- bmc:middle -->
+<p align="center"><a href="https://buymeacoffee.com/dayongfan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&amp;emoji=&amp;slug=dayongfan&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" alt="Buy me a coffee"></a></p>
+<!-- /bmc:middle -->
 
 ## The 7 Layers Explained
 
@@ -445,6 +453,6 @@ MIT — use it for anything.
   <em>Context as a Service — AI SDR for B2B Export</em>
 </p>
 
-## Support
-
-[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=dayongfan&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/dayongfan)
+<!-- bmc:end -->
+<p align="center"><a href="https://buymeacoffee.com/dayongfan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&amp;emoji=&amp;slug=dayongfan&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" alt="Buy me a coffee"></a></p>
+<!-- /bmc:end -->
