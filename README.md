@@ -444,3 +444,7 @@ MIT — use it for anything.
   Built with ❤️ by <a href="https://pulseagent.io/app">PulseAgent</a><br/>
   <em>Context as a Service — AI SDR for B2B Export</em>
 </p>
+
+## Support
+
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=dayongfan&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/dayongfan)
