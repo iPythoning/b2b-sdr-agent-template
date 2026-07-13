@@ -44,7 +44,9 @@ origin is 502ing.
 - **~09:00–13:00 UTC** — `/app/api/*` returns **504** (origin timeout); frontend still 200.
 - **~15:20 UTC** — **522** (Cloudflare→origin connection timed out) now on **all** paths including the homepage (`https://pulseagent.io`), ~20s timeouts. Outage widened from API-only to the whole origin — the origin is now fully unreachable from Cloudflare, not just erroring on API routes.
 
-No recovery observed. Escalation 502 → 504 → 522 (full-site) indicates the origin host/deployment is progressively more unreachable, not self-healing.
+- **~19:35 UTC** — **partial shift**: marketing homepage recovered (**200**, ~0.8s), but `/app/api/*` now **hangs** — requests return 0 bytes and hit the client's 30s timeout (curl exit 28), no Cloudflare error page. The frontend/origin is serving again while the **API backend accepts connections but never responds** (wedged/hung process, distinct from "origin down"). Registration still broken.
+
+No recovery observed. Progression 502 → 504 → 522 (full-site) → home 200 + API hang. The frontend origin came back but the API service is not responding; remediation still targets the API backend (restart the hung API process/workers, not just the web tier).
 
 ## Fix (out of repo)
 
