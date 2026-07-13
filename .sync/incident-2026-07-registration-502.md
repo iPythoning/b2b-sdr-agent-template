@@ -1,6 +1,6 @@
 # Incident — pulseagent.io Registration Failing (Backend 502)
 
-**Status:** OPEN — origin backend outage (not fixable from this repo)
+**Status:** RESOLVED — API backend recovered ~20:41 UTC 2026-07-10; total observed downtime ~12h40m (first 502 ~08:00 UTC → recovery ~20:41 UTC). Origin backend outage, fixed outside this repo.
 **Reported:** user report "pulseagent.io 又无法注册了" (registration broken again)
 **Diagnosed:** 2026-07-10 ~06:26 UTC (per HTTP `Date` headers on probes)
 **Scope:** All `/app/api/*` routes — registration, login, session, config
@@ -47,6 +47,13 @@ origin is 502ing.
 - **~19:35 UTC** — **partial shift**: marketing homepage recovered (**200**, ~0.8s), but `/app/api/*` now **hangs** — requests return 0 bytes and hit the client's 30s timeout (curl exit 28), no Cloudflare error page. The frontend/origin is serving again while the **API backend accepts connections but never responds** (wedged/hung process, distinct from "origin down"). Registration still broken.
 
 No recovery observed. Progression 502 → 504 → 522 (full-site) → home 200 + API hang. The frontend origin came back but the API service is not responding; remediation still targets the API backend (restart the hung API process/workers, not just the web tier).
+
+- **~20:41 UTC — RECOVERED.** All routes return real, fast HTTP responses:
+  home 200, `registration-config` 200, `register`/`login` 405 on GET (POST-only),
+  `me` 401 (no token), and `POST /register` with an empty body → **422**
+  (validation) in ~0.8s. The API backend is processing requests normally
+  again; registration works. No repo change caused or fixed this — it was a
+  backend-side outage that recovered on the operator's side.
 
 ## Fix (out of repo)
 
