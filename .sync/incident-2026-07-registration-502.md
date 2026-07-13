@@ -1,6 +1,6 @@
 # Incident — pulseagent.io Registration Failing (Backend 502)
 
-**Status:** RESOLVED — API backend recovered ~20:41 UTC 2026-07-10; total observed downtime ~12h40m (first 502 ~08:00 UTC → recovery ~20:41 UTC). Origin backend outage, fixed outside this repo.
+**Status:** REOPENED — API is FLAPPING. Recovered ~20:41 UTC, held at ~21:44 UTC, then went down again ~23:16 UTC (home 200 but `/app/api/*` hangs — 0 bytes, 30s timeout). Not a stable recovery; the API backend is unstable. Fix is still on the backend side (out of this repo).
 **Reported:** user report "pulseagent.io 又无法注册了" (registration broken again)
 **Diagnosed:** 2026-07-10 ~06:26 UTC (per HTTP `Date` headers on probes)
 **Scope:** All `/app/api/*` routes — registration, login, session, config
@@ -54,6 +54,9 @@ No recovery observed. Progression 502 → 504 → 522 (full-site) → home 200 +
   (validation) in ~0.8s. The API backend is processing requests normally
   again; registration works. No repo change caused or fixed this — it was a
   backend-side outage that recovered on the operator's side.
+
+- **~21:44 UTC** — still healthy (home 200, registration-config 200, POST /register 422). Recovery held for ~1h.
+- **~23:16 UTC — REGRESSED (flap).** Home still 200, but `/app/api/auth/registration-config` and `POST /register` hang again (000, 30s timeout, 0 bytes) across repeated probes. Same "frontend-up + API-backend-wedged" mode as ~19:35 UTC. The API backend is flapping, not durably fixed — it recovers then wedges again. Root cause is likely an unstable/OOM-restarting or intermittently-hung API process on the origin; needs a real backend fix (not just a restart that lasts ~1h).
 
 ## Fix (out of repo)
 
