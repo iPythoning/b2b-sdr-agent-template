@@ -38,6 +38,14 @@ so every authenticated call — `register`, `login`, `me`,
 `registration-config`, magic-link, password reset — is down while the
 origin is 502ing.
 
+## Update — escalation timeline (probe observations)
+
+- **~08:00 UTC** — `/app/api/*` returns **502** (origin bad gateway); marketing site + SPA shell healthy (200).
+- **~09:00–13:00 UTC** — `/app/api/*` returns **504** (origin timeout); frontend still 200.
+- **~15:20 UTC** — **522** (Cloudflare→origin connection timed out) now on **all** paths including the homepage (`https://pulseagent.io`), ~20s timeouts. Outage widened from API-only to the whole origin — the origin is now fully unreachable from Cloudflare, not just erroring on API routes.
+
+No recovery observed. Escalation 502 → 504 → 522 (full-site) indicates the origin host/deployment is progressively more unreachable, not self-healing.
+
 ## Fix (out of repo)
 
 The pulseagent.io API backend is **not** part of this template repository
