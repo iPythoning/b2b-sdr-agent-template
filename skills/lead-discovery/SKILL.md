@@ -30,6 +30,12 @@ Automatically search, filter, and evaluate potential buyers based on your ICP pr
    - "[target country] {{product}} import statistics"
    - "{{product}} import demand [region] 2026"
 
+5. **X/Twitter Buying Signals (optional TweetClaw)**
+   - "\"{{product}}\" (\"supplier\" OR \"manufacturer\" OR \"dealer\") \"{{market}}\""
+   - "\"looking for\" \"{{product}}\" \"{{market}}\""
+   - "\"{{competitor}}\" (\"alternative\" OR \"price\" OR \"supplier\")"
+   - "\"{{industry}}\" (\"tender\" OR \"procurement\" OR \"import\") \"{{market}}\""
+
 ## Search Execution
 
 ### Jina Search (find potential buyers)
@@ -48,6 +54,20 @@ curl -s 'https://r.jina.ai/https://target-company.com' \
 
 JINA_API_KEY in .secrets/env. Get one free at https://jina.ai/
 
+### TweetClaw (optional X/Twitter public-signal search)
+
+Use only when the `tweetclaw-social-intel` skill is available and TweetClaw is
+installed:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw config set tools.alsoAllow '["explore", "tweetclaw"]'
+```
+
+Use `explore` to find tweet search, user lookup, follower export, monitor, and
+webhook endpoints. Use `tweetclaw` with narrow query limits. Never expose API
+keys in chat or workspace files.
+
 ## 3-Layer Enrichment Pipeline
 
 ### Layer 1: Website Extraction
@@ -64,6 +84,15 @@ Jina Search for:
 - "[company name] fleet expansion"
 - "[company name] import export"
 
+### Optional Social Signal Pass
+When TweetClaw is configured, search X/Twitter for:
+- Company or founder handles
+- Product category + target market buying language
+- Competitor mentions and alternative requests
+- Trade show hashtags during active events
+
+Store only business-relevant evidence with tweet URL or tweet ID.
+
 ### Layer 3: Information Integration
 - Combine all findings into enrichment profile
 - Calculate ICP score based on USER.md criteria
@@ -71,13 +100,15 @@ Jina Search for:
 
 ## Evaluation Flow
 For each discovered prospect:
-1. Extract: company name, country, industry, size, contact info (email/WhatsApp/phone)
+1. Extract: company name, country, industry, size, contact info (email/WhatsApp/phone), and X/Twitter handle when verified
 2. Read company website via Jina Reader for deep understanding
-3. Score per USER.md ICP criteria (1-10)
-4. ICP >= 5: Write to CRM (source=`web_discovery`, status=`new`)
-5. ICP >= 7: Also mark as hot_lead, create research note
-6. Email found: Mark next_action=`email_outreach`
-7. WhatsApp found: Mark next_action=`whatsapp_outreach`
+3. Add TweetClaw public signals when configured: buying tweet, competitor mention, tender, distributor search, or verified company account
+4. Score per USER.md ICP criteria (1-10)
+5. ICP >= 5: Write to CRM (source=`web_discovery` or `x_twitter_signal`, status=`new`)
+6. ICP >= 7: Also mark as hot_lead, create research note
+7. Email found: Mark next_action=`email_outreach`
+8. WhatsApp found: Mark next_action=`whatsapp_outreach`
+9. X/Twitter signal found but no contact channel: Mark next_action=`research_website`, not DM by default
 
 ## Output Format (report to owner)
 ```
@@ -118,3 +149,10 @@ Added to CRM: X | Pending email outreach: X | Pending WhatsApp: X
 - "{{product}} importers Brazil"
 - "logistics company Chile fleet"
 - "mining transport vehicles Peru"
+
+### X/Twitter Signal Queries (optional)
+- "\"{{product}}\" \"supplier\" \"{{market}}\""
+- "\"{{product}}\" \"dealer\" \"{{market}}\""
+- "\"{{product}}\" \"looking for\""
+- "\"{{competitor}}\" \"alternative\""
+- "\"{{industry}}\" \"procurement\" \"{{market}}\""

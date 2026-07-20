@@ -1,7 +1,7 @@
 ---
 name: b2b-sdr-agent
 description: "Open-source B2B AI SDR template. 7-layer context system with 10-stage sales pipeline, 4-layer anti-amnesia memory, 14 automated pipeline checks, WhatsApp IP isolation, multi-channel (WhatsApp+Telegram+Email). Built on OpenClaw."
-license: MIT-0
+license: MIT
 ---
 
 # B2B SDR Agent — AI Sales Development Representative
@@ -54,6 +54,7 @@ Architecture: `tenant → wireproxy (SOCKS5, ~4MB) → WARP account → unique C
 - **sdr-humanizer** — Human-like conversation rules
 - **delivery-queue** — Async message delivery with retry
 - **lead-discovery** — AI-driven lead search and ICP scoring
+- **tweetclaw-social-intel** — Optional X/Twitter buying-signal research with TweetClaw
 - **quotation-generator** — PDF proforma invoice generation
 - **chroma-memory** — Per-turn conversation memory with ChromaDB
 - **telegram-toolkit** — Telegram-specific SDR strategies
