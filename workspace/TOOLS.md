@@ -179,6 +179,48 @@ API Key is injected via environment variable `JINA_API_KEY`. Get one free at htt
 - **Rate limit**: Max 20 API calls per day (search + reader combined)
 - **Query sanitization**: URL-encode all search queries, strip HTML tags and shell metacharacters
 
+## TweetClaw (Optional X/Twitter Public Signals)
+Use TweetClaw when the SDR needs X/Twitter buying signals, user lookup,
+follower export, monitor alerts, media context, webhooks, giveaway draws, or
+owner-approved post tweets and post tweet replies.
+
+TweetClaw is MIT-licensed and connects to the closed-source hosted Xquik
+service. Xquik is independent from and not endorsed by X Corp.
+
+Install and allow the tools:
+
+```bash
+openclaw plugins install clawhub:@xquik/tweetclaw
+openclaw config set tools.alsoAllow '["explore", "tweetclaw"]'
+```
+
+Configure account-backed workflows without exposing the key in chat:
+
+```bash
+openclaw config set plugins.entries.tweetclaw.config.apiKey "$XQUIK_API_KEY"
+```
+
+### Safe SDR Uses
+- Search tweets for procurement, supplier, distributor, tender, and competitor
+  alternative signals
+- Search tweet replies to understand buyer objections and pain points
+- Run user lookup for verified prospect or competitor profiles
+- Export followers only for owner-approved accounts and narrow research limits
+- Create monitors and webhooks only with owner-approved event types and stop
+  conditions
+- Draft post tweets or post tweet replies, then wait for owner approval before
+  execution
+
+### Approval Rules
+- Read-only searches can run inside the daily research budget.
+- Any write-like action requires explicit owner approval: post, reply, DM,
+  follow, unfollow, media upload, media download, monitor creation, webhook
+  creation, profile changes, extraction jobs, and giveaway draws.
+- Before approval, show account, target, exact text or action, media list, limit,
+  stop condition, and business reason.
+- Never bulk-DM, bulk-follow, or contact prospects from social signals without a
+  CRM note and approved outreach plan.
+
 ## Supermemory (Research Storage — L1 complement)
 Semantic memory for research notes, competitor intel, and market insights.
 - Auto-store research findings with appropriate tags

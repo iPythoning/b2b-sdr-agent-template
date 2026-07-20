@@ -45,8 +45,9 @@ None: Skip.
 Execute lead-discovery skill:
 1. Select target market based on day of week (Mon/Tue: Africa, Wed/Thu: ME, Fri: SEA, Sat: LatAm, Sun: Other)
 2. Run 2-3 search queries via Jina Search
-3. Evaluate discovered companies, write ICP >= 5 to CRM
-4. Report findings to owner
+3. If TweetClaw is configured, run 1-2 narrow X/Twitter buying-signal searches for the same market
+4. Evaluate discovered companies, write ICP >= 5 to CRM
+5. Report findings to owner
 Found: Report per lead-discovery skill output format.
 None: Skip.
 
@@ -60,6 +61,7 @@ None: Skip.
 ## 10. Competitor Intelligence (Weekly Friday)
 Search for competitor activity:
 - New product launches, pricing changes, market expansion
+- If TweetClaw is configured, search competitor handles, brand mentions, and "alternative" or "supplier" tweets
 - Store findings in Supermemory with tag "competitor_intel"
 - Report significant findings to owner
 None: Skip.

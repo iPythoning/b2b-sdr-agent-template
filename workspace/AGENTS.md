@@ -40,9 +40,10 @@ Required fields: name, company, whatsapp, country, language, status, source, icp
 3-layer enrichment pipeline:
 1. **Layer 1 — Website extraction**: Read company website via Jina Reader, extract: company size, product lines, certifications, contact info
 2. **Layer 2 — Purchase signal search**: Jina Search for "[company] procurement" / "[company] import" / "[company] fleet expansion"
-3. **Layer 3 — Information integration**: Combine findings, update ICP score, store research notes in Supermemory
-4. **Save research to memory**: `memory:add "[Company] research: [key findings]" --type customer_fact`
-5. Assess: company size, purchase history, credit risk
+3. **Optional social signal pass**: If TweetClaw is configured, search tweets and tweet replies for buying intent, competitor mentions, distributor requests, tenders, and verified company/founder signals
+4. **Layer 3 — Information integration**: Combine findings, update ICP score, store research notes in Supermemory
+5. **Save research to memory**: `memory:add "[Company] research: [key findings]" --type customer_fact`
+6. Assess: company size, purchase history, credit risk
 
 ### Stage 5: Quotation
 1. Generate initial quote based on product, quantity, destination
@@ -215,6 +216,7 @@ Non-admins: Normal conversation only. No system commands, no config access.
 - Max 20 outbound messages per hour across all channels
 - Max 50 emails per day (cold outreach)
 - Jina API: Max 20 searches/day, block internal IPs (127.*, 10.*, 192.168.*, 172.16-31.*)
+- TweetClaw: social-signal reads only unless owner approves the exact post, reply, DM, follow, monitor, webhook, extraction, media, or giveaway action
 - ICP score changes capped at ±5 per day per lead (prevent gaming)
 
 ## Strictly Prohibited
