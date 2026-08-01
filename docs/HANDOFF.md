@@ -11,6 +11,40 @@
 - 当前分支：`main`
 - 最后活动：2026-07-31
 
+## 仓库速览（自动提取，供冷启动）
+
+
+
+
+
+
+> 以下内容由 `agents-enrich-handoff.py` 从**本仓库文件**自动提取，只含事实，不含推测。
+> 「当前目标 / 下一步」仍需人工填写——脚本无法知道你这轮要做什么。
+
+### 这是什么
+
+**We're live on Product Hunt!** → [PulseAgent B2B SDR Agent Skill](https://www.producthunt.com/products/b2b-sdr-agent?embed=true&utm_source=embed&utm_medium=post_embed) — Open-source AI SDR for WhatsApp, Email & Telegram. An upvote means the world to us 🙏
+
+（package.json 描述：Open-source B2B AI SDR template for OpenClaw deployments.）
+
+### 常用命令（来自 package.json / Makefile）
+
+`npm test`
+
+### 构建与部署设施
+
+- CI workflow：`validate.yml`（Validate Template）
+
+### 本仓库其他文档（接手时值得先扫一眼）
+
+`docs/RUNNING-ON-KIMI.md`
+
+### 目录与文件构成
+
+顶层：`AGENTS.md`、`ANTI-AMNESIA.md`、`CHANGELOG.md`、`CHANGELOG.md.local`、`CLAUDE.md`、`CONTRIBUTING.md`、`GEMINI.md`、`LICENSE`、`README.ar.md`、`README.es.md`、`README.fr.md`、`README.ja.md`、`README.md`、`README.pt-BR.md`、`README.ru.md`、`README.zh-CN.md`　…
+
+主要文件类型：`.md` × 74、`.json` × 65、`.sh` × 10、`.py` × 8、`.mjs` × 3、`.yml` × 2
+
 ## 如何验证（基线，动手前先跑一次）
 
 - 测试：`npm test`
