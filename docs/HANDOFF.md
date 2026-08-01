@@ -5,7 +5,7 @@
 
 ## 项目速览
 
-- 路径：`./01-paibao-pulseagent/b2b-sdr-agent-template`
+- 路径：`~/_projects_by_logic/01-paibao-pulseagent/b2b-sdr-agent-template`
 - 技术栈：Node.js
 - 远程：https://github.com/iPythoning/b2b-sdr-agent-template.git
 - 当前分支：`main`
