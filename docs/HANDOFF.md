@@ -38,7 +38,29 @@
 
 ## 已知坑 / 注意事项
 
-（待补充：踩过的坑写这里，比写在对话里有用一万倍）
+> 从跨会话记忆迁入。**凭据只写位置不写值。**
+
+### ⚙️ 两种交付架构
+
+**Container-per-Tenant（商业级，推荐）**：每租户 = 独立容器 + 独立 Gateway + 独立 API Key + 独立 WhatsApp 代理 IP。
+- 隔离维度：进程 / 数据 / API Key / WhatsApp IP / 资源（768MB + 0.5 CPU）
+- 容量：8GB VPS → 8-10 租户；16GB → 18-22 租户
+- 端口约定：Gateway = `18800+N`，Proxy = `18900+N`
+
+**单租户模式**：1 服务器 = 1 客户，systemd 部署，`deploy.sh` 仍支持。
+
+### ⚠️ 47 上的 openclaw 与业务容器是两回事
+
+47 上 openclaw 是**裸跑**的（npm 全局包 `/usr/lib/node_modules/openclaw` + systemd user service `openclaw-gateway.service`），Gateway **仅监听 `127.0.0.1:18789`**，不对外。
+
+- 大量 crontab 任务依赖这个本地 gateway（memory-agent、astock-hunter、evomap、weekly_cleanup 等）—— **升级前先确认这些任务的影响**。
+- 47 同时跑 portal / PA / bots 的 Docker 业务容器，**openclaw 与它们无依赖，可独立升级**。
+- 升级：`npm install -g openclaw@latest` → `systemctl --user restart openclaw-gateway`。
+- Gateway token 在服务器上，不落文档。
+
+### ⚠️ 客户 VPS 供应商坑
+
+advinservers / lisahost 这类小供应商**续费到账不会自动恢复被停的 VM**，必须登控制台手动 Start。续费后要验证机器真的起来了，别以为付了钱就好了。
 
 ## 下一步
 
