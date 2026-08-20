@@ -1,3 +1,10 @@
+## 2026-07-10 — Incident: pulseagent.io registration down (backend 502)
+- **Trigger**: user report — "pulseagent.io 又无法注册了" (registration broken again).
+- **Probe**: marketing site 200, `/app/*` SPA shell 200, but **all `/app/api/*` routes return 502** (`registration-config`, `register`, `login`, `me`) — consistent across 3 retries. Cloudflare-origin 502 (`server: cloudflare`, 16-byte `error code: 502` body) → API origin backend is down/crash-looping.
+- **Root cause**: pulseagent.io API backend outage. Frontend/DNS healthy; origin unreachable. Not registration-specific — full auth API is down.
+- **Scope**: out of this repo. The `b2b-sdr-agent-template` ships docs/skills/deploy/`.sync` only; the pulseagent.io API is a separate deployment. Fix = restart/redeploy the API origin + confirm `registration-config` returns 200.
+- **Action**: logged incident (`.sync/incident-2026-07-registration-502.md`). No template/blog change. No queue change.
+
 ## 2026-06-14 — Hourly Drain (run #10)
 - **Release check**: last=v2026.6.6, latest stable=v2026.6.6 (v2026.6.9-alpha.4, v2026.6.8-beta.1, v2026.6.8-alpha.2, v2026.6.7-beta.1 skipped — pre-release) → NO NEW RELEASE
 - **WeChat queue drain (Step 0)**: 1 item in queue (v2026.6.6). Re-push attempted → STILL FAILING (HTTP 500, server-side error persists). Queue: 1→1.
