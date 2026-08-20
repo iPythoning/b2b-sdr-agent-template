@@ -246,8 +246,11 @@ Pre-built capabilities that extend your AI SDR:
 | **telegram-toolkit** | Bot commands, inline keyboards, large file handling, and Telegram-first market strategies. |
 | **sdr-humanizer** | Rules for natural conversation — pacing, cultural adaptation, anti-patterns. |
 | **lead-discovery** | AI-driven lead discovery. Web search for potential buyers, ICP evaluation, CRM auto-entry. |
+| **tweetclaw-social-intel** | Optional TweetClaw workflow for X/Twitter buying-signal research, monitors, and approved post/reply handoff. Uses configured Xquik access for live calls. |
 | **quotation-generator** | Auto-generate PDF proforma invoices with company letterhead, multi-language support. |
 | **graphify** | Knowledge graph engine — map product relationships, customer intelligence, and market research into queryable graphs. Powered by [graphify](https://github.com/safishamsi/graphify). |
+
+TweetClaw is MIT-licensed. Xquik is a closed-source hosted service. Xquik is an independent third-party service. Not affiliated with X Corp. "Twitter" and "X" are trademarks of X Corp.
 
 ### Skill Profiles
 
