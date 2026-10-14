@@ -80,6 +80,10 @@ CHROMA_COLLECTION="conversation_history"
 # ─── Jina AI (Web Search + Content Extraction) ──────────
 JINA_API_KEY=""             # Get free key at https://jina.ai/
 
+# ─── Precleared (Cold Email Permission Check, optional) ──
+PRECLEARED_API_KEY=""       # Optional. Free key at https://precleared.dev/get-key
+PRECLEARED_SENDER_COUNTRY=""   # GB or US turns contact-check on; empty keeps it off
+
 # ─── Supermemory (Research Storage) ─────────────────────
 SUPERMEMORY_API_KEY=""      # Get at https://supermemory.ai/
 SUPERMEMORY_SPACE=""        # Your space name

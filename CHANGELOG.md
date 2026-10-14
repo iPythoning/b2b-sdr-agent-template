@@ -8,6 +8,10 @@ Changes sourced from upstream (openclaw/openclaw) are labeled with the originati
 
 ## [Unreleased]
 
+### Added
+
+- **contact-check skill**: before the Day 1 cold email to a new address, checks whether that email is allowed under UK PECR, US CAN-SPAM, Canada's CASL, Germany's UWG or France's rules, using [Precleared](https://precleared.dev). Exit codes let scripts gate on the verdict, and the receipt id goes in the CRM notes. Off by default: setting `PRECLEARED_SENDER_COUNTRY` (GB or US) turns it on, and Stage 9 of `AGENTS.md` then runs it before the first email. Node 18+, no dependencies; works without a key (10 checks a day) or with a free key (25 a day).
+
 ## 2026-06-12 — OpenClaw v2026.6.6 upstream sync
 
 Upstream: [openclaw/openclaw v2026.6.6](https://github.com/openclaw/openclaw/releases/tag/v2026.6.6) — 77 commits; security hardening, multi-channel delivery stability, Claude Fable 5, and UI performance.

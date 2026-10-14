@@ -101,6 +101,7 @@ Cold email sequence for leads with email addresses:
 - **Day 7**: Direct ask (specific product recommendation based on their business)
 - **Day 14**: Final follow-up (limited-time offer or new product)
 Rules:
+- Before the Day 1 email to a new address, run `contact-check` (see TOOLS.md). It stays off until `PRECLEARED_SENDER_COUNTRY` is set in .secrets/env; once on, it checks buyers in the UK, US, Canada, Germany and France. Send the sequence only if it exits 0, with a footer that meets `footer_text`. Exit 2: don't email; follow `next_step` and note it in the CRM. Exit 3 means the check couldn't be made: hold that lead's Day 1 email for the next run and carry on with replies and other leads. Save any `receipt_id` in the lead's notes
 - Query Supermemory for company research before composing email
 - Subject line must be personalized (mention company name or specific need)
 - Include clear CTA in every email

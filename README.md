@@ -247,6 +247,7 @@ Pre-built capabilities that extend your AI SDR:
 | **sdr-humanizer** | Rules for natural conversation — pacing, cultural adaptation, anti-patterns. |
 | **lead-discovery** | AI-driven lead discovery. Web search for potential buyers, ICP evaluation, CRM auto-entry. |
 | **quotation-generator** | Auto-generate PDF proforma invoices with company letterhead, multi-language support. |
+| **contact-check** | Optional. Checks whether a cold email to a new address is allowed (UK, US, Canada, Germany, France) before the first email, with the rule and a receipt. Off until you set `PRECLEARED_SENDER_COUNTRY`. Powered by [Precleared](https://precleared.dev). |
 | **graphify** | Knowledge graph engine — map product relationships, customer intelligence, and market research into queryable graphs. Powered by [graphify](https://github.com/safishamsi/graphify). |
 
 ### Skill Profiles

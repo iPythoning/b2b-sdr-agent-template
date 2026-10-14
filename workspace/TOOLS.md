@@ -155,6 +155,15 @@ gws gmail users messages send --params '{"userId":"me"}' --body '{"raw":"BASE64_
 ```
 Used for: Cold email sequences, inbox monitoring for replies, formal document delivery.
 
+## Contact Check (Cold Email Permission)
+Off until `PRECLEARED_SENDER_COUNTRY` (GB or US) is set in .secrets/env. Once on, run it once per new address before the first cold email to a buyer in the UK, US, Canada, Germany or France, and again if the pitch or where you got the address changes:
+```bash
+node skills/contact-check/check.mjs --email buyer@company.de --source published --pitch "truck spare parts"
+```
+`--source` is where the address came from: `published`, `bought`, `scraped`, `given` or `unknown`. Exit code `0` means `ok_to_email` (or the check is switched off); `2` means do not email (follow `next_step`); `3` means the check could not be made: hold that email for the next run and carry on with other work. Save `receipt_id` in the CRM notes.
+
+Optional `PRECLEARED_API_KEY` in .secrets/env (free key at https://precleared.dev/get-key): 25 checks a day instead of 10.
+
 ## Jina AI (Web Search + Content Extraction)
 For proactive lead discovery and company research.
 
